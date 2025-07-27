@@ -1,114 +1,160 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { DriverDemo } from "@/components/DriverDemo";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Shield, Mail, Globe, Camera } from 'lucide-react';
 
 export default function Home() {
-
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          id="next-logo"
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        
-        {/* Driver.js Demo with Zustand */}
-        <DriverDemo />
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      {/* Header */}
+      <header className="container mx-auto px-6 py-8">
+        <nav className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Shield className="h-8 w-8 text-primary" />
+            <span className="text-2xl font-bold">mAIscam</span>
+          </div>
+          <div className="flex items-center space-x-6">
+            <Link href="/email-demo" className="text-muted-foreground hover:text-foreground transition-colors">
+              Email Demo
+            </Link>
+            <Link href="/website-demo" className="text-muted-foreground hover:text-foreground transition-colors">
+              Website Demo
+            </Link>
+            <Link href="/image-demo" className="text-muted-foreground hover:text-foreground transition-colors">
+              Image Demo
+            </Link>
+          </div>
+        </nav>
+      </header>
 
-        <ol id="instructions" className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div id="action-buttons" className="flex gap-4 items-center flex-col sm:flex-row">
-          <Button asChild size="lg" className="w-full sm:w-auto">
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className="dark:invert"
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto md:w-[158px]">
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Read our docs
-            </a>
-          </Button>
+      {/* Hero Section */}
+      <main className="container mx-auto px-6 py-16">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <h1 className="text-5xl font-bold mb-6">
+            Southeast Asia&apos;s First AI-Powered
+            <span className="text-primary"> Anti-Scam Extension</span>
+          </h1>
+          <p className="text-xl text-muted-foreground mb-8">
+            Protecting millions across 13 languages with real-time scam detection powered by SEA-LION LLM
+          </p>
+          <div className="flex justify-center gap-4">
+            <Button asChild size="lg">
+              <Link href="/email-demo">Try Demo</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="#features">Learn More</a>
+            </Button>
+          </div>
         </div>
+
+        {/* Features Section */}
+        <div id="features" className="grid md:grid-cols-3 gap-8 mb-16">
+          <Link href="/email-demo" className="group">
+            <Card className="h-full hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Mail className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Email Protection</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Instantly analyzes emails for phishing attempts and scam indicators with explanations in your native language
+                </CardDescription>
+                <p className="text-primary mt-4 group-hover:underline">Try Email Demo →</p>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link href="/website-demo" className="group">
+            <Card className="h-full hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
+                  <Globe className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle>Website Blocking</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Automatically blocks high-risk websites and provides real-time warnings for suspicious sites
+                </CardDescription>
+                <p className="text-green-600 mt-4 group-hover:underline">Try Website Demo →</p>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link href="/image-demo" className="group">
+            <Card className="h-full hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
+                  <Camera className="h-6 w-6 text-purple-600" />
+                </div>
+                <CardTitle>Image Analysis</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Extract and analyze text from images to identify potential scams in screenshots and photos
+                </CardDescription>
+                <p className="text-purple-600 mt-4 group-hover:underline">Try Image Demo →</p>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+
+        {/* Key Features */}
+        <Card className="max-w-4xl mx-auto">
+          <CardHeader>
+            <CardTitle className="text-3xl text-center">Why mAIscam?</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="flex items-start space-x-4">
+              <Badge className="w-8 h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
+                <span className="font-bold">1</span>
+              </Badge>
+              <div>
+                <h4 className="font-semibold mb-1">Real-time Detection</h4>
+                <p className="text-muted-foreground">
+                  Analyzes emails and websites using SEA-LION LLM, providing instant fraud risk scores with explanations
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <Badge className="w-8 h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
+                <span className="font-bold">2</span>
+              </Badge>
+              <div>
+                <h4 className="font-semibold mb-1">Smart Blocking</h4>
+                <p className="text-muted-foreground">
+                  Automatically blocks high-risk sites while offering informed user choice for medium-risk content
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <Badge className="w-8 h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
+                <span className="font-bold">3</span>
+              </Badge>
+              <div>
+                <h4 className="font-semibold mb-1">Cultural Intelligence</h4>
+                <p className="text-muted-foreground">
+                  Supports 13 Southeast Asian languages with contextual, culturally-tailored threat explanations
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </main>
-      <footer id="footer-links" className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 cursor-pointer hover:underline hover:underline-offset-4 transition-all"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 cursor-pointer hover:underline hover:underline-offset-4 transition-all"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 cursor-pointer hover:underline hover:underline-offset-4 transition-all"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="container mx-auto px-6 py-8 mt-16 border-t">
+        <div className="text-center text-muted-foreground">
+          <p>© {new Date().getFullYear()} mAIscam. Protecting Southeast Asia from online scams.</p>
+        </div>
       </footer>
     </div>
   );
