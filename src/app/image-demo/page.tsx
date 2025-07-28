@@ -1,19 +1,25 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ImageGallery } from '@/components/image-demo/ImageGallery';
-import { ImageAnalysisModal } from '@/components/image-demo/ImageAnalysisModal';
-import { WebExtensionOverlay } from '@/components/email-demo/WebExtensionOverlay';
-import { useExtensionStore } from '@/lib/store/extensionStore';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ScanLine, Shield, Globe, AlertTriangle } from 'lucide-react';
+import { useState } from "react";
+import { ImageGallery, ScamImage } from "@/components/image-demo/ImageGallery";
+import { ImageAnalysisModal } from "@/components/image-demo/ImageAnalysisModal";
+import { WebExtensionOverlay } from "@/components/email-demo/WebExtensionOverlay";
+import { useExtensionStore } from "@/lib/store/extensionStore";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ScanLine, Shield, Globe, AlertTriangle } from "lucide-react";
 
 export default function ImageDemoPage() {
-  const [selectedImage, setSelectedImage] = useState<any>(null);
+  const [selectedImage, setSelectedImage] = useState<ScamImage | null>(null);
   const { isActive } = useExtensionStore();
 
-  const handleImageClick = (image: any) => {
+  const handleImageClick = (image: ScamImage) => {
     if (isActive) {
       setSelectedImage(image);
     }
@@ -29,11 +35,14 @@ export default function ImageDemoPage() {
               <ScanLine className="h-12 w-12 text-purple-600" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold mb-4">
-            Image Analysis Demo
-          </h1>
+          <h1 className="text-4xl font-bold mb-4">Image Analysis Demo</h1>
           <p className="text-xl text-muted-foreground">
-            See how mAIscam uses <span className="font-semibold">Optical Character Recognition (OCR)</span> and <span className="font-semibold">Cultural Intelligence</span> to detect scams hidden within images
+            See how mAIscam uses{" "}
+            <span className="font-semibold">
+              Optical Character Recognition (OCR)
+            </span>{" "}
+            and <span className="font-semibold">Cultural Intelligence</span> to
+            detect scams hidden within images
           </p>
         </div>
 
@@ -53,7 +62,7 @@ export default function ImageDemoPage() {
                   Click the "Activate mAIscam" button to enable the protection
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-xl font-bold text-purple-600">2</span>
@@ -63,7 +72,7 @@ export default function ImageDemoPage() {
                   Click on any scam image example below to analyze it
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-xl font-bold text-red-600">3</span>
@@ -84,11 +93,12 @@ export default function ImageDemoPage() {
               <Shield className="h-8 w-8 text-blue-600 mb-3" />
               <h3 className="font-semibold mb-2">OCR Technology</h3>
               <p className="text-sm text-muted-foreground">
-                Extracts text from images instantly, even from screenshots and photos
+                Extracts text from images instantly, even from screenshots and
+                photos
               </p>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardContent className="p-6">
               <Globe className="h-8 w-8 text-green-600 mb-3" />
@@ -98,7 +108,7 @@ export default function ImageDemoPage() {
               </p>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardContent className="p-6">
               <AlertTriangle className="h-8 w-8 text-red-600 mb-3" />
@@ -118,7 +128,8 @@ export default function ImageDemoPage() {
                 <div className="flex items-center gap-3">
                   <AlertTriangle className="h-5 w-5 text-yellow-600" />
                   <p className="text-sm">
-                    <span className="font-semibold">Extension not active!</span> Please activate mAIscam extension first to analyze images.
+                    <span className="font-semibold">Extension not active!</span>{" "}
+                    Please activate mAIscam extension first to analyze images.
                   </p>
                 </div>
               </CardContent>
@@ -134,9 +145,9 @@ export default function ImageDemoPage() {
       <WebExtensionOverlay />
 
       {/* Image Analysis Modal */}
-      <ImageAnalysisModal 
-        image={selectedImage} 
-        onClose={() => setSelectedImage(null)} 
+      <ImageAnalysisModal
+        image={selectedImage}
+        onClose={() => setSelectedImage(null)}
       />
     </div>
   );
