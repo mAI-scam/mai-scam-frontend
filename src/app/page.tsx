@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -52,6 +51,26 @@ export default function Home() {
         </div>
 
         {/* Features Section */}
+        <div className="mb-8 max-w-4xl mx-auto">
+          <Card className="border-blue-200 bg-blue-50">
+            <CardContent className="p-6">
+              <div className="flex items-start gap-3">
+                <Shield className="h-6 w-6 text-blue-600 mt-1" />
+                <div>
+                  <h3 className="font-semibold mb-2">How to Use mAIscam Demo</h3>
+                  <ol className="space-y-1 text-sm text-gray-700">
+                    <li>1. Click on any demo below (Email, Website, or Image)</li>
+                    <li>
+                      2. Activate the extension by clicking <span className="font-semibold">&quot;Activate mAIscam&quot;</span> button
+                    </li>
+                    <li>3. Interact with the demo to see real-time scam detection in action</li>
+                  </ol>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         <div id="features" className="grid md:grid-cols-3 gap-8 mb-16">
           <Link href="/email-demo" className="group">
             <Card className="h-full hover:shadow-xl transition-shadow">

@@ -24,7 +24,7 @@ export function WebExtensionOverlay() {
           className="shadow-lg"
         >
           <Shield className="h-5 w-5 mr-2" />
-          Aktifkan mAIscam
+          Activate mAIscam
         </Button>
       </div>
     );
