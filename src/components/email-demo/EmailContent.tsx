@@ -54,7 +54,7 @@ export function EmailContent() {
 
   useEffect(() => {
     if (isActive) {
-      analyzeContent(scamEmailContent.content);
+      analyzeContent(scamEmailContent.content, 'email');
     }
   }, [isActive, analyzeContent]);
 
