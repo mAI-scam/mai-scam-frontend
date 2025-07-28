@@ -59,7 +59,8 @@ export default function ImageDemoPage() {
                 </div>
                 <h3 className="font-semibold mb-2">Activate Extension</h3>
                 <p className="text-sm text-muted-foreground">
-                  Click the "Activate mAIscam" button to enable the protection
+                  Click the &quot;Activate mAIscam&quot; button to enable the
+                  protection
                 </p>
               </div>
 
