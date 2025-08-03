@@ -1,11 +1,45 @@
 'use client';
 
 import { Shield, X, AlertTriangle, CheckCircle, Info } from 'lucide-react';
-import { useExtensionStore } from '@/lib/store/extensionStore';
+import { useExtensionStore, Language } from '@/lib/store/extensionStore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { LanguageSelector } from '@/components/LanguageSelector';
 import { cn } from '@/lib/utils';
+
+const translations = {
+  en: {
+    activateExtension: 'Activate mAIscam',
+    extensionActive: 'mAIscam Active',
+    analyzing: 'Analyzing email...',
+    highRisk: 'High Risk',
+    mediumRisk: 'Medium Risk',
+    lowRisk: 'Low Risk',
+    detailsInEmail: 'Full analysis shown in email.',
+    viewWarning: 'View Warning Details'
+  },
+  ms: {
+    activateExtension: 'Aktifkan mAIscam',
+    extensionActive: 'mAIscam Aktif',
+    analyzing: 'Menganalisis e-mel...',
+    highRisk: 'Risiko Tinggi',
+    mediumRisk: 'Risiko Sederhana',
+    lowRisk: 'Risiko Rendah',
+    detailsInEmail: 'Analisis lengkap ditunjukkan dalam e-mel.',
+    viewWarning: 'Lihat Butiran Amaran'
+  },
+  zh: {
+    activateExtension: '激活 mAIscam',
+    extensionActive: 'mAIscam 已激活',
+    analyzing: '正在分析电子邮件...',
+    highRisk: '高风险',
+    mediumRisk: '中等风险',
+    lowRisk: '低风险',
+    detailsInEmail: '完整分析显示在电子邮件中。',
+    viewWarning: '查看警告详情'
+  }
+};
 
 export function WebExtensionOverlay() {
   const { 
@@ -13,18 +47,22 @@ export function WebExtensionOverlay() {
     isAnalyzing, 
     riskScore, 
     riskLevel, 
+    selectedLanguage,
     toggleExtension 
   } = useExtensionStore();
 
+  const t = translations[selectedLanguage];
+
   if (!isActive) {
     return (
-      <div className="fixed top-4 right-4 z-50">
+      <div className="fixed top-4 right-4 z-50 flex flex-col gap-2">
+        <LanguageSelector />
         <Button
           onClick={toggleExtension}
           className="shadow-lg"
         >
           <Shield className="h-5 w-5 mr-2" />
-          Activate mAIscam
+          {t.activateExtension}
         </Button>
       </div>
     );
@@ -37,22 +75,25 @@ export function WebExtensionOverlay() {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-primary" />
-              <span className="font-semibold">mAIscam Active</span>
+              <span className="font-semibold">{t.extensionActive}</span>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8"
-              onClick={toggleExtension}
-            >
-              <X className="h-4 w-4" />
-            </Button>
+            <div className="flex items-center gap-2">
+              <LanguageSelector />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8"
+                onClick={toggleExtension}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
 
           {isAnalyzing ? (
             <div className="flex items-center gap-3">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-              <p className="text-sm text-muted-foreground">Menganalisis...</p>
+              <p className="text-sm text-muted-foreground">{t.analyzing}</p>
             </div>
           ) : riskScore !== null ? (
             <div className="space-y-3">
@@ -66,9 +107,9 @@ export function WebExtensionOverlay() {
                     <CheckCircle className="h-5 w-5 text-green-600" />
                   )}
                   <span className="font-medium">
-                    {riskLevel === 'high' ? 'Risiko Tinggi' : 
-                     riskLevel === 'medium' ? 'Risiko Sederhana' : 
-                     'Risiko Rendah'}
+                    {riskLevel === 'high' ? t.highRisk : 
+                     riskLevel === 'medium' ? t.mediumRisk : 
+                     t.lowRisk}
                   </span>
                 </div>
                 <Badge 
@@ -80,7 +121,7 @@ export function WebExtensionOverlay() {
               </div>
               
               <p className="text-sm text-muted-foreground">
-                Analisis lengkap ditunjukkan dalam e-mel.
+                {t.detailsInEmail}
               </p>
               
               {riskLevel === 'high' && (
@@ -89,7 +130,7 @@ export function WebExtensionOverlay() {
                   size="sm" 
                   className="w-full"
                 >
-                  Lihat Butiran Amaran
+                  {t.viewWarning}
                 </Button>
               )}
             </div>

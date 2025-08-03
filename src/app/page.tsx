@@ -137,7 +137,7 @@ export default function Home() {
               <div>
                 <h4 className="font-semibold mb-1">Real-time Detection</h4>
                 <p className="text-muted-foreground">
-                  Analyzes emails and websites using SEA-LION LLM, providing instant fraud risk scores with explanations
+                Analyzes emails, websites, and OCR-extracted text from images using SEA-LION LLM, providing instant fraud risk scores with explanations in user-selectable SEA languages.
                 </p>
               </div>
             </div>
@@ -149,7 +149,7 @@ export default function Home() {
               <div>
                 <h4 className="font-semibold mb-1">Smart Blocking</h4>
                 <p className="text-muted-foreground">
-                  Automatically blocks high-risk sites while offering informed user choice for medium-risk content
+                Automatically blocks high-risk sites while offering informed user choice, integrated reporting to relevant authorities and anti-fraud platforms.
                 </p>
               </div>
             </div>
@@ -161,7 +161,7 @@ export default function Home() {
               <div>
                 <h4 className="font-semibold mb-1">Cultural Intelligence</h4>
                 <p className="text-muted-foreground">
-                  Supports 13 Southeast Asian languages with contextual, culturally-tailored threat explanations
+                  Supports 13 Southeast Asian languages with contextual, culturally-tailored threat explanations.
                 </p>
               </div>
             </div>
