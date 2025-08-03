@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 import { ImageGallery, ScamImage } from "@/components/image-demo/ImageGallery";
 import { ImageAnalysisModal } from "@/components/image-demo/ImageAnalysisModal";
 import { WebExtensionOverlay } from "@/components/email-demo/WebExtensionOverlay";
@@ -26,7 +29,17 @@ export default function ImageDemoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 relative">
+      {/* Return to Home Button */}
+      <div className="absolute top-4 left-4 z-50">
+        <Link href="/">
+          <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur-sm">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Home
+          </Button>
+        </Link>
+      </div>
+      
       {/* Header */}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center max-w-3xl mx-auto mb-8">

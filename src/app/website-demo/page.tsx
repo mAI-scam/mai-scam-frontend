@@ -1,5 +1,8 @@
 'use client';
 
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 import { FakeBrowserBar } from '@/components/website-demo/FakeBrowserBar';
 import { ScamSiteHeader } from '@/components/website-demo/ScamSiteHeader';
 import { FlashSaleBanner } from '@/components/website-demo/FlashSaleBanner';
@@ -25,7 +28,17 @@ export default function WebsiteDemoPage() {
   }, [isActive, analyzeContent]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative">
+      {/* Return to Home Button */}
+      <div className="fixed bottom-6 left-6 z-40">
+        <Link href="/">
+          <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur-sm shadow-lg">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Home
+          </Button>
+        </Link>
+      </div>
+      
       {/* Fake Browser UI */}
       <FakeBrowserBar />
       
