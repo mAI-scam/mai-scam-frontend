@@ -1,11 +1,12 @@
 "use client";
 
-import { Shield, AlertTriangle, ArrowLeft, ExternalLink, Home } from "lucide-react";
+import { Shield, AlertTriangle, ArrowLeft, ExternalLink, Home, Flag } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useExtensionStore, Language } from "@/lib/store/extensionStore";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { ReportScamModal } from "./ReportScamModal";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -97,10 +98,10 @@ const translations = {
 };
 
 export function WebsiteBlockingOverlay() {
-  const { isAnalyzing, riskScore, riskLevel, explanation, selectedLanguage, reportScam } = useExtensionStore();
+  const { isAnalyzing, riskScore, riskLevel, explanation, selectedLanguage } = useExtensionStore();
   const [showFinalWarning, setShowFinalWarning] = useState(false);
   const [allowAccess, setAllowAccess] = useState(false);
-  const [isReporting, setIsReporting] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
   const router = useRouter();
   const t = translations[selectedLanguage];
 
@@ -114,10 +115,8 @@ export function WebsiteBlockingOverlay() {
     setAllowAccess(true);
   };
 
-  const handleReport = async () => {
-    setIsReporting(true);
-    await reportScam("website", { url: "deal-raya-123.com" });
-    setIsReporting(false);
+  const handleReport = () => {
+    setShowReportModal(true);
   };
 
   const handleBackToHome = () => {
@@ -125,8 +124,8 @@ export function WebsiteBlockingOverlay() {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-      <Card className="max-w-2xl w-full">
+    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-in fade-in duration-300">
+      <Card className="max-w-2xl w-full shadow-2xl animate-in slide-in-from-bottom-4 duration-500">
         <CardContent className="p-0">
           {/* Header */}
           <div className="bg-red-600 text-white p-6">
@@ -138,7 +137,9 @@ export function WebsiteBlockingOverlay() {
                   <p className="text-red-100">{t.subtitle}</p>
                 </div>
               </div>
-              <LanguageSelector />
+              <div className="bg-white/10 rounded-lg p-1">
+                <LanguageSelector />
+              </div>
             </div>
           </div>
 
@@ -209,11 +210,11 @@ export function WebsiteBlockingOverlay() {
                   </Button>
                   <Button 
                     size="lg" 
-                    variant="destructive"
+                    className="bg-orange-600 hover:bg-orange-700 text-white border-orange-600 shadow-lg"
                     onClick={handleReport}
-                    disabled={isReporting}
                   >
-                    {isReporting ? t.reportingScam : t.reportFraud}
+                    <Flag className="h-4 w-4 mr-2" />
+                    {t.reportFraud}
                   </Button>
                   <Button 
                     size="lg" 
@@ -269,6 +270,13 @@ export function WebsiteBlockingOverlay() {
           </Card>
         </div>
       )}
+
+      {/* Report Scam Modal */}
+      <ReportScamModal 
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        websiteUrl="deal-raya-123.com"
+      />
     </div>
   );
 }
