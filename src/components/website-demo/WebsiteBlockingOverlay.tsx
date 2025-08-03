@@ -1,98 +1,98 @@
-'use client';
+"use client";
 
-import { Shield, AlertTriangle, ArrowLeft, ExternalLink, Home } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { useExtensionStore, Language } from '@/lib/store/extensionStore';
-import { LanguageSelector } from '@/components/LanguageSelector';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { Shield, AlertTriangle, ArrowLeft, ExternalLink, Home } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { useExtensionStore, Language } from "@/lib/store/extensionStore";
+import { LanguageSelector } from "@/components/LanguageSelector";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const translations = {
   en: {
-    title: 'THIS WEBSITE MAY BE A SCAM!',
-    subtitle: 'Be careful, prices are too cheap to be real!',
-    analyzing: 'Analyzing website...',
-    riskAnalysis: 'Risk Analysis',
-    risk: 'RISK',
-    veryHigh: 'VERY HIGH',
-    whyDangerous: 'Why is this website dangerous?',
-    lowPrices: 'We detected extraordinarily low prices for branded items (iPhone RM999, PS5 RM599). This is a common tactic scammers use to attract victims.',
-    suspiciousUrl: 'The website URL "deal-raya-123.com" looks suspicious and may be trying to imitate popular shopping platforms like Shopee or Lazada.',
-    urgency: 'There are excessive prompts to buy immediately with fake timers and "limited stock" - these are psychological manipulation techniques.',
-    fakeReviews: 'Customer reviews appear fake - all 5 stars with generic comments. No negative or neutral reviews.',
-    paymentRisk: 'This website may ask for credit card information or payment to personal accounts, not through secure payment gateways.',
-    whatMayHappen: 'What may happen if you continue?',
-    loseMoneyRisk: 'Your money will be lost without receiving any items',
-    creditCardRisk: 'Your credit card information may be stolen',
-    personalDataRisk: 'Your personal data may be misused',
-    fakeGoodsRisk: 'You may receive fake or poor quality goods',
-    backToSafety: 'Back to Safety',
-    continueRisk: 'Continue at Your Own Risk',
-    finalWarning: 'Final Warning!',
-    finalWarningText: 'You are about to enter a very risky website. We are not responsible for any losses.',
-    cancel: 'Cancel',
-    understandRisk: 'I Understand the Risk',
-    reportFraud: 'REPORT FRAUD',
-    reportingScam: 'Reporting scam...',
-    backToHome: 'Back to Home'
+    title: "THIS WEBSITE MAY BE A SCAM!",
+    subtitle: "Be careful, prices are too cheap to be real!",
+    analyzing: "Analyzing website...",
+    riskAnalysis: "Risk Analysis",
+    risk: "RISK",
+    veryHigh: "VERY HIGH",
+    whyDangerous: "Why is this website dangerous?",
+    lowPrices: "We detected extraordinarily low prices for branded items (iPhone RM999, PS5 RM599). This is a common tactic scammers use to attract victims.",
+    suspiciousUrl: "The website URL \"deal-raya-123.com\" looks suspicious and may be trying to imitate popular shopping platforms like Shopee or Lazada.",
+    urgency: "There are excessive prompts to buy immediately with fake timers and \"limited stock\" - these are psychological manipulation techniques.",
+    fakeReviews: "Customer reviews appear fake - all 5 stars with generic comments. No negative or neutral reviews.",
+    paymentRisk: "This website may ask for credit card information or payment to personal accounts, not through secure payment gateways.",
+    whatMayHappen: "What may happen if you continue?",
+    loseMoneyRisk: "Your money will be lost without receiving any items",
+    creditCardRisk: "Your credit card information may be stolen",
+    personalDataRisk: "Your personal data may be misused",
+    fakeGoodsRisk: "You may receive fake or poor quality goods",
+    backToSafety: "Back to Safety",
+    continueRisk: "Continue at Your Own Risk",
+    finalWarning: "Final Warning!",
+    finalWarningText: "You are about to enter a very risky website. We are not responsible for any losses.",
+    cancel: "Cancel",
+    understandRisk: "I Understand the Risk",
+    reportFraud: "REPORT FRAUD",
+    reportingScam: "Reporting scam...",
+    backToHome: "Back to Home"
   },
   ms: {
-    title: 'LAMAN WEB INI MUNGKIN SCAM!',
-    subtitle: 'Berhati-hati, harga terlalu murah untuk jadi kenyataan!',
-    analyzing: 'Menganalisis laman web...',
-    riskAnalysis: 'Analisis Risiko',
-    risk: 'RISIKO',
-    veryHigh: 'SANGAT TINGGI',
-    whyDangerous: 'Mengapa laman web ini berbahaya?',
-    lowPrices: 'Kami mengesan harga yang luar biasa rendah untuk barangan berjenama (iPhone RM999, PS5 RM599). Ini adalah taktik lazim penipu untuk menarik mangsa.',
-    suspiciousUrl: 'URL laman web "deal-raya-123.com" kelihatan mencurigakan dan mungkin cuba meniru platform membeli-belah popular seperti Shopee atau Lazada.',
-    urgency: 'Terdapat gesaan melampau untuk membeli segera dengan timer palsu dan "stok terhad" - ini adalah teknik manipulasi psikologi.',
-    fakeReviews: 'Ulasan pelanggan kelihatan palsu - semua 5 bintang dengan komen generik. Tiada ulasan negatif atau neutral.',
-    paymentRisk: 'Laman web ini mungkin meminta maklumat kad kredit atau pembayaran ke akaun persendirian, bukan melalui payment gateway yang selamat.',
-    whatMayHappen: '⚠️ Apa yang mungkin berlaku jika anda teruskan?',
-    loseMoneyRisk: 'Wang anda akan hilang tanpa menerima sebarang barang',
-    creditCardRisk: 'Maklumat kad kredit anda mungkin dicuri',
-    personalDataRisk: 'Data peribadi anda mungkin disalahgunakan',
-    fakeGoodsRisk: 'Anda mungkin menerima barang palsu atau tidak berkualiti',
-    backToSafety: 'Kembali ke Keselamatan',
-    continueRisk: 'Teruskan Dengan Risiko Sendiri',
-    finalWarning: 'Amaran Terakhir!',
-    finalWarningText: 'Anda akan memasuki laman web yang sangat berisiko. Kami tidak bertanggungjawab atas sebarang kerugian.',
-    cancel: 'Batal',
-    understandRisk: 'Saya Faham Risikonya',
-    reportFraud: 'LAPORKAN PENIPUAN',
-    reportingScam: 'Melaporkan penipuan...',
-    backToHome: 'Kembali ke Halaman Utama'
+    title: "LAMAN WEB INI MUNGKIN SCAM!",
+    subtitle: "Berhati-hati, harga terlalu murah untuk jadi kenyataan!",
+    analyzing: "Menganalisis laman web...",
+    riskAnalysis: "Analisis Risiko",
+    risk: "RISIKO",
+    veryHigh: "SANGAT TINGGI",
+    whyDangerous: "Mengapa laman web ini berbahaya?",
+    lowPrices: "Kami mengesan harga yang luar biasa rendah untuk barangan berjenama (iPhone RM999, PS5 RM599). Ini adalah taktik lazim penipu untuk menarik mangsa.",
+    suspiciousUrl: "URL laman web \"deal-raya-123.com\" kelihatan mencurigakan dan mungkin cuba meniru platform membeli-belah popular seperti Shopee atau Lazada.",
+    urgency: "Terdapat gesaan melampau untuk membeli segera dengan timer palsu dan \"stok terhad\" - ini adalah teknik manipulasi psikologi.",
+    fakeReviews: "Ulasan pelanggan kelihatan palsu - semua 5 bintang dengan komen generik. Tiada ulasan negatif atau neutral.",
+    paymentRisk: "Laman web ini mungkin meminta maklumat kad kredit atau pembayaran ke akaun persendirian, bukan melalui payment gateway yang selamat.",
+    whatMayHappen: "⚠️ Apa yang mungkin berlaku jika anda teruskan?",
+    loseMoneyRisk: "Wang anda akan hilang tanpa menerima sebarang barang",
+    creditCardRisk: "Maklumat kad kredit anda mungkin dicuri",
+    personalDataRisk: "Data peribadi anda mungkin disalahgunakan",
+    fakeGoodsRisk: "Anda mungkin menerima barang palsu atau tidak berkualiti",
+    backToSafety: "Kembali ke Keselamatan",
+    continueRisk: "Teruskan Dengan Risiko Sendiri",
+    finalWarning: "Amaran Terakhir!",
+    finalWarningText: "Anda akan memasuki laman web yang sangat berisiko. Kami tidak bertanggungjawab atas sebarang kerugian.",
+    cancel: "Batal",
+    understandRisk: "Saya Faham Risikonya",
+    reportFraud: "LAPORKAN PENIPUAN",
+    reportingScam: "Melaporkan penipuan...",
+    backToHome: "Kembali ke Halaman Utama"
   },
   zh: {
-    title: '此网站可能是诈骗！',
-    subtitle: '小心，价格太便宜了不真实！',
-    analyzing: '正在分析网站...',
-    riskAnalysis: '风险分析',
-    risk: '风险',
-    veryHigh: '非常高',
-    whyDangerous: '为什么这个网站危险？',
-    lowPrices: '我们检测到品牌商品的价格异常低（iPhone RM999，PS5 RM599）。这是骗子用来吸引受害者的常见策略。',
-    suspiciousUrl: '网站URL"deal-raya-123.com"看起来可疑，可能试图模仿Shopee或Lazada等流行购物平台。',
-    urgency: '有过度的催促立即购买，使用假计时器和"库存有限" - 这些是心理操纵技巧。',
-    fakeReviews: '客户评论看起来是假的 - 都是5星，评论内容通用。没有负面或中性评论。',
-    paymentRisk: '此网站可能要求信用卡信息或付款到个人账户，而不是通过安全的支付网关。',
-    whatMayHappen: '⚠️ 如果您继续，可能会发生什么？',
-    loseMoneyRisk: '您的钱会丢失而不会收到任何物品',
-    creditCardRisk: '您的信用卡信息可能被盗',
-    personalDataRisk: '您的个人数据可能被滥用',
-    fakeGoodsRisk: '您可能会收到假货或劣质商品',
-    backToSafety: '返回安全',
-    continueRisk: '自担风险继续',
-    finalWarning: '最后警告！',
-    finalWarningText: '您即将进入一个非常危险的网站。我们对任何损失不承担责任。',
-    cancel: '取消',
-    understandRisk: '我了解风险',
-    reportFraud: '举报欺诈',
-    reportingScam: '正在举报诈骗...',
-    backToHome: '返回主页'
+    title: "此网站可能是诈骗！",
+    subtitle: "小心，价格太便宜了不真实！",
+    analyzing: "正在分析网站...",
+    riskAnalysis: "风险分析",
+    risk: "风险",
+    veryHigh: "非常高",
+    whyDangerous: "为什么这个网站危险？",
+    lowPrices: "我们检测到品牌商品的价格异常低（iPhone RM999，PS5 RM599）。这是骗子用来吸引受害者的常见策略。",
+    suspiciousUrl: "网站URL\"deal-raya-123.com\"看起来可疑，可能试图模仿Shopee或Lazada等流行购物平台。",
+    urgency: "有过度的催促立即购买，使用假计时器和\"库存有限\" - 这些是心理操纵技巧。",
+    fakeReviews: "客户评论看起来是假的 - 都是5星，评论内容通用。没有负面或中性评论。",
+    paymentRisk: "此网站可能要求信用卡信息或付款到个人账户，而不是通过安全的支付网关。",
+    whatMayHappen: "⚠️ 如果您继续，可能会发生什么？",
+    loseMoneyRisk: "您的钱会丢失而不会收到任何物品",
+    creditCardRisk: "您的信用卡信息可能被盗",
+    personalDataRisk: "您的个人数据可能被滥用",
+    fakeGoodsRisk: "您可能会收到假货或劣质商品",
+    backToSafety: "返回安全",
+    continueRisk: "自担风险继续",
+    finalWarning: "最后警告！",
+    finalWarningText: "您即将进入一个非常危险的网站。我们对任何损失不承担责任。",
+    cancel: "取消",
+    understandRisk: "我了解风险",
+    reportFraud: "举报欺诈",
+    reportingScam: "正在举报诈骗...",
+    backToHome: "返回主页"
   }
 };
 
@@ -116,12 +116,12 @@ export function WebsiteBlockingOverlay() {
 
   const handleReport = async () => {
     setIsReporting(true);
-    await reportScam('website', { url: 'deal-raya-123.com' });
+    await reportScam("website", { url: "deal-raya-123.com" });
     setIsReporting(false);
   };
 
   const handleBackToHome = () => {
-    router.push('/');
+    router.push("/");
   };
 
   return (
@@ -223,8 +223,8 @@ export function WebsiteBlockingOverlay() {
                     <Home className="h-4 w-4 mr-2" />
                     {t.backToHome}
                   </Button>
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     variant="outline"
                     className="text-red-600 border-red-600 hover:bg-red-50"
                     onClick={handleContinue}
@@ -250,15 +250,15 @@ export function WebsiteBlockingOverlay() {
                 {t.finalWarningText}
               </p>
               <div className="flex gap-3">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="flex-1"
                   onClick={() => setShowFinalWarning(false)}
                 >
                   {t.cancel}
                 </Button>
-                <Button 
-                  variant="destructive" 
+                <Button
+                  variant="destructive"
                   className="flex-1"
                   onClick={handleFinalContinue}
                 >
