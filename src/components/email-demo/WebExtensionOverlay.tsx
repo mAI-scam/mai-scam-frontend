@@ -1,12 +1,14 @@
 'use client';
 
-import { Shield, X, AlertTriangle, CheckCircle, Info } from 'lucide-react';
+import { Shield, X, AlertTriangle, CheckCircle, Info, Flag } from 'lucide-react';
 import { useExtensionStore, Language } from '@/lib/store/extensionStore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { LanguageSelector } from '@/components/LanguageSelector';
+import { ReportScamModal } from './ReportScamModal';
 import { cn } from '@/lib/utils';
+import { useState } from 'react';
 
 const translations = {
   en: {
@@ -17,7 +19,8 @@ const translations = {
     mediumRisk: 'Medium Risk',
     lowRisk: 'Low Risk',
     detailsInEmail: 'Full analysis shown in email.',
-    viewWarning: 'View Warning Details'
+    viewWarning: 'View Warning Details',
+    reportFraud: 'Report Fraud'
   },
   ms: {
     activateExtension: 'Aktifkan mAIscam',
@@ -27,7 +30,8 @@ const translations = {
     mediumRisk: 'Risiko Sederhana',
     lowRisk: 'Risiko Rendah',
     detailsInEmail: 'Analisis lengkap ditunjukkan dalam e-mel.',
-    viewWarning: 'Lihat Butiran Amaran'
+    viewWarning: 'Lihat Butiran Amaran',
+    reportFraud: 'Laporkan Penipuan'
   },
   zh: {
     activateExtension: '激活 mAIscam',
@@ -37,7 +41,8 @@ const translations = {
     mediumRisk: '中等风险',
     lowRisk: '低风险',
     detailsInEmail: '完整分析显示在电子邮件中。',
-    viewWarning: '查看警告详情'
+    viewWarning: '查看警告详情',
+    reportFraud: '举报欺诈'
   }
 };
 
@@ -50,6 +55,7 @@ export function WebExtensionOverlay() {
     selectedLanguage,
     toggleExtension 
   } = useExtensionStore();
+  const [showReportModal, setShowReportModal] = useState(false);
 
   const t = translations[selectedLanguage];
 
@@ -125,18 +131,37 @@ export function WebExtensionOverlay() {
               </p>
               
               {riskLevel === 'high' && (
-                <Button 
-                  variant="destructive" 
-                  size="sm" 
-                  className="w-full"
-                >
-                  {t.viewWarning}
-                </Button>
+                <div className="space-y-2">
+                  <Button 
+                    variant="destructive" 
+                    size="sm" 
+                    className="w-full"
+                  >
+                    {t.viewWarning}
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => setShowReportModal(true)}
+                  >
+                    <Flag className="h-4 w-4 mr-2" />
+                    {t.reportFraud}
+                  </Button>
+                </div>
               )}
             </div>
           ) : null}
         </CardContent>
       </Card>
+
+      {/* Report Scam Modal */}
+      <ReportScamModal 
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        emailSender="Bank Negara Malaysia <notifications@banknegara-my.info>"
+        emailSubject="PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan"
+      />
     </div>
   );
 }

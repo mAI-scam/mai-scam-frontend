@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useExtensionStore, Language } from "@/lib/store/extensionStore";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { ReportScamModal } from "./ReportScamModal";
 import { useState } from "react";
 
 const translations = {
@@ -29,8 +30,7 @@ const translations = {
     recommendedAction: "Recommended Action:",
     recommendedActionText: "Do not interact with any links or download any attachments from this email. Mark the email as spam and delete it. If you're interested in verifying your account status, contact your bank directly through their official website or customer service to confirm.",
     reportFraud: "REPORT FRAUD",
-    dismiss: "DISMISS",
-    reportingScam: "Reporting scam..."
+    dismiss: "DISMISS"
   },
   ms: {
     spamWarning: "Mengapa mesej ini dalam spam? Ia serupa dengan mesej yang telah dikenal pasti sebagai spam pada masa lalu.",
@@ -51,8 +51,7 @@ const translations = {
     recommendedAction: "Tindakan Yang Disyorkan:",
     recommendedActionText: "Jangan berinteraksi dengan mana-mana pautan atau muat turun sebarang lampiran dari e-mel ini. Tandakan e-mel sebagai spam dan padamkannya. Jika anda berminat untuk mengesahkan status akaun anda, hubungi bank anda secara langsung melalui laman web rasmi mereka atau perkhidmatan pelanggan untuk mengesahkan.",
     reportFraud: "LAPORKAN PENIPUAN",
-    dismiss: "TOLAK",
-    reportingScam: "Melaporkan penipuan..."
+    dismiss: "TOLAK"
   },
   zh: {
     spamWarning: "为什么此消息在垃圾邮件中？它与过去被识别为垃圾邮件的消息相似。",
@@ -73,25 +72,19 @@ const translations = {
     recommendedAction: "建议采取的行动：",
     recommendedActionText: "不要与此电子邮件中的任何链接互动或下载任何附件。将电子邮件标记为垃圾邮件并删除。如果您有兴趣验证您的账户状态，请直接通过其官方网站或客户服务联系您的银行进行确认。",
     reportFraud: "举报欺诈",
-    dismiss: "忽略",
-    reportingScam: "正在举报诈骗..."
+    dismiss: "忽略"
   }
 };
 
 export function RiskAnalysisBlock() {
-  const { isAnalyzing, riskScore, riskLevel, explanation, selectedLanguage, reportScam } = useExtensionStore();
-  const [isReporting, setIsReporting] = useState(false);
+  const { isAnalyzing, riskScore, riskLevel, explanation, selectedLanguage } = useExtensionStore();
+  const [showReportModal, setShowReportModal] = useState(false);
   const t = translations[selectedLanguage];
 
   if (!riskScore) return null;
 
-  const handleReport = async () => {
-    setIsReporting(true);
-    await reportScam("email", { 
-      subject: "PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan",
-      sender: "service@secure-banknegara-verification.com"
-    });
-    setIsReporting(false);
+  const handleReport = () => {
+    setShowReportModal(true);
   };
 
   return (
@@ -171,9 +164,8 @@ export function RiskAnalysisBlock() {
               variant="destructive" 
               className="font-medium"
               onClick={handleReport}
-              disabled={isReporting}
             >
-              {isReporting ? t.reportingScam : t.reportFraud}
+              {t.reportFraud}
             </Button>
             <Button variant="outline">
               {t.dismiss}
@@ -181,6 +173,14 @@ export function RiskAnalysisBlock() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Report Scam Modal */}
+      <ReportScamModal 
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        emailSender="Bank Negara Malaysia <notifications@banknegara-my.info>"
+        emailSubject="PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan"
+      />
     </div>
   );
 }
