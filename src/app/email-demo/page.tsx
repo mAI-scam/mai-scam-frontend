@@ -8,9 +8,17 @@ import { GmailSidebar } from '@/components/email-demo/GmailSidebar';
 import { EmailContent } from '@/components/email-demo/EmailContent';
 import { WebExtensionOverlay } from '@/components/email-demo/WebExtensionOverlay';
 import { useEmailTour } from '@/lib/useEmailTour';
+import { useExtensionStore } from '@/lib/store/extensionStore';
+import { useEffect } from 'react';
 
 export default function EmailDemoPage() {
   const { startTour } = useEmailTour();
+  const { resetExtension } = useExtensionStore();
+
+  // Reset extension to inactive state when entering the page
+  useEffect(() => {
+    resetExtension();
+  }, [resetExtension]);
 
   return (
     <div className="h-screen flex flex-col bg-background relative">

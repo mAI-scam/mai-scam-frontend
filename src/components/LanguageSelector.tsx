@@ -38,10 +38,10 @@ export function LanguageSelector() {
         variant="outline"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 bg-white/90 backdrop-blur-sm shadow-sm hover:bg-white hover:shadow-md transition-all"
+        className="flex items-center gap-2 bg-white shadow-sm text-gray-900 border-gray-300 hover:bg-gray-50 hover:shadow-md transition-all"
       >
         <span className="text-base">{currentLanguage.flag}</span>
-        <span>{currentLanguage.name}</span>
+        <span className="font-medium">{currentLanguage.name}</span>
         <ChevronDown className="h-4 w-4" />
       </Button>
 
@@ -57,7 +57,7 @@ export function LanguageSelector() {
               className={`w-full px-4 py-2 text-left flex items-center gap-2 first:rounded-t-lg last:rounded-b-lg transition-colors ${
                 lang.code === selectedLanguage 
                   ? 'bg-blue-100 text-blue-900 font-medium' 
-                  : 'bg-white text-gray-900 active:bg-gray-100'
+                  : 'bg-white text-gray-900 hover:bg-gray-50'
               }`}
             >
               <span className="text-base">{lang.flag}</span>

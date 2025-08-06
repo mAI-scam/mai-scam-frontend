@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -27,7 +27,12 @@ type PostScamImage = {
 export default function ImageDemoPage() {
   const [selectedImage, setSelectedImage] = useState<ScamImage | null>(null);
   const [showBlockOverlay, setShowBlockOverlay] = useState<PostScamImage | null>(null);
-  const { isActive } = useExtensionStore();
+  const { isActive, resetExtension } = useExtensionStore();
+
+  // Reset extension to inactive state when entering the page
+  useEffect(() => {
+    resetExtension();
+  }, [resetExtension]);
 
   const handleImageClick = (scamImage: PostScamImage) => {
     if (isActive) {

@@ -32,6 +32,7 @@ interface ExtensionState {
   toggleExtension: () => void;
   analyzeContent: (content: string, type: "email" | "website") => void;
   resetAnalysis: () => void;
+  resetExtension: () => void;
   setLanguage: (language: Language) => void;
   reportScam: (
     type: "email" | "website" | "image",
@@ -142,6 +143,16 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
 
   resetAnalysis: () =>
     set({
+      riskScore: null,
+      riskLevel: null,
+      explanation: null,
+      analysisType: null,
+    }),
+
+  resetExtension: () =>
+    set({
+      isActive: false,
+      isAnalyzing: false,
       riskScore: null,
       riskLevel: null,
       explanation: null,
