@@ -5,6 +5,7 @@ export type Language = "en" | "ms" | "zh";
 type EmailScamData = {
   subject: string;
   body: string;
+  url?: string;
 };
 
 type WebsiteScamData = {
@@ -12,8 +13,10 @@ type WebsiteScamData = {
 };
 
 type ImageScamData = {
-  imageUrl?: string;
+  imageId: number | string;
+  description?: string;
   source?: "social" | "messaging" | "WhatsApp/Social Media";
+  url?: string;
 };
 
 type ScamReportData = EmailScamData | WebsiteScamData | ImageScamData;
