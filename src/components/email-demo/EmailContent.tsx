@@ -15,7 +15,6 @@ import { useExtensionStore } from '@/lib/store/extensionStore';
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { RiskAnalysisBlock } from './RiskAnalysisBlock';
-import { cn } from '@/lib/utils';
 
 const scamEmailContent = {
   from: 'Bank Negara Malaysia <notifications@banknegara-my.info>',

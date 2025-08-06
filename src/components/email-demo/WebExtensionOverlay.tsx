@@ -1,13 +1,12 @@
 'use client';
 
 import { Shield, X, AlertTriangle, CheckCircle, Info, Flag } from 'lucide-react';
-import { useExtensionStore, Language } from '@/lib/store/extensionStore';
+import { useExtensionStore } from '@/lib/store/extensionStore';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { ReportScamModal } from './ReportScamModal';
-import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
 const translations = {
@@ -64,6 +63,7 @@ export function WebExtensionOverlay() {
       <div className="fixed top-4 right-4 z-50 flex flex-col gap-2">
         <LanguageSelector />
         <Button
+          data-tour="activate-button"
           onClick={toggleExtension}
           className="shadow-lg"
         >
@@ -76,7 +76,7 @@ export function WebExtensionOverlay() {
 
   return (
     <div className="fixed top-4 right-4 z-50">
-      <Card className="w-80 shadow-xl">
+      <Card className="w-80 shadow-xl" data-tour="active-extension">
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
@@ -140,6 +140,7 @@ export function WebExtensionOverlay() {
                     {t.viewWarning}
                   </Button>
                   <Button 
+                    data-tour="report-button"
                     variant="outline" 
                     size="sm" 
                     className="w-full"
