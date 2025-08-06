@@ -13,7 +13,7 @@ type WebsiteScamData = {
 
 type ImageScamData = {
   imageUrl?: string;
-  source?: "social" | "messaging";
+  source?: "social" | "messaging" | "WhatsApp/Social Media";
 };
 
 type ScamReportData = EmailScamData | WebsiteScamData | ImageScamData;
