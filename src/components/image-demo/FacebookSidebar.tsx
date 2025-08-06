@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function FacebookSidebar() {
   return (
-    <div className="hidden lg:block w-80 h-screen bg-white border-r border-gray-200 fixed left-0 top-14 overflow-y-auto">
+    <div className="hidden lg:block w-80 bg-white border-r border-gray-200 fixed left-0 overflow-y-auto" style={{ top: 'calc(var(--banner-height, 0px) + 3.5rem)', height: 'calc(100vh - var(--banner-height, 0px) - 3.5rem)' }}>
       <div className="p-4 space-y-2">
         {/* User Profile */}
         <Button variant="ghost" className="w-full justify-start p-3 h-auto">

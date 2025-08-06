@@ -60,7 +60,7 @@ export function WebExtensionOverlay() {
 
   if (!isActive) {
     return (
-      <div className="fixed top-4 right-4 z-50 flex flex-col gap-2">
+      <div className="fixed right-4 z-50 flex flex-col gap-2" style={{ top: 'calc(var(--banner-height, 0px) + 1rem)' }}>
         <LanguageSelector />
         <Button
           data-tour="activate-button"
@@ -75,7 +75,7 @@ export function WebExtensionOverlay() {
   }
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="fixed right-4 z-50" style={{ top: 'calc(var(--banner-height, 0px) + 1rem)' }}>
       <Card className="w-80 shadow-xl" data-tour="active-extension">
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-2">

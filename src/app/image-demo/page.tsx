@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -46,23 +47,23 @@ export default function ImageDemoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 relative">
-      {/* Return to Home Button - Positioned over Facebook header */}
-      <div className="absolute top-4 left-4 z-50">
-        <Link href="/">
-          <Button
-            variant="outline"
-            size="sm"
-            className="bg-white/90 backdrop-blur-sm"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Home
-          </Button>
-        </Link>
-      </div>
-
+    <div className="min-h-screen bg-gray-100 relative" style={{ '--banner-height': '76px' } as React.CSSProperties}>
       {/* Demo Instructions Banner */}
-      <div className="bg-blue-50 border-b border-blue-200 py-3 px-4 text-center">
+      <div className="bg-blue-50 border-b border-blue-200 py-3 px-4 text-center sticky top-0 z-50">
+        {/* Return to Home Button - Now positioned within banner */}
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10">
+          <Link href="/">
+            <Button
+              variant="outline"
+              size="sm"
+              className="bg-white/90 backdrop-blur-sm"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+        
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Facebook className="h-5 w-5 text-blue-600" />
@@ -91,7 +92,7 @@ export default function ImageDemoPage() {
         <FacebookSidebar />
         
         {/* Main Content Area */}
-        <div className="flex-1 lg:ml-80">
+        <div className="flex-1 lg:ml-80 min-h-screen">
           <div className="py-6 px-4">
             <FacebookFeed onImageClick={handleImageClick} />
           </div>

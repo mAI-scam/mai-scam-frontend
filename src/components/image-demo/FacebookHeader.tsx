@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 
 export function FacebookHeader() {
   return (
-    <div className="bg-white border-b border-gray-200 sticky top-0 z-40">
+    <div className="bg-white border-b border-gray-200 sticky z-40" style={{ top: 'var(--banner-height, 0px)' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-14">
           {/* Left Section - Logo and Search */}
