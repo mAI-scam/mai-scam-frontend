@@ -14,7 +14,7 @@ const translations = {
     scamDetected: "SCAM POST DETECTED",
     protectedBy: "Protected by mAIscam Extension",
     warning: "This post contains scam content",
-    description: "Our AI detected suspicious patterns that match known scam tactics",
+    description: "Our connected AI agents used OCR to extract text from this image and detected suspicious patterns that match known scam tactics through MCP threat intelligence",
     riskLevel: "Risk Level",
     high: "HIGH RISK",
     hidePost: "Hide This Post",
@@ -33,7 +33,7 @@ const translations = {
     scamDetected: "POST PENIPUAN DIKESAN",
     protectedBy: "Dilindungi oleh Sambungan mAIscam",
     warning: "Post ini mengandungi kandungan penipuan",
-    description: "AI kami mengesan corak mencurigakan yang sepadan dengan taktik penipuan yang diketahui",
+    description: "Agen AI terhubung kami menggunakan OCR untuk mengekstrak teks dari imej ini dan mengesan corak mencurigakan yang sepadan dengan taktik penipuan melalui intelligence ancaman MCP",
     riskLevel: "Tahap Risiko",
     high: "RISIKO TINGGI",
     hidePost: "Sembunyikan Post Ini",
@@ -52,7 +52,7 @@ const translations = {
     scamDetected: "检测到诈骗帖子",
     protectedBy: "受 mAIscam 扩展保护",
     warning: "此帖子包含诈骗内容",
-    description: "我们的AI检测到与已知诈骗策略相匹配的可疑模式",
+    description: "我们的连接AI代理使用OCR从此图像中提取文本，并通过MCP威胁情报检测到与已知诈骗策略相匹配的可疑模式",
     riskLevel: "风险等级",
     high: "高风险",
     hidePost: "隐藏此帖子",
@@ -106,6 +106,9 @@ export function FacebookScamBlockOverlay({ scamImage, onClose }: FacebookScamBlo
                 <div>
                   <h2 className="text-xl font-bold">{t.scamDetected}</h2>
                   <p className="text-red-100 text-sm">{t.protectedBy}</p>
+                  <Badge className="bg-white/20 text-white text-xs mt-1">
+                    🔍 OCR + AI Agent Analysis
+                  </Badge>
                 </div>
               </div>
               <div className="flex items-center gap-2">

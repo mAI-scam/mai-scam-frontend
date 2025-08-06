@@ -61,18 +61,18 @@ export default function ImageDemoPage() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Facebook className="h-5 w-5 text-blue-600" />
-            <span className="font-semibold text-blue-800">Facebook Social Media Demo</span>
+            <span className="font-semibold text-blue-800">Social Media Scam Detection Demo</span>
           </div>
           <p className="text-sm text-blue-700">
             {!isActive ? (
               <>
                 <AlertTriangle className="h-4 w-4 inline mr-1" />
-                <span className="font-semibold">Extension not active!</span> Activate mAIscam extension first, then click on images in posts to analyze them for scam content.
+                <span className="font-semibold">Extension not active!</span> Activate mAIscam extension first, then click on any suspicious image in posts to analyze and block scam content with AI-powered OCR.
               </>
             ) : (
               <>
                 <Shield className="h-4 w-4 inline mr-1" />
-                <span className="font-semibold">Protection Active!</span> Scroll through the feed below. Click on any image to see scam detection in action.
+                <span className="font-semibold">AI Protection Active!</span> Our connected AI agents are monitoring posts. Click on any flagged image to see real-time scam detection and automated blocking in action.
               </>
             )}
           </p>

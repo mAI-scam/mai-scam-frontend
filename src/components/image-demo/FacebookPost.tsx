@@ -120,11 +120,17 @@ export function FacebookPost({ post, onImageClick }: FacebookPostProps) {
               className="object-cover"
             />
             {isActive && post.image.scamImage && (
-              <div className="absolute top-4 right-4">
-                <Badge variant="destructive" className="animate-pulse">
-                  ⚠️ High Risk - Click to Analyze
+              <div className="absolute top-4 right-4 flex flex-col gap-2">
+                <Badge variant="destructive" className="animate-pulse shadow-lg">
+                  🔍 AI Detected Scam - Click to Scan
+                </Badge>
+                <Badge variant="outline" className="bg-white/90 text-xs">
+                  OCR Analysis Available
                 </Badge>
               </div>
+            )}
+            {isActive && post.image.scamImage && (
+              <div className="absolute inset-0 bg-red-500/10 border-2 border-red-500 border-dashed rounded-lg pointer-events-none animate-pulse" />
             )}
           </div>
         </div>

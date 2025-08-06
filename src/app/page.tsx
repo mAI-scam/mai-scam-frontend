@@ -24,7 +24,7 @@ export default function Home() {
               Website Demo
             </Link>
             <Link href="/image-demo" className="text-muted-foreground hover:text-foreground transition-colors">
-              Image Demo
+              Social Media Demo
             </Link>
           </div>
         </nav>
@@ -34,12 +34,24 @@ export default function Home() {
       <main className="container mx-auto px-6 py-16">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="text-5xl font-bold mb-6">
-            Southeast Asia&apos;s First AI-Powered
-            <span className="text-primary"> Anti-Scam Extension</span>
+            <span className="text-primary">mAIscam</span> - MCP-Powered
+            <span className="text-primary"> Web Extension</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8">
-            Protecting millions across 13 languages with real-time scam detection powered by SEA-LION LLM
+            Proactive, multilingual scam protection for Southeast Asia using connected AI agents and Model Context Protocol
           </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left max-w-3xl mx-auto">
+            <p className="text-sm text-blue-800">
+              <strong>📱 Browser Extension Demo:</strong> This website demonstrates how the mAIscam Chrome extension works in real browsers. 
+              The actual extension integrates seamlessly into your browsing experience to protect against scams across emails, websites, and social media platforms.
+            </p>
+          </div>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 text-left max-w-2xl mx-auto">
+            <p className="text-sm text-red-800">
+              <strong>The Problem:</strong> Financial scams devastate Southeast Asia with cybercrime surging 82% and generating $43.8B annually. 
+              Criminal syndicates exploit 63% social media penetration and linguistic diversity, while current solutions remain reactive and lack cultural intelligence.
+            </p>
+          </div>
           <div className="flex justify-center gap-4">
             <Button asChild size="lg">
               <Link href="/email-demo">Try Demo</Link>
@@ -57,13 +69,15 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <Shield className="h-6 w-6 text-blue-600 mt-1" />
                 <div>
-                  <h3 className="font-semibold mb-2">How to Use mAIscam Demo</h3>
+                  <h3 className="font-semibold mb-2">How to Experience the Web Extension Demo</h3>
                   <ol className="space-y-1 text-sm text-gray-700">
-                    <li>1. Click on any demo below (Email, Website, or Image)</li>
+                    <li>1. Choose a demo scenario below (Email Client, Website, or Social Media Feed)</li>
                     <li>
-                      2. Activate the extension by clicking <span className="font-semibold">&quot;Activate mAIscam&quot;</span> button
+                      2. Click <span className="font-semibold">&quot;Activate mAIscam&quot;</span> to simulate the browser extension being active
                     </li>
-                    <li>3. Interact with the demo to see real-time scam detection in action</li>
+                    <li>3. Interact with the simulated environment to see how the extension detects and blocks scams</li>
+                    <li>4. In Social Media demo: Click on AI-flagged images to see OCR analysis in action</li>
+                    <li className="text-blue-700 font-medium">🔧 Note: This simulates the actual Chrome extension experience</li>
                   </ol>
                 </div>
               </div>
@@ -78,13 +92,13 @@ export default function Home() {
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>Email Protection</CardTitle>
+                <CardTitle>Email Protection Extension</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Instantly analyzes emails for phishing attempts and scam indicators with explanations in your native language
+                  Experience how the browser extension&apos;s AI agents analyze emails for phishing attempts using MCP threat intelligence feeds with explanations in 13 SEA languages
                 </CardDescription>
-                <p className="text-primary mt-4 group-hover:underline">Try Email Demo →</p>
+                <p className="text-primary mt-4 group-hover:underline">Demo Extension in Email →</p>
               </CardContent>
             </Card>
           </Link>
@@ -95,13 +109,13 @@ export default function Home() {
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
                   <Globe className="h-6 w-6 text-green-600" />
                 </div>
-                <CardTitle>Website Blocking</CardTitle>
+                <CardTitle>Website Blocking Extension</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Automatically blocks high-risk websites and provides real-time warnings for suspicious sites
+                  See how the extension&apos;s adaptive AI agents automatically block high-risk sites and coordinate via MCP to notify authorities and anti-fraud platforms
                 </CardDescription>
-                <p className="text-green-600 mt-4 group-hover:underline">Try Website Demo →</p>
+                <p className="text-green-600 mt-4 group-hover:underline">Demo Extension on Website →</p>
               </CardContent>
             </Card>
           </Link>
@@ -112,13 +126,13 @@ export default function Home() {
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
                   <Camera className="h-6 w-6 text-purple-600" />
                 </div>
-                <CardTitle>Image Analysis</CardTitle>
+                <CardTitle>Social Media Protection Extension</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Extract and analyze text from images to identify potential scams in screenshots and photos
+                  Simulate how the extension performs real-time scanning of social media posts with OCR text extraction from images. Connected AI agents automatically flag and block scam content using MCP threat intelligence.
                 </CardDescription>
-                <p className="text-purple-600 mt-4 group-hover:underline">Try Image Demo →</p>
+                <p className="text-purple-600 mt-4 group-hover:underline">Demo Extension on Social Media →</p>
               </CardContent>
             </Card>
           </Link>
@@ -135,9 +149,9 @@ export default function Home() {
                 <span className="font-bold">1</span>
               </Badge>
               <div>
-                <h4 className="font-semibold mb-1">Real-time Detection</h4>
+                <h4 className="font-semibold mb-1">Connected AI Agent Network</h4>
                 <p className="text-muted-foreground">
-                Analyzes emails, websites, and OCR-extracted text from images using SEA-LION LLM, providing instant fraud risk scores with explanations in user-selectable SEA languages.
+                Multi-agent system using MCP to access real-time threat intelligence, financial APIs, and regulatory feeds while analyzing emails, websites, and OCR-extracted webpage images. Provides instant fraud scores with cross-verified explanations.
                 </p>
               </div>
             </div>
@@ -147,9 +161,9 @@ export default function Home() {
                 <span className="font-bold">2</span>
               </Badge>
               <div>
-                <h4 className="font-semibold mb-1">Smart Blocking</h4>
+                <h4 className="font-semibold mb-1">Adaptive Response AI Agents</h4>
                 <p className="text-muted-foreground">
-                Automatically blocks high-risk sites while offering informed user choice, integrated reporting to relevant authorities and anti-fraud platforms.
+                Decision-making agents automatically block high-risk sites, coordinating via MCP integrations to notify authorities and anti-fraud platforms while continuously evolving through reinforcement learning.
                 </p>
               </div>
             </div>
@@ -159,9 +173,9 @@ export default function Home() {
                 <span className="font-bold">3</span>
               </Badge>
               <div>
-                <h4 className="font-semibold mb-1">Cultural Intelligence</h4>
+                <h4 className="font-semibold mb-1">Cultural Intelligence & MCP Evolution</h4>
                 <p className="text-muted-foreground">
-                  Supports 13 Southeast Asian languages with contextual, culturally-tailored threat explanations.
+                  Supports 13 Southeast Asian languages with contextual, culturally-tailored threat explanations. The MCP-powered ecosystem continuously evolves through reinforcement learning, autonomously improving regional scam pattern recognition.
                 </p>
               </div>
             </div>
@@ -172,7 +186,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="container mx-auto px-6 py-8 mt-16 border-t">
         <div className="text-center text-muted-foreground">
-          <p>© {new Date().getFullYear()} mAIscam. Protecting Southeast Asia from online scams.</p>
+          <p>© {new Date().getFullYear()} mAIscam Web Extension Demo. Showcasing browser-based scam protection for Southeast Asia.</p>
+          <p className="text-sm mt-2">This demo website simulates the actual Chrome extension functionality.</p>
         </div>
       </footer>
     </div>
