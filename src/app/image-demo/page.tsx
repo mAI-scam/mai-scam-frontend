@@ -15,7 +15,6 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ScanLine, Shield, Globe, AlertTriangle } from "lucide-react";
 
 export default function ImageDemoPage() {
@@ -33,13 +32,17 @@ export default function ImageDemoPage() {
       {/* Return to Home Button */}
       <div className="absolute top-4 left-4 z-50">
         <Link href="/">
-          <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur-sm">
+          <Button
+            variant="outline"
+            size="sm"
+            className="bg-white/90 backdrop-blur-sm"
+          >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Button>
         </Link>
       </div>
-      
+
       {/* Header */}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center max-w-3xl mx-auto mb-8">
