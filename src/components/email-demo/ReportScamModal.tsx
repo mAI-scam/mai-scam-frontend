@@ -1,110 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { X, AlertTriangle, CheckCircle, ExternalLink, Send, Shield, Globe, Mail } from "lucide-react";
+import {
+  X,
+  AlertTriangle,
+  CheckCircle,
+  ExternalLink,
+  Send,
+  Shield,
+  Globe,
+  Mail,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useExtensionStore, Language } from "@/lib/store/extensionStore";
-
-const translations = {
-  en: {
-    title: "Report Scam Email",
-    subtitle: "Help protect others by reporting this fraudulent email",
-    reportingTo: "Reporting to:",
-    googleSafeBrowsing: "Google Safe Browsing",
-    googleDesc: "Global web protection service",
-    phishTank: "PhishTank",
-    phishTankDesc: "Community-driven anti-phishing service",
-    mcmc: "MCMC (Malaysia)",
-    mcmcDesc: "Malaysian Communications & Multimedia Commission",
-    reportBee: "ReportBee",
-    reportBeeDesc: "Email spam and phishing reporting service",
-    emailSender: "Email Sender:",
-    emailSubject: "Email Subject:",
-    reportCategory: "Threat Category:",
-    phishing: "Phishing Email",
-    fraudulent: "Fraudulent Banking",
-    malware: "Malware Distribution",
-    reportDetails: "What makes this email suspicious:",
-    falseUrgency: "Creates false sense of urgency with threats",
-    suspiciousUrl: "Contains suspicious links mimicking legitimate domains",
-    fakeBankingEmail: "Impersonates Bank Negara Malaysia",
-    requestCredentials: "Requests sensitive banking credentials",
-    rewardTactics: "Uses reward tactics to encourage compliance",
-    submitReport: "Submit Report",
-    submitting: "Submitting...",
-    reportSuccess: "Report Submitted Successfully!",
-    successMessage: "Thank you for helping keep email safe. This phishing email has been reported to:",
-    reportId: "Report ID:",
-    close: "Close",
-    cancel: "Cancel"
-  },
-  ms: {
-    title: "Laporkan E-mel Penipuan",
-    subtitle: "Bantu melindungi orang lain dengan melaporkan e-mel penipuan ini",
-    reportingTo: "Melaporkan ke:",
-    googleSafeBrowsing: "Google Safe Browsing",
-    googleDesc: "Perkhidmatan perlindungan web global",
-    phishTank: "PhishTank",
-    phishTankDesc: "Perkhidmatan anti-phishing komuniti",
-    mcmc: "MCMC (Malaysia)",
-    mcmcDesc: "Suruhanjaya Komunikasi dan Multimedia Malaysia",
-    reportBee: "ReportBee",
-    reportBeeDesc: "Perkhidmatan laporan spam dan phishing e-mel",
-    emailSender: "Pengirim E-mel:",
-    emailSubject: "Subjek E-mel:",
-    reportCategory: "Kategori Ancaman:",
-    phishing: "E-mel Phishing",
-    fraudulent: "Perbankan Penipuan",
-    malware: "Pengedaran Malware",
-    reportDetails: "Apa yang menjadikan e-mel ini mencurigakan:",
-    falseUrgency: "Mencipta rasa keperluan palsu dengan ancaman",
-    suspiciousUrl: "Mengandungi pautan mencurigakan meniru domain sah",
-    fakeBankingEmail: "Menyamar sebagai Bank Negara Malaysia",
-    requestCredentials: "Meminta kredensial perbankan sensitif",
-    rewardTactics: "Menggunakan taktik ganjaran untuk menggalakkan pematuhan",
-    submitReport: "Hantar Laporan",
-    submitting: "Menghantar...",
-    reportSuccess: "Laporan Berjaya Dihantar!",
-    successMessage: "Terima kasih kerana membantu menjaga keselamatan e-mel. E-mel phishing ini telah dilaporkan ke:",
-    reportId: "ID Laporan:",
-    close: "Tutup",
-    cancel: "Batal"
-  },
-  zh: {
-    title: "举报诈骗邮件",
-    subtitle: "通过举报此欺诈邮件来帮助保护他人",
-    reportingTo: "举报至:",
-    googleSafeBrowsing: "Google Safe Browsing",
-    googleDesc: "全球网络保护服务",
-    phishTank: "PhishTank",
-    phishTankDesc: "社区驱动的反钓鱼服务",
-    mcmc: "MCMC (马来西亚)",
-    mcmcDesc: "马来西亚通讯与多媒体委员会",
-    reportBee: "ReportBee",
-    reportBeeDesc: "电子邮件垃圾和钓鱼举报服务",
-    emailSender: "邮件发送者:",
-    emailSubject: "邮件主题:",
-    reportCategory: "威胁类别:",
-    phishing: "钓鱼邮件",
-    fraudulent: "欺诈性银行业务",
-    malware: "恶意软件分发",
-    reportDetails: "使此邮件可疑的原因:",
-    falseUrgency: "通过威胁制造虚假紧迫感",
-    suspiciousUrl: "包含模仿合法域名的可疑链接",
-    fakeBankingEmail: "冒充马来西亚国家银行",
-    requestCredentials: "要求敏感的银行凭据",
-    rewardTactics: "使用奖励策略鼓励合规",
-    submitReport: "提交举报",
-    submitting: "提交中...",
-    reportSuccess: "举报提交成功！",
-    successMessage: "感谢您帮助保持电子邮件安全。此钓鱼邮件已举报至:",
-    reportId: "举报ID:",
-    close: "关闭",
-    cancel: "取消"
-  }
-};
+import { ReportScamModalData } from "@/data/email-demo/ReportScamModalData";
 
 interface ReportScamModalProps {
   isOpen: boolean;
@@ -113,26 +24,28 @@ interface ReportScamModalProps {
   emailSubject?: string;
 }
 
-export function ReportScamModal({ 
-  isOpen, 
-  onClose, 
+export function ReportScamModal({
+  isOpen,
+  onClose,
   emailSender = "service@secure-banknegara-verification.com",
-  emailSubject = "PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan"
+  emailSubject = "PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan",
 }: ReportScamModalProps) {
   const { selectedLanguage } = useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [reportId] = useState(() => `EMR-${Date.now().toString(36).toUpperCase()}`);
-  const t = translations[selectedLanguage];
+  const [reportId] = useState(
+    () => `EMR-${Date.now().toString(36).toUpperCase()}`
+  );
+  const t = ReportScamModalData[selectedLanguage];
 
   if (!isOpen) return null;
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    
+
     // Simulate API calls to different services
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     setIsSubmitting(false);
     setIsSuccess(true);
   };
@@ -176,21 +89,29 @@ export function ReportScamModal({
                   <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg border">
                     <Globe className="h-8 w-8 text-blue-600" />
                     <div className="flex-1">
-                      <div className="font-medium text-blue-900">{t.googleSafeBrowsing}</div>
-                      <div className="text-sm text-blue-700">{t.googleDesc}</div>
+                      <div className="font-medium text-blue-900">
+                        {t.googleSafeBrowsing}
+                      </div>
+                      <div className="text-sm text-blue-700">
+                        {t.googleDesc}
+                      </div>
                     </div>
                     <Badge variant="secondary">API</Badge>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg border">
                     <Shield className="h-8 w-8 text-purple-600" />
                     <div className="flex-1">
-                      <div className="font-medium text-purple-900">{t.phishTank}</div>
-                      <div className="text-sm text-purple-700">{t.phishTankDesc}</div>
+                      <div className="font-medium text-purple-900">
+                        {t.phishTank}
+                      </div>
+                      <div className="text-sm text-purple-700">
+                        {t.phishTankDesc}
+                      </div>
                     </div>
                     <Badge variant="secondary">Community</Badge>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg border">
                     <AlertTriangle className="h-8 w-8 text-green-600" />
                     <div className="flex-1">
@@ -203,8 +124,12 @@ export function ReportScamModal({
                   <div className="flex items-center gap-3 p-3 bg-orange-50 rounded-lg border">
                     <Mail className="h-8 w-8 text-orange-600" />
                     <div className="flex-1">
-                      <div className="font-medium text-orange-900">{t.reportBee}</div>
-                      <div className="text-sm text-orange-700">{t.reportBeeDesc}</div>
+                      <div className="font-medium text-orange-900">
+                        {t.reportBee}
+                      </div>
+                      <div className="text-sm text-orange-700">
+                        {t.reportBeeDesc}
+                      </div>
                     </div>
                     <Badge variant="secondary">Email</Badge>
                   </div>
@@ -221,14 +146,18 @@ export function ReportScamModal({
                 </div>
 
                 <div>
-                  <label className="font-medium text-sm">{t.emailSubject}</label>
+                  <label className="font-medium text-sm">
+                    {t.emailSubject}
+                  </label>
                   <div className="mt-1 p-2 bg-gray-100 rounded border text-sm">
                     {emailSubject}
                   </div>
                 </div>
 
                 <div>
-                  <label className="font-medium text-sm">{t.reportCategory}</label>
+                  <label className="font-medium text-sm">
+                    {t.reportCategory}
+                  </label>
                   <div className="mt-1">
                     <Badge variant="destructive">{t.phishing}</Badge>
                   </div>
@@ -294,9 +223,11 @@ export function ReportScamModal({
             /* Success State */
             <div className="text-center py-8">
               <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-green-800 mb-2">{t.reportSuccess}</h3>
+              <h3 className="text-xl font-bold text-green-800 mb-2">
+                {t.reportSuccess}
+              </h3>
               <p className="text-gray-600 mb-6">{t.successMessage}</p>
-              
+
               <div className="space-y-2 mb-6">
                 <div className="flex items-center justify-center gap-2 text-sm">
                   <Globe className="h-4 w-4 text-blue-600" />

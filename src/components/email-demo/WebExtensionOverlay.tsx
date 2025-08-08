@@ -1,66 +1,41 @@
-'use client';
+"use client";
 
-import { Shield, X, AlertTriangle, CheckCircle, Info, Flag } from 'lucide-react';
-import { useExtensionStore } from '@/lib/store/extensionStore';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { LanguageSelector } from '@/components/LanguageSelector';
-import { ReportScamModal } from './ReportScamModal';
-import { useState } from 'react';
-
-const translations = {
-  en: {
-    activateExtension: 'Activate mAIscam',
-    extensionActive: 'mAIscam Active',
-    analyzing: 'Analyzing email...',
-    highRisk: 'High Risk',
-    mediumRisk: 'Medium Risk',
-    lowRisk: 'Low Risk',
-    detailsInEmail: 'Full analysis shown in email.',
-    viewWarning: 'View Warning Details',
-    reportFraud: 'Report Fraud'
-  },
-  ms: {
-    activateExtension: 'Aktifkan mAIscam',
-    extensionActive: 'mAIscam Aktif',
-    analyzing: 'Menganalisis e-mel...',
-    highRisk: 'Risiko Tinggi',
-    mediumRisk: 'Risiko Sederhana',
-    lowRisk: 'Risiko Rendah',
-    detailsInEmail: 'Analisis lengkap ditunjukkan dalam e-mel.',
-    viewWarning: 'Lihat Butiran Amaran',
-    reportFraud: 'Laporkan Penipuan'
-  },
-  zh: {
-    activateExtension: '激活 mAIscam',
-    extensionActive: 'mAIscam 已激活',
-    analyzing: '正在分析电子邮件...',
-    highRisk: '高风险',
-    mediumRisk: '中等风险',
-    lowRisk: '低风险',
-    detailsInEmail: '完整分析显示在电子邮件中。',
-    viewWarning: '查看警告详情',
-    reportFraud: '举报欺诈'
-  }
-};
+import {
+  Shield,
+  X,
+  AlertTriangle,
+  CheckCircle,
+  Info,
+  Flag,
+} from "lucide-react";
+import { useExtensionStore } from "@/lib/store/extensionStore";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { LanguageSelector } from "@/components/LanguageSelector";
+import { ReportScamModal } from "./ReportScamModal";
+import { useState } from "react";
+import { ExtensionData } from "@/data/email-demo/ExtensionData";
 
 export function WebExtensionOverlay() {
-  const { 
-    isActive, 
-    isAnalyzing, 
-    riskScore, 
-    riskLevel, 
+  const {
+    isActive,
+    isAnalyzing,
+    riskScore,
+    riskLevel,
     selectedLanguage,
-    toggleExtension 
+    toggleExtension,
   } = useExtensionStore();
   const [showReportModal, setShowReportModal] = useState(false);
 
-  const t = translations[selectedLanguage];
+  const t = ExtensionData[selectedLanguage];
 
   if (!isActive) {
     return (
-      <div className="fixed right-4 z-50 flex flex-col gap-2" style={{ top: 'calc(var(--banner-height, 0px) + 1rem)' }}>
+      <div
+        className="fixed right-4 z-50 flex flex-col gap-2"
+        style={{ top: "calc(var(--banner-height, 0px) + 1rem)" }}
+      >
         <LanguageSelector />
         <Button
           data-tour="activate-button"
@@ -75,7 +50,10 @@ export function WebExtensionOverlay() {
   }
 
   return (
-    <div className="fixed right-4 z-50" style={{ top: 'calc(var(--banner-height, 0px) + 1rem)' }}>
+    <div
+      className="fixed right-4 z-50"
+      style={{ top: "calc(var(--banner-height, 0px) + 1rem)" }}
+    >
       <Card className="w-80 shadow-xl" data-tour="active-extension">
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-2">
@@ -105,44 +83,42 @@ export function WebExtensionOverlay() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  {riskLevel === 'high' ? (
+                  {riskLevel === "high" ? (
                     <AlertTriangle className="h-5 w-5 text-destructive" />
-                  ) : riskLevel === 'medium' ? (
+                  ) : riskLevel === "medium" ? (
                     <Info className="h-5 w-5 text-yellow-600" />
                   ) : (
                     <CheckCircle className="h-5 w-5 text-green-600" />
                   )}
                   <span className="font-medium">
-                    {riskLevel === 'high' ? t.highRisk : 
-                     riskLevel === 'medium' ? t.mediumRisk : 
-                     t.lowRisk}
+                    {riskLevel === "high"
+                      ? t.highRisk
+                      : riskLevel === "medium"
+                      ? t.mediumRisk
+                      : t.lowRisk}
                   </span>
                 </div>
-                <Badge 
-                  variant={riskLevel === 'high' ? 'destructive' : 'secondary'}
+                <Badge
+                  variant={riskLevel === "high" ? "destructive" : "secondary"}
                   className="text-lg"
                 >
                   {riskScore}%
                 </Badge>
               </div>
-              
+
               <p className="text-sm text-muted-foreground">
                 {t.detailsInEmail}
               </p>
-              
-              {riskLevel === 'high' && (
+
+              {riskLevel === "high" && (
                 <div className="space-y-2">
-                  <Button 
-                    variant="destructive" 
-                    size="sm" 
-                    className="w-full"
-                  >
+                  <Button variant="destructive" size="sm" className="w-full">
                     {t.viewWarning}
                   </Button>
-                  <Button 
+                  <Button
                     data-tour="report-button"
-                    variant="outline" 
-                    size="sm" 
+                    variant="outline"
+                    size="sm"
                     className="w-full"
                     onClick={() => setShowReportModal(true)}
                   >
@@ -157,7 +133,7 @@ export function WebExtensionOverlay() {
       </Card>
 
       {/* Report Scam Modal */}
-      <ReportScamModal 
+      <ReportScamModal
         isOpen={showReportModal}
         onClose={() => setShowReportModal(false)}
         emailSender="Bank Negara Malaysia <notifications@banknegara-my.info>"

@@ -1,59 +1,28 @@
-'use client';
+"use client";
 
-import { 
-  ArrowLeft, 
-  Archive, 
-  AlertCircle, 
-  Trash2, 
+import {
+  ArrowLeft,
+  Archive,
+  AlertCircle,
+  Trash2,
   MailOpen,
   MoreVertical,
   Reply,
   Forward,
-  Star
-} from 'lucide-react';
-import { useExtensionStore } from '@/lib/store/extensionStore';
-import { useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { RiskAnalysisBlock } from './RiskAnalysisBlock';
-
-const scamEmailContent = {
-  from: 'Bank Negara Malaysia <notifications@banknegara-my.info>',
-  to: 'shaun.liew@example.com',
-  subject: 'PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan',
-  date: 'Hari ini, 10:23 PG',
-  content: `
-Pelanggan Yang Dihormati,
-
-Kami telah mengesan aktiviti mencurigakan dalam akaun bank anda. Untuk keselamatan anda, kami telah membekukan sementara akaun anda.
-
-AMARAN: Akaun anda akan ditutup secara KEKAL dalam 24 JAM jika anda tidak mengesahkan maklumat anda!
-
-Untuk mengaktifkan semula akaun anda, sila klik pautan di bawah dan masukkan maklumat berikut:
-- Nombor Akaun Bank
-- Kata Laluan Online Banking
-- Nombor TAC terakhir anda
-
-[KLIK SINI UNTUK MENGESAHKAN AKAUN ANDA]
-https://secure-banknegara-verification.com/verify
-
-Sebagai ganjaran untuk kerjasama anda, anda akan menerima RM 1,000 sebagai token penghargaan selepas pengesahan selesai.
-
-INGAT: Ini adalah e-mel rasmi dari Bank Negara Malaysia. Abaikan mesej ini akan mengakibatkan kehilangan SEMUA wang dalam akaun anda.
-
-Terima kasih,
-Jabatan Keselamatan
-Bank Negara Malaysia
-
-*E-mel ini dijana secara automatik. Jangan balas e-mel ini.
-  `.trim()
-};
+  Star,
+} from "lucide-react";
+import { useExtensionStore } from "@/lib/store/extensionStore";
+import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { RiskAnalysisBlock } from "./RiskAnalysisBlock";
+import { EmailData } from "@/data/email-demo/EmailData";
 
 export function EmailContent() {
   const { isActive, analyzeContent } = useExtensionStore();
 
   useEffect(() => {
     if (isActive) {
-      analyzeContent(scamEmailContent.content, 'email');
+      analyzeContent(EmailData.content, "email");
     }
   }, [isActive, analyzeContent]);
 
@@ -87,21 +56,25 @@ export function EmailContent() {
       <div className="p-6 max-w-4xl mx-auto">
         {/* Risk Analysis Block appears here when active */}
         {isActive && <RiskAnalysisBlock />}
-        
-        <h1 className="text-2xl font-normal mb-6">{scamEmailContent.subject}</h1>
-        
+
+        <h1 className="text-2xl font-normal mb-6">{EmailData.subject}</h1>
+
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-4">
             <div className="w-10 h-10 bg-destructive rounded-full flex items-center justify-center">
               <span className="text-destructive-foreground text-sm">BN</span>
             </div>
             <div>
-              <div className="font-medium text-foreground">{scamEmailContent.from}</div>
-              <div className="text-sm text-muted-foreground">kepada {scamEmailContent.to}</div>
+              <div className="font-medium text-foreground">
+                {EmailData.from}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                kepada {EmailData.to}
+              </div>
             </div>
           </div>
           <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <span>{scamEmailContent.date}</span>
+            <span>{EmailData.date}</span>
             <Button variant="ghost" size="icon" className="h-8 w-8">
               <Star className="h-4 w-4" />
             </Button>
@@ -113,13 +86,13 @@ export function EmailContent() {
             </Button>
           </div>
         </div>
-        
+
         <div className="prose max-w-none">
           <pre className="whitespace-pre-wrap font-sans text-foreground leading-relaxed">
-            {scamEmailContent.content}
+            {EmailData.content}
           </pre>
         </div>
-        
+
         {/* Reply/Forward buttons */}
         <div className="mt-8 flex space-x-4">
           <Button variant="outline" className="rounded-full">

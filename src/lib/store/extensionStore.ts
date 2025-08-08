@@ -1,6 +1,13 @@
 import { create } from "zustand";
+import {
+  EmailExplanations,
+  WebsiteExplanations,
+} from "@/data/email-demo/EmailExplanationData";
+import { ScamKeywords } from "@/data/email-demo/ScamKeywords";
+import type { LanguageCode } from "@/data/store/Languages";
 
-export type Language = "en" | "ms" | "zh";
+export type Language = LanguageCode;
+export type RiskLevel = "low" | "medium" | "high";
 
 type EmailScamData = {
   subject: string;
@@ -64,55 +71,24 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
     // Simulate API call to LLM with realistic delay
     await new Promise((resolve) => setTimeout(resolve, 2500));
 
-    if (type === "email") {
-      // Email analysis logic
-      const scamKeywords = [
-        "akaun anda telah dibekukan",
-        "tindakan segera diperlukan",
-        "dalam 24 jam",
-        "kata laluan",
-        "nombor tac",
-        "rm 1,000",
-        "klik sini",
-        "secure-banknegara-verification",
-      ];
+    const lang = get().selectedLanguage;
 
-      const foundKeywords = scamKeywords.filter((keyword) =>
+    if (type === "email") {
+      const foundKeywords = ScamKeywords.filter((keyword) =>
         content.toLowerCase().includes(keyword.toLowerCase())
       );
 
       const baseScore = Math.min(foundKeywords.length * 12, 90);
       const riskScore = baseScore + Math.floor(Math.random() * 5) + 5;
 
-      let riskLevel: "low" | "medium" | "high";
-      if (riskScore >= 80) {
-        riskLevel = "high";
-      } else if (riskScore >= 50) {
-        riskLevel = "medium";
-      } else {
-        riskLevel = "low";
-      }
+      let riskLevel: RiskLevel = "low";
+      if (riskScore >= 80) riskLevel = "high";
+      else if (riskScore >= 50) riskLevel = "medium";
 
-      const explanations = {
-        high: {
-          en: "Analysis found this email contains scam characteristics:\n\n• Requests for personal information (account numbers, passwords)\n• Uses urgent language to force immediate action\n• Suspicious links not from official domain\n• Unrealistic cash reward promises\n• No official signature or legitimate contact information\n• Sender domain does not match claimed organization",
-          ms: "Analisis mendapati e-mel ini mengandungi ciri-ciri penipuan:\n\n• Meminta maklumat peribadi (nombor akaun, kata laluan)\n• Menggunakan bahasa yang mendesak untuk tindakan segera\n• Pautan yang mencurigakan bukan dari domain rasmi\n• Janji hadiah wang tunai yang tidak realistik\n• Tiada tandatangan rasmi atau maklumat hubungan yang sah\n• Domain pengirim tidak sepadan dengan organisasi yang didakwa",
-          zh: "分析发现此电子邮件包含诈骗特征：\n\n• 要求提供个人信息（账号、密码）\n• 使用紧急语言强迫立即行动\n• 可疑链接不是来自官方域名\n• 不切实际的现金奖励承诺\n• 没有官方签名或合法联系信息\n• 发件人域名与声称的组织不匹配",
-        },
-        medium: {
-          en: "This email may be suspicious. Please be careful with:\n\n• Requests for personal information\n• Unrecognized links\n• Offers that are too good to be true",
-          ms: "E-mel ini mungkin mencurigakan. Sila berhati-hati dengan:\n\n• Permintaan maklumat peribadi\n• Pautan yang tidak dikenali\n• Tawaran yang terlalu baik untuk dipercayai",
-          zh: "此电子邮件可能有可疑之处。请注意：\n\n• 个人信息请求\n• 不认识的链接\n• 好得不真实的优惠",
-        },
-        low: {
-          en: "This email appears safe, but always be cautious with online communications.",
-          ms: "E-mel ini kelihatan selamat, tetapi sentiasa berhati-hati dengan komunikasi dalam talian.",
-          zh: "此电子邮件看起来安全，但始终要对在线通信保持谨慎。",
-        },
-      };
-
-      const language = (get().selectedLanguage || "ms") as Language;
-      const explanation = explanations[riskLevel][language];
+      const explanation =
+        EmailExplanations[riskLevel][
+          lang as keyof (typeof EmailExplanations)[typeof riskLevel]
+        ] ?? EmailExplanations[riskLevel]["en"];
 
       set({
         isAnalyzing: false,
@@ -124,19 +100,15 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       // Website analysis - always high risk for the demo
       const riskScore = 95 + Math.floor(Math.random() * 4);
 
-      const websiteExplanations = {
-        en: "This website shows many warning signs of online scam.",
-        ms: "Laman web ini menunjukkan banyak tanda amaran penipuan dalam talian.",
-        zh: "此网站显示了许多在线诈骗的警告信号。",
-      };
-
-      const language = (get().selectedLanguage || "ms") as Language;
+      const explanation =
+        WebsiteExplanations[lang as keyof typeof WebsiteExplanations] ??
+        WebsiteExplanations["en"];
 
       set({
         isAnalyzing: false,
         riskScore,
         riskLevel: "high",
-        explanation: websiteExplanations[language],
+        explanation: explanation,
       });
     }
   },
