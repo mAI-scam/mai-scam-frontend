@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Shield, Mail, Globe, Camera } from "lucide-react";
 import Header from "@/components/main/Header";
 import FeatureCard from "@/components/main/FeatureCard";
-import { featureCardData } from "@/data/main/featureCardData";
+import { FeatureCardData } from "@/data/main/FeatureCardData";
 
 export default function Home() {
   return (
@@ -110,7 +110,7 @@ export default function Home() {
 
         {/* Features Section */}
         <section id="features" className="grid md:grid-cols-3 gap-8 mb-16">
-          {featureCardData.map((item, idx) => (
+          {FeatureCardData.map((item, idx) => (
             <FeatureCard key={idx} {...item} />
           ))}
         </section>
