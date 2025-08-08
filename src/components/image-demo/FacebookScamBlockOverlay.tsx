@@ -10,7 +10,21 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import { ReportScamImageModal } from "./ReportScamImageModal";
 import { LanguageCode } from "@/data/store/Languages";
 
-const translations: Partial<Record<LanguageCode, any>> = {
+type PostTranslation = {
+  scamDetected: string;
+  protectedBy: string;
+  warning: string;
+  description: string;
+  riskLevel: string;
+  high: string;
+  hidePost: string;
+  showPost: string;
+  reportScam: string;
+  whyBlocked: string;
+  reasons: string[];
+};
+
+const translations: Partial<Record<LanguageCode, PostTranslation>> = {
   en: {
     scamDetected: "SCAM POST DETECTED",
     protectedBy: "Protected by mAIscam Extension",
