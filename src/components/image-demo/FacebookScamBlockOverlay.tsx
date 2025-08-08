@@ -8,13 +8,15 @@ import { Badge } from "@/components/ui/badge";
 import { useExtensionStore } from "@/lib/store/extensionStore";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { ReportScamImageModal } from "./ReportScamImageModal";
+import { LanguageCode } from "@/data/store/Languages";
 
-const translations = {
+const translations: Partial<Record<LanguageCode, any>> = {
   en: {
     scamDetected: "SCAM POST DETECTED",
     protectedBy: "Protected by mAIscam Extension",
     warning: "This post contains scam content",
-    description: "Our connected AI agents used OCR to extract text from this image and detected suspicious patterns that match known scam tactics through MCP threat intelligence",
+    description:
+      "Our connected AI agents used OCR to extract text from this image and detected suspicious patterns that match known scam tactics through MCP threat intelligence",
     riskLevel: "Risk Level",
     high: "HIGH RISK",
     hidePost: "Hide This Post",
@@ -26,14 +28,15 @@ const translations = {
       "Unrealistic offers or promises",
       "Requests for personal information",
       "Suspicious links or domains",
-      "Impersonation of legitimate brands"
-    ]
+      "Impersonation of legitimate brands",
+    ],
   },
   ms: {
     scamDetected: "POST PENIPUAN DIKESAN",
     protectedBy: "Dilindungi oleh Sambungan mAIscam",
     warning: "Post ini mengandungi kandungan penipuan",
-    description: "Agen AI terhubung kami menggunakan OCR untuk mengekstrak teks dari imej ini dan mengesan corak mencurigakan yang sepadan dengan taktik penipuan melalui intelligence ancaman MCP",
+    description:
+      "Agen AI terhubung kami menggunakan OCR untuk mengekstrak teks dari imej ini dan mengesan corak mencurigakan yang sepadan dengan taktik penipuan melalui intelligence ancaman MCP",
     riskLevel: "Tahap Risiko",
     high: "RISIKO TINGGI",
     hidePost: "Sembunyikan Post Ini",
@@ -45,14 +48,15 @@ const translations = {
       "Tawaran atau janji yang tidak realistik",
       "Permintaan maklumat peribadi",
       "Pautan atau domain yang mencurigakan",
-      "Penyamaran jenama yang sah"
-    ]
+      "Penyamaran jenama yang sah",
+    ],
   },
   zh: {
     scamDetected: "检测到诈骗帖子",
     protectedBy: "受 mAIscam 扩展保护",
     warning: "此帖子包含诈骗内容",
-    description: "我们的连接AI代理使用OCR从此图像中提取文本，并通过MCP威胁情报检测到与已知诈骗策略相匹配的可疑模式",
+    description:
+      "我们的连接AI代理使用OCR从此图像中提取文本，并通过MCP威胁情报检测到与已知诈骗策略相匹配的可疑模式",
     riskLevel: "风险等级",
     high: "高风险",
     hidePost: "隐藏此帖子",
@@ -64,9 +68,9 @@ const translations = {
       "不切实际的优惠或承诺",
       "个人信息请求",
       "可疑链接或域名",
-      "冒充合法品牌"
-    ]
-  }
+      "冒充合法品牌",
+    ],
+  },
 };
 
 interface FacebookScamBlockOverlayProps {
@@ -82,7 +86,10 @@ interface FacebookScamBlockOverlayProps {
   onClose: () => void;
 }
 
-export function FacebookScamBlockOverlay({ scamImage, onClose }: FacebookScamBlockOverlayProps) {
+export function FacebookScamBlockOverlay({
+  scamImage,
+  onClose,
+}: FacebookScamBlockOverlayProps) {
   const [showPost, setShowPost] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
   const { selectedLanguage } = useExtensionStore();
@@ -139,7 +146,9 @@ export function FacebookScamBlockOverlay({ scamImage, onClose }: FacebookScamBlo
             {/* Risk Level */}
             <div className="flex items-center justify-between p-4 bg-orange-50 border border-orange-200 rounded-lg">
               <div>
-                <span className="text-sm font-medium text-orange-800">{t.riskLevel}:</span>
+                <span className="text-sm font-medium text-orange-800">
+                  {t.riskLevel}:
+                </span>
               </div>
               <Badge variant="destructive" className="bg-red-600">
                 {t.high}
@@ -151,7 +160,10 @@ export function FacebookScamBlockOverlay({ scamImage, onClose }: FacebookScamBlo
               <h4 className="font-semibold text-gray-900">{t.whyBlocked}</h4>
               <ul className="space-y-2">
                 {t.reasons.map((reason, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                  <li
+                    key={index}
+                    className="flex items-start gap-2 text-sm text-gray-700"
+                  >
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
                     <span>{reason}</span>
                   </li>
@@ -167,7 +179,11 @@ export function FacebookScamBlockOverlay({ scamImage, onClose }: FacebookScamBlo
                   variant="outline"
                   className="flex-1"
                 >
-                  {showPost ? <EyeOff className="h-4 w-4 mr-2" /> : <Eye className="h-4 w-4 mr-2" />}
+                  {showPost ? (
+                    <EyeOff className="h-4 w-4 mr-2" />
+                  ) : (
+                    <Eye className="h-4 w-4 mr-2" />
+                  )}
                   {showPost ? t.hidePost : t.showPost}
                 </Button>
                 <Button
@@ -178,12 +194,8 @@ export function FacebookScamBlockOverlay({ scamImage, onClose }: FacebookScamBlo
                   {t.reportScam}
                 </Button>
               </div>
-              
-              <Button
-                onClick={onClose}
-                variant="outline"
-                className="w-full"
-              >
+
+              <Button onClick={onClose} variant="outline" className="w-full">
                 Continue Browsing Safely
               </Button>
             </div>
@@ -194,12 +206,17 @@ export function FacebookScamBlockOverlay({ scamImage, onClose }: FacebookScamBlo
                 <div className="flex items-start gap-2 mb-3">
                   <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5" />
                   <p className="text-sm text-yellow-800 font-medium">
-                    WARNING: You chose to view this potentially dangerous content
+                    WARNING: You chose to view this potentially dangerous
+                    content
                   </p>
                 </div>
                 <div className="bg-white p-3 rounded border">
-                  <p className="text-sm text-gray-600 mb-2">Scam Content Preview:</p>
-                  <p className="text-sm font-mono bg-gray-100 p-2 rounded">{scamImage.content}</p>
+                  <p className="text-sm text-gray-600 mb-2">
+                    Scam Content Preview:
+                  </p>
+                  <p className="text-sm font-mono bg-gray-100 p-2 rounded">
+                    {scamImage.content}
+                  </p>
                 </div>
               </div>
             )}
