@@ -1,21 +1,20 @@
-import { Mail, Globe, Camera } from "lucide-react";
-
+import { Mail, Globe, Camera, LucideIcon } from "lucide-react";
 export type FeatureCardItem = {
   title: string;
   description: string;
   link: string;
-  icon: JSX.Element;
+  icon: LucideIcon;
   iconStyle: string;
   textColor: string;
 };
 
-export const FeatureCardData: FeatureCardItem[] = [
+export const featureCardData: FeatureCardItem[] = [
   {
     title: "Email Protection",
     description:
       "Instantly analyzes emails for phishing attempts and scam indicators with explanations in your native language",
     link: "/email-demo",
-    icon: <Mail className="h-6 w-6 text-primary" />,
+    icon: Mail,
     iconStyle: "bg-primary/10 group-hover:bg-primary/20",
     textColor: "text-primary",
   },
@@ -24,7 +23,7 @@ export const FeatureCardData: FeatureCardItem[] = [
     description:
       "Automatically blocks high-risk websites and provides real-time warnings for suspicious sites",
     link: "/website-demo",
-    icon: <Globe className="h-6 w-6 text-green-600" />,
+    icon: Globe,
     iconStyle: "bg-green-100 group-hover:bg-green-200",
     textColor: "text-green-600",
   },
@@ -33,7 +32,7 @@ export const FeatureCardData: FeatureCardItem[] = [
     description:
       "Extract and analyze text from images to identify potential scams in screenshots and photos",
     link: "/image-demo",
-    icon: <Camera className="h-6 w-6 text-purple-600" />,
+    icon: Camera,
     iconStyle: "bg-purple-100 group-hover:bg-purple-200",
     textColor: "text-purple-600",
   },
