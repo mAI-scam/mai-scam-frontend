@@ -6,7 +6,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import type { FeatureCardItem } from "@/data/main/featureCardData";
+import type { FeatureCardItem } from "@/data/main/FeatureCardData";
 
 export default function FeatureCard(props: FeatureCardItem) {
   const { title, description, link, icon, iconStyle, textColor } = props;
