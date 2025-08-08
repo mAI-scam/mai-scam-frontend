@@ -8,7 +8,7 @@ export type FeatureCardItem = {
   textColor: string;
 };
 
-export const featureCardData: FeatureCardItem[] = [
+export const FeatureCardData: FeatureCardItem[] = [
   {
     title: "Email Protection",
     description:
