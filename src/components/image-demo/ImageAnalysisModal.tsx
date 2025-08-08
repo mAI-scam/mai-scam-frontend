@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useExtensionStore, Language } from "@/lib/store/extensionStore";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { ReportScamImageModal } from "./ReportScamImageModal";
 import { useRouter } from "next/navigation";
 
 interface ImageAnalysisModalProps {
@@ -43,7 +44,6 @@ const translations = {
     viewOriginal: "View Original Image (Understand Risk)",
     hideOriginal: "Hide Original Image",
     reportFraud: "REPORT FRAUD",
-    reportingScam: "Reporting scam...",
     backToHome: "Back to Home"
   },
   ms: {
@@ -64,7 +64,6 @@ const translations = {
     viewOriginal: "Lihat Imej Asal (Fahami Risiko)",
     hideOriginal: "Sembunyikan Imej Asal",
     reportFraud: "LAPORKAN PENIPUAN",
-    reportingScam: "Melaporkan penipuan...",
     backToHome: "Kembali ke Halaman Utama"
   },
   zh: {
@@ -85,7 +84,6 @@ const translations = {
     viewOriginal: "查看原图（了解风险）",
     hideOriginal: "隐藏原图",
     reportFraud: "举报欺诈",
-    reportingScam: "正在举报诈骗...",
     backToHome: "返回主页"
   }
 };
@@ -231,8 +229,8 @@ export function ImageAnalysisModal({
 }: ImageAnalysisModalProps) {
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [showOriginal, setShowOriginal] = useState(false);
-  const [isReporting, setIsReporting] = useState(false);
-  const { selectedLanguage, reportScam } = useExtensionStore();
+  const [showReportModal, setShowReportModal] = useState(false);
+  const { selectedLanguage } = useExtensionStore();
   const router = useRouter();
   const t = translations[selectedLanguage];
 
@@ -249,14 +247,8 @@ export function ImageAnalysisModal({
 
   const analysis = analysisResults[image.id as keyof typeof analysisResults];
 
-  const handleReport = async () => {
-    setIsReporting(true);
-    await reportScam("image", { 
-      imageId: image.id,
-      source: "WhatsApp/Social Media",
-      description: image.description 
-    });
-    setIsReporting(false);
+  const handleReport = () => {
+    setShowReportModal(true);
   };
 
   const handleBackToHome = () => {
@@ -393,9 +385,8 @@ export function ImageAnalysisModal({
                     size="lg" 
                     variant="destructive"
                     onClick={handleReport}
-                    disabled={isReporting}
                   >
-                    {isReporting ? t.reportingScam : t.reportFraud}
+                    {t.reportFraud}
                   </Button>
                   <Button 
                     size="lg" 
@@ -420,6 +411,14 @@ export function ImageAnalysisModal({
           </CardContent>
         </div>
       </Card>
+
+      {/* Comprehensive Report Modal */}
+      <ReportScamImageModal
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        scamImage={image}
+        platform="whatsapp"
+      />
     </div>
   );
 }

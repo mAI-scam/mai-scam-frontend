@@ -106,6 +106,7 @@ export function RiskAnalysisBlock() {
 
       {/* Risk Analysis Card */}
       <Card
+        data-tour="risk-analysis"
         className={`border-l-4 ${
           riskLevel === "high"
             ? "border-l-red-500"

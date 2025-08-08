@@ -18,7 +18,12 @@ import { Badge } from '@/components/ui/badge';
 import { Truck, Shield, CreditCard, Phone } from 'lucide-react';
 
 export default function WebsiteDemoPage() {
-  const { isActive, analyzeContent } = useExtensionStore();
+  const { isActive, analyzeContent, resetExtension } = useExtensionStore();
+
+  // Reset extension to inactive state when entering the page
+  useEffect(() => {
+    resetExtension();
+  }, [resetExtension]);
 
   useEffect(() => {
     if (isActive) {
