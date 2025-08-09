@@ -36,6 +36,10 @@ interface ExtensionState {
   explanation: string | null;
   analysisType: "email" | "website" | null;
   selectedLanguage: Language;
+  // Image reporting state (social media demo)
+  reportedImageIds: string[];
+  isImageReported: (imageId: number | string) => boolean;
+  markImageReported: (imageId: number | string) => void;
   toggleExtension: () => void;
   analyzeContent: (content: string, type: "email" | "website") => void;
   resetAnalysis: () => void;
@@ -54,7 +58,21 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
   riskLevel: null,
   explanation: null,
   analysisType: null,
-  selectedLanguage: "ms",
+  selectedLanguage: "en",
+  reportedImageIds: [],
+
+  isImageReported: (imageId: number | string) => {
+    const id = String(imageId);
+    return get().reportedImageIds.includes(id);
+  },
+
+  markImageReported: (imageId: number | string) => {
+    const id = String(imageId);
+    set((state) => {
+      if (state.reportedImageIds.includes(id)) return state;
+      return { reportedImageIds: [...state.reportedImageIds, id] };
+    });
+  },
 
   toggleExtension: () =>
     set((state) => ({
@@ -129,6 +147,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       riskLevel: null,
       explanation: null,
       analysisType: null,
+      // Intentionally do not reset reportedImageIds so reported state persists during demo navigation
     }),
 
   setLanguage: (language: Language) => set({ selectedLanguage: language }),
@@ -152,10 +171,14 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         `Demo: Laman web akan dilaporkan ke:\n\n1. Google Safe Browsing\n2. PhishTank (https://www.phishtank.com/)\n\nURL: ${url}\n\nDalam implementasi sebenar, laporan akan dihantar melalui API.`
       );
     } else if (type === "image") {
-      // Mock: Report based on source
-      alert(
-        "Demo: Imej penipuan akan dilaporkan berdasarkan sumber\n\nJika dari media sosial, akan dilaporkan ke platform tersebut.\nJika dari WhatsApp/Telegram, akan dilaporkan ke MCMC."
-      );
+      // No native alerts for image reporting; rely on in-app success modal
+      if (data && "imageId" in (data as ImageScamData) && (data as ImageScamData).imageId !== undefined) {
+        const id = String((data as ImageScamData).imageId);
+        set((state) => {
+          if (state.reportedImageIds.includes(id)) return state;
+          return { reportedImageIds: [...state.reportedImageIds, id] };
+        });
+      }
     }
 
     // Simulate API call delay

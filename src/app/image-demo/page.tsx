@@ -28,12 +28,13 @@ type PostScamImage = {
 export default function ImageDemoPage() {
   const [selectedImage, setSelectedImage] = useState<ScamImage | null>(null);
   const [showBlockOverlay, setShowBlockOverlay] = useState<PostScamImage | null>(null);
-  const { isActive, resetExtension } = useExtensionStore();
+  const { isActive, resetExtension, setLanguage } = useExtensionStore();
 
-  // Reset extension to inactive state when entering the page
+  // Reset extension and set default language to English on entering the page
   useEffect(() => {
     resetExtension();
-  }, [resetExtension]);
+    setLanguage("en");
+  }, [resetExtension, setLanguage]);
 
   const handleImageClick = (scamImage: PostScamImage) => {
     if (isActive) {

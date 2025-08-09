@@ -18,13 +18,14 @@ import { Badge } from '@/components/ui/badge';
 import { Truck, Shield, CreditCard, Phone } from 'lucide-react';
 
 export default function WebsiteDemoPage() {
-  const { isActive, analyzeContent, resetExtension } = useExtensionStore();
+  const { isActive, analyzeContent, resetExtension, setLanguage } = useExtensionStore();
   const websiteUrl = 'shoppe123.com';
 
-  // Reset extension to inactive state when entering the page
+  // Reset extension and set default language to English on entering the page
   useEffect(() => {
     resetExtension();
-  }, [resetExtension]);
+    setLanguage('en');
+  }, [resetExtension, setLanguage]);
 
   useEffect(() => {
     if (isActive) {
