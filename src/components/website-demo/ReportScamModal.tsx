@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { X, AlertTriangle, CheckCircle, ExternalLink, Send, Shield, Globe } from "lucide-react";
+import {
+  X,
+  AlertTriangle,
+  CheckCircle,
+  Send,
+  Shield,
+  Globe,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useExtensionStore, Language } from "@/lib/store/extensionStore";
+import { useExtensionStore} from "@/lib/store/extensionStore";
 
 const translations = {
   en: {
@@ -393,7 +400,11 @@ interface ReportScamModalProps {
   websiteUrl?: string;
 }
 
-export function ReportScamModal({ isOpen, onClose, websiteUrl = "deal-raya-123.com" }: ReportScamModalProps) {
+export function ReportScamModal({
+  isOpen,
+  onClose,
+  websiteUrl = "deal-raya-123.com",
+}: ReportScamModalProps) {
   const { selectedLanguage } = useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -404,10 +415,10 @@ export function ReportScamModal({ isOpen, onClose, websiteUrl = "deal-raya-123.c
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    
+
     // Simulate API calls to different services
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     setIsSubmitting(false);
     setIsSuccess(true);
   };
@@ -451,21 +462,29 @@ export function ReportScamModal({ isOpen, onClose, websiteUrl = "deal-raya-123.c
                   <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg border">
                     <Globe className="h-8 w-8 text-blue-600" />
                     <div className="flex-1">
-                      <div className="font-medium text-blue-900">{t.googleSafeBrowsing}</div>
-                      <div className="text-sm text-blue-700">{t.googleDesc}</div>
+                      <div className="font-medium text-blue-900">
+                        {t.googleSafeBrowsing}
+                      </div>
+                      <div className="text-sm text-blue-700">
+                        {t.googleDesc}
+                      </div>
                     </div>
                     <Badge variant="secondary">API</Badge>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg border">
                     <Shield className="h-8 w-8 text-purple-600" />
                     <div className="flex-1">
-                      <div className="font-medium text-purple-900">{t.phishTank}</div>
-                      <div className="text-sm text-purple-700">{t.phishTankDesc}</div>
+                      <div className="font-medium text-purple-900">
+                        {t.phishTank}
+                      </div>
+                      <div className="text-sm text-purple-700">
+                        {t.phishTankDesc}
+                      </div>
                     </div>
                     <Badge variant="secondary">Community</Badge>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg border">
                     <AlertTriangle className="h-8 w-8 text-green-600" />
                     <div className="flex-1">
@@ -487,7 +506,9 @@ export function ReportScamModal({ isOpen, onClose, websiteUrl = "deal-raya-123.c
                 </div>
 
                 <div>
-                  <label className="font-medium text-sm">{t.reportCategory}</label>
+                  <label className="font-medium text-sm">
+                    {t.reportCategory}
+                  </label>
                   <div className="mt-1">
                     <Badge variant="destructive">{t.fraudulent}</Badge>
                   </div>
@@ -553,9 +574,11 @@ export function ReportScamModal({ isOpen, onClose, websiteUrl = "deal-raya-123.c
             /* Success State */
             <div className="text-center py-8">
               <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-green-800 mb-2">{t.reportSuccess}</h3>
+              <h3 className="text-xl font-bold text-green-800 mb-2">
+                {t.reportSuccess}
+              </h3>
               <p className="text-gray-600 mb-6">{t.successMessage}</p>
-              
+
               <div className="space-y-2 mb-6">
                 <div className="flex items-center justify-center gap-2 text-sm">
                   <Globe className="h-4 w-4 text-blue-600" />

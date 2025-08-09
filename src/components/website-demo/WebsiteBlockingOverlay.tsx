@@ -4,7 +4,7 @@ import { Shield, AlertTriangle, ArrowLeft, ExternalLink, Home, Flag, CornerUpRig
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useExtensionStore, Language } from "@/lib/store/extensionStore";
+import { useExtensionStore} from "@/lib/store/extensionStore";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { ReportScamModal } from "./ReportScamModal";
 import { useState } from "react";
@@ -421,7 +421,7 @@ function getLegitimateSuggestion(url: string | undefined): string | null {
 }
 
 export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: WebsiteBlockingOverlayProps) {
-  const { isAnalyzing, riskScore, riskLevel, explanation, selectedLanguage } = useExtensionStore();
+  const { isAnalyzing, riskScore, selectedLanguage } = useExtensionStore();
   const [showFinalWarning, setShowFinalWarning] = useState(false);
   const [allowAccess, setAllowAccess] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
@@ -479,7 +479,9 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-2">
                     <AlertTriangle className="h-6 w-6 text-red-600" />
-                    <span className="text-lg font-semibold">{t.riskAnalysis}</span>
+                    <span className="text-lg font-semibold">
+                      {t.riskAnalysis}
+                    </span>
                   </div>
                   <Badge variant="destructive" className="text-lg px-3 py-1">
                     {t.risk}: {t.veryHigh} - {riskScore}%
@@ -530,7 +532,9 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
                 )}
 
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-                  <h4 className="font-semibold text-sm mb-2">{t.whatMayHappen}</h4>
+                  <h4 className="font-semibold text-sm mb-2">
+                    {t.whatMayHappen}
+                  </h4>
                   <ul className="text-sm space-y-1 text-gray-700">
                     <li>• {t.loseMoneyRisk}</li>
                     <li>• {t.creditCardRisk}</li>
@@ -541,24 +545,24 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
 
                 {/* Action buttons */}
                 <div className="flex gap-3 flex-wrap">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="flex-1 bg-green-600 hover:bg-green-700"
                     onClick={() => window.history.back()}
                   >
                     <ArrowLeft className="h-4 w-4 mr-2" />
                     {t.backToSafety}
                   </Button>
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="bg-orange-600 hover:bg-orange-700 text-white border-orange-600 shadow-lg"
                     onClick={handleReport}
                   >
                     <Flag className="h-4 w-4 mr-2" />
                     {t.reportFraud}
                   </Button>
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     variant="outline"
                     onClick={handleBackToHome}
                   >
@@ -587,7 +591,9 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
           <Card className="max-w-md">
             <CardContent className="p-6">
               <AlertTriangle className="h-12 w-12 text-red-600 mx-auto mb-4" />
-              <h3 className="text-lg font-bold text-center mb-2">{t.finalWarning}</h3>
+              <h3 className="text-lg font-bold text-center mb-2">
+                {t.finalWarning}
+              </h3>
               <p className="text-center text-gray-600 mb-6">
                 {t.finalWarningText}
               </p>
@@ -613,7 +619,7 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
       )}
 
       {/* Report Scam Modal */}
-      <ReportScamModal 
+      <ReportScamModal
         isOpen={showReportModal}
         onClose={() => setShowReportModal(false)}
         websiteUrl={websiteUrl}
