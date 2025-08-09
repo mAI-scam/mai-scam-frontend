@@ -9,83 +9,11 @@ import { useExtensionStore } from "@/lib/store/extensionStore";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { ReportScamImageModal } from "./ReportScamImageModal";
 import { LanguageCode } from "@/data/store/Languages";
+import { FacebookScamBlockData } from "@/data/image-demo/FacebookScamBlockData";
 
-type PostTranslation = {
-  scamDetected: string;
-  protectedBy: string;
-  warning: string;
-  description: string;
-  riskLevel: string;
-  high: string;
-  hidePost: string;
-  showPost: string;
-  reportScam: string;
-  whyBlocked: string;
-  reasons: string[];
-};
-
-const translations: Partial<Record<LanguageCode, PostTranslation>> = {
-  en: {
-    scamDetected: "SCAM POST DETECTED",
-    protectedBy: "Protected by mAIscam Extension",
-    warning: "This post contains scam content",
-    description:
-      "Our connected AI agents used OCR to extract text from this image and detected suspicious patterns that match known scam tactics through MCP threat intelligence",
-    riskLevel: "Risk Level",
-    high: "HIGH RISK",
-    hidePost: "Hide This Post",
-    showPost: "Show Post (I Understand the Risk)",
-    reportScam: "Report Scam",
-    whyBlocked: "Why was this blocked?",
-    reasons: [
-      "Fake government announcements",
-      "Unrealistic offers or promises",
-      "Requests for personal information",
-      "Suspicious links or domains",
-      "Impersonation of legitimate brands",
-    ],
-  },
-  ms: {
-    scamDetected: "POST PENIPUAN DIKESAN",
-    protectedBy: "Dilindungi oleh Sambungan mAIscam",
-    warning: "Post ini mengandungi kandungan penipuan",
-    description:
-      "Agen AI terhubung kami menggunakan OCR untuk mengekstrak teks dari imej ini dan mengesan corak mencurigakan yang sepadan dengan taktik penipuan melalui intelligence ancaman MCP",
-    riskLevel: "Tahap Risiko",
-    high: "RISIKO TINGGI",
-    hidePost: "Sembunyikan Post Ini",
-    showPost: "Tunjuk Post (Saya Faham Risikonya)",
-    reportScam: "Laporkan Penipuan",
-    whyBlocked: "Mengapa ini disekat?",
-    reasons: [
-      "Pengumuman kerajaan palsu",
-      "Tawaran atau janji yang tidak realistik",
-      "Permintaan maklumat peribadi",
-      "Pautan atau domain yang mencurigakan",
-      "Penyamaran jenama yang sah",
-    ],
-  },
-  zh: {
-    scamDetected: "检测到诈骗帖子",
-    protectedBy: "受 mAIscam 扩展保护",
-    warning: "此帖子包含诈骗内容",
-    description:
-      "我们的连接AI代理使用OCR从此图像中提取文本，并通过MCP威胁情报检测到与已知诈骗策略相匹配的可疑模式",
-    riskLevel: "风险等级",
-    high: "高风险",
-    hidePost: "隐藏此帖子",
-    showPost: "显示帖子（我了解风险）",
-    reportScam: "举报诈骗",
-    whyBlocked: "为什么被阻止？",
-    reasons: [
-      "虚假政府公告",
-      "不切实际的优惠或承诺",
-      "个人信息请求",
-      "可疑链接或域名",
-      "冒充合法品牌",
-    ],
-  },
-};
+const SUPPORTED = Object.keys(FacebookScamBlockData) as LanguageCode[];
+const isLanguageCode = (v: string): v is LanguageCode =>
+  (SUPPORTED as readonly string[]).includes(v);
 
 interface FacebookScamBlockOverlayProps {
   scamImage: {
@@ -107,7 +35,12 @@ export function FacebookScamBlockOverlay({
   const [showPost, setShowPost] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
   const { selectedLanguage } = useExtensionStore();
-  const t = translations[selectedLanguage];
+
+  // ✅ guard + fallback = no “possibly undefined”
+  const lang: LanguageCode = isLanguageCode(selectedLanguage)
+    ? selectedLanguage
+    : "en";
+  const t = FacebookScamBlockData[lang];
 
   const handleReport = () => {
     setShowReportModal(true);
