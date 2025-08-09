@@ -51,17 +51,17 @@ export function WebExtensionOverlay() {
 
   return (
     <div
-      className="fixed right-4 z-50"
+      className="fixed z-50 right-2 sm:right-4 left-auto"
       style={{ top: "calc(var(--banner-height, 0px) + 1rem)" }}
     >
-      <Card className="w-80 shadow-xl" data-tour="active-extension">
+      <Card className="w-[22rem] max-w-[95vw] shadow-xl" data-tour="active-extension">
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-primary" />
               <span className="font-semibold">{t.extensionActive}</span>
             </div>
-            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
               <LanguageSelector />
               <Button
                 variant="ghost"
@@ -100,7 +100,7 @@ export function WebExtensionOverlay() {
                 </div>
                 <Badge
                   variant={riskLevel === "high" ? "destructive" : "secondary"}
-                  className="text-lg"
+                  className="text-base sm:text-lg px-3 py-1"
                 >
                   {riskScore}%
                 </Badge>
@@ -112,14 +112,24 @@ export function WebExtensionOverlay() {
 
               {riskLevel === "high" && (
                 <div className="space-y-2">
-                  <Button variant="destructive" size="sm" className="w-full">
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    className="w-full whitespace-normal break-words leading-snug text-sm min-h-10"
+                    onClick={() => {
+                      const el = document.getElementById("risk-details");
+                      if (el) {
+                        el.scrollIntoView({ behavior: "smooth", block: "center" });
+                      }
+                    }}
+                  >
                     {t.viewWarning}
                   </Button>
                   <Button
                     data-tour="report-button"
                     variant="outline"
                     size="sm"
-                    className="w-full"
+                    className="w-full whitespace-normal break-words leading-snug text-sm min-h-10"
                     onClick={() => setShowReportModal(true)}
                   >
                     <Flag className="h-4 w-4 mr-2" />

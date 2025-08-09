@@ -150,7 +150,21 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       // Intentionally do not reset reportedImageIds so reported state persists during demo navigation
     }),
 
-  setLanguage: (language: Language) => set({ selectedLanguage: language }),
+  setLanguage: (language: Language) =>
+    set((state) => {
+      let newExplanation = state.explanation;
+      if (state.analysisType === "email" && state.riskLevel) {
+        newExplanation =
+          EmailExplanations[state.riskLevel][
+            language as keyof (typeof EmailExplanations)[typeof state.riskLevel]
+          ] ?? EmailExplanations[state.riskLevel]["en"];
+      } else if (state.analysisType === "website") {
+        newExplanation =
+          WebsiteExplanations[language as keyof typeof WebsiteExplanations] ??
+          WebsiteExplanations["en"];
+      }
+      return { selectedLanguage: language, explanation: newExplanation };
+    }),
 
   reportScam: async (
     type: "email" | "website" | "image",
