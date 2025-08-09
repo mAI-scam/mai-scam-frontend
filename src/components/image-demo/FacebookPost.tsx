@@ -122,6 +122,7 @@ export function FacebookPost({ post, onImageClick }: FacebookPostProps) {
               isActive && post.image.scamImage ? 'cursor-pointer hover:opacity-90' : ''
             }`}
             onClick={handleImageClick}
+            data-tour={post.image.scamImage ? 'scam-image' : undefined}
           >
             <Image
               src={post.image.src}

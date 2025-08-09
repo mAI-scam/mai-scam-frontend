@@ -61,7 +61,7 @@ export function FacebookScamBlockOverlay({
       <Card className="max-w-2xl w-full">
         <CardContent className="p-0">
           {/* Header */}
-          <div className="bg-red-600 text-white p-6 rounded-t-lg">
+          <div className="bg-red-600 text-white p-6 rounded-t-lg" data-tour="fb-risk-header">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/20 rounded-full">
@@ -153,6 +153,7 @@ export function FacebookScamBlockOverlay({
                   </Button>
                 ) : (
                   <Button
+                    data-tour="fb-report-button"
                     onClick={handleReport}
                     className="flex-1 bg-red-600 hover:bg-red-700"
                   >

@@ -149,7 +149,7 @@ interface FacebookFeedProps {
 
 export function FacebookFeed({ onImageClick }: FacebookFeedProps) {
   return (
-    <div className="max-w-2xl mx-auto space-y-4">
+    <div className="max-w-2xl mx-auto space-y-4" data-tour="facebook-feed">
       {/* Create Post Box */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
         <div className="flex items-center space-x-3">
