@@ -127,7 +127,7 @@ export function FacebookPost({ post, onImageClick }: FacebookPostProps) {
               src={post.image.src}
               alt={post.image.alt}
               fill
-              className="object-cover"
+              className={`object-cover ${isActive && post.image.scamImage ? 'filter blur-sm' : ''}`}
             />
             {isActive && post.image.scamImage && (
               <div className="absolute top-4 right-4 flex flex-col gap-2">

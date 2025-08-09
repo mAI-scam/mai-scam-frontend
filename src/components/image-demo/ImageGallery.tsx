@@ -92,7 +92,7 @@ export function ImageGallery({ onImageClick }: ImageGalleryProps) {
                 src={image.image}
                 alt={image.title}
                 fill
-                className="object-cover"
+                className={`object-cover ${isActive ? 'filter blur-sm' : ''}`}
               />
               {isActive && (
                 <Badge variant="destructive" className="absolute top-2 right-2">
