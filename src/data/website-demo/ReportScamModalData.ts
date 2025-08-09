@@ -435,4 +435,5 @@ export const ReportScamModalData: Record<
 /** Helper: pick localized strings with a safe fallback */
 export const getReportScamStrings = (
   lang: LanguageCode
-): ReportScamModalTranslation => translations[lang] ?? translations.en;
+): ReportScamModalTranslation =>
+  ReportScamModalData[lang] ?? ReportScamModalData.en;

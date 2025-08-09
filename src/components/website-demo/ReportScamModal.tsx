@@ -14,7 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useExtensionStore, Language } from "@/lib/store/extensionStore";
-import { ReportScamModalData as translations } from "@/data/website-demo/ReportScamModalData";
+import { getReportScamStrings } from "@/data/website-demo/ReportScamModalData";
 
 interface ReportScamModalProps {
   isOpen: boolean;
@@ -33,7 +33,7 @@ export function ReportScamModal({
   const [reportId] = useState(
     () => `MSR-${Date.now().toString(36).toUpperCase()}`
   );
-  const t = translations[selectedLanguage];
+  const t = getReportScamStrings(selectedLanguage);
 
   if (!isOpen) return null;
 
