@@ -19,6 +19,7 @@ import { Truck, Shield, CreditCard, Phone } from 'lucide-react';
 
 export default function WebsiteDemoPage() {
   const { isActive, analyzeContent, resetExtension } = useExtensionStore();
+  const websiteUrl = 'shoppe123.com';
 
   // Reset extension to inactive state when entering the page
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function WebsiteDemoPage() {
   useEffect(() => {
     if (isActive) {
       // Simulate analyzing the entire website content
-      analyzeContent('deal-raya-123.com flash sale murah iPhone PS5 Coach 90% discount', 'website');
+      analyzeContent(`${websiteUrl} flash sale murah iPhone PS5 Coach 90% discount`, 'website');
     }
   }, [isActive, analyzeContent]);
 
@@ -45,7 +46,7 @@ export default function WebsiteDemoPage() {
       </div>
       
       {/* Fake Browser UI */}
-      <FakeBrowserBar />
+      <FakeBrowserBar websiteUrl={websiteUrl} />
       
       {/* Scam Website Content */}
       <div className={`bg-white ${isActive ? 'filter blur-sm' : ''}`}>
@@ -116,7 +117,7 @@ export default function WebsiteDemoPage() {
       </div>
 
       {/* Blocking Overlay (appears when extension is active) */}
-      {isActive && <WebsiteBlockingOverlay />}
+      {isActive && <WebsiteBlockingOverlay websiteUrl={websiteUrl} />}
     </div>
   );
 }
