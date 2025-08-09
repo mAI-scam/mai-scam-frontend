@@ -25,7 +25,10 @@ export function FakeBrowserBar({ websiteUrl = 'deal-raya-123.com' }: FakeBrowser
           </button>
         </div>
         
-        <div className="flex-1 flex items-center bg-white rounded-full px-4 py-1.5 border">
+        <div
+          className="flex-1 flex items-center bg-white rounded-full px-4 py-1.5 border"
+          data-tour="fake-browser-bar"
+        >
           <Lock className="h-4 w-4 text-gray-400 mr-2" />
           <span className="text-sm text-gray-700">{websiteUrl}/flash-sale</span>
         </div>

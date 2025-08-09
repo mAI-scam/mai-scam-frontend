@@ -34,7 +34,7 @@ export function FlashSaleBanner() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white">
+    <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white" data-tour="flash-sale">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
