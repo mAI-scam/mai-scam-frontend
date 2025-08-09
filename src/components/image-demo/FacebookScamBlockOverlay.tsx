@@ -24,6 +24,7 @@ interface FacebookScamBlockOverlayProps {
     language: string;
     category: string;
     content: string;
+    imageSrc?: string;
   };
   onClose: () => void;
 }
@@ -41,6 +42,15 @@ export function FacebookScamBlockOverlay({
     ? selectedLanguage
     : "en";
   const t = FacebookScamBlockData[lang];
+
+  const getTailoredReasons = (): string[] => {
+    const src = scamImage.imageSrc || "";
+    if (src.includes("scam_giveaway_example")) return t.reasonsGiveaway ?? t.reasons;
+    if (src.includes("scam_gov_aid_example")) return t.reasonsGovAid ?? t.reasons;
+    if (src.includes("scam_sms_example")) return t.reasonsSms ?? t.reasons;
+    if (src.includes("scam_investment_example")) return t.reasonsInvestment ?? t.reasons;
+    return t.reasons;
+  };
 
   const handleReport = () => {
     setShowReportModal(true);
@@ -102,19 +112,22 @@ export function FacebookScamBlockOverlay({
               </Badge>
             </div>
 
-            {/* Why Blocked */}
+            {/* Why Blocked - image specific rationale */}
             <div className="space-y-3">
               <h4 className="font-semibold text-gray-900">{t.whyBlocked}</h4>
               <ul className="space-y-2">
-                {t.reasons.map((reason, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-2 text-sm text-gray-700"
-                  >
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span>{reason}</span>
-                  </li>
-                ))}
+                {(() => {
+                  const reasons = getTailoredReasons();
+                  return reasons.map((reason, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-2 text-sm text-gray-700"
+                    >
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                      <span>{reason}</span>
+                    </li>
+                  ));
+                })()}
               </ul>
             </div>
 

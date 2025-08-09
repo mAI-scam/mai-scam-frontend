@@ -11,7 +11,11 @@ export type FacebookScamBlockTranslation = {
   showPost: string;
   reportScam: string;
   whyBlocked: string;
-  reasons: string[];
+  reasons: string[]; // default fallback
+  reasonsGiveaway: string[];
+  reasonsGovAid: string[];
+  reasonsSms: string[];
+  reasonsInvestment: string[];
 };
 
 export const FacebookScamBlockData: Record<
@@ -37,6 +41,30 @@ export const FacebookScamBlockData: Record<
       "Suspicious links or domains",
       "Impersonation of legitimate brands",
     ],
+    reasonsGiveaway: [
+      "Uses the Hotlink brand to promote a fake giveaway",
+      "Promises free RM50 Touch n Go eWallet credit (too good to be true)",
+      "Pushes urgency without official terms and conditions",
+      "Likely phishing or data-harvesting attempt",
+    ],
+    reasonsGovAid: [
+      "Impersonates MADANI government aid while offering free laptops/tablets",
+      "Claims ‘100% FREE’ and ‘No Hidden Charges’ — classic scam lure",
+      "Uses ‘Fast Approval Process’ and limited-time pressure",
+      "No links to official .gov.my sources for verification",
+    ],
+    reasonsSms: [
+      "Links to a non-official domain (jtexpress.ftaysh.help)",
+      "Demands action within 24 hours to create urgency",
+      "Asks to reply ‘Y’ to activate a link — engagement bait",
+      "Typical parcel scam aimed at stealing personal info",
+    ],
+    reasonsInvestment: [
+      "Promises up to 12% annual returns — unrealistic guaranteed gains",
+      "Claims ‘100% stable & secure’ without regulatory disclosure",
+      "Targets government employees to build false trust",
+      "High minimum RM10,000 deposit used as pressure tactic",
+    ],
   },
   ms: {
     scamDetected: "POST PENIPUAN DIKESAN",
@@ -56,6 +84,30 @@ export const FacebookScamBlockData: Record<
       "Permintaan maklumat peribadi",
       "Pautan atau domain yang mencurigakan",
       "Penyamaran jenama yang sah",
+    ],
+    reasonsGiveaway: [
+      "Menggunakan jenama Hotlink untuk promosi giveaway palsu",
+      "Janji kredit Touch n Go RM50 percuma (terlalu bagus untuk jadi nyata)",
+      "Mendesak untuk tuntut tanpa terma & syarat rasmi",
+      "Berpotensi phishing atau pengumpulan data",
+    ],
+    reasonsGovAid: [
+      "Menyamar bantuan kerajaan MADANI dengan tawaran laptop/tablet percuma",
+      "Klaim ‘100% PERCUMA’ dan ‘Tiada Caj Tersembunyi’ — umpan scam klasik",
+      "Guna ‘Proses Lulus Pantas’ dan tekanan masa terhad",
+      "Tiada pautan ke sumber rasmi .gov.my untuk pengesahan",
+    ],
+    reasonsSms: [
+      "Paut ke domain tidak rasmi (jtexpress.ftaysh.help)",
+      "Paksa tindakan dalam 24 jam untuk cipta desakan",
+      "Minta balas ‘Y’ untuk aktifkan pautan — umpan penglibatan",
+      "Aliran scam bungkusan untuk mencuri maklumat peribadi",
+    ],
+    reasonsInvestment: [
+      "Janji pulangan sehingga 12% setahun — jaminan tidak realistik",
+      "Klaim ‘100% stabil & selamat’ tanpa pendedahan pengawalseliaan",
+      "Sasar kakitangan kerajaan untuk bina kepercayaan palsu",
+      "Deposit minimum RM10,000 digunakan sebagai taktik tekanan",
     ],
   },
   zh: {
@@ -77,6 +129,30 @@ export const FacebookScamBlockData: Record<
       "可疑链接或域名",
       "冒充合法品牌",
     ],
+    reasonsGiveaway: [
+      "借用 Hotlink 品牌进行虚假赠品活动",
+      "承诺免费 RM50 Touch n Go 余额（好得不真实）",
+      "制造紧迫感却没有正式条款与细则",
+      "极可能是钓鱼或数据收集",
+    ],
+    reasonsGovAid: [
+      "假冒 MADANI 政府援助并宣称免费笔电/平板",
+      "声称“100% 免费、无隐藏收费”——典型诈骗诱饵",
+      "使用“快速审批”和限时字眼制造紧迫感",
+      "无任何 .gov.my 官方来源供验证",
+    ],
+    reasonsSms: [
+      "链接指向非官方网站 (jtexpress.ftaysh.help)",
+      "要求在 24 小时内操作制造紧迫感",
+      "要求回复“Y”以激活链接——诱导互动",
+      "典型快递诈骗，意图窃取个人信息",
+    ],
+    reasonsInvestment: [
+      "承诺高达 12% 年回报——不现实的保证收益",
+      "声称“100% 稳定且安全”但无监管信息",
+      "以公务员为目标，制造虚假信任",
+      "至少 RM10,000 的高额门槛作为压力手段",
+    ],
   },
   vi: {
     scamDetected: "PHÁT HIỆN BÀI ĐĂNG LỪA ĐẢO",
@@ -96,6 +172,30 @@ export const FacebookScamBlockData: Record<
       "Yêu cầu cung cấp thông tin cá nhân",
       "Liên kết hoặc tên miền đáng ngờ",
       "Giả mạo thương hiệu hợp pháp",
+    ],
+    reasonsGiveaway: [
+      "Mượn thương hiệu Hotlink để tổ chức giveaway giả",
+      "Hứa tặng miễn phí RM50 Touch n Go (quá tốt để là thật)",
+      "Tạo cảm giác gấp gáp nhưng không có điều khoản chính thức",
+      "Có khả năng là phishing hoặc thu thập dữ liệu",
+    ],
+    reasonsGovAid: [
+      "Giả mạo hỗ trợ MADANI với quà laptop/tablet miễn phí",
+      "Tuyên bố ‘100% MIỄN PHÍ’, ‘Không phí ẩn’ — mồi nhử điển hình",
+      "Dùng ‘duyệt nhanh’ và giới hạn thời gian để gây áp lực",
+      "Không có liên kết .gov.my chính thức để xác minh",
+    ],
+    reasonsSms: [
+      "Liên kết tới tên miền không chính thức (jtexpress.ftaysh.help)",
+      "Ép xác nhận trong 24 giờ để tạo gấp gáp",
+      "Yêu cầu trả lời ‘Y’ để kích hoạt link — bẫy tương tác",
+      "Mô-típ lừa đảo bưu kiện để đánh cắp thông tin cá nhân",
+    ],
+    reasonsInvestment: [
+      "Hứa lợi nhuận tới 12%/năm — cam kết phi thực tế",
+      "Nói ‘100% ổn định & an toàn’ nhưng không có thông tin quản lý",
+      "Nhắm mục tiêu công chức để tạo lòng tin giả",
+      "Yêu cầu tối thiểu RM10,000 như một cách gây áp lực",
     ],
   },
   th: {
@@ -117,6 +217,30 @@ export const FacebookScamBlockData: Record<
       "ลิงก์หรือโดเมนน่าสงสัย",
       "ปลอมแปลงเลียนแบบแบรนด์ถูกกฎหมาย",
     ],
+    reasonsGiveaway: [
+      "ใช้แบรนด์ Hotlink โปรโมตของแจกปลอม",
+      "สัญญาให้เครดิต Touch n Go ฟรี RM50 (ดีเกินจริง)",
+      "เร่งให้กดรับโดยไม่มีข้อกำหนดและเงื่อนไขทางการ",
+      "มีแนวโน้มเป็นฟิชชิงหรือเก็บข้อมูล",
+    ],
+    reasonsGovAid: [
+      "สวมรอยเป็นโครงการช่วยเหลือ MADANI พร้อมให้แล็ปท็อป/แท็บเล็ตฟรี",
+      "อ้าง ‘ฟรี 100%’ และ ‘ไม่มีค่าธรรมเนียมแอบแฝง’ — เหยื่อล่อแบบคลาสสิก",
+      "ใช้คำว่า ‘อนุมัติไว’ และจำกัดเวลาเพื่อกดดัน",
+      "ไม่มีลิงก์ .gov.my ทางการสำหรับตรวจสอบ",
+    ],
+    reasonsSms: [
+      "ลิงก์ไปยังโดเมนที่ไม่เป็นทางการ (jtexpress.ftaysh.help)",
+      "บังคับให้ทำภายใน 24 ชั่วโมงเพื่อสร้างความเร่งด่วน",
+      "ขอให้ตอบ ‘Y’ เพื่อเปิดใช้งานลิงก์ — เหยื่อล่อการมีส่วนร่วม",
+      "เป็นรูปแบบหลอกลวงพัสดุเพื่อขโมยข้อมูลส่วนบุคคล",
+    ],
+    reasonsInvestment: [
+      "สัญญาผลตอบแทนสูงสุด 12% ต่อปี — รับประกันที่ไม่สมจริง",
+      "อ้าง ‘เสถียรและปลอดภัย 100%’ โดยไม่มีข้อมูลกำกับดูแล",
+      "มุ่งเป้าข้าราชการเพื่อสร้างความน่าเชื่อถือปลอม",
+      "ใช้เงินลงทุนขั้นต่ำ RM10,000 เป็นกลยุทธ์กดดัน",
+    ],
   },
   fil: {
     scamDetected: "NATUKLASANG SCAM NA POST",
@@ -136,6 +260,30 @@ export const FacebookScamBlockData: Record<
       "Hinihinging personal na impormasyon",
       "Kahina-hinalang link o domain",
       "Pagpapanggap bilang lehitimong brand",
+    ],
+    reasonsGiveaway: [
+      "Gumagamit ng Hotlink brand para sa pekeng giveaway",
+      "Nangakong libreng RM50 Touch n Go (sobrang ganda para totoo)",
+      "Gumagawa ng urgency na walang opisyal na T&C",
+      "Malamang phishing o pangongolekta ng data",
+    ],
+    reasonsGovAid: [
+      "Nagpapanggap na tulong ng pamahalaang MADANI na may libreng laptop/tablet",
+      "Sinasabing ‘100% FREE’ at ‘Walang Nakatagong Bayad’ — klasikong pain",
+      "Gamit ang ‘Mabilis na Apruba’ at limitadong oras para magmamadali",
+      "Walang opisyal na .gov.my link para sa beripikasyon",
+    ],
+    reasonsSms: [
+      "Link papunta sa hindi opisyal na domain (jtexpress.ftaysh.help)",
+      "Humihingi ng aksyon sa loob ng 24 oras para lumikha ng apurahan",
+      "Nagre-request na sumagot ng ‘Y’ para i-activate ang link — engagement bait",
+      "Karaniwang parcel scam na nagnanakaw ng personal na impormasyon",
+    ],
+    reasonsInvestment: [
+      "Nangakong hanggang 12% taon-taon — hindi makatotohanang garantiya",
+      "Sinasabing ‘100% stable & secure’ nang walang regulatory proof",
+      "Target ang government employees para magmukhang legit",
+      "Minimum RM10,000 deposit bilang pang-pressure",
     ],
   },
   id: {
@@ -157,6 +305,30 @@ export const FacebookScamBlockData: Record<
       "Tautan atau domain mencurigakan",
       "Penyamaran merek yang sah",
     ],
+    reasonsGiveaway: [
+      "Memakai merek Hotlink untuk giveaway palsu",
+      "Menjanjikan kredit Touch n Go RM50 gratis (terlalu bagus untuk nyata)",
+      "Mendesak klaim tanpa syarat & ketentuan resmi",
+      "Berpotensi phishing atau pengumpulan data",
+    ],
+    reasonsGovAid: [
+      "Menyamar sebagai bantuan pemerintah MADANI dengan laptop/tablet gratis",
+      "Klaim ‘100% GRATIS’ dan ‘Tanpa Biaya Tersembunyi’ — umpan klasik",
+      "Memakai ‘Proses Persetujuan Cepat’ dan tekanan waktu",
+      "Tidak ada tautan .gov.my resmi untuk verifikasi",
+    ],
+    reasonsSms: [
+      "Taut ke domain non-resmi (jtexpress.ftaysh.help)",
+      "Menuntut aksi dalam 24 jam untuk membuat urgensi",
+      "Meminta balas ‘Y’ untuk aktifkan tautan — umpan interaksi",
+      "Alur penipuan paket untuk mencuri data pribadi",
+    ],
+    reasonsInvestment: [
+      "Janji imbal hasil hingga 12% per tahun — jaminan tidak realistis",
+      "Klaim ‘100% stabil & aman’ tanpa bukti regulasi",
+      "Menarget ASN untuk membangun kepercayaan palsu",
+      "Setoran minimum RM10.000 sebagai taktik tekanan",
+    ],
   },
   jv: {
     scamDetected: "KIRIMAN APUS-APUS KETEMU",
@@ -176,6 +348,30 @@ export const FacebookScamBlockData: Record<
       "Panyuwunan informasi pribadhi",
       "Pranala utawa domain sing curiga",
       "Niru mérek sing sah",
+    ],
+    reasonsGiveaway: [
+      "Nganggo mérek Hotlink kanggo giveaway palsu",
+      "Janji kredit Touch n Go RM50 gratis (kakehan apik)",
+      "Ndesek supaya ngeklaim tanpa syarat & ketentuan resmi",
+      "Kamungkinan phishing utawa ngumpulake data",
+    ],
+    reasonsGovAid: [
+      "Nyamar dadi bansos MADANI karo laptop/tablet gratis",
+      "Ngaku ‘100% GRATIS’ lan ‘Tanpa Biaya Didhelikake’ — pancing klasik",
+      "Nggunakake ‘Proses Disetujoni Cepet’ lan wates wektu",
+      "Ora ana pranala .gov.my resmi kanggo verifikasi",
+    ],
+    reasonsSms: [
+      "Pranala menyang domain ora resmi (jtexpress.ftaysh.help)",
+      "Nuntut tumindak sajrone 24 jam kanggo nggawe kepepet",
+      "Njaluk bales ‘Y’ kanggo ngaktifake pranala — umpan interaksi",
+      "Pola penipuan paket kanggo nyolong data pribadhi",
+    ],
+    reasonsInvestment: [
+      "Janji bali nganti 12% saben taun — jaminan ora realistis",
+      "Ngaku ‘100% stabil & aman’ tanpa bukti regulasi",
+      "Narget pagawé pamaréntah kanggo mbangun kapercayan palsu",
+      "Setoran minimal RM10.000 minangka taktik tekanan",
     ],
   },
   su: {
@@ -197,6 +393,30 @@ export const FacebookScamBlockData: Record<
       "Tumbu atanapi domain anu curiga",
       "Nyamur mérek anu sah",
     ],
+    reasonsGiveaway: [
+      "Maké mérek Hotlink keur giveaway palsu",
+      "Janji kiridit Touch n Go RM50 gratis (teuing alus)",
+      "Nyieun darurat tanpa T&C resmi",
+      "Kamungkinan phishing atawa ngumpulkeun data",
+    ],
+    reasonsGovAid: [
+      "Nyamur bantosan pamaréntah MADANI kalawan laptop/tablet gratis",
+      "Ngaku ‘100% GRATIS’ jeung ‘Tanpa Biaya Disumputkeun’ — umpan klasik",
+      "Ngagunakeun ‘Prosés Disatujuan Gancang’ jeung waktu kawates",
+      "Henteu aya tautan .gov.my resmi keur verifikasi",
+    ],
+    reasonsSms: [
+      "Tumbu ka domain teu resmi (jtexpress.ftaysh.help)",
+      "Nuntut lampah dina 24 jam pikeun nyieun kagok",
+      "Nyarankeun bales ‘Y’ pikeun ngaktipkeun tumbu — umpan interaksi",
+      "Pola panipuan paket pikeun nyolong data pribadi",
+    ],
+    reasonsInvestment: [
+      "Janji nepi ka 12% sataun — jangji teu réalistis",
+      "Ngaku ‘100% stabil & aman’ tanpa bukti régulasi",
+      "Narget pagawé pamaréntah pikeun ngawangun kapercayaan palsu",
+      "Setoran minimum RM10.000 minangka taktik tekanan",
+    ],
   },
   km: {
     scamDetected: "បានរកឃើញប្រកាសបោកបញ្ឆោត",
@@ -216,6 +436,31 @@ export const FacebookScamBlockData: Record<
       "ស្នើសុំព័ត៌មានផ្ទាល់ខ្លួន",
       "តំណភ្ជាប់ ឬដូម៉ែនគួរឲ្យសង្ស័យ",
       "ការក្លែងធ្វើជាយីហោស្របច្បាប់",
+    ],
+    reasonsGiveaway: [
+      "ប្រើម៉ាក Hotlink ដើម្បីផ្សព្វផ្សាយការផ្តល់ជូនក្លែងក្លាយ",
+      "សន្យាឲ្យឥតគិតថ្លៃ RM50 Touch n Go (ល្អពេកមិនពិត)",
+      "បង្កើតភាពប្រញាប់ប្រញាលដោយគ្មានលក្ខខណ្ឌផ្លូវការ",
+      "អាចជាការនេសាទទិន្នន័យ ឬប្រមូលព័ត៌មាន",
+    ],
+    reasonsGovAid: [
+      "ក្លែងធ្វើជាការជួយគាំទ្រ MADANI ដោយផ្តល់ laptop/tablet ឥតគិតថ្លៃ",
+      "អះអាង ‘ឥតគិតថ្លៃ 100%’ និង ‘គ្មានថ្លៃលាក់លៀម’ — ចំណិតឧបាយ"
+      + "ក្លាស៊ីក",
+      "ប្រើ ‘ដំណើរការអនុម័តលឿន’ និង ពេលវេលាកំណត់ ដើម្បីបង្កើតសម្ពាធ",
+      "គ្មានតំណ .gov.my ផ្លូវការ សម្រាប់ផ្ទៀងផ្ទាត់",
+    ],
+    reasonsSms: [
+      "តំណភ្ជាប់ទៅកាន់ដូម៉ែនមិនផ្លូវការ (jtexpress.ftaysh.help)",
+      "ទាមទារឲ្យធ្វើនៅក្នុង 24 ម៉ោង ដើម្បីបង្កើតភាពប្រញាប់",
+      "ស្នើឲ្យឆ្លើយ ‘Y’ ដើម្បីបើកតំណ — ឧបាយបន្លំ",
+      "គំរូភេរវកម្មបណ្ណាគារដែលមានគោលបំណងលួចព័ត៌មានផ្ទាល់ខ្លួន",
+    ],
+    reasonsInvestment: [
+      "សន្យាផ្តល់ប្រាក់ចំណេញដល់ 12% ក្នុងមួយឆ្នាំ — ការធានាមិនពិត",
+      "អះអាង ‘មានស្ថិរភាព និងសុវត្ថិភាព 100%’ ដោយគ្មានព័ត៌មានគ្រប់គ្រង",
+      "ផ្តោតលើមន្ត្រីរដ្ឋាភិបាល ដើម្បីបង្កើតទំនុកចិត្តក្លែងក្លាយ",
+      "កំណត់ទ្រាសរួមយ៉ាងហោចណាស់ RM10,000 ដើម្បីចេញសម្ពាធ",
     ],
   },
   lo: {
@@ -237,6 +482,30 @@ export const FacebookScamBlockData: Record<
       "ລິ້ງ ຫລືໂດເມນທີ່ນ່າສົງໄສ",
       "ປອມແປງເປັນຍີ່ຫໍ້ຖືກກົດໝາຍ",
     ],
+    reasonsGiveaway: [
+      "ໃຊ້ແບຣນ Hotlink ເພື່ອໂຄສະນາຂອງແຈກປັນປອມ",
+      "ສັນຍາໃຫ້ເງິນ Touch n Go RM50 ໂດຍຟຣີ (ດີເກີນຈິງ)",
+      "ສ້າງຄວາມຮີບດ່ວນໂດຍບໍ່ມີ T&C ທາງການ",
+      "ອາດເປັນ phishing ຫຼື ການເກັບຂໍ້ມູນ",
+    ],
+    reasonsGovAid: [
+      "ປອມເປັນການຊ່ວຍເຫຼືອ MADANI ພ້ອມແທັບເລັດ/ແລັບທັອບຟຣີ",
+      "ອ້າງ ‘ຟຣີ 100%’ ແລະ ‘ບໍ່ມີຄ່າໃຊ້ຈ່າຍແອບແຝງ’ — ເຫຍື່ອລໍ້ຄລາສສິກ",
+      "ໃຊ້ ‘ອະນຸມັດໄວ’ ແລະ ຈໍາກັດເວລາເພື່ອກົດດັນ",
+      "ບໍ່ມີລິ້ງ .gov.my ທາງການເພື່ອການກວດສອບ",
+    ],
+    reasonsSms: [
+      "ລິ້ງໄປຫາໂດເມນບໍ່ເປັນທາງການ (jtexpress.ftaysh.help)",
+      "ຮຽກຮ້ອງໃຫ້ເຮັດໃນ 24 ຊົ່ວໂມງ ເພື່ອສ້າງຄວາມຮີບດ່ວນ",
+      "ໃຫ້ຕອບ ‘Y’ ເພື່ອເປີດໃຊ້ງານລິ້ງ — ການລໍ້ໃຫ້ມີສ່ວນຮ່ວມ",
+      "ແບບຢ່າງຫຼອກລວງພັດສະດຸ ເພື່ອຂໂມຍຂໍ້ມູນສ່ວນຕົວ",
+    ],
+    reasonsInvestment: [
+      "ສັນຍາຜົນຕອບແທນ 12% ຕໍ່ປີ — ຮັບປະກັນທີ່ບໍ່ເປັນຈິງ",
+      "ອ້າງ ‘ສະຖຽນລະພາບ & ປອດໄພ 100%’ ໂດຍບໍ່ມີຂໍ້ມູນກໍາກັບດູແລ",
+      "ເປົ້າໝາຍຂ້າລາຊະການເພື່ອສ້າງຄວາມນ່າເຊື່ອຖືປອມ",
+      "ກຳນົດເງິນຝາກຂັ້ນຕ່ຳ RM10,000 ເປັນກົນລະຍຸດກົດດັນ",
+    ],
   },
   my: {
     scamDetected: "လိမ်လည်မှု ပို့စ်ကို တွေ့ရှိခဲ့သည်",
@@ -257,6 +526,30 @@ export const FacebookScamBlockData: Record<
       "ရှုပ်ထွေးစိတ်စည်းစိတ်ဖြာဖွယ် လင့်ခ် သို့မဟုတ် ဒိုမိန်းများ",
       "တရားဝင် ဘရန်းဒ်များကို တုနိမိတ်လုပ်ခြင်း",
     ],
+    reasonsGiveaway: [
+      "Hotlink မားခ်ကို အသုံးပြုပြီး အတု giveaway ကြော်ငြာခြင်း",
+      "RM50 Touch n Go အခမဲ့အကျိုးခံစားခွင့်ကို ကတိပေးခြင်း (အလွန်ကောင်းလွန်းသည်)",
+      "တရားဝင်စည်းမျဉ်းစည်းကမ်းမရှိဘဲ အလွန် တိုက်တွန်းဆောင်ရွက်ခြင်း",
+      "Phishing သို့မဟုတ် ဒေတာစုဆောင်းမှု ဖြစ်နိုင်ပါသည်",
+    ],
+    reasonsGovAid: [
+      "MADANI အစိုးရ အကူအညီ အတုဖြင့် laptop/tablet အခမဲ့ပေးခြင်း",
+      "‘100% အခမဲ့’ နှင့် ‘လျှို့ဝှက်ခများ မရှိ’ ဟုပြောခြင်း — စိမ်စားလိမ်လည်ချက်",
+      "‘လျင်မြန်သတ်မှတ်’ နှင့် အချိန်ကန့်သတ်မှုဖြင့် ဖိအားပေးခြင်း",
+      "စစ်ဆေးရန် တရားဝင် .gov.my လင့်ခ် မပါဝင်ပါ",
+    ],
+    reasonsSms: [
+      "တရားဝင်မဟုတ်သော domain (jtexpress.ftaysh.help) သို့ ချိတ်ဆက်ထားခြင်း",
+      "၂၄ နာရီ အတွင်းဆောင်ရွက်ရန် အရေးပေါ်ဖန်တီးထားခြင်း",
+      "လင့်ခ်ဖွင့်ရန် ‘Y’ ဟုပြန်စာပို့ရန်တောင်းဆိုခြင်း — လိမ်လည် မကြာခဏ အသုံးပြုသည့်နည်း",
+      "ကိုယ်ရေးကိုယ်တာ အချက်အလက် ခိုးယူရန် ရည်ရွယ်သော လူကြမ်းစာတိုက်လိမ်လည်မှု",
+    ],
+    reasonsInvestment: [
+      "တစ်နှစ်လျှင် 12% အထိ အမြတ်အမြောက် အာမခံခြင်း — မမှန်ကန်သော အာမခံ",
+      "‘100% တည်ငြိမ် & လုံခြုံ’ ဟုပြောဆိုသော်လည်း စည်းမျဉ်း တားဆီးမှု မပေးထား",
+      "အစိုးရဝန်ထမ်းများကို ဦးတည်၍ ယုံကြည်မှု တုနိမိတ်လုပ်ခြင်း",
+      "အနည်းဆုံး RM10,000 အပ်နှံရမည်ဟု ဖိအားပေးခြင်း",
+    ],
   },
   ta: {
     scamDetected: "மோசடி பதிவை கண்டறிந்தோம்",
@@ -276,6 +569,30 @@ export const FacebookScamBlockData: Record<
       "தனிப்பட்ட தகவல் கோரிக்கைகள்",
       "சந்தேகமான இணைப்புகள் அல்லது டொமைன்கள்",
       "சட்டபூர்வமான பிராண்ட்களைப் பின்பற்றும் போலிநடிப்பு",
+    ],
+    reasonsGiveaway: [
+      "Hotlink பிராண்டை பயன்படுத்தி போலி giveaway பிரசாரம்",
+      "RM50 Touch n Go இலவச கிரெடிட் வாக்குறுதி (வास्तவமற்றது)",
+      "அதிக அவசரத்தை ஏற்படுத்தி, அதிகாரப்பூர்வ நிபந்தனைகள் இன்றி டிரிகர் செய்கிறது",
+      "Phishing அல்லது தரவு சேகரிப்பு முயற்சி இருக்கலாம்",
+    ],
+    reasonsGovAid: [
+      "MADANI அரசு உதவித் திட்டமாக போலிநடிப்பு செய்து, இலவச லேப்டாப்/டாப்லெட் வழங்கல்",
+      "‘100% இலவசம்’, ‘மறைமுக கட்டணங்கள் இல்லை’ — வழக்கமான மோசடி வலைகள்",
+      "‘வேகமான அங்கீகாரம்’ மற்றும் காலக்கெடு மூலம் அழுத்தம் உருவாக்கல்",
+      "உறுதிப்படுத்த .gov.my அதிகாரப்பூர்வ இணைப்புகள் இல்லை",
+    ],
+    reasonsSms: [
+      "அதிகாரப்பூர்வமல்லாத domain (jtexpress.ftaysh.help) க்கு இணைப்பு",
+      "24 மணி நேரத்தில் செயல் கோருதல் — அவசரத்தை உருவாக்குகிறது",
+      "‘Y’ என்று பதிலளிக்க சொல்லி இணைப்பை இயக்கச் செய்யும் — ஈடுபாட்டு ஏமாற்று",
+      "தனிப்பட்ட தகவலை திருடும் நோக்கத்துடன் உள்ள பொதி மோசடி முறைகளில் ஒன்று",
+    ],
+    reasonsInvestment: [
+      "வருடத்திற்கு 12% வரை வருமானம் — யதார்த்தமற்ற உறுதி",
+      "‘100% நிலையான & பாதுகாப்பானது’ என்று கூறினாலும் ஒழுங்குமுறை ஆதாரம் இல்லை",
+      "அரசு ஊழியர்களை குறிவைத்து போலியான நம்பிக்கையை உருவாக்குதல்",
+      "குறைந்தபட்ச RM10,000 முதலீடு — அழுத்து யுக்தி",
     ],
   },
 };

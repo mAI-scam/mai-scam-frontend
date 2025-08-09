@@ -16,6 +16,7 @@ type PostScamImage = {
   language: string;
   category: string;
   content: string;
+  imageSrc: string;
 };
 
 export interface FacebookPostData {
@@ -61,7 +62,16 @@ export function FacebookPost({ post, onImageClick }: FacebookPostProps) {
 
   const handleImageClick = () => {
     if (isActive && post.image?.scamImage && onImageClick) {
-      onImageClick(post.image.scamImage);
+      onImageClick({
+        id: post.image.scamImage.id,
+        title: post.image.scamImage.title,
+        description: post.image.scamImage.description,
+        riskLevel: post.image.scamImage.riskLevel,
+        language: post.image.scamImage.language,
+        category: post.image.scamImage.category,
+        content: post.image.scamImage.content,
+        imageSrc: post.image.src,
+      });
     }
   };
 
