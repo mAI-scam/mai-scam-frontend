@@ -53,7 +53,7 @@ export function EmailContent() {
       </div>
 
       {/* Email Content */}
-      <div className="p-6 max-w-4xl mx-auto">
+      <div className="p-6 max-w-4xl mx-auto relative">
         {/* Risk Analysis Block appears here when active */}
         {isActive && <RiskAnalysisBlock />}
 
@@ -88,7 +88,11 @@ export function EmailContent() {
         </div>
 
         <div className="prose max-w-none">
-          <pre className="whitespace-pre-wrap font-sans text-foreground leading-relaxed">
+          <pre
+            className={`whitespace-pre-wrap font-sans leading-relaxed transition filter ${
+              isActive ? "blur-sm" : ""
+            }`}
+          >
             {EmailData.content}
           </pre>
         </div>

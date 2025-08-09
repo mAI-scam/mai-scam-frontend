@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Play } from 'lucide-react';
 import { FakeBrowserBar } from '@/components/website-demo/FakeBrowserBar';
 import { ScamSiteHeader } from '@/components/website-demo/ScamSiteHeader';
 import { FlashSaleBanner } from '@/components/website-demo/FlashSaleBanner';
@@ -16,15 +16,18 @@ import { useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Truck, Shield, CreditCard, Phone } from 'lucide-react';
+import { useWebsiteTour } from '@/lib/useWebsiteTour';
 
 export default function WebsiteDemoPage() {
-  const { isActive, analyzeContent, resetExtension } = useExtensionStore();
+  const { isActive, analyzeContent, resetExtension, setLanguage } = useExtensionStore();
   const websiteUrl = 'shoppe123.com';
+  const { startTour } = useWebsiteTour();
 
-  // Reset extension to inactive state when entering the page
+  // Reset extension and set default language to English on entering the page
   useEffect(() => {
     resetExtension();
-  }, [resetExtension]);
+    setLanguage('en');
+  }, [resetExtension, setLanguage]);
 
   useEffect(() => {
     if (isActive) {
@@ -35,14 +38,18 @@ export default function WebsiteDemoPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 relative">
-      {/* Return to Home Button */}
-      <div className="fixed bottom-6 left-6 z-40">
+      {/* Navigation and Tour Buttons */}
+      <div className="fixed bottom-6 left-6 z-40 flex gap-3">
         <Link href="/">
           <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur-sm shadow-lg">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Button>
         </Link>
+        <Button onClick={startTour} variant="default" size="sm" className="bg-primary/90 backdrop-blur-sm shadow-lg">
+          <Play className="h-4 w-4 mr-2" />
+          Start Tour
+        </Button>
       </div>
       
       {/* Fake Browser UI */}
@@ -82,7 +89,7 @@ export default function WebsiteDemoPage() {
 
         {/* Payment Methods (Suspicious) */}
         <div className="container mx-auto px-4 py-8">
-          <Card>
+          <Card data-tour="suspicious-payment">
             <CardContent className="p-6">
               <h3 className="text-lg font-bold mb-4">Cara Pembayaran</h3>
               <div className="flex flex-wrap gap-4 mb-4">
@@ -112,7 +119,7 @@ export default function WebsiteDemoPage() {
       </div>
 
       {/* Web Extension Overlay (small indicator) */}
-      <div className="relative">
+      <div className="relative" id="website-overlay">
         <WebExtensionOverlay />
       </div>
 

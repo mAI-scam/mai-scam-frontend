@@ -1,7 +1,7 @@
 // src/components/image-demo/ReportScamImageModal.tsx
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   X,
   AlertTriangle,
@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useExtensionStore, Language } from "@/lib/store/extensionStore";
 import { getReportScamStrings } from "@/data/image-demo/ReportScamImageModalData";
+import { ImageAnalysisCases } from "@/data/image-demo/ImageAnalysisModalData";
 
 interface ReportScamImageModalProps {
   isOpen: boolean;
@@ -37,7 +38,7 @@ export function ReportScamImageModal({
   scamImage,
   platform = "facebook",
 }: ReportScamImageModalProps) {
-  const { selectedLanguage } = useExtensionStore();
+  const { selectedLanguage, reportScam, markImageReported } = useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [reportId] = useState(
@@ -45,6 +46,16 @@ export function ReportScamImageModal({
   );
 
   const t = getReportScamStrings(selectedLanguage);
+
+  // Tailored risks per image (same source as the analysis modal)
+  const caseCopy = useMemo(() => {
+    if (!scamImage) return null;
+    const data = ImageAnalysisCases[scamImage.id];
+    if (!data) return null;
+    return {
+      risks: data.risks[selectedLanguage] ?? data.risks.en,
+    };
+  }, [scamImage?.id, selectedLanguage]);
 
   if (!isOpen) return null;
 
@@ -56,6 +67,15 @@ export function ReportScamImageModal({
 
     setIsSubmitting(false);
     setIsSuccess(true);
+
+    // Mark as reported in global store for the demo
+    if (scamImage?.id != null) {
+      try {
+        await reportScam("image", { imageId: scamImage.id, source: "social" });
+      } finally {
+        markImageReported(scamImage.id);
+      }
+    }
   };
 
   const handleClose = () => {
@@ -215,34 +235,45 @@ export function ReportScamImageModal({
                 </div>
               </div>
 
-              {/* Threat Details */}
+              {/* Tailored Threat Details */}
               <div>
                 <h4 className="font-medium mb-3">{t.reportDetails}</h4>
                 <div className="space-y-2 text-sm">
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span>{t.fakeOffers}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span>{t.govImpersonation}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span>{t.urgencyTactics}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span>{t.suspiciousLinks}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span>{t.personalInfoRequest}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span>{t.brandMisuse}</span>
-                  </div>
+                  {caseCopy?.risks?.length ? (
+                    caseCopy.risks.map((risk, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <span>{risk}</span>
+                      </div>
+                    ))
+                  ) : (
+                    <>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <span>{t.fakeOffers}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <span>{t.govImpersonation}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <span>{t.urgencyTactics}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <span>{t.suspiciousLinks}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <span>{t.personalInfoRequest}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <span>{t.brandMisuse}</span>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 

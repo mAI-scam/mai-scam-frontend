@@ -1,18 +1,17 @@
 "use client";
 
-import { Shield, AlertTriangle, Info, CheckCircle } from "lucide-react";
+import { Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useExtensionStore, Language } from "@/lib/store/extensionStore";
+import { useExtensionStore } from "@/lib/store/extensionStore";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { ReportScamModal } from "./ReportScamModal";
 import { useState } from "react";
 import { RiskAnalysisData } from "@/data/email-demo/RiskAnalysisData";
 
 export function RiskAnalysisBlock() {
-  const { isAnalyzing, riskScore, riskLevel, explanation, selectedLanguage } =
+  const { riskScore, riskLevel, explanation, selectedLanguage } =
     useExtensionStore();
   const [showReportModal, setShowReportModal] = useState(false);
   const t = RiskAnalysisData[selectedLanguage];
@@ -23,27 +22,22 @@ export function RiskAnalysisBlock() {
     setShowReportModal(true);
   };
 
+  const computedRiskLabel = t.high.toUpperCase();
+
   return (
-    <div className="mb-4">
+    <div
+      id="risk-details"
+      className="mb-4 fixed z-50 sm:top-24 top-20 left-1/2 -translate-x-1/2 sm:w-[36rem] w-[92vw] max-w-[95vw]"
+    >
       {/* Language Selector */}
       <div className="flex justify-end mb-4">
         <LanguageSelector />
       </div>
 
-      {/* Gmail-style spam warning */}
-      <Alert className="mb-4 border-yellow-500 bg-yellow-50">
-        <AlertDescription className="text-sm text-gray-700">
-          <strong>{t.spamWarning}</strong>
-        </AlertDescription>
-        <Button variant="outline" size="sm" className="mt-2">
-          {t.reportNotSpam}
-        </Button>
-      </Alert>
-
       {/* Risk Analysis Card */}
       <Card
         data-tour="risk-analysis"
-        className={`border-l-4 ${
+        className={`border-l-4 shadow-2xl ${
           riskLevel === "high"
             ? "border-l-red-500"
             : riskLevel === "medium"
@@ -56,11 +50,11 @@ export function RiskAnalysisBlock() {
             <div className="flex items-center gap-3">
               <Shield className="h-6 w-6 text-gray-600" />
               <h3 className="text-lg font-semibold text-red-600">
-                {t.highRiskWarning}
+                {t.risk}: {computedRiskLabel}
               </h3>
             </div>
             <Badge variant="destructive" className="text-base px-3 py-1">
-              {t.risk}: {t[riskLevel || "high"].toUpperCase()}
+              {t.risk}: {computedRiskLabel}
             </Badge>
           </div>
 

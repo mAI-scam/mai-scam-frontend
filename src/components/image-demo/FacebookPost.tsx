@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { MoreHorizontal, ThumbsUp, MessageCircle, Share, Heart, Angry, Smile } from "lucide-react";
+import { MoreHorizontal, ThumbsUp, MessageCircle, Share, Heart, Angry, Smile, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -58,7 +58,7 @@ interface FacebookPostProps {
 
 export function FacebookPost({ post, onImageClick }: FacebookPostProps) {
   const [showReactions, setShowReactions] = useState(false);
-  const { isActive } = useExtensionStore();
+  const { isActive, isImageReported } = useExtensionStore();
 
   const handleImageClick = () => {
     if (isActive && post.image?.scamImage && onImageClick) {
@@ -117,30 +117,44 @@ export function FacebookPost({ post, onImageClick }: FacebookPostProps) {
       {/* Post Image */}
       {post.image && (
         <div className="relative">
-          <div 
+      <div 
             className={`relative w-full aspect-[4/3] bg-gray-100 ${
               isActive && post.image.scamImage ? 'cursor-pointer hover:opacity-90' : ''
             }`}
             onClick={handleImageClick}
+            data-tour={post.image.scamImage ? 'scam-image' : undefined}
           >
             <Image
               src={post.image.src}
               alt={post.image.alt}
               fill
-              className={`object-cover ${isActive && post.image.scamImage ? 'filter blur-sm' : ''}`}
+            className={`object-cover ${isActive && post.image.scamImage ? 'filter blur-sm' : ''}`}
             />
             {isActive && post.image.scamImage && (
-              <div className="absolute top-4 right-4 flex flex-col gap-2">
-                <Badge variant="destructive" className="animate-pulse shadow-lg">
-                  🔍 AI Detected Scam - Click to Scan
-                </Badge>
-                <Badge variant="outline" className="bg-white/90 text-xs">
-                  OCR Analysis Available
-                </Badge>
-              </div>
-            )}
-            {isActive && post.image.scamImage && (
-              <div className="absolute inset-0 bg-red-500/10 border-2 border-red-500 border-dashed rounded-lg pointer-events-none animate-pulse" />
+              <>
+                {isImageReported(post.image.scamImage.id) ? (
+                  <div className="absolute top-4 right-4 flex flex-col gap-2">
+                    <Badge className="bg-yellow-500 text-white shadow-lg flex items-center gap-1">
+                      <CheckCircle className="h-4 w-4" /> Reported
+                    </Badge>
+                  </div>
+                ) : (
+                  <div className="absolute top-4 right-4 flex flex-col gap-2">
+                    <Badge variant="destructive" className="animate-pulse shadow-lg">
+                      🔍 AI Detected Scam - Click to Scan
+                    </Badge>
+                    <Badge variant="outline" className="bg-white/90 text-xs">
+                      OCR Analysis Available
+                    </Badge>
+                  </div>
+                )}
+
+                {isImageReported(post.image.scamImage.id) ? (
+                  <div className="absolute inset-0 bg-yellow-500/10 border-2 border-yellow-500 border-dashed rounded-lg pointer-events-none" />
+                ) : (
+                  <div className="absolute inset-0 bg-red-500/10 border-2 border-red-500 border-dashed rounded-lg pointer-events-none animate-pulse" />
+                )}
+              </>
             )}
           </div>
         </div>

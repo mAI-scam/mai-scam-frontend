@@ -13,12 +13,13 @@ import { useEffect } from 'react';
 
 export default function EmailDemoPage() {
   const { startTour } = useEmailTour();
-  const { resetExtension } = useExtensionStore();
+  const { resetExtension, setLanguage } = useExtensionStore();
 
-  // Reset extension to inactive state when entering the page
+  // Reset extension and set default language to English on entering the page
   useEffect(() => {
     resetExtension();
-  }, [resetExtension]);
+    setLanguage('en');
+  }, [resetExtension, setLanguage]);
 
   return (
     <div className="h-screen flex flex-col bg-background relative">

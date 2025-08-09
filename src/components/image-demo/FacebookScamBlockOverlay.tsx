@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Shield, AlertTriangle, X, Eye, EyeOff, Flag } from "lucide-react";
+import { Shield, AlertTriangle, X, Eye, EyeOff, Flag, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -35,7 +35,7 @@ export function FacebookScamBlockOverlay({
 }: FacebookScamBlockOverlayProps) {
   const [showPost, setShowPost] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
-  const { selectedLanguage } = useExtensionStore();
+  const { selectedLanguage, isImageReported } = useExtensionStore();
 
   // ✅ guard + fallback = no “possibly undefined”
   const lang: LanguageCode = isLanguageCode(selectedLanguage)
@@ -61,7 +61,7 @@ export function FacebookScamBlockOverlay({
       <Card className="max-w-2xl w-full">
         <CardContent className="p-0">
           {/* Header */}
-          <div className="bg-red-600 text-white p-6 rounded-t-lg">
+          <div className="bg-red-600 text-white p-6 rounded-t-lg" data-tour="fb-risk-header">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/20 rounded-full">
@@ -146,13 +146,21 @@ export function FacebookScamBlockOverlay({
                   )}
                   {showPost ? t.hidePost : t.showPost}
                 </Button>
-                <Button
-                  onClick={handleReport}
-                  className="flex-1 bg-red-600 hover:bg-red-700"
-                >
-                  <Flag className="h-4 w-4 mr-2" />
-                  {t.reportScam}
-                </Button>
+                {isImageReported(scamImage.id) ? (
+                  <Button disabled className="flex-1 bg-green-600 hover:bg-green-700 disabled:opacity-100">
+                    <CheckCircle2 className="h-4 w-4 mr-2" />
+                    Reported
+                  </Button>
+                ) : (
+                  <Button
+                    data-tour="fb-report-button"
+                    onClick={handleReport}
+                    className="flex-1 bg-red-600 hover:bg-red-700"
+                  >
+                    <Flag className="h-4 w-4 mr-2" />
+                    {t.reportScam}
+                  </Button>
+                )}
               </div>
 
               <Button onClick={onClose} variant="outline" className="w-full">

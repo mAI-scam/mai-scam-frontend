@@ -76,7 +76,7 @@ const products = [
 
 export function ProductGrid() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8" data-tour="product-grid">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold flex items-center gap-2">
           <Flame className="h-6 w-6 text-orange-500" />

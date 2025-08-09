@@ -56,7 +56,7 @@ export const EmailExplanations = {
 • Walang opisyal na lagda o tamang impormasyon ng contact
 • Ang domain ng nagpadala ay hindi tugma sa sinasabing organisasyon`,
 
-    idn: `Analisis menemukan email ini mengandung ciri-ciri penipuan:
+    id: `Analisis menemukan email ini mengandung ciri-ciri penipuan:
 
 • Meminta informasi pribadi (nomor akun, kata sandi)
 • Menggunakan bahasa mendesak untuk mendorong tindakan segera
@@ -120,83 +120,96 @@ export const EmailExplanations = {
 • அனுப்புநரின் டொமைன் அறிவிக்கப்படும் நிறுவனத்துடன் பொருந்தவில்லை`,
   },
   medium: {
-    en: `This email may be suspicious. Please be careful with:
+    en: `This email may be suspicious. Based on its content, watch out for:
 
-• Requests for personal information
-• Unrecognized links
-• Offers that are too good to be true`,
+• Requests for bank account number, online banking password and TAC
+• Threat of permanent account closure within 24 hours
+• Link to a non‑official domain: secure-banknegara-verification.com
+• Promise of RM 1,000 as a reward after “verification”`,
 
-    ms: `E-mel ini mungkin mencurigakan. Sila berhati-hati dengan:
+    ms: `E-mel ini mungkin mencurigakan. Berdasarkan kandungannya, sila berhati-hati terhadap:
 
-• Permintaan maklumat peribadi
-• Pautan yang tidak dikenali
-• Tawaran yang terlalu baik untuk dipercayai`,
+• Permintaan nombor akaun bank, kata laluan perbankan dalam talian dan TAC
+• Ancaman penutupan akaun secara kekal dalam masa 24 jam
+• Pautan ke domain bukan rasmi: secure-banknegara-verification.com
+• Janji ganjaran RM 1,000 selepas “pengesahan”`,
 
-    zh: `此电子邮件可能有可疑之处。请注意：
+    zh: `此电子邮件可能有可疑之处。根据其内容，请注意：
 
-• 个人信息请求
-• 不认识的链接
-• 好得不真实的优惠`,
+• 索取银行账号、网上银行密码和TAC验证码
+• 以24小时内永久关闭账户相威胁
+• 链接到非官方域名：secure-banknegara-verification.com
+• 承诺“验证”后赠送RM 1,000 奖励`,
 
-    vi: `Email này có thể đáng ngờ. Hãy cẩn thận với:
+    vi: `Email này có thể đáng ngờ. Dựa trên nội dung, hãy cảnh giác với:
 
-• Yêu cầu thông tin cá nhân
-• Các liên kết không rõ ràng
-• Ưu đãi nghe có vẻ quá hấp dẫn`,
+• Yêu cầu số tài khoản ngân hàng, mật khẩu ngân hàng trực tuyến và mã TAC
+• Đe dọa khóa vĩnh viễn tài khoản trong 24 giờ
+• Liên kết đến tên miền không chính thức: secure-banknegara-verification.com
+• Hứa tặng RM 1,000 sau khi “xác minh”`,
 
-    th: `อีเมลนี้อาจน่าสงสัย โปรดระวัง:
+    th: `อีเมลนี้อาจน่าสงสัย จากเนื้อหาโปรดระวัง:
 
-• คำขอข้อมูลส่วนตัว
-• ลิงก์ที่ไม่รู้จัก
-• ข้อเสนอที่ดีเกินจริง`,
+• ขอเลขบัญชีธนาคาร รหัสผ่านธนาคารออนไลน์ และรหัส TAC
+• ขู่จะปิดบัญชีแบบถาวรภายใน 24 ชั่วโมง
+• ลิงก์ไปยังโดเมนที่ไม่เป็นทางการ: secure-banknegara-verification.com
+• สัญญาให้รางวัล RM 1,000 หลังจาก “ยืนยัน”`,
 
-    fil: `Maaaring kahina-hinala ang email na ito. Mag-ingat sa:
+    fil: `Maaaring kahina-hinala ang email na ito. Batay sa nilalaman nito, mag-ingat sa:
 
-• Mga kahilingan ng personal na impormasyon
-• Mga hindi pamilyar na link
-• Mga alok na mukhang sobrang ganda para maging totoo`,
+• Hinihingi ang numero ng bank account, online banking password, at TAC
+• Banta na isasara nang permanente ang account sa loob ng 24 oras
+• Link papunta sa di-opisyal na domain: secure-banknegara-verification.com
+• Pangakong gantimpalang RM 1,000 pagkatapos ng “pag-verify”`,
 
-    idn: `Email ini mungkin mencurigakan. Harap berhati-hati terhadap:
+    id: `Email ini mungkin mencurigakan. Berdasarkan isinya, waspadai:
 
-• Permintaan informasi pribadi
-• Tautan yang tidak dikenal
-• Penawaran yang terlalu bagus untuk menjadi kenyataan`,
+• Permintaan nomor rekening bank, kata sandi perbankan online, dan TAC
+• Ancaman penutupan akun permanen dalam 24 jam
+• Tautan ke domain tidak resmi: secure-banknegara-verification.com
+• Janji hadiah RM 1.000 setelah “verifikasi”`,
 
-    jv: `Email iki bisa wae curiga. Aja sembrono marang:
+    jv: `Email iki bisa wae curiga. Adhedhasar isine, waspada marang:
 
-• Panjaluk informasi pribadi
-• Tautan sing ora dikenal
-• Tawaran sing ketok banget apik kanggo bener`,
+• Njaluk nomer rekening bank, sandhi perbankan online, lan TAC
+• Ancaman nutup akun permanen sajrone 24 jam
+• Pranala menyang domain ora resmi: secure-banknegara-verification.com
+• Janji ganjaran RM 1.000 sawisé “verifikasi”`,
 
-    su: `Email ieu sigana curiga. Punten ati-ati kana:
+    su: `Email ieu sigana mencurigakan. Dumasar kana eusi na, punten ati-ati kana:
 
-• Pamundut informasi pribadi
-• Tautan anu teu dikenal
-• Tawaran anu katingalina kawilang hébat teuing`,
+• Pamundut nomer rekening bank, sandi perbankan online, sareng TAC
+• Ancaman nutup akun permanén dina 24 jam
+• Tautan ka domain henteu resmi: secure-banknegara-verification.com
+• Janji ganjaran RM 1.000 sanggeus “verifikasi”`,
 
-    km: `អ៊ីមែលនេះអាចជារឿង đángสงสัย។ សូមប្រុងប្រយ័ត្នជាមួយ:
+    km: `អ៊ីមែលនេះអាចគួរឱ្យសង្ស័យ។ អាស្រ័យលើមាតិកា សូមប្រុងប្រយ័ត្ន៖
 
-• សំណើសុំព័ត៌មានផ្ទាល់ខ្លួន
-• តំណភ្ជាប់មិនស្គាល់
-• ការផ្ដល់ជូនមើលទៅល្អពេកដើម្បីជាការពិត`,
+• ស្នើសុំលេខគណនីធនាគារ ពាក្យសម្ងាត់អ៊ីនធឺណិត និងលេខ TAC
+• គំរាមកំហែងបិទគណនីអចិន្ត្រៃយ៍ក្នុងរយៈពេល 24 ម៉ោង
+• តំណភ្ជាប់ទៅដូម៉ែនមិនផ្លូវការ: secure-banknegara-verification.com
+• សន្យាផ្តល់រង្វាន់ RM 1,000 បន្ទាប់ពី “ផ្ទៀងផ្ទាត់”`,
 
-    lo: `ອີເມວນີ້ອາດຈະເປັນຂໍ້ຄວາມນ່າສົງໃສ. ກະລຸນາລະວັງ:
+    lo: `ອີເມວນີ້ອາດຈະນ່າສົງໄສ. ອີງຕາມເນື້ອໃນ ຂໍໃຫ້ລະວັງ:
 
-• ການຮ້ອງຂໍຂໍ້ມູນສ່ວນຕົວ
-• ລິ້ງທີ່ບໍ່ຄຸ້ນເຄີຍ
-• ຂໍ້ເສນທີ່ຟັງແລ້ວດູດີເກີນໄປ`,
+• ຮ້ອງຂໍເລກບັນຊີທະນາຄານ, ລະຫັດຜ່ານທະນາຄານອອນລາຍ ແລະ TAC
+• ຂູ່ວ່າຈະປິດບັນຊີຖາວອນພາຍໃນ 24 ຊົ່ວໂມງ
+• ລິ້ງໄປຫາໂດເມນທີ່ບໍ່ແມ່ນທາງການ: secure-banknegara-verification.com
+• ສັນຍາໃຫ້ລາງວັນ RM 1,000 ຫຼັງ “ການຢືນຢັນ”`,
 
-    my: `ဤအီးမေးလ်သည် သံသယဖြစ်စေနိုင်ပါသည်။ အောက်ပါအရာများကို သတိပြုပါ:
+    my: `ဤအီးမေးလ်တွင် သံသယရှိနိုင်ပါသည်။ အကြောင်းအရာအရ အောက်ပါအချက်များကို သတိပြုပါ:
 
-• ကိုယ်ရေးကိုယ်တာအချက်အလက်တောင်းဆိုမှုများ
-• မသိသောလင့်ခ်များ
-• အလွန်အမင်းကောင်းမွန်နေသောအကြောင်းအရာများ`,
+• ဘဏ်အကောင့်နံပါတ်၊ အွန်လိုင်းဘဏ် စကားဝှက် နှင့် TAC တောင်းဆိုခြင်း
+• 24 နာရီအတွင်း အကောင့်ကို အမြဲတမ်းပိတ်မည်ဟု ခြိမ်းခြောက်မှု
+• တရားဝင်မဟုတ်သော domain သို့ လင့်ခ်: secure-banknegara-verification.com
+• “အတည်ပြု” ပြီးနောက် RM 1,000 ပေးမည်ဟု ကတိပြုမှု`,
 
-    ta: `இந்த மின்னஞ்சல் சந்தேகத்திற்குரியது ஆக இருக்கலாம். கவனமாக இருக்கவும்:
+    ta: `இந்த மின்னஞ்சல் சந்தேகத்திற்குரியது இருக்கலாம். அதன் உள்ளடக்கத்தின் அடிப்படையில் கவனமாக இருக்கவும்:
 
-• தனிப்பட்ட தகவல்களை கோருதல்
-• அடையாளம் தெரியாத இணைப்புகள்
-• நிஜமாக இல்லாத அளவிற்கு நல்ல சலுகைகள்`,
+• வங்கி கணக்கு எண், ஆன்லைன் வங்கி கடவுச்சொல் மற்றும் TAC கோரிக்கை
+• 24 மணிநேரத்தில் கணக்கை நிரந்தரமாக மூடுவதாக மிரட்டல்
+• அதிகாரப்பூர்வமற்ற டொமைனுக்கு இணைப்பு: secure-banknegara-verification.com
+• “சரிபார்ப்பு”க்கு பிறகு RM 1,000 பரிசு வாக்குறுதி`,
   },
   low: {
     en: "This email appears safe, but always be cautious with online communications.",
@@ -211,7 +224,7 @@ export const EmailExplanations = {
 
     fil: "Mukhang ligtas ang email na ito, ngunit palaging mag-ingat sa online na komunikasyon.",
 
-    idn: "Email ini tampak aman, tetapi tetaplah berhati-hati dalam komunikasi online.",
+    id: "Email ini tampak aman, tetapi tetaplah berhati-hati dalam komunikasi online.",
 
     jv: "Email iki katon aman, nanging tetep waspada nalika komunikasi online.",
 

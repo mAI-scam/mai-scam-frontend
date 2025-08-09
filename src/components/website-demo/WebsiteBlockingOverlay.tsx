@@ -476,7 +476,7 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
               </div>
             ) : (
               <>
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between mb-6" data-tour="risk-analysis">
                   <div className="flex items-center gap-2">
                     <AlertTriangle className="h-6 w-6 text-red-600" />
                     <span className="text-lg font-semibold">
@@ -554,6 +554,7 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
                     {t.backToSafety}
                   </Button>
                   <Button
+                    data-tour="website-report-button"
                     size="lg"
                     className="bg-orange-600 hover:bg-orange-700 text-white border-orange-600 shadow-lg"
                     onClick={handleReport}

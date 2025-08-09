@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Play } from "lucide-react";
 import { ScamImage } from "@/components/image-demo/ImageGallery";
 import { ImageAnalysisModal } from "@/components/image-demo/ImageAnalysisModal";
 import { WebExtensionOverlay } from "@/components/email-demo/WebExtensionOverlay";
@@ -14,6 +14,7 @@ import { FacebookFeed } from "@/components/image-demo/FacebookFeed";
 import { FacebookScamBlockOverlay } from "@/components/image-demo/FacebookScamBlockOverlay";
 import { useExtensionStore } from "@/lib/store/extensionStore";
 import { Shield, AlertTriangle, Facebook } from "lucide-react";
+import { useSocialMediaTour } from "@/lib/useSocialMediaTour";
 
 type PostScamImage = {
   id: number;
@@ -28,12 +29,14 @@ type PostScamImage = {
 export default function ImageDemoPage() {
   const [selectedImage, setSelectedImage] = useState<ScamImage | null>(null);
   const [showBlockOverlay, setShowBlockOverlay] = useState<PostScamImage | null>(null);
-  const { isActive, resetExtension } = useExtensionStore();
+  const { isActive, resetExtension, setLanguage } = useExtensionStore();
+  const { startTour } = useSocialMediaTour();
 
-  // Reset extension to inactive state when entering the page
+  // Reset extension and set default language to English on entering the page
   useEffect(() => {
     resetExtension();
-  }, [resetExtension]);
+    setLanguage("en");
+  }, [resetExtension, setLanguage]);
 
   const handleImageClick = (scamImage: PostScamImage) => {
     if (isActive) {
@@ -51,7 +54,7 @@ export default function ImageDemoPage() {
       {/* Demo Instructions Banner */}
       <div className="bg-blue-50 border-b border-blue-200 py-3 px-4 text-center sticky top-0 z-50">
         {/* Return to Home Button - Now positioned within banner */}
-        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10">
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 flex gap-2">
           <Link href="/">
             <Button
               variant="outline"
@@ -62,6 +65,15 @@ export default function ImageDemoPage() {
               Back to Home
             </Button>
           </Link>
+          <Button 
+            onClick={startTour}
+            variant="default" 
+            size="sm" 
+            className="bg-primary/90 backdrop-blur-sm"
+          >
+            <Play className="h-4 w-4 mr-2" />
+            Start Tour
+          </Button>
         </div>
         
         <div className="max-w-4xl mx-auto">
@@ -100,7 +112,9 @@ export default function ImageDemoPage() {
       </div>
 
       {/* Web Extension Overlay */}
-      <WebExtensionOverlay />
+      <div id="image-overlay">
+        <WebExtensionOverlay />
+      </div>
 
       {/* Facebook Scam Block Overlay */}
       {showBlockOverlay && (
