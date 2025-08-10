@@ -43,6 +43,31 @@ const facebookPosts: FacebookPostData[] = [
   {
     id: 2,
     author: {
+      name: "Sarah Chen",
+      avatar: "/api/placeholder/40/40"
+    },
+    timestamp: "3 hours ago",
+    content: "Beautiful sunset from my balcony today! 🌅\n\nNothing beats ending the day with such amazing colors in the sky. Hope everyone is having a great week!\n\n#sunset #malaysia #photography",
+    image: {
+      src: "/images/non_scam_sunset_balcony_view.jpg",
+      alt: "Beautiful sunset view from balcony",
+      scamImage: {
+        id: 2,
+        title: "Legitimate Sunset Photo",
+        description: "Genuine personal sunset photograph",
+        riskLevel: "low",
+        language: "english",
+        category: "Personal",
+        content: "Beautiful sunset from my balcony today! Nothing beats ending the day with such amazing colors in the sky. Hope everyone is having a great week! #sunset #malaysia #photography"
+      }
+    },
+    reactions: { like: 45, love: 23, angry: 0 },
+    comments: 8,
+    shares: 2
+  },
+  {
+    id: 3,
+    author: {
       name: "Deal Hunters Malaysia",
       avatar: "/api/placeholder/40/40"
     },
@@ -52,7 +77,7 @@ const facebookPosts: FacebookPostData[] = [
       src: "/images/scam_sms_example.jpeg",
       alt: "SMS scam from fake J&T Express",
       scamImage: {
-        id: 2,
+        id: 3,
         title: "SMS Parcel Scam",
         description: "Fake delivery notification with phishing link",
         riskLevel: "high",
@@ -66,7 +91,7 @@ const facebookPosts: FacebookPostData[] = [
     shares: 12
   },
   {
-    id: 3,
+    id: 4,
     author: {
       name: "ANGKASA Investment Group",
       avatar: "/api/placeholder/40/40",
@@ -78,7 +103,7 @@ const facebookPosts: FacebookPostData[] = [
       src: "/images/scam_investment_example.jpg",
       alt: "Investment scam promising high returns",
       scamImage: {
-        id: 3,
+        id: 4,
         title: "Investment Fraud",
         description: "Unrealistic investment returns promise",
         riskLevel: "high",
@@ -93,7 +118,7 @@ const facebookPosts: FacebookPostData[] = [
     isSponsored: true
   },
   {
-    id: 4,
+    id: 5,
     author: {
       name: "Hotlink Official",
       avatar: "/api/placeholder/40/40"
@@ -104,7 +129,7 @@ const facebookPosts: FacebookPostData[] = [
       src: "/images/scam_giveaway_example.jpg",
       alt: "Fake Hotlink giveaway scam",
       scamImage: {
-        id: 4,
+        id: 5,
         title: "Fake Giveaway",
         description: "Impersonating telco for fake Touch n Go credits",
         riskLevel: "high",
@@ -116,31 +141,6 @@ const facebookPosts: FacebookPostData[] = [
     reactions: { like: 1247, love: 890, angry: 23 },
     comments: 423,
     shares: 672
-  },
-  {
-    id: 5,
-    author: {
-      name: "Sarah Chen",
-      avatar: "/api/placeholder/40/40"
-    },
-    timestamp: "1 day ago",
-    content: "Beautiful sunset from my balcony today! 🌅\n\nNothing beats ending the day with such amazing colors in the sky. Hope everyone is having a great week!\n\n#sunset #malaysia #photography",
-    image: {
-      src: "/images/non_scam_sunset_balcony_view.jpg",
-      alt: "Beautiful sunset view from balcony",
-      scamImage: {
-        id: 5,
-        title: "Legitimate Sunset Photo",
-        description: "Genuine personal sunset photograph",
-        riskLevel: "low",
-        language: "english",
-        category: "Personal",
-        content: "Beautiful sunset from my balcony today! Nothing beats ending the day with such amazing colors in the sky. Hope everyone is having a great week! #sunset #malaysia #photography"
-      }
-    },
-    reactions: { like: 45, love: 23, angry: 0 },
-    comments: 8,
-    shares: 2
   },
   {
     id: 6,
