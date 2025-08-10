@@ -14,13 +14,15 @@ export default function FeatureCard(props: FeatureCardItem) {
   return (
     <Link href={link} className="group">
       <Card className="h-full hover:shadow-xl transition-shadow">
-        <CardHeader>
+        <CardHeader className="flex flex-row gap-4 items-center">
           <div
-            className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-colors ${iconStyle}`}
+            className={`w-12 h-12 rounded-lg flex items-center justify-center transition-colors ${iconStyle}`}
           >
-            <Icon className={`h-6 w-6 ${textColor}`} />
+            <Icon className={`w-6 h-6 ${textColor}`} />
           </div>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle className="flex-grow flex justify-start items-center">
+            {title}
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <CardDescription>{description}</CardDescription>

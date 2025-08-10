@@ -1,7 +1,7 @@
 "use client";
-// test
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,25 +22,35 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      <main className="container mx-auto px-6 py-16">
+      <main className="container mx-auto px-6 pb-12">
         {/* Hero Section */}
-        <section className="text-center max-w-4xl mx-auto mb-16">
-          <h1 className="font-bold mb-6">
-            <span className="text-6xl md:text-9xl text-[#49A4EF]">
+        <section className="flex flex-col items-center text-center mb-12 mx-auto">
+          {/* Identity Text */}
+          <div className="font-bold mb-6 py-6">
+            {/* Title */}
+            <h1 className="text-6xl md:text-8xl text-[#49A4EF]">
               <span>m</span>
               <span className="text-[#EB6700]">AI</span>
               <span>scam</span>
-            </span>
-            <br></br>
-            <span className="text-2xl md:text-4xl text-[#6FBDF4]">
+            </h1>
+            {/* Subtitle */}
+            <h2 className="text-xl md:text-3xl text-[#6FBDF4]">
               an MCP-Powered Web Extension
-            </span>
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8">
-            Proactive, multilingual scam protection for Southeast Asia using
-            connected AI agents and Model Context Protocol
-          </p>
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left max-w-3xl mx-auto">
+            </h2>
+          </div>
+
+          {/* Buttons */}
+          {/* <div className="flex justify-center gap-4 mb-6">
+            <Button asChild size="lg">
+              <Link href="/email-demo">Try Demo</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="#features">Learn More</a>
+            </Button>
+          </div> */}
+
+          {/* Description */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left max-w-4xl mx-auto">
             <p className="text-sm text-blue-800">
               <strong>📱 Browser Extension Demo:</strong> This website
               demonstrates how the mAIscam Chrome extension works in real
@@ -49,7 +59,9 @@ export default function Home() {
               websites, and social media platforms.
             </p>
           </div>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 text-left max-w-2xl mx-auto">
+
+          {/* Problem */}
+          {/* <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 text-left max-w-2xl mx-auto">
             <p className="text-sm text-red-800">
               <strong>The Problem:</strong> Financial scams devastate Southeast
               Asia with cybercrime surging 82% and generating $43.8B annually.
@@ -57,19 +69,18 @@ export default function Home() {
               linguistic diversity, while current solutions remain reactive and
               lack cultural intelligence.
             </p>
-          </div>
-          <div className="flex justify-center gap-4">
-            <Button asChild size="lg">
-              <Link href="/email-demo">Try Demo</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <a href="#features">Learn More</a>
-            </Button>
+          </div> */}
+
+          {/* Features Section */}
+          <div id="features" className="grid md:grid-cols-3 gap-8 max-w-5xl">
+            {FeatureCardData.map((item, idx) => (
+              <FeatureCard key={idx} {...item} />
+            ))}
           </div>
         </section>
 
         {/* Instructions Section */}
-        <section className="mb-8 max-w-4xl mx-auto">
+        <section className="mb-12 max-w-5xl mx-auto">
           <Card className="border-blue-200 bg-blue-50">
             <CardContent className="p-6">
               <div className="flex items-start gap-3">
@@ -109,19 +120,13 @@ export default function Home() {
           </Card>
         </section>
 
-        {/* Features Section */}
-        <section id="features" className="grid md:grid-cols-3 gap-8 mb-16">
-          {FeatureCardData.map((item, idx) => (
-            <FeatureCard key={idx} {...item} />
-          ))}
-        </section>
-
-        {/* Key Features */}
-        <section className="max-w-4xl mx-auto">
-          <Card>
+        {/* Our Features */}
+        <section className="mb-12 flex max-w-5xl mx-auto gap-8">
+          {/* Left - Content */}
+          <Card className="flex-2">
             <CardHeader>
               <CardTitle className="text-3xl text-center">
-                Why mAIscam?
+                Our Features
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -177,6 +182,57 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Right - Image */}
+          <Card className="flex-1">
+            <div className="relative w-full h-64 md:h-full">
+              <Image
+                src="/images/main_our_features_1.jpg" // replace with your image path
+                alt="Our Features Illustration"
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+          </Card>
+        </section>
+
+        {/* Why mAIscam */}
+        <section className="flex max-w-5xl mx-auto gap-8">
+          {/* Left - Image */}
+          <Card className="flex-1">
+            <div className="relative w-full h-64 md:h-full">
+              <Image
+                src="/images/main_why_maiscam_1.jpg" // replace with your image path
+                alt="Why mAIscam Illustration"
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+          </Card>
+
+          {/* Right - Content */}
+          <Card className="flex-2">
+            <CardHeader>
+              <CardTitle className="text-3xl text-center">
+                Why mAIscam
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                mAIscam goes beyond traditional scam detection by combining
+                real-time MCP-powered intelligence, adaptive AI agents, and
+                cultural context awareness. This ensures scam detection is not
+                only accurate, but also relevant to diverse Southeast Asian
+                communities.
+              </p>
+              <p>
+                With multilingual support, integration into everyday browsing,
+                and automated coordination with trusted anti-fraud platforms,
+                mAIscam empowers users to make informed decisions and stay
+                protected against evolving digital threats.
+              </p>
             </CardContent>
           </Card>
         </section>
