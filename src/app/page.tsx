@@ -27,7 +27,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="flex flex-col items-center text-center mb-12 mx-auto">
           {/* Identity Text */}
-          <div className="font-bold mb-6">
+          <div className="font-bold mb-6 py-4">
             {/* Title */}
             <h1 className="text-6xl md:text-8xl text-[#49A4EF]">
               <span>m</span>
