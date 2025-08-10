@@ -12,7 +12,7 @@ export const FeatureCardData: FeatureCardItem[] = [
   {
     title: "Email Protection",
     description:
-      "Instantly analyzes emails for phishing attempts and scam indicators with explanations in your native language",
+      "Analyzes emails for phishing attempts and scam indicators with explanations in your native language",
     link: "/email-demo",
     icon: Mail,
     iconStyle: "bg-primary/10 group-hover:bg-primary/20",
@@ -28,7 +28,7 @@ export const FeatureCardData: FeatureCardItem[] = [
     textColor: "text-green-600",
   },
   {
-    title: "Image Analysis",
+    title: "Social Media Analysis",
     description:
       "Extract and analyze text from images to identify potential scams in screenshots and photos",
     link: "/image-demo",
