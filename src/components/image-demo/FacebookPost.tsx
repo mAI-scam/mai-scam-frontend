@@ -128,31 +128,54 @@ export function FacebookPost({ post, onImageClick }: FacebookPostProps) {
               src={post.image.src}
               alt={post.image.alt}
               fill
-            className={`object-cover ${isActive && post.image.scamImage ? 'filter blur-sm' : ''}`}
+            className={`object-cover ${isActive && post.image.scamImage && post.image.scamImage.riskLevel !== 'low' ? 'filter blur-sm' : ''}`}
             />
             {isActive && post.image.scamImage && (
               <>
-                {isImageReported(post.image.scamImage.id) ? (
+                {post.image.scamImage.riskLevel === 'low' ? (
+                  // Safe content display
                   <div className="absolute top-4 right-4 flex flex-col gap-2">
-                    <Badge className="bg-yellow-500 text-white shadow-lg flex items-center gap-1">
-                      <CheckCircle className="h-4 w-4" /> Reported
-                    </Badge>
-                  </div>
-                ) : (
-                  <div className="absolute top-4 right-4 flex flex-col gap-2">
-                    <Badge variant="destructive" className="animate-pulse shadow-lg">
-                      🔍 AI Detected Scam - Click to Scan
+                    <Badge className="bg-green-600 text-white shadow-lg flex items-center gap-1">
+                      <CheckCircle className="h-4 w-4" /> ✅ Safe Content
                     </Badge>
                     <Badge variant="outline" className="bg-white/90 text-xs">
-                      OCR Analysis Available
+                      AI Verified Safe
                     </Badge>
                   </div>
+                ) : (
+                  // Scam content display (existing logic)
+                  <>
+                    {isImageReported(post.image.scamImage.id) ? (
+                      <div className="absolute top-4 right-4 flex flex-col gap-2">
+                        <Badge className="bg-yellow-500 text-white shadow-lg flex items-center gap-1">
+                          <CheckCircle className="h-4 w-4" /> Reported
+                        </Badge>
+                      </div>
+                    ) : (
+                      <div className="absolute top-4 right-4 flex flex-col gap-2">
+                        <Badge variant="destructive" className="animate-pulse shadow-lg">
+                          🔍 AI Detected Scam - Click to Scan
+                        </Badge>
+                        <Badge variant="outline" className="bg-white/90 text-xs">
+                          OCR Analysis Available
+                        </Badge>
+                      </div>
+                    )}
+                  </>
                 )}
 
-                {isImageReported(post.image.scamImage.id) ? (
-                  <div className="absolute inset-0 bg-yellow-500/10 border-2 border-yellow-500 border-dashed rounded-lg pointer-events-none" />
+                {post.image.scamImage.riskLevel === 'low' ? (
+                  // Safe content border
+                  <div className="absolute inset-0 bg-green-500/10 border-2 border-green-500 border-solid rounded-lg pointer-events-none" />
                 ) : (
-                  <div className="absolute inset-0 bg-red-500/10 border-2 border-red-500 border-dashed rounded-lg pointer-events-none animate-pulse" />
+                  // Scam content border (existing logic)
+                  <>
+                    {isImageReported(post.image.scamImage.id) ? (
+                      <div className="absolute inset-0 bg-yellow-500/10 border-2 border-yellow-500 border-dashed rounded-lg pointer-events-none" />
+                    ) : (
+                      <div className="absolute inset-0 bg-red-500/10 border-2 border-red-500 border-dashed rounded-lg pointer-events-none animate-pulse" />
+                    )}
+                  </>
                 )}
               </>
             )}

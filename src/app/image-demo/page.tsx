@@ -12,6 +12,7 @@ import { FacebookHeader } from "@/components/image-demo/FacebookHeader";
 import { FacebookSidebar } from "@/components/image-demo/FacebookSidebar";
 import { FacebookFeed } from "@/components/image-demo/FacebookFeed";
 import { FacebookScamBlockOverlay } from "@/components/image-demo/FacebookScamBlockOverlay";
+import { FacebookSafeContentOverlay } from "@/components/image-demo/FacebookSafeContentOverlay";
 import { useExtensionStore } from "@/lib/store/extensionStore";
 import { Shield, AlertTriangle, Facebook } from "lucide-react";
 import { useSocialMediaTour } from "@/lib/useSocialMediaTour";
@@ -29,6 +30,7 @@ type PostScamImage = {
 export default function ImageDemoPage() {
   const [selectedImage, setSelectedImage] = useState<ScamImage | null>(null);
   const [showBlockOverlay, setShowBlockOverlay] = useState<PostScamImage | null>(null);
+  const [showSafeOverlay, setShowSafeOverlay] = useState<PostScamImage | null>(null);
   const { isActive, resetExtension, setLanguage } = useExtensionStore();
   const { startTour } = useSocialMediaTour();
 
@@ -40,13 +42,22 @@ export default function ImageDemoPage() {
 
   const handleImageClick = (scamImage: PostScamImage) => {
     if (isActive) {
-      // Show the blocking overlay instead of analysis modal for Facebook demo
-      setShowBlockOverlay(scamImage);
+      // Check if it's a low-risk (safe) content
+      if (scamImage.riskLevel === 'low') {
+        setShowSafeOverlay(scamImage);
+      } else {
+        // Show the blocking overlay for scam content
+        setShowBlockOverlay(scamImage);
+      }
     }
   };
 
   const handleCloseBlockOverlay = () => {
     setShowBlockOverlay(null);
+  };
+
+  const handleCloseSafeOverlay = () => {
+    setShowSafeOverlay(null);
   };
 
   return (
@@ -121,6 +132,14 @@ export default function ImageDemoPage() {
         <FacebookScamBlockOverlay
           scamImage={showBlockOverlay}
           onClose={handleCloseBlockOverlay}
+        />
+      )}
+
+      {/* Facebook Safe Content Overlay */}
+      {showSafeOverlay && (
+        <FacebookSafeContentOverlay
+          safeImage={showSafeOverlay}
+          onClose={handleCloseSafeOverlay}
         />
       )}
 
