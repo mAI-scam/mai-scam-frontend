@@ -125,6 +125,19 @@ const facebookPosts: FacebookPostData[] = [
     },
     timestamp: "1 day ago",
     content: "Beautiful sunset from my balcony today! 🌅\n\nNothing beats ending the day with such amazing colors in the sky. Hope everyone is having a great week!\n\n#sunset #malaysia #photography",
+    image: {
+      src: "/images/non_scam_sunset_balcony_view.jpg",
+      alt: "Beautiful sunset view from balcony",
+      scamImage: {
+        id: 5,
+        title: "Legitimate Sunset Photo",
+        description: "Genuine personal sunset photograph",
+        riskLevel: "low",
+        language: "english",
+        category: "Personal",
+        content: "Beautiful sunset from my balcony today! Nothing beats ending the day with such amazing colors in the sky. Hope everyone is having a great week! #sunset #malaysia #photography"
+      }
+    },
     reactions: { like: 45, love: 23, angry: 0 },
     comments: 8,
     shares: 2

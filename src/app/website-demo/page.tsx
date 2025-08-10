@@ -41,14 +41,30 @@ export default function WebsiteDemoPage() {
       {/* Navigation and Tour Buttons */}
       <div className="fixed bottom-6 left-6 z-40 flex gap-3">
         <Link href="/">
-          <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur-sm shadow-lg">
+          <Button variant="outline" size="sm" className="bg-white/95 backdrop-blur-sm shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 border-gray-200">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Home
           </Button>
         </Link>
-        <Button onClick={startTour} variant="default" size="sm" className="bg-primary/90 backdrop-blur-sm shadow-lg">
-          <Play className="h-4 w-4 mr-2" />
-          Start Tour
+        <Button 
+          onClick={startTour}
+          variant="default" 
+          size="sm" 
+          className="relative text-white font-semibold backdrop-blur-sm shadow-2xl border-2 border-white/20 transition-all duration-300 animate-pulse hover:animate-none hover:scale-105 hover:shadow-2xl"
+          style={{
+            background: '#49A4EF',
+            boxShadow: '0 0 30px rgba(73, 164, 239, 0.8), 0 0 60px rgba(73, 164, 239, 0.6), 0 0 90px rgba(73, 164, 239, 0.4), 0 8px 32px rgba(0, 0, 0, 0.3)'
+          }}
+        >
+          <Play className="h-4 w-4 mr-2 drop-shadow-md" />
+          <span className="drop-shadow-md">Start Tour</span>
+          {/* Glowing ring effect */}
+          <div 
+            className="absolute inset-0 rounded-md opacity-40 blur-md -z-10 animate-ping"
+            style={{
+              background: '#49A4EF'
+            }}
+          ></div>
         </Button>
       </div>
       

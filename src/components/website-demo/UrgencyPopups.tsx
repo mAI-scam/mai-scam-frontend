@@ -50,7 +50,7 @@ export function UrgencyPopups() {
   const currentPopup = popups[popupType];
 
   return (
-    <div className="fixed bottom-4 left-4 z-40 animate-in slide-in-from-left">
+    <div className="fixed bottom-4 right-4 z-30 animate-in slide-in-from-right">
       <Card className="shadow-xl">
         <CardContent className="p-4 pr-10">
           <button
