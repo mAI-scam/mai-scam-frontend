@@ -24,7 +24,12 @@ export function WebExtensionOverlay() {
     riskScore,
     riskLevel,
     selectedLanguage,
+    analysisType,
+    showRiskAnalysis,
+    showWebsiteBlocking,
     toggleExtension,
+    setShowRiskAnalysis,
+    setShowWebsiteBlocking,
   } = useExtensionStore();
   const [showReportModal, setShowReportModal] = useState(false);
 
@@ -117,9 +122,30 @@ export function WebExtensionOverlay() {
                     size="sm"
                     className="w-full whitespace-normal break-words leading-snug text-sm min-h-10"
                     onClick={() => {
-                      const el = document.getElementById("risk-details");
-                      if (el) {
-                        el.scrollIntoView({ behavior: "smooth", block: "center" });
+                      if (analysisType === "email") {
+                        // Email demo: show risk analysis popup and scroll to it
+                        if (!showRiskAnalysis) {
+                          setShowRiskAnalysis(true);
+                        }
+                        // Then scroll to it (with a small delay if it was just shown)
+                        setTimeout(() => {
+                          const el = document.getElementById("risk-details");
+                          if (el) {
+                            el.scrollIntoView({ behavior: "smooth", block: "center" });
+                          }
+                        }, showRiskAnalysis ? 0 : 100);
+                      } else if (analysisType === "website") {
+                        // Website demo: show website blocking overlay
+                        if (!showWebsiteBlocking) {
+                          setShowWebsiteBlocking(true);
+                        }
+                        // Scroll to the overlay element
+                        setTimeout(() => {
+                          const el = document.getElementById("website-blocking-overlay");
+                          if (el) {
+                            el.scrollIntoView({ behavior: "smooth", block: "center" });
+                          }
+                        }, showWebsiteBlocking ? 0 : 100);
                       }
                     }}
                   >

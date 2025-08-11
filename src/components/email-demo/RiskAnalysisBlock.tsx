@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield } from "lucide-react";
+import { Shield, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,13 +11,13 @@ import { useState } from "react";
 import { RiskAnalysisData } from "@/data/email-demo/RiskAnalysisData";
 
 export function RiskAnalysisBlock() {
-  const { riskScore, riskLevel, explanation, detailedExplanation, selectedLanguage } =
+  const { riskScore, riskLevel, explanation, detailedExplanation, selectedLanguage, showRiskAnalysis, setShowRiskAnalysis } =
     useExtensionStore();
   const [showReportModal, setShowReportModal] = useState(false);
   const [showDetailed, setShowDetailed] = useState(false);
   const t = RiskAnalysisData[selectedLanguage];
 
-  if (!riskScore) return null;
+  if (!riskScore || !showRiskAnalysis) return null;
 
   const handleReport = () => {
     setShowReportModal(true);
@@ -54,9 +54,19 @@ export function RiskAnalysisBlock() {
                 {t.risk}: {computedRiskLabel}
               </h3>
             </div>
-            <Badge variant="destructive" className="text-base px-3 py-1">
-              {t.risk}: {computedRiskLabel}
-            </Badge>
+            <div className="flex items-center gap-3">
+              <Badge variant="destructive" className="text-base px-3 py-1">
+                {t.risk}: {computedRiskLabel}
+              </Badge>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowRiskAnalysis(false)}
+                className="h-6 w-6 p-0 hover:bg-gray-100"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
 
           <p className="text-sm text-gray-700 mb-4 leading-relaxed whitespace-pre-line">

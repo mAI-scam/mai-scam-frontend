@@ -37,6 +37,8 @@ interface ExtensionState {
   detailedExplanation: string | null;
   analysisType: "email" | "website" | null;
   selectedLanguage: Language;
+  showRiskAnalysis: boolean;
+  showWebsiteBlocking: boolean;
   // Image reporting state (social media demo)
   reportedImageIds: string[];
   isImageReported: (imageId: number | string) => boolean;
@@ -46,6 +48,8 @@ interface ExtensionState {
   resetAnalysis: () => void;
   resetExtension: () => void;
   setLanguage: (language: Language) => void;
+  setShowRiskAnalysis: (show: boolean) => void;
+  setShowWebsiteBlocking: (show: boolean) => void;
   reportScam: (
     type: "email" | "website" | "image",
     data?: ScamReportData
@@ -61,6 +65,8 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
   detailedExplanation: null,
   analysisType: null,
   selectedLanguage: "en",
+  showRiskAnalysis: true,
+  showWebsiteBlocking: true,
   reportedImageIds: [],
 
   isImageReported: (imageId: number | string) => {
@@ -84,6 +90,8 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       explanation: null,
       detailedExplanation: null,
       analysisType: null,
+      showRiskAnalysis: true, // Reset to show when toggling extension
+      showWebsiteBlocking: true, // Reset to show when toggling extension
     })),
 
   analyzeContent: async (content: string, type: "email" | "website") => {
@@ -122,6 +130,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         riskLevel,
         explanation,
         detailedExplanation,
+        showRiskAnalysis: true, // Show analysis when new content is analyzed
       });
     } else if (type === "website") {
       // Website analysis - always high risk for the demo
@@ -136,6 +145,8 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         riskScore,
         riskLevel: "high",
         explanation: explanation,
+        showRiskAnalysis: true, // Show analysis when new content is analyzed
+        showWebsiteBlocking: true, // Show website blocking when new website is analyzed
       });
     }
   },
@@ -147,6 +158,8 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       explanation: null,
       detailedExplanation: null,
       analysisType: null,
+      showRiskAnalysis: true, // Reset to show
+      showWebsiteBlocking: true, // Reset to show
     }),
 
   resetExtension: () =>
@@ -158,6 +171,8 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       explanation: null,
       detailedExplanation: null,
       analysisType: null,
+      showRiskAnalysis: true, // Reset to show
+      showWebsiteBlocking: true, // Reset to show
       // Intentionally do not reset reportedImageIds so reported state persists during demo navigation
     }),
 
@@ -185,6 +200,12 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         detailedExplanation: newDetailedExplanation 
       };
     }),
+
+  setShowRiskAnalysis: (show: boolean) =>
+    set({ showRiskAnalysis: show }),
+
+  setShowWebsiteBlocking: (show: boolean) =>
+    set({ showWebsiteBlocking: show }),
 
   reportScam: async (
     type: "email" | "website" | "image",
