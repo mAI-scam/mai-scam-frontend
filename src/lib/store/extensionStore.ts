@@ -34,6 +34,7 @@ interface ExtensionState {
   riskScore: number | null;
   riskLevel: "low" | "medium" | "high" | null;
   explanation: string | null;
+  detailedExplanation: string | null;
   analysisType: "email" | "website" | null;
   selectedLanguage: Language;
   // Image reporting state (social media demo)
@@ -57,6 +58,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
   riskScore: null,
   riskLevel: null,
   explanation: null,
+  detailedExplanation: null,
   analysisType: null,
   selectedLanguage: "en",
   reportedImageIds: [],
@@ -80,6 +82,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       riskScore: null,
       riskLevel: null,
       explanation: null,
+      detailedExplanation: null,
       analysisType: null,
     })),
 
@@ -104,15 +107,21 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       else if (riskScore >= 50) riskLevel = "medium";
 
       const explanation =
-        EmailExplanations[riskLevel][
-          lang as keyof (typeof EmailExplanations)[typeof riskLevel]
-        ] ?? EmailExplanations[riskLevel]["en"];
+        EmailExplanations[riskLevel].short[
+          lang as keyof (typeof EmailExplanations)[typeof riskLevel]["short"]
+        ] ?? EmailExplanations[riskLevel].short["en"];
+
+      const detailedExplanation =
+        EmailExplanations[riskLevel].detailed[
+          lang as keyof (typeof EmailExplanations)[typeof riskLevel]["detailed"]
+        ] ?? EmailExplanations[riskLevel].detailed["en"];
 
       set({
         isAnalyzing: false,
         riskScore,
         riskLevel,
         explanation,
+        detailedExplanation,
       });
     } else if (type === "website") {
       // Website analysis - always high risk for the demo
@@ -136,6 +145,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       riskScore: null,
       riskLevel: null,
       explanation: null,
+      detailedExplanation: null,
       analysisType: null,
     }),
 
@@ -146,6 +156,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       riskScore: null,
       riskLevel: null,
       explanation: null,
+      detailedExplanation: null,
       analysisType: null,
       // Intentionally do not reset reportedImageIds so reported state persists during demo navigation
     }),
@@ -153,17 +164,26 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
   setLanguage: (language: Language) =>
     set((state) => {
       let newExplanation = state.explanation;
+      let newDetailedExplanation = state.detailedExplanation;
       if (state.analysisType === "email" && state.riskLevel) {
         newExplanation =
-          EmailExplanations[state.riskLevel][
-            language as keyof (typeof EmailExplanations)[typeof state.riskLevel]
-          ] ?? EmailExplanations[state.riskLevel]["en"];
+          EmailExplanations[state.riskLevel].short[
+            language as keyof (typeof EmailExplanations)[typeof state.riskLevel]["short"]
+          ] ?? EmailExplanations[state.riskLevel].short["en"];
+        newDetailedExplanation =
+          EmailExplanations[state.riskLevel].detailed[
+            language as keyof (typeof EmailExplanations)[typeof state.riskLevel]["detailed"]
+          ] ?? EmailExplanations[state.riskLevel].detailed["en"];
       } else if (state.analysisType === "website") {
         newExplanation =
           WebsiteExplanations[language as keyof typeof WebsiteExplanations] ??
           WebsiteExplanations["en"];
       }
-      return { selectedLanguage: language, explanation: newExplanation };
+      return { 
+        selectedLanguage: language, 
+        explanation: newExplanation,
+        detailedExplanation: newDetailedExplanation 
+      };
     }),
 
   reportScam: async (

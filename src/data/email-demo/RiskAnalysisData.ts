@@ -20,6 +20,8 @@ export type RiskAnalysisTranslation = {
   recommendedActionText: string;
   reportFraud: string;
   dismiss: string;
+  seeMore: string;
+  seeLess: string;
 };
 
 export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
@@ -49,6 +51,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "Do not interact with any links or download any attachments from this email. Mark the email as spam and delete it. If you're interested in verifying your account status, contact your bank directly through their official website or customer service to confirm.",
     reportFraud: "REPORT FRAUD",
     dismiss: "DISMISS",
+    seeMore: "See more",
+    seeLess: "See less",
   },
   ms: {
     spamWarning:
@@ -76,6 +80,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "Jangan berinteraksi dengan mana-mana pautan atau muat turun sebarang lampiran dari e-mel ini. Tandakan e-mel sebagai spam dan padamkannya. Jika anda berminat untuk mengesahkan status akaun anda, hubungi bank anda secara langsung melalui laman web rasmi mereka atau perkhidmatan pelanggan untuk mengesahkan.",
     reportFraud: "LAPORKAN PENIPUAN",
     dismiss: "TOLAK",
+    seeMore: "Lihat lagi",
+    seeLess: "Lihat kurang",
   },
   zh: {
     spamWarning:
@@ -101,6 +107,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "不要与此电子邮件中的任何链接互动或下载任何附件。将电子邮件标记为垃圾邮件并删除。如果您有兴趣验证您的账户状态，请直接通过其官方网站或客户服务联系您的银行进行确认。",
     reportFraud: "举报欺诈",
     dismiss: "忽略",
+    seeMore: "查看更多",
+    seeLess: "收起",
   },
   vi: {
     spamWarning:
@@ -128,6 +136,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "Không nhấp vào liên kết hoặc tải xuống tệp đính kèm từ email này. Hãy đánh dấu là spam và xóa nó. Nếu bạn muốn xác minh tình trạng tài khoản, hãy liên hệ với ngân hàng thông qua trang web chính thức hoặc dịch vụ khách hàng.",
     reportFraud: "BÁO CÁO GIAN LẬN",
     dismiss: "BỎ QUA",
+    seeMore: "Xem thêm",
+    seeLess: "Thu gọn",
   },
   th: {
     spamWarning:
@@ -155,6 +165,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "อย่าคลิกที่ลิงก์หรือดาวน์โหลดไฟล์แนบจากอีเมลนี้ ให้ทำเครื่องหมายว่าเป็นสแปมและลบออก หากต้องการยืนยันสถานะบัญชีของคุณ โปรดติดต่อธนาคารโดยตรงผ่านเว็บไซต์ทางการหรือฝ่ายบริการลูกค้า",
     reportFraud: "รายงานการฉ้อโกง",
     dismiss: "ปิด",
+    seeMore: "ดูเพิ่มเติม",
+    seeLess: "ดูน้อยลง",
   },
   fil: {
     spamWarning:
@@ -182,6 +194,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "Huwag mag-click sa kahit anong link o mag-download ng attachment mula sa email na ito. I-mark ito bilang spam at i-delete. Kung gusto mong kumpirmahin ang status ng account mo, kontakin ang bangko mo sa opisyal na website o customer service.",
     reportFraud: "I-REPORT ANG PANLLOLOKO",
     dismiss: "ISARA",
+    seeMore: "Makita pa",
+    seeLess: "Bawasan",
   },
   id: {
     spamWarning:
@@ -209,6 +223,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "Jangan klik tautan atau unduh lampiran apa pun dari email ini. Tandai sebagai spam dan hapus. Jika ingin memverifikasi status akun Anda, hubungi bank Anda langsung melalui situs resmi atau layanan pelanggan.",
     reportFraud: "LAPORKAN PENIPUAN",
     dismiss: "TUTUP",
+    seeMore: "Lihat lebih",
+    seeLess: "Lihat kurang",
   },
   jv: {
     spamWarning:
@@ -236,6 +252,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "Aja klik pranala utawa undhuh lampiran saka email iki. Tandhani minangka spam lan busak. Yen sampeyan pengin mriksa status akun, hubungi bank liwat situs web resmi utawa layanan pelanggan.",
     reportFraud: "LAPORKAN PENIPUAN",
     dismiss: "TUTUP",
+    seeMore: "Deleng liyane",
+    seeLess: "Deleng sithik",
   },
   su: {
     spamWarning:
@@ -263,6 +281,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "Ulah klik kana tautan atanapi unduh lampiran naon waé tina email ieu. Tandaan salaku spam teras hapus. Upami anjeun hoyong verifikasi status akun anjeun, hubungi bank langsung liwat situs resmi atanapi layanan palanggan.",
     reportFraud: "LAPORKAN PENIPUAN",
     dismiss: "TUTUP",
+    seeMore: "Tingali deui",
+    seeLess: "Tingali saeutik",
   },
   km: {
     spamWarning:
@@ -290,6 +310,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "កុំចុចលើតំណភ្ជាប់ណាមួយ ឬទាញយកឯកសារភ្ជាប់ពីអ៊ីមែលនេះ។ សម្គាល់ថាជាស្ពាម និងលុបវាចោល។ ប្រសិនបើអ្នកចង់ពិនិត្យស្ថានភាពគណនី សូមទំនាក់ទំនងធនាគាររបស់អ្នកតាមគេហទំព័រផ្លូវការឬសេវាអតិថិជន។",
     reportFraud: "រាយការណ៍ការបោកបញ្ឆោត",
     dismiss: "បដិសេធ",
+    seeMore: "មើលបន្ថែម",
+    seeLess: "មើលតិច",
   },
   lo: {
     spamWarning:
@@ -316,6 +338,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "ຢ່າຄລິກລິ້ງໃດໆ ຫຼືດາວໂຫຼດໄຟລ໌ແນບ. ໃຫ້ລາຍງານວ່າແມ່ນສະແປມ ແລະລົບອອກ. ຖ້າທ່ານຈະກວດສອບບັນຊີ ກະລຸນາເຂົ້າໄປທີ່ເວັບໄຊທະນາຄານຢ່າງເປັນທາງການ.",
     reportFraud: "ແຈ້ງການຫຼອກລວງ",
     dismiss: "ປິດ",
+    seeMore: "ເບິ່ງເພີ່ມ",
+    seeLess: "ເບິ່ງໜ້ອຍ",
   },
   my: {
     spamWarning:
@@ -342,6 +366,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "ဤအီးမေးလ်တွင်ပါဝင်သော လင့်ခ်များကို မနှိပ်ပါနှင့်၊ attachment များကိုလည်း မဒေါင်းလုပ်ပါနှင့်။ Spam ဟုသတ်မှတ်ပြီး ဖျက်ပါ။ သင့်အကောင့်အခြေအနေကိုစစ်ဆေးလိုပါက၊ သင့်ဘဏ်၏ တရားဝင်ဝက်ဘ်ဆိုဒ် သို့မဟုတ် ဖောက်သည်ဝန်ဆောင်မှုအဖွဲ့အား တိုက်ရိုက်ဆက်သွယ်ပါ။",
     reportFraud: "လိမ်လည်မှုကို တိုင်ကြားမည်",
     dismiss: "ပယ်ဖျက်မည်",
+    seeMore: "ပို၍ကြည့်မည်",
+    seeLess: "နည်းနည်းကြည့်မည်",
   },
 
   ta: {
@@ -370,5 +396,7 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
       "இந்த மின்னஞ்சலில் உள்ள எந்தவொரு இணைப்புகளிலும் கிளிக் செய்யவேண்டாம் அல்லது இணைப்புகளை பதிவிறக்கவேண்டாம். ஸ்பேமாக குறிக்கவும் மற்றும் அதை நீக்கவும். உங்கள் கணக்கை சரிபார்க்க விரும்பினால், உங்கள் வங்கியின் உத்தியோகபூர்வ இணையதளத்தை நேரடியாக அணுகவும்.",
     reportFraud: "மோசடியை புகாரளிக்கவும்",
     dismiss: "மறுக்கவும்",
+    seeMore: "மேலும் பார்க்கவும்",
+    seeLess: "குறைவாக பார்க்கவும்",
   },
 };

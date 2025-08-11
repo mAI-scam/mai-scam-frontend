@@ -11,9 +11,10 @@ import { useState } from "react";
 import { RiskAnalysisData } from "@/data/email-demo/RiskAnalysisData";
 
 export function RiskAnalysisBlock() {
-  const { riskScore, riskLevel, explanation, selectedLanguage } =
+  const { riskScore, riskLevel, explanation, detailedExplanation, selectedLanguage } =
     useExtensionStore();
   const [showReportModal, setShowReportModal] = useState(false);
+  const [showDetailed, setShowDetailed] = useState(false);
   const t = RiskAnalysisData[selectedLanguage];
 
   if (!riskScore) return null;
@@ -59,8 +60,22 @@ export function RiskAnalysisBlock() {
           </div>
 
           <p className="text-sm text-gray-700 mb-4 leading-relaxed whitespace-pre-line">
-            {explanation}
+            {showDetailed ? detailedExplanation : explanation}
           </p>
+
+          {/* See More/Less Button */}
+          {detailedExplanation && explanation !== detailedExplanation && (
+            <div className="mb-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowDetailed(!showDetailed)}
+                className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal"
+              >
+                {showDetailed ? t.seeLess : t.seeMore}
+              </Button>
+            </div>
+          )}
 
           {riskLevel === "high" && (
             <>
