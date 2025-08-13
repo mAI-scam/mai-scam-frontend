@@ -38,7 +38,7 @@ export default function Header() {
             href="/image-demo"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Image Demo
+            Social Media Demo
           </Link>
         </div>
       </nav>

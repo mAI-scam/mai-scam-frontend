@@ -190,7 +190,7 @@ export default function Home() {
           <Card className="flex-1">
             <div className="relative w-full h-64 md:h-full">
               <Image
-                src="/images/main_our_features_1.jpg" // replace with your image path
+                src="/images/shaun.jpg" // replace with your image path
                 alt="Our Features Illustration"
                 fill
                 className="object-cover rounded-lg"
@@ -199,8 +199,8 @@ export default function Home() {
           </Card>
         </section>
 
-        {/* Why mAIscam */}
-        <section className="flex max-w-5xl mx-auto gap-8">
+        {/* Enterprise & Government Solutions */}
+        <section className="mb-12 flex max-w-5xl mx-auto gap-8">
           {/* Left - Image */}
           <Card className="flex-1">
             <div className="relative w-full h-64 md:h-full">
@@ -222,19 +222,111 @@ export default function Home() {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                mAIscam goes beyond traditional scam detection by combining
-                real-time MCP-powered intelligence, adaptive AI agents, and
-                cultural context awareness. This ensures scam detection is not
-                only accurate, but also relevant to diverse Southeast Asian
-                communities.
+                mAIscam protects organizations and nations from phishing and
+                scam threats with{" "}
+                <strong className="text-black">
+                  multilingual, culturally aware AI
+                </strong>{" "}
+                built for Southeast Asia.
               </p>
-              <p>
-                With multilingual support, integration into everyday browsing,
-                and automated coordination with trusted anti-fraud platforms,
-                mAIscam empowers users to make informed decisions and stay
-                protected against evolving digital threats.
-              </p>
+              <ul className="list-disc pl-6">
+                <li>
+                  <strong className="text-black">
+                    Advanced Threat Detection
+                  </strong>{" "}
+                  across email, web, and social media to block malicious content
+                  before it reaches users.
+                </li>
+                <li>
+                  <strong className="text-black">
+                    Nation-Scale Protection
+                  </strong>{" "}
+                  enabling governments to safeguard citizens, run awareness
+                  campaigns, and share intelligence with law enforcement.
+                </li>
+                <li>
+                  <strong className="text-black">Regulatory Compliance</strong>{" "}
+                  with PDPA, GDPR, and other local cybersecurity requirements.
+                </li>
+              </ul>
             </CardContent>
+          </Card>
+        </section>
+
+        {/* Market Opportunities */}
+        <section className="mb-12 flex max-w-5xl mx-auto gap-8">
+          {/* Left - Content */}
+          <Card className="flex-2">
+            <CardHeader>
+              <CardTitle className="text-3xl text-center">
+                Market Opportunity
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div>
+                  <h4 className="font-semibold mb-1">TAM</h4>
+                  <p className="text-muted-foreground">
+                    The{" "}
+                    <strong className="text-black">
+                      Total Addressable Market (TAM)
+                    </strong>{" "}
+                    for phishing protection is valued at approximately
+                    <strong className="text-black">
+                      {" "}
+                      USD 7.2 billion
+                    </strong>{" "}
+                    globally. For broader context, the fraud detection and
+                    prevention market is projected to reach{" "}
+                    <strong className="text-black">USD 90 billion</strong> in
+                    the coming years.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div>
+                  <h4 className="font-semibold mb-1">SAM</h4>
+                  <p className="text-muted-foreground">
+                    Within this, the{" "}
+                    <strong className="text-black">
+                      Serviceable Available Market (SAM)
+                    </strong>{" "}
+                    in Asia-Pacific is estimated at around
+                    <strong className="text-black"> USD 2.5 billion</strong>,
+                    driven by rising phishing incidents and rapid digital
+                    adoption in Southeast Asia.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div>
+                  <h4 className="font-semibold mb-1">SOM</h4>
+                  <p className="text-muted-foreground">
+                    Given our niche in multilingual, culturally aligned scam
+                    detection, we project a{" "}
+                    <strong className="text-black">
+                      Serviceable Obtainable Market (SOM)
+                    </strong>{" "}
+                    of <strong className="text-black">USD 25-75 million</strong>
+                    , representing 5-10% of the Southeast Asian segment by 2033.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Right - Image */}
+          <Card className="flex-1">
+            <div className="relative w-full h-64 md:h-full">
+              <Image
+                src="/images/edmund.jpg" // replace with your image path
+                alt="Our Features Illustration"
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
           </Card>
         </section>
       </main>
