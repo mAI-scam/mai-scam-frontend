@@ -122,7 +122,7 @@ export default function Home() {
         </section>
 
         {/* Our Features */}
-        <section className="mb-12 flex max-w-5xl mx-auto gap-8">
+        <section className="mb-12 flex max-w-5xl mx-auto gap-8 flex-col md:flex-row">
           {/* Left - Content */}
           <Card className="flex-2">
             <CardHeader>
@@ -187,7 +187,7 @@ export default function Home() {
           </Card>
 
           {/* Right - Image */}
-          <Card className="flex-1">
+          <Card className="flex-1 hidden md:block">
             <div className="relative w-full h-64 md:h-full">
               <Image
                 src="/images/shaun.jpg" // replace with your image path
@@ -200,9 +200,9 @@ export default function Home() {
         </section>
 
         {/* Enterprise & Government Solutions */}
-        <section className="mb-12 flex max-w-5xl mx-auto gap-8">
+        <section className="mb-12 flex max-w-5xl mx-auto gap-8 flex-col md:flex-row">
           {/* Left - Image */}
-          <Card className="flex-1">
+          <Card className="flex-1 hidden md:block">
             <div className="relative w-full h-64 md:h-full">
               <Image
                 src="/images/main_why_maiscam_1.jpg" // replace with your image path
@@ -254,7 +254,7 @@ export default function Home() {
         </section>
 
         {/* Market Opportunities */}
-        <section className="mb-12 flex max-w-5xl mx-auto gap-8">
+        <section className="mb-12 flex max-w-5xl mx-auto gap-8 flex-col md:flex-row">
           {/* Left - Content */}
           <Card className="flex-2">
             <CardHeader>
@@ -318,7 +318,7 @@ export default function Home() {
           </Card>
 
           {/* Right - Image */}
-          <Card className="flex-1">
+          <Card className="flex-1 hidden md:block">
             <div className="relative w-full h-64 md:h-full">
               <Image
                 src="/images/edmund.jpg" // replace with your image path
