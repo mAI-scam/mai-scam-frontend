@@ -25,7 +25,7 @@ export function DemoInstruction({
   activeMessage,
   inactiveMessage,
 }: DemoInstructionProps) {
-  const { isActive, toggleExtension, selectedLanguage } = useExtensionStore();
+  const { isActive, isActivating, toggleExtension, selectedLanguage } = useExtensionStore();
   const colors = colorSchemes[colorScheme];
   const t = ExtensionData[selectedLanguage];
 
@@ -103,16 +103,25 @@ export function DemoInstruction({
         <div className="flex flex-col items-end gap-3">
           <LanguageSelector />
 
-          {!isActive && (
-            <Button
-              data-tour="activate-button"
-              onClick={toggleExtension}
-              className="shadow-lg"
-            >
-              <Shield className="h-5 w-5 mr-2" />
-              {t.activateExtension}
-            </Button>
-          )}
+          <Button
+            data-tour="activate-button"
+            onClick={toggleExtension}
+            className="shadow-lg"
+            variant={isActive ? "destructive" : "default"}
+            disabled={isActivating}
+          >
+            {isActivating ? (
+              <>
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
+                Activating...
+              </>
+            ) : (
+              <>
+                <Shield className="h-5 w-5 mr-2" />
+                {isActive ? t.deactivateExtension : t.activateExtension}
+              </>
+            )}
+          </Button>
         </div>
       </div>
     </div>

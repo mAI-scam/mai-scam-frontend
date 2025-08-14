@@ -4,6 +4,7 @@ import type { LanguageCode } from "@/data/store/Languages";
 
 type ExtensionTextBlock = {
   activateExtension: string;
+  deactivateExtension: string;
   extensionActive: string;
   analyzing: string;
   highRisk: string;
@@ -18,6 +19,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   en: {
     // English
     activateExtension: "Activate mAIscam",
+    deactivateExtension: "Deactivate mAIscam",
     extensionActive: "mAIscam Active",
     analyzing: "Analyzing email...",
     highRisk: "High Risk",
@@ -30,6 +32,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   ms: {
     // Malay
     activateExtension: "Aktifkan mAIscam",
+    deactivateExtension: "Nyahaktifkan mAIscam",
     extensionActive: "mAIscam Aktif",
     analyzing: "Menganalisis e-mel...",
     highRisk: "Risiko Tinggi",
@@ -42,6 +45,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   zh: {
     // Chinese
     activateExtension: "激活 mAIscam",
+    deactivateExtension: "停用 mAIscam",
     extensionActive: "mAIscam 已激活",
     analyzing: "正在分析电子邮件...",
     highRisk: "高风险",
@@ -54,6 +58,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   vi: {
     // Vietnamese
     activateExtension: "Kích hoạt mAIscam",
+    deactivateExtension: "Hủy kích hoạt mAIscam",
     extensionActive: "mAIscam đã kích hoạt",
     analyzing: "Đang phân tích email...",
     highRisk: "Rủi ro cao",
@@ -66,6 +71,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   th: {
     // Thai
     activateExtension: "เปิดใช้งาน mAIscam",
+    deactivateExtension: "ปิดใช้งาน mAIscam",
     extensionActive: "mAIscam เปิดใช้งานแล้ว",
     analyzing: "กำลังวิเคราะห์อีเมล...",
     highRisk: "มีความเสี่ยงสูง",
@@ -78,6 +84,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   fil: {
     // Filipino
     activateExtension: "I-activate ang mAIscam",
+    deactivateExtension: "I-deactivate ang mAIscam",
     extensionActive: "Aktibo ang mAIscam",
     analyzing: "Sinusuri ang email...",
     highRisk: "Mataas na Panganib",
@@ -90,6 +97,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   id: {
     // Indonesian
     activateExtension: "Aktifkan mAIscam",
+    deactivateExtension: "Nonaktifkan mAIscam",
     extensionActive: "mAIscam Aktif",
     analyzing: "Menganalisis email...",
     highRisk: "Risiko Tinggi",
@@ -102,6 +110,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   jv: {
     // Javanese
     activateExtension: "Aktifake mAIscam",
+    deactivateExtension: "Matekake mAIscam",
     extensionActive: "mAIscam wis aktif",
     analyzing: "Nglakoni analisa email...",
     highRisk: "Risiko Dhuwur",
@@ -114,6 +123,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   su: {
     // Sundanese
     activateExtension: "Aktipkeun mAIscam",
+    deactivateExtension: "Pareum mAIscam",
     extensionActive: "mAIscam parantos aktip",
     analyzing: "Ngalaan email...",
     highRisk: "Risiko Luhur",
@@ -126,6 +136,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   km: {
     // Khmer
     activateExtension: "បើកដំណើរការ mAIscam",
+    deactivateExtension: "បិទដំណើរការ mAIscam",
     extensionActive: "mAIscam បានដំណើរការ",
     analyzing: "កំពុងវិភាគអ៊ីមែល...",
     highRisk: "ហានិភ័យខ្ពស់",
@@ -138,6 +149,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   lo: {
     // Lao
     activateExtension: "ເປີດໃຊ້ mAIscam",
+    deactivateExtension: "ປິດໃຊ້ mAIscam",
     extensionActive: "mAIscam ເປີດແລ້ວ",
     analyzing: "ກຳລັງວິເຄາະອີເມວ...",
     highRisk: "ຄວາມສ່ຽງສູງ",
@@ -150,6 +162,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   my: {
     // Burmese
     activateExtension: "mAIscam ကိုဖွင့်ပါ",
+    deactivateExtension: "mAIscam ကိုပိတ်ပါ",
     extensionActive: "mAIscam အသုံးပြုပြီးပါပြီ",
     analyzing: "အီးမေးလ်ကို ချက်ခြင်းစစ်ဆေးနေသည်...",
     highRisk: "အန္တရာယ်အမြင့်",
@@ -162,6 +175,7 @@ export const ExtensionData: Record<LanguageCode, ExtensionTextBlock> = {
   ta: {
     // Tamil
     activateExtension: "mAIscam ஐ செயல்படுத்தவும்",
+    deactivateExtension: "mAIscam ஐ நிறுத்தவும்",
     extensionActive: "mAIscam செயல்பட்டது",
     analyzing: "மின்னஞ்சலை பகுப்பாய்வு செய்கிறது...",
     highRisk: "உயர் அபாயம்",

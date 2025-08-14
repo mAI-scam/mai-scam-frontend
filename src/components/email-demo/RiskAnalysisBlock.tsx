@@ -127,7 +127,12 @@ export function RiskAnalysisBlock() {
             >
               {t.reportFraud}
             </Button>
-            <Button variant="outline">{t.dismiss}</Button>
+            <Button 
+              variant="outline"
+              onClick={() => setShowRiskAnalysis(false)}
+            >
+              {t.dismiss}
+            </Button>
           </div>
         </CardContent>
       </Card>

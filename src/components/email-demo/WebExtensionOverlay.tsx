@@ -20,6 +20,7 @@ import { ExtensionData } from "@/data/email-demo/ExtensionData";
 export function WebExtensionOverlay() {
   const {
     isActive,
+    isActivating,
     isAnalyzing,
     riskScore,
     riskLevel,
@@ -46,9 +47,19 @@ export function WebExtensionOverlay() {
           data-tour="activate-button"
           onClick={toggleExtension}
           className="shadow-lg"
+          disabled={isActivating}
         >
-          <Shield className="h-5 w-5 mr-2" />
-          {t.activateExtension}
+          {isActivating ? (
+            <>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
+              Activating...
+            </>
+          ) : (
+            <>
+              <Shield className="h-5 w-5 mr-2" />
+              {t.activateExtension}
+            </>
+          )}
         </Button>
       </div>
     );

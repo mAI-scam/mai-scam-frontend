@@ -30,6 +30,7 @@ type ScamReportData = EmailScamData | WebsiteScamData | ImageScamData;
 
 interface ExtensionState {
   isActive: boolean;
+  isActivating: boolean;
   isAnalyzing: boolean;
   riskScore: number | null;
   riskLevel: "low" | "medium" | "high" | null;
@@ -58,6 +59,7 @@ interface ExtensionState {
 
 export const useExtensionStore = create<ExtensionState>((set, get) => ({
   isActive: false,
+  isActivating: false,
   isAnalyzing: false,
   riskScore: null,
   riskLevel: null,
@@ -82,17 +84,45 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
     });
   },
 
-  toggleExtension: () =>
-    set((state) => ({
-      isActive: !state.isActive,
-      riskScore: null,
-      riskLevel: null,
-      explanation: null,
-      detailedExplanation: null,
-      analysisType: null,
-      showRiskAnalysis: true, // Reset to show when toggling extension
-      showWebsiteBlocking: true, // Reset to show when toggling extension
-    })),
+  toggleExtension: async () => {
+    const currentState = get();
+    
+    // If currently activating, ignore the request
+    if (currentState.isActivating) return;
+    
+    if (!currentState.isActive) {
+      // Activating - show loading state
+      set({ isActivating: true });
+      
+      // Simulate activation delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      
+      set({
+        isActive: true,
+        isActivating: false,
+        riskScore: null,
+        riskLevel: null,
+        explanation: null,
+        detailedExplanation: null,
+        analysisType: null,
+        showRiskAnalysis: true,
+        showWebsiteBlocking: true,
+      });
+    } else {
+      // Deactivating - instant
+      set({
+        isActive: false,
+        isActivating: false,
+        riskScore: null,
+        riskLevel: null,
+        explanation: null,
+        detailedExplanation: null,
+        analysisType: null,
+        showRiskAnalysis: true,
+        showWebsiteBlocking: true,
+      });
+    }
+  },
 
   analyzeContent: async (content: string, type: "email" | "website") => {
     set({ isAnalyzing: true, analysisType: type });
@@ -169,6 +199,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
   resetExtension: () =>
     set({
       isActive: false,
+      isActivating: false,
       isAnalyzing: false,
       riskScore: null,
       riskLevel: null,
