@@ -18,7 +18,7 @@ export const useEmailTour = () => {
           element: '[data-tour="activate-button"]',
           popover: {
             title: 'Activate mAIscam Protection',
-            description: 'Please click the "Activate mAIscam" button to activate the extension. Do not click the next button yet.',
+            description: 'Please click the "Activate mAIscam" button to activate the extension. Make sure you click the Activate mAiscam button and not the next button.',
           },
           onHighlightStarted: () => {
             // Reset flags for this step

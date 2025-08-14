@@ -5,39 +5,33 @@ import { driver } from 'driver.js';
 import { useExtensionStore } from '@/lib/store/extensionStore';
 
 export const useSocialMediaTour = () => {
-  const { isActive, toggleExtension } = useExtensionStore();
 
   const startTour = useCallback(() => {
-    let activateButtonClicked = false;
-    let scamImageClicked = false;
 
     const driverObj = driver({
       showProgress: true,
       steps: [
         {
-          element: '[data-tour="demo-banner"]',
+          element: '[data-tour="scam-post"]',
           popover: {
             title: 'How this demo works',
             description:
-              'This feed contains scammy posts. Activate protection then click flagged images to see AI blocking in action.',
+              'This post contains scammy content that our AI will detect. Activate protection then click flagged images to see AI blocking in action.',
           },
         },
         {
-          element: '#image-overlay [data-tour="activate-button"]',
+          element: '[data-tour="activate-button"]',
           popover: {
             title: 'Activate mAIscam',
             description:
-              'Please click the "Activate mAIscam" button to enable real-time scam detection on social posts.',
+              'Please click the "Activate mAIscam" button to enable real-time scam detection on social posts. Make sure you click the Activate mAiscam button and not the next button.',
           },
           onHighlightStarted: () => {
-            // Reset flag for this step
-            activateButtonClicked = false;
             
             // Add click listener to the activation button
-            const button = document.querySelector('#image-overlay [data-tour="activate-button"]') as HTMLElement;
+            const button = document.querySelector('[data-tour="activate-button"]') as HTMLElement;
             if (button) {
               const handleClick = () => {
-                activateButtonClicked = true;
                 // Wait for extension to activate, then proceed
                 const checkActivation = () => {
                   const state = useExtensionStore.getState();
@@ -69,31 +63,30 @@ export const useSocialMediaTour = () => {
           popover: {
             title: 'Flagged Post Image',
             description:
-              'Please click the flagged image to trigger OCR + AI analysis and see the scam content blocking.',
+              'Please click the flagged image to trigger OCR + AI analysis and see the scam content blocking. Make sure you click the image and not the next button.',
           },
           onHighlightStarted: () => {
-            // Reset flag for this step
-            scamImageClicked = false;
             
             // Add click listener to the scam image
             const image = document.querySelector('[data-tour="scam-image"]') as HTMLElement;
             if (image) {
               const handleClick = () => {
-                scamImageClicked = true;
-                // Wait for modal/overlay to appear, then proceed
+                // Fast and simple modal detection
                 const checkModal = () => {
                   const modal = document.querySelector('[data-tour="fb-risk-header"]');
                   const blockOverlay = document.querySelector('[data-tour="scam-blocked"]');
                   
                   if (modal || blockOverlay) {
-                    // Modal/overlay appeared, auto-proceed to next step
-                    setTimeout(() => driverObj.moveNext(), 500);
+                    // Modal appeared - proceed quickly to next step
+                    setTimeout(() => driverObj.moveNext(), 200);
                   } else {
-                    // Keep checking
-                    setTimeout(checkModal, 100);
+                    // Keep checking with fast intervals
+                    setTimeout(checkModal, 50);
                   }
                 };
-                setTimeout(checkModal, 200); // Give a small delay for DOM to update
+                
+                // Start checking after a very short delay to allow DOM update
+                setTimeout(checkModal, 100);
               };
               
               image.addEventListener('click', handleClick, { once: true });
@@ -106,7 +99,20 @@ export const useSocialMediaTour = () => {
             title: 'Scam Detected',
             description:
               'The overlay explains why this post is risky and helps you proceed safely or report.',
+            side: 'bottom',
+            align: 'center',
           },
+          onHighlightStarted: () => {
+            // Quick positioning of the overlay
+            const overlay = document.querySelector('[data-tour="fb-risk-header"]') as HTMLElement;
+            if (overlay) {
+              // Immediately scroll into view for faster response
+              overlay.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center'
+              });
+            }
+          }
         },
         {
           element: '[data-tour="fb-report-button"]',
@@ -127,7 +133,7 @@ export const useSocialMediaTour = () => {
     });
 
     driverObj.drive();
-  }, [isActive, toggleExtension]);
+  }, []);
 
   return { startTour };
 };

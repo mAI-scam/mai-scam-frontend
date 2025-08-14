@@ -31,6 +31,7 @@ export function DemoInstruction({
 
   return (
     <div
+      data-tour="demo-banner"
       className={`${colors.bg} border-b ${colors.border} p-4 sticky top-0 z-50`}
     >
       {/* 3-Column Layout */}

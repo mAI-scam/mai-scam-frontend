@@ -76,7 +76,10 @@ export function FacebookPost({ post, onImageClick }: FacebookPostProps) {
   };
 
   return (
-    <Card className="bg-white rounded-lg shadow-sm border border-gray-200 mb-4">
+    <Card 
+      className="bg-white rounded-lg shadow-sm border border-gray-200 mb-4"
+      data-tour={post.image?.scamImage && post.id === 1 ? "scam-post" : undefined}
+    >
       {/* Post Header */}
       <div className="p-4 pb-3">
         <div className="flex items-start justify-between">

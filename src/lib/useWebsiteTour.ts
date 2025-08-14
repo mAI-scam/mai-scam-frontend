@@ -58,7 +58,7 @@ export const useWebsiteTour = () => {
           popover: {
             title: 'Activate mAIscam Protection',
             description:
-              'Please click the "Activate mAIscam" button to enable protection and see the website blocker in action.',
+              'Please click the "Activate mAIscam" button to enable protection and see the website blocker in action. Make sure you click the Activate mAiscam button and not the next button.',
           },
           onHighlightStarted: () => {
             // Reset flag for this step
