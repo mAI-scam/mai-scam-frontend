@@ -66,7 +66,10 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
         <LanguageSelector />
       </div>
 
-      <Card className="max-w-2xl w-full border-red-200 bg-white/95 backdrop-blur-sm shadow-2xl">
+      <Card 
+        data-tour="risk-analysis"
+        className="max-w-2xl w-full border-red-200 bg-white/95 backdrop-blur-sm shadow-2xl"
+      >
         <CardContent className="p-8">
           {/* Close Button */}
           <div className="flex justify-end mb-4">
@@ -197,6 +200,7 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
                 {t.backToSafety}
               </Button>
               <Button
+                data-tour="website-report-button"
                 variant="destructive"
                 onClick={handleReport}
                 className="flex-1"

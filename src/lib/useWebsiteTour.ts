@@ -54,7 +54,7 @@ export const useWebsiteTour = () => {
           },
         },
         {
-          element: '#website-overlay [data-tour="activate-button"]',
+          element: '[data-tour="activate-button"]',
           popover: {
             title: 'Activate mAIscam Protection',
             description:
@@ -65,18 +65,25 @@ export const useWebsiteTour = () => {
             activateButtonClicked = false;
             
             // Add click listener to the activation button
-            const button = document.querySelector('#website-overlay [data-tour="activate-button"]') as HTMLElement;
+            const button = document.querySelector('[data-tour="activate-button"]') as HTMLElement;
             if (button) {
               const handleClick = () => {
                 activateButtonClicked = true;
-                // Wait for extension to activate, then proceed
+                // Wait for extension to activate and website blocking overlay to appear, then proceed
                 const checkActivation = () => {
                   const state = useExtensionStore.getState();
                   if (state.isActive && !state.isActivating) {
-                    // Auto-proceed to next step
-                    setTimeout(() => driverObj.moveNext(), 500);
+                    // Also check if the website blocking overlay has appeared
+                    const overlay = document.querySelector('[data-tour="risk-analysis"]');
+                    if (overlay) {
+                      // Auto-proceed to next step
+                      setTimeout(() => driverObj.moveNext(), 500);
+                    } else {
+                      // Keep checking for overlay to appear
+                      setTimeout(checkActivation, 100);
+                    }
                   } else {
-                    // Keep checking
+                    // Keep checking for activation
                     setTimeout(checkActivation, 100);
                   }
                 };
