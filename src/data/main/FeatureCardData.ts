@@ -1,11 +1,12 @@
 import { Mail, Globe, Camera, LucideIcon } from "lucide-react";
+import { colorSchemes, type ColorScheme } from "@/data/DemoInstructionData";
+
 export type FeatureCardItem = {
   title: string;
   description: string;
   link: string;
   icon: LucideIcon;
-  iconStyle: string;
-  textColor: string;
+  colorScheme: ColorScheme;
 };
 
 export const FeatureCardData: FeatureCardItem[] = [
@@ -15,8 +16,7 @@ export const FeatureCardData: FeatureCardItem[] = [
       "Analyzes emails for phishing attempts and scam indicators with explanations in your native language",
     link: "/email-demo",
     icon: Mail,
-    iconStyle: "bg-primary/10 group-hover:bg-primary/20",
-    textColor: "text-primary",
+    colorScheme: "brown",
   },
   {
     title: "Website Blocking",
@@ -24,8 +24,7 @@ export const FeatureCardData: FeatureCardItem[] = [
       "Automatically blocks high-risk websites and provides real-time warnings for suspicious sites",
     link: "/website-demo",
     icon: Globe,
-    iconStyle: "bg-green-100 group-hover:bg-green-200",
-    textColor: "text-green-600",
+    colorScheme: "orange",
   },
   {
     title: "Social Media Analysis",
@@ -33,7 +32,27 @@ export const FeatureCardData: FeatureCardItem[] = [
       "Extract and analyze text from images to identify potential scams in screenshots and photos",
     link: "/image-demo",
     icon: Camera,
-    iconStyle: "bg-purple-100 group-hover:bg-purple-200",
-    textColor: "text-purple-600",
+    colorScheme: "purple",
   },
 ];
+
+// Helper function to get color styles for feature cards
+export const getFeatureCardStyles = (colorScheme: ColorScheme) => {
+  const colors = colorSchemes[colorScheme];
+  return {
+    // Card background and border - same as demo banners
+    cardBg: colors.bg,
+    cardBorder: colors.border,
+    // Icon styling
+    iconColor: colors.iconColor,
+    iconBg:
+      colorScheme === "brown"
+        ? "bg-stone-100 group-hover:bg-stone-200"
+        : colorScheme === "orange"
+        ? "bg-orange-100 group-hover:bg-orange-200"
+        : "bg-purple-100 group-hover:bg-purple-200",
+    // Text colors - same as demo banners
+    titleColor: colors.titleColor,
+    textColor: colors.textColor,
+  };
+};

@@ -27,9 +27,9 @@ export function EmailContent() {
   }, [isActive, analyzeContent]);
 
   return (
-    <main className="flex-1 bg-background">
+    <main className="flex-1 bg-background flex flex-col min-h-0">
       {/* Email Toolbar */}
-      <div className="flex items-center justify-between px-4 py-2 border-b">
+      <div className="flex items-center justify-between px-4 py-2 border-b flex-shrink-0">
         <div className="flex items-center space-x-1">
           <Button variant="ghost" size="icon">
             <ArrowLeft className="h-5 w-5" />
@@ -53,7 +53,7 @@ export function EmailContent() {
       </div>
 
       {/* Email Content */}
-      <div className="p-6 max-w-4xl mx-auto relative">
+      <div className="p-6 max-w-4xl mx-auto relative overflow-y-auto flex-1">
         {/* Risk Analysis Block appears here when active */}
         {isActive && <RiskAnalysisBlock />}
 

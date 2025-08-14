@@ -1,12 +1,23 @@
 "use client";
 
-import { Search, Plus, MessageCircle, Bell, User, Home, Users, Play, Store, Menu } from "lucide-react";
+import {
+  Search,
+  Plus,
+  MessageCircle,
+  Bell,
+  User,
+  Home,
+  Users,
+  Play,
+  Store,
+  Menu,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export function FacebookHeader() {
   return (
-    <div className="bg-white border-b border-gray-200 sticky z-40" style={{ top: 'var(--banner-height, 0px)' }}>
+    <div className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-14">
           {/* Left Section - Logo and Search */}
@@ -28,35 +39,71 @@ export function FacebookHeader() {
 
           {/* Center Section - Navigation */}
           <div className="hidden lg:flex items-center space-x-2">
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-lg">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-lg"
+            >
               <Home className="h-6 w-6" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-lg">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-lg"
+            >
               <Users className="h-6 w-6" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-lg">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-lg"
+            >
               <Play className="h-6 w-6" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-lg">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-lg"
+            >
               <Store className="h-6 w-6" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-lg">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-lg"
+            >
               <Menu className="h-6 w-6" />
             </Button>
           </div>
 
           {/* Right Section - Icons and Profile */}
           <div className="flex items-center space-x-2 flex-1 justify-end">
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-full">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-full"
+            >
               <Plus className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-full">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-full"
+            >
               <MessageCircle className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-full">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-full"
+            >
               <Bell className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-3 hover:bg-gray-100 rounded-full">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="p-3 hover:bg-gray-100 rounded-full"
+            >
               <User className="h-5 w-5" />
             </Button>
           </div>
