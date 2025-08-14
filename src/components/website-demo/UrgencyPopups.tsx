@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 export function UrgencyPopups() {
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   const popups = [
     {
@@ -28,6 +29,13 @@ export function UrgencyPopups() {
   ];
 
   useEffect(() => {
+    // Mark as client-side after hydration
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const interval = setInterval(() => {
       setShowPopup(true);
       setPopupType(Math.floor(Math.random() * popups.length));
@@ -43,9 +51,10 @@ export function UrgencyPopups() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isClient]);
 
-  if (!showPopup) return null;
+  // Don't render on server or before client hydration
+  if (!isClient || !showPopup) return null;
 
   const currentPopup = popups[popupType];
 

@@ -108,7 +108,9 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       );
 
       const baseScore = Math.min(foundKeywords.length * 12, 90);
-      const riskScore = baseScore + Math.floor(Math.random() * 5) + 5;
+      // Use deterministic score to avoid hydration issues
+      const randomFactor = (content.length % 5) + 1; // Deterministic but varies per content
+      const riskScore = baseScore + randomFactor + 5;
 
       let riskLevel: RiskLevel = "low";
       if (riskScore >= 80) riskLevel = "high";
@@ -134,7 +136,9 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       });
     } else if (type === "website") {
       // Website analysis - always high risk for the demo
-      const riskScore = 95 + Math.floor(Math.random() * 4);
+      // Use deterministic score to avoid hydration issues
+      const deterministic = (content.length % 4) + 1; // Varies between 1-4 based on content
+      const riskScore = 95 + deterministic;
 
       const explanation =
         WebsiteExplanations[lang as keyof typeof WebsiteExplanations] ??

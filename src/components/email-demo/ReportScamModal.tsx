@@ -33,9 +33,11 @@ export function ReportScamModal({
   const { selectedLanguage } = useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [reportId] = useState(
-    () => `EMR-${Date.now().toString(36).toUpperCase()}`
-  );
+  const [reportId] = useState(() => {
+    // Only generate ID on client-side to avoid hydration mismatch
+    if (typeof window === 'undefined') return '';
+    return `EMR-${Date.now().toString(36).toUpperCase()}`;
+  });
   const t = ReportScamModalData[selectedLanguage];
 
   if (!isOpen) return null;

@@ -408,7 +408,11 @@ export function ReportScamModal({
   const { selectedLanguage } = useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [reportId] = useState(() => `MSR-${Date.now().toString(36).toUpperCase()}`);
+  const [reportId] = useState(() => {
+    // Only generate ID on client-side to avoid hydration mismatch
+    if (typeof window === 'undefined') return '';
+    return `MSR-${Date.now().toString(36).toUpperCase()}`;
+  });
   const t = translations[selectedLanguage as keyof typeof translations] ?? translations.en;
 
   if (!isOpen) return null;

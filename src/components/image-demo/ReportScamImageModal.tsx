@@ -41,9 +41,11 @@ export function ReportScamImageModal({
   const { selectedLanguage, reportScam, markImageReported } = useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [reportId] = useState(
-    () => `MSI-${Date.now().toString(36).toUpperCase()}`
-  );
+  const [reportId] = useState(() => {
+    // Only generate ID on client-side to avoid hydration mismatch
+    if (typeof window === 'undefined') return '';
+    return `MSI-${Date.now().toString(36).toUpperCase()}`;
+  });
 
   const t = getReportScamStrings(selectedLanguage);
 
