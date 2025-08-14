@@ -8,6 +8,9 @@ export const useSocialMediaTour = () => {
   const { isActive, toggleExtension } = useExtensionStore();
 
   const startTour = useCallback(() => {
+    let activateButtonClicked = false;
+    let scamImageClicked = false;
+
     const driverObj = driver({
       showProgress: true,
       steps: [
@@ -24,13 +27,34 @@ export const useSocialMediaTour = () => {
           popover: {
             title: 'Activate mAIscam',
             description:
-              'Turn on the extension to enable real-time scam detection on social posts. I will activate it for you.',
+              'Please click the "Activate mAIscam" button to enable real-time scam detection on social posts.',
           },
           onHighlightStarted: () => {
-            if (!isActive) {
-              toggleExtension();
+            // Reset flag for this step
+            activateButtonClicked = false;
+            
+            // Add click listener to the activation button
+            const button = document.querySelector('#image-overlay [data-tour="activate-button"]') as HTMLElement;
+            if (button) {
+              const handleClick = () => {
+                activateButtonClicked = true;
+                // Wait for extension to activate, then proceed
+                const checkActivation = () => {
+                  const state = useExtensionStore.getState();
+                  if (state.isActive && !state.isActivating) {
+                    // Auto-proceed to next step
+                    setTimeout(() => driverObj.moveNext(), 500);
+                  } else {
+                    // Keep checking
+                    setTimeout(checkActivation, 100);
+                  }
+                };
+                checkActivation();
+              };
+              
+              button.addEventListener('click', handleClick, { once: true });
             }
-          },
+          }
         },
         {
           element: '[data-tour="facebook-feed"]',
@@ -45,16 +69,36 @@ export const useSocialMediaTour = () => {
           popover: {
             title: 'Flagged Post Image',
             description:
-              'Click a flagged image to trigger OCR + AI analysis and block the scam content.',
+              'Please click the flagged image to trigger OCR + AI analysis and see the scam content blocking.',
           },
           onHighlightStarted: () => {
-            if (typeof window !== 'undefined') {
-              const el = document.querySelector('[data-tour="scam-image"]') as HTMLElement | null;
-              if (el && isActive) {
-                setTimeout(() => el.click(), 300);
-              }
+            // Reset flag for this step
+            scamImageClicked = false;
+            
+            // Add click listener to the scam image
+            const image = document.querySelector('[data-tour="scam-image"]') as HTMLElement;
+            if (image) {
+              const handleClick = () => {
+                scamImageClicked = true;
+                // Wait for modal/overlay to appear, then proceed
+                const checkModal = () => {
+                  const modal = document.querySelector('[data-tour="fb-risk-header"]');
+                  const blockOverlay = document.querySelector('[data-tour="scam-blocked"]');
+                  
+                  if (modal || blockOverlay) {
+                    // Modal/overlay appeared, auto-proceed to next step
+                    setTimeout(() => driverObj.moveNext(), 500);
+                  } else {
+                    // Keep checking
+                    setTimeout(checkModal, 100);
+                  }
+                };
+                setTimeout(checkModal, 200); // Give a small delay for DOM to update
+              };
+              
+              image.addEventListener('click', handleClick, { once: true });
             }
-          },
+          }
         },
         {
           element: '[data-tour="fb-risk-header"]',

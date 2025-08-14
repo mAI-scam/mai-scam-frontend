@@ -8,6 +8,8 @@ export const useWebsiteTour = () => {
   const { isActive, toggleExtension } = useExtensionStore();
 
   const startTour = useCallback(() => {
+    let activateButtonClicked = false;
+
     const driverObj = driver({
       showProgress: true,
       steps: [
@@ -40,7 +42,7 @@ export const useWebsiteTour = () => {
           popover: {
             title: 'Fake Social Proof',
             description:
-              'Overly positive, generic reviews and “live purchases” can be fabricated to build false trust.',
+              'Overly positive, generic reviews and "live purchases" can be fabricated to build false trust.',
           },
         },
         {
@@ -56,13 +58,34 @@ export const useWebsiteTour = () => {
           popover: {
             title: 'Activate mAIscam Protection',
             description:
-              'Click to activate protection. I will auto-activate it for the tour so you can see the blocker.',
+              'Please click the "Activate mAIscam" button to enable protection and see the website blocker in action.',
           },
           onHighlightStarted: () => {
-            if (!isActive) {
-              toggleExtension();
+            // Reset flag for this step
+            activateButtonClicked = false;
+            
+            // Add click listener to the activation button
+            const button = document.querySelector('#website-overlay [data-tour="activate-button"]') as HTMLElement;
+            if (button) {
+              const handleClick = () => {
+                activateButtonClicked = true;
+                // Wait for extension to activate, then proceed
+                const checkActivation = () => {
+                  const state = useExtensionStore.getState();
+                  if (state.isActive && !state.isActivating) {
+                    // Auto-proceed to next step
+                    setTimeout(() => driverObj.moveNext(), 500);
+                  } else {
+                    // Keep checking
+                    setTimeout(checkActivation, 100);
+                  }
+                };
+                checkActivation();
+              };
+              
+              button.addEventListener('click', handleClick, { once: true });
             }
-          },
+          }
         },
         {
           element: '[data-tour="risk-analysis"]',

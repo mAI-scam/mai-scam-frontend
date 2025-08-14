@@ -152,6 +152,7 @@ export function RiskAnalysisBlock() {
 
               <div className="flex gap-3">
                 <Button
+                  data-tour="report-button"
                   variant="destructive"
                   className="font-medium"
                   onClick={handleReport}

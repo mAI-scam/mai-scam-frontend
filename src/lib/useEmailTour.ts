@@ -8,6 +8,9 @@ export const useEmailTour = () => {
   const { isActive, toggleExtension, analyzeContent } = useExtensionStore();
 
   const startTour = useCallback(() => {
+    let buttonClicked = false;
+    let extensionActivated = false;
+
     const driverObj = driver({
       showProgress: true,
       steps: [
@@ -15,13 +18,25 @@ export const useEmailTour = () => {
           element: '[data-tour="activate-button"]',
           popover: {
             title: 'Activate mAIscam Protection',
-            description: 'Click the "Activate mAIscam" button to activate the mAIscam extension. This will enable real-time scam detection for emails. I have already activated the extension for you.'
+            description: 'Please click the "Activate mAIscam" button to activate the extension. Do not click the next button yet.',
           },
           onHighlightStarted: () => {
-            if (!isActive) {
-              toggleExtension();
-              setTimeout(() => {
-                const emailContent = `PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan
+            // Reset flags for this step
+            buttonClicked = false;
+            extensionActivated = false;
+            
+            // Add click listener to the button
+            const button = document.querySelector('[data-tour="activate-button"]') as HTMLElement;
+            if (button) {
+              const handleClick = () => {
+                buttonClicked = true;
+                // Wait for extension to activate, then proceed
+                const checkActivation = () => {
+                  const state = useExtensionStore.getState();
+                  if (state.isActive && !state.isActivating) {
+                    extensionActivated = true;
+                    // Trigger email analysis
+                    const emailContent = `PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan
 Bank Negara Malaysia
 Kami telah mengesan aktiviti mencurigakan dalam akaun bank anda.
 AMARAN: Akaun anda akan ditutup secara KEKAL dalam 24 JAM
@@ -30,8 +45,18 @@ Klik pautan di bawah dan masukkan maklumat berikut:
 - Kata Laluan Online Banking
 secure-banknegara-verification.com/verify
 RM 1,000 sebagai token penghargaan`;
-                analyzeContent(emailContent, 'email');
-              }, 500);
+                    analyzeContent(emailContent, 'email');
+                    // Auto-proceed to next step
+                    setTimeout(() => driverObj.moveNext(), 500);
+                  } else {
+                    // Keep checking
+                    setTimeout(checkActivation, 100);
+                  }
+                };
+                checkActivation();
+              };
+              
+              button.addEventListener('click', handleClick, { once: true });
             }
           }
         },
