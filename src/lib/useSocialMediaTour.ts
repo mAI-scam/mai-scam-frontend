@@ -119,14 +119,104 @@ export const useSocialMediaTour = () => {
           popover: {
             title: 'Report Scam',
             description:
-              'Submit a report to help others. The report is pre-filled with the analyzed details.',
+              'Click the "Report Scam" button to submit a report and help protect others. Please click the Report Scam button to continue.',
           },
+          onHighlightStarted: () => {
+            // Add click listener to the report button
+            const reportButton = document.querySelector('[data-tour="fb-report-button"]') as HTMLElement;
+            if (reportButton) {
+              const handleClick = () => {
+                // Wait for the report modal to appear
+                const checkModal = () => {
+                  const modal = document.querySelector('[data-tour="report-modal"]');
+                  if (modal) {
+                    // Modal appeared - proceed to next step
+                    setTimeout(() => driverObj.moveNext(), 300);
+                  } else {
+                    // Keep checking
+                    setTimeout(checkModal, 100);
+                  }
+                };
+                checkModal();
+              };
+              
+              reportButton.addEventListener('click', handleClick, { once: true });
+            }
+          }
+        },
+        {
+          element: '[data-tour="reporting-services"]',
+          popover: {
+            title: 'Reporting Destinations',
+            description:
+              'Your report will be automatically sent to multiple authorities and platforms: Google Safe Browsing, PhishTank, MCMC Malaysia, and the social media platform.',
+            side: 'right',
+            align: 'start',
+          },
+        },
+        {
+          element: '[data-tour="submit-report-button"]',
+          popover: {
+            title: 'Submit Report',
+            description:
+              'Now click "Submit Report" to send the information to all these authorities and platforms.',
+          },
+          onHighlightStarted: () => {
+            // Add click listener to the submit button
+            const submitButton = document.querySelector('[data-tour="submit-report-button"]') as HTMLElement;
+            if (submitButton) {
+              const handleClick = () => {
+                // Wait for the success state to appear
+                const checkSuccess = () => {
+                  const successElement = document.querySelector('[data-tour="report-success"]');
+                  if (successElement) {
+                    // Success state appeared - proceed to next step
+                    setTimeout(() => driverObj.moveNext(), 500);
+                  } else {
+                    // Keep checking
+                    setTimeout(checkSuccess, 100);
+                  }
+                };
+                checkSuccess();
+              };
+              
+              submitButton.addEventListener('click', handleClick, { once: true });
+            }
+          }
+        },
+        {
+          element: '[data-tour="report-success"]',
+          popover: {
+            title: 'Report Submitted Successfully',
+            description:
+              'Your report has been successfully submitted to multiple authorities and platforms. Thank you for helping protect others!',
+          },
+        },
+        {
+          element: '[data-tour="close-report-button"]',
+          popover: {
+            title: 'Close and Continue',
+            description:
+              'Click the close button to return to the scam alert and continue browsing safely. This completes the mAIscam protection demo.',
+          },
+          onHighlightStarted: () => {
+            // Add click listener to the close button
+            const closeButton = document.querySelector('[data-tour="close-report-button"]') as HTMLElement;
+            if (closeButton) {
+              const handleClick = () => {
+                // Wait a moment then complete the tour
+                setTimeout(() => driverObj.moveNext(), 300);
+              };
+              
+              closeButton.addEventListener('click', handleClick, { once: true });
+            }
+          }
         },
         {
           popover: {
             title: 'Tour Complete',
             description:
-              'You now know how mAIscam protects you on social media by scanning images and blocking scams.',
+              'You now know how mAIscam protects you on social media by scanning images, blocking scams, and enabling easy reporting.',
           },
         },
       ],
