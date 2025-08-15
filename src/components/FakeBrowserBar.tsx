@@ -17,8 +17,8 @@ export function FakeBrowserBar({
   websiteUrl = "deal-raya-123.com",
 }: FakeBrowserBarProps) {
   return (
-    <div className="h-12 bg-gray-100 border-b border-gray-300 fixed top-36 left-0 right-0 z-100">
-      <div className="h-full w-full   flex items-center p-2 gap-2">
+    <div className="bg-gray-100 border-b border-gray-300">
+      <div className="w-full flex items-center p-2 gap-2">
         <div className="flex gap-1">
           <button className="p-1.5 hover:bg-gray-200 rounded">
             <ChevronLeft className="h-4 w-4 text-gray-600" />

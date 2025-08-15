@@ -82,7 +82,7 @@ export function WebsiteBlockingOverlay({
 
       <Card
         data-tour="risk-analysis"
-        className="max-w-4xl max-h-[90vh] w-full border-red-200 bg-white/95 backdrop-blur-sm shadow-2xl overflow-y-auto"
+        className="max-w-2xl max-h-[90vh] w-full border-red-200 bg-white/95 backdrop-blur-sm shadow-2xl overflow-y-auto"
       >
         <CardContent className="p-8">
           {/* Close Button */}

@@ -39,7 +39,7 @@ export function LanguageSelector() {
         variant="outline"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 bg-white shadow-sm text-gray-900 border-gray-300 hover:bg-gray-50 hover:shadow-md transition-all"
+        className="flex items-center gap-2 bg-white shadow-sm text-gray-900 border-gray-300 hover:bg-gray-50 hover:shadow-md transition-all h-9"
       >
         <span className="text-base">{currentLanguage.flag}</span>
         <span className="font-medium">{currentLanguage.name}</span>

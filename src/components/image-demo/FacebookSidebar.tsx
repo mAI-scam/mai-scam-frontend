@@ -10,12 +10,25 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollContext } from "@/lib/ScrollContext";
 
 export function FacebookSidebar() {
+  const { scrollDirection, isAtTop } = useScrollContext();
+  
+  // Calculate dynamic top position based on header visibility
+  // DemoInstruction + FakeBrowserBar = ~120px
+  // FacebookHeader = ~60px (when visible)
+  const baseTop = 120; // DemoInstruction + FakeBrowserBar
+  const headerHeight = 60; // FacebookHeader height
+  const dynamicTop = scrollDirection === "down" && !isAtTop ? baseTop : baseTop + headerHeight;
+  
   return (
     <div
-      className="hidden lg:block w-80 bg-white border-r border-gray-200 fixed left-0 top-64 overflow-y-auto"
-      style={{ height: "calc(100vh - 64px)" }}
+      className="hidden lg:block w-80 bg-white border-r border-gray-200 fixed left-0 overflow-y-auto transition-all duration-300 ease-in-out"
+      style={{ 
+        top: `${dynamicTop}px`,
+        height: `calc(100vh - ${dynamicTop}px)`
+      }}
     >
       <div className="p-4 space-y-2">
         {/* User Profile */}

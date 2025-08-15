@@ -13,8 +13,6 @@ interface DemoInstructionProps {
   icon: React.ReactNode;
   onStartTour: () => void;
   colorScheme: ColorScheme;
-  activeMessage: string;
-  inactiveMessage: string;
 }
 
 export function DemoInstruction({
@@ -22,8 +20,6 @@ export function DemoInstruction({
   icon,
   onStartTour,
   colorScheme,
-  activeMessage,
-  inactiveMessage,
 }: DemoInstructionProps) {
   const { isActive, isActivating, toggleExtension, selectedLanguage } =
     useExtensionStore();
@@ -33,98 +29,75 @@ export function DemoInstruction({
   return (
     <div
       data-tour="demo-banner"
-      className={`h-36 ${colors.bg} border-b ${colors.border} p-4 sticky top-0 z-100`}
+      className={`${colors.bg} border-b ${colors.border} p-4 max-w-full mx-auto grid grid-cols-[20%_60%_20%] items-center`}
     >
       {/* 3-Column Layout using CSS Grid */}
-      <div className="max-w-full mx-auto h-full grid grid-cols-[20%_60%_20%] items-center">
-        {/* Left Column - Navigation and Tour */}
-        <div className="flex flex-col items-start gap-3 justify-self-start">
-          <Link href="/">
-            <Button
-              variant="outline"
-              size="sm"
-              className="bg-white/95 backdrop-blur-sm shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 border-gray-200"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
-            </Button>
-          </Link>
+      {/* Left Column - Navigation and Tour */}
+      <div className="flex flex-col items-start gap-3 justify-self-start">
+        <Link href="/">
+          <Button
+            variant="outline"
+            size="sm"
+            className="bg-white/95 backdrop-blur-sm shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 border-gray-200"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Home
+          </Button>
+        </Link>
+      </div>
+
+      {/* Middle Column - Title and Status (Always Centered) */}
+      <div className="flex  items-center text-center justify-self-center gap-4">
+        <div className="flex items-center gap-2">
+          <div className={colors.iconColor}>{icon}</div>
+          <span className={`font-semibold ${colors.titleColor}`}>{title}</span>
         </div>
 
-        {/* Middle Column - Title and Status (Always Centered) */}
-        <div className="flex flex-col items-center text-center justify-self-center">
-          <div className="flex items-center gap-2 mb-2">
-            <div className={colors.iconColor}>{icon}</div>
-            <span className={`font-semibold ${colors.titleColor}`}>
-              {title}
-            </span>
-          </div>
-          <p className={`text-sm ${colors.textColor} mb-2`}>
-            {!isActive ? (
-              <>
-                <AlertTriangle className="h-4 w-4 inline mr-1" />
-                <span className="font-semibold">
-                  Extension not active!
-                </span>{" "}
-                {inactiveMessage}
-              </>
-            ) : (
-              <>
-                <Shield className="h-4 w-4 inline mr-1" />
-                <span className="font-semibold">
-                  AI Protection Active!
-                </span>{" "}
-                {activeMessage}
-              </>
-            )}
-          </p>
-
-          <Button
-            onClick={onStartTour}
-            variant="default"
-            size="sm"
-            className="relative text-white font-semibold backdrop-blur-sm shadow-2xl border-2 border-white/20 transition-all duration-300 animate-pulse hover:animate-none hover:scale-105 hover:shadow-2xl"
+        <Button
+          onClick={onStartTour}
+          variant="default"
+          size="sm"
+          className="relative text-white font-semibold backdrop-blur-sm shadow-2xl border-2 border-white/20 transition-all duration-300 animate-pulse hover:animate-none hover:scale-105 hover:shadow-2xl"
+          style={{
+            background: colors.buttonBg,
+            boxShadow: colors.buttonShadow,
+          }}
+        >
+          <Play className="h-4 w-4 mr-2 drop-shadow-md" />
+          <span className="drop-shadow-md">Start Tour</span>
+          {/* Glowing ring effect */}
+          <div
+            className="absolute inset-0 rounded-md opacity-40 blur-md -z-10 animate-ping"
             style={{
               background: colors.buttonBg,
-              boxShadow: colors.buttonShadow,
             }}
-          >
-            <Play className="h-4 w-4 mr-2 drop-shadow-md" />
-            <span className="drop-shadow-md">Start Tour</span>
-            {/* Glowing ring effect */}
-            <div
-              className="absolute inset-0 rounded-md opacity-40 blur-md -z-10 animate-ping"
-              style={{
-                background: colors.buttonBg,
-              }}
-            ></div>
-          </Button>
-        </div>
+          ></div>
+        </Button>
+      </div>
 
-        {/* Right Column - Language and Activate */}
-        <div className="flex flex-col items-end gap-3 justify-self-end">
-          <LanguageSelector />
+      {/* Right Column - Language and Activate */}
+      <div className="flex items-center gap-3 justify-self-end">
+        <LanguageSelector />
 
-          <Button
-            data-tour="activate-button"
-            onClick={toggleExtension}
-            className="shadow-lg"
-            variant={isActive ? "destructive" : "default"}
-            disabled={isActivating}
-          >
-            {isActivating ? (
-              <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
-                Activating...
-              </>
-            ) : (
-              <>
-                <Shield className="h-5 w-5 mr-2" />
-                {isActive ? t.deactivateExtension : t.activateExtension}
-              </>
-            )}
-          </Button>
-        </div>
+        <Button
+          data-tour="activate-button"
+          onClick={toggleExtension}
+          className="shadow-lg h-9"
+          variant={isActive ? "destructive" : "default"}
+          disabled={isActivating}
+        >
+          {isActivating ? (
+            <>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
+              Activating...
+            </>
+          ) : (
+            <>
+              <Shield className="h-5 w-5 mr-2" />
+              {isActive ? t.deactivateExtension : t.activateExtension}
+            </>
+          )}
+        </Button>
       </div>
     </div>
   );

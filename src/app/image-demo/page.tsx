@@ -8,7 +8,6 @@ import { ArrowLeft, Play } from "lucide-react";
 import { ScamImage } from "@/components/image-demo/ImageGallery";
 import { ImageAnalysisModal } from "@/components/image-demo/ImageAnalysisModal";
 
-import { FacebookHeader } from "@/components/image-demo/FacebookHeader";
 import { FacebookSidebar } from "@/components/image-demo/FacebookSidebar";
 import { FacebookFeed } from "@/components/image-demo/FacebookFeed";
 import { FacebookScamBlockOverlay } from "@/components/image-demo/FacebookScamBlockOverlay";
@@ -16,8 +15,8 @@ import { FacebookSafeContentOverlay } from "@/components/image-demo/FacebookSafe
 import { useExtensionStore } from "@/lib/store/extensionStore";
 import { Facebook } from "lucide-react";
 import { useSocialMediaTour } from "@/lib/useSocialMediaTour";
-import { DemoInstruction } from "@/components/DemoInstruction";
-import { FakeBrowserBar } from "@/components/FakeBrowserBar";
+import { Header } from "@/components/Header";
+import { ScrollProvider } from "@/lib/ScrollContext";
 
 type PostScamImage = {
   id: number;
@@ -66,54 +65,50 @@ export default function ImageDemoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 relative">
-      {/* Demo Instructions Banner */}
-      <DemoInstruction
-        title="Social Media Scam Detection Demo"
-        icon={<Facebook className="h-5 w-5" />}
-        onStartTour={startTour}
-        colorScheme="purple"
-        activeMessage="Our connected AI agents are monitoring posts. Click on any flagged image to see real-time scam detection and automated blocking in action."
-        inactiveMessage="Activate mAIscam extension first, then click on any suspicious image in posts to analyze and block scam content with AI-powered OCR."
-      />
+    <ScrollProvider>
+      <div className="min-h-screen bg-gray-100 relative">
+        {/* Unified Header Component */}
+        <Header
+          demoType="image"
+          title="Social Media Scam Detection Demo"
+          icon={<Facebook className="h-5 w-5" />}
+          onStartTour={startTour}
+          colorScheme="purple"
+          websiteUrl="facebook.com"
+        />
 
-      {/* Fake Browser Bar */}
-      <FakeBrowserBar websiteUrl="facebook.com" />
-
-      {/* Facebook Interface */}
-      <FacebookHeader />
-
-      <FacebookSidebar />
-      <div className="flex mt-12">
-        {/* Main Content Area */}
-        <div className="flex-1 lg:ml-80 min-h-screen">
-          <div className="py-6 px-4">
-            <FacebookFeed onImageClick={handleImageClick} />
+        <FacebookSidebar />
+        <div className="flex mt-12">
+          {/* Main Content Area */}
+          <div className="flex-1 lg:ml-80 min-h-screen">
+            <div className="py-6 px-4">
+              <FacebookFeed onImageClick={handleImageClick} />
+            </div>
           </div>
         </div>
+
+        {/* Facebook Scam Block Overlay */}
+        {showBlockOverlay && (
+          <FacebookScamBlockOverlay
+            scamImage={showBlockOverlay}
+            onClose={handleCloseBlockOverlay}
+          />
+        )}
+
+        {/* Facebook Safe Content Overlay */}
+        {showSafeOverlay && (
+          <FacebookSafeContentOverlay
+            safeImage={showSafeOverlay}
+            onClose={handleCloseSafeOverlay}
+          />
+        )}
+
+        {/* Original Image Analysis Modal (fallback) */}
+        <ImageAnalysisModal
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
       </div>
-
-      {/* Facebook Scam Block Overlay */}
-      {showBlockOverlay && (
-        <FacebookScamBlockOverlay
-          scamImage={showBlockOverlay}
-          onClose={handleCloseBlockOverlay}
-        />
-      )}
-
-      {/* Facebook Safe Content Overlay */}
-      {showSafeOverlay && (
-        <FacebookSafeContentOverlay
-          safeImage={showSafeOverlay}
-          onClose={handleCloseSafeOverlay}
-        />
-      )}
-
-      {/* Original Image Analysis Modal (fallback) */}
-      <ImageAnalysisModal
-        image={selectedImage}
-        onClose={() => setSelectedImage(null)}
-      />
-    </div>
+    </ScrollProvider>
   );
 }

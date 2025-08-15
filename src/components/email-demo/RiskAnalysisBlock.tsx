@@ -42,146 +42,171 @@ export function RiskAnalysisBlock() {
   const computedRiskLabel = riskScore ? t.high.toUpperCase() : "";
 
   return (
-    <div
-      id="risk-details"
-      // EDIT POSITIONING: Change 'sm:top-24 top-20' to adjust popup vertical position
-      className="mb-4 fixed z-[9998] sm:top-84 top-20 left-1/2 -translate-x-1/2 sm:w-[36rem] w-[92vw] max-w-[95vw]"
-    >
-      {/* Language Selector */}
-      <div className="flex justify-end mb-4">
-        <LanguageSelector />
-      </div>
-
-      {/* Risk Analysis Card */}
-      <Card
-        data-tour="risk-analysis"
-        className={`border-l-4 shadow-2xl ${
-          isAnalyzing
-            ? "border-l-blue-500"
-            : riskLevel === "high"
-            ? "border-l-red-500"
-            : riskLevel === "medium"
-            ? "border-l-yellow-500"
-            : "border-l-green-500"
-        }`}
-      >
-        <CardContent className="p-6">
-          {isAnalyzing ? (
-            // Analyzing state
-            <div className="flex items-center gap-3">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-              <div>
-                <h3 className="text-lg font-semibold text-blue-600 mb-1">
-                  {extensionT.analyzing}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Our AI is scanning this email for potential scam indicators.
-                </p>
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowRiskAnalysis(false)}
-                className="h-6 w-6 p-0 hover:bg-gray-100 ml-auto"
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          ) : (
-            // Results state
-            <>
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <Shield className="h-6 w-6 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-red-600">
-                    {t.risk}: {computedRiskLabel}
-                  </h3>
+    // Full screen overlay with darkened background
+    <div className="fixed inset-0 bg-black/80 z-[9995] flex items-center justify-center p-4">
+      <Card className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <CardContent className="p-0">
+          {/* Header */}
+          <div
+            className={`p-6 rounded-t-lg ${
+              isAnalyzing
+                ? "bg-blue-600 text-white"
+                : riskLevel === "high"
+                ? "bg-red-600 text-white"
+                : riskLevel === "medium"
+                ? "bg-yellow-600 text-white"
+                : "bg-green-600 text-white"
+            }`}
+            data-tour="risk-analysis"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-white/20 rounded-full">
+                  <Shield className="h-8 w-8" />
                 </div>
-                <div className="flex items-center gap-3">
-                  <Badge variant="destructive" className="text-base px-3 py-1">
-                    {t.risk}: {computedRiskLabel}
+                <div>
+                  <h2 className="text-xl font-bold">
+                    {isAnalyzing ? extensionT.analyzing : t.risk}
+                  </h2>
+                  <p className="text-white/80 text-sm">
+                    {isAnalyzing
+                      ? "AI-powered email scanning"
+                      : "Protected by mAIscam"}
+                  </p>
+                  <Badge className="bg-white/20 text-white text-xs mt-1">
+                    🔍 AI Agent Analysis
                   </Badge>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setShowRiskAnalysis(false)}
-                    className="h-6 w-6 p-0 hover:bg-gray-100"
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
                 </div>
               </div>
-
-              <p className="text-sm text-gray-700 mb-4 leading-relaxed whitespace-pre-line">
-                {showDetailed ? detailedExplanation : explanation}
-              </p>
-
-              {/* See More/Less Button */}
-              {detailedExplanation && explanation !== detailedExplanation && (
-                <div className="mb-4">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setShowDetailed(!showDetailed)}
-                    className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal"
-                  >
-                    {showDetailed ? t.seeLess : t.seeMore}
-                  </Button>
-                </div>
-              )}
-
-              {riskLevel === "high" && (
-                <>
-                  <div className="space-y-2 mb-6">
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span className="text-gray-700">{t.falseUrgency}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span className="text-gray-700">{t.suspiciousPromo}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span className="text-gray-700">
-                        {t.lackPersonalization}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span className="text-gray-700">{t.fraudPotential}</span>
-                    </div>
-                  </div>
-
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
-                    <h4 className="font-semibold text-sm mb-2">
-                      {t.recommendedAction}
-                    </h4>
-                    <p className="text-sm text-gray-700">
-                      {t.recommendedActionText}
-                    </p>
-                  </div>
-                </>
-              )}
-
-              <div className="flex gap-3">
+              <div className="flex items-center gap-2">
+                <LanguageSelector />
                 <Button
-                  data-tour="report-button"
-                  variant="destructive"
-                  className="font-medium"
-                  onClick={handleReport}
-                >
-                  {t.reportFraud}
-                </Button>
-                <Button
-                  variant="outline"
+                  variant="ghost"
+                  size="icon"
                   onClick={() => setShowRiskAnalysis(false)}
+                  className="text-white hover:bg-white/20"
                 >
-                  {t.dismiss}
+                  <X className="h-5 w-5" />
                 </Button>
               </div>
-            </>
-          )}
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-6 space-y-6">
+            {isAnalyzing ? (
+              // Analyzing state
+              <div className="flex items-center gap-3 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                <div>
+                  <h3 className="text-lg font-semibold text-blue-800 mb-1">
+                    {extensionT.analyzing}
+                  </h3>
+                  <p className="text-sm text-blue-700">
+                    Our AI is scanning this email for potential scam indicators.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              // Results state
+              <>
+                {/* Risk Level */}
+                <div className="flex items-center justify-between p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div>
+                    <span className="text-sm font-medium text-red-800">
+                      {t.risk}:
+                    </span>
+                  </div>
+                  <Badge variant="destructive" className="bg-red-600">
+                    {computedRiskLabel}
+                  </Badge>
+                </div>
+
+                {/* Explanation */}
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-gray-900">
+                    Analysis Details
+                  </h4>
+                  <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
+                    {showDetailed ? detailedExplanation : explanation}
+                  </p>
+
+                  {/* See More/Less Button */}
+                  {detailedExplanation &&
+                    explanation !== detailedExplanation && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setShowDetailed(!showDetailed)}
+                        className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal"
+                      >
+                        {showDetailed ? t.seeLess : t.seeMore}
+                      </Button>
+                    )}
+                </div>
+
+                {riskLevel === "high" && (
+                  <>
+                    {/* Risk Indicators */}
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-gray-900">
+                        Risk Indicators
+                      </h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 text-sm text-gray-700">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                          <span>{t.falseUrgency}</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-sm text-gray-700">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                          <span>{t.suspiciousPromo}</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-sm text-gray-700">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                          <span>{t.lackPersonalization}</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-sm text-gray-700">
+                          <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                          <span>{t.fraudPotential}</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Recommended Action */}
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                      <h4 className="font-semibold text-sm mb-2">
+                        {t.recommendedAction}
+                      </h4>
+                      <p className="text-sm text-gray-700">
+                        {t.recommendedActionText}
+                      </p>
+                    </div>
+                  </>
+                )}
+
+                {/* Action Buttons */}
+                <div className="flex flex-col gap-3 pt-4 border-t">
+                  <div className="flex gap-3">
+                    <Button
+                      data-tour="report-button"
+                      variant="destructive"
+                      className="flex-1"
+                      onClick={handleReport}
+                    >
+                      {t.reportFraud}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex-1"
+                      onClick={() => setShowRiskAnalysis(false)}
+                    >
+                      {t.dismiss}
+                    </Button>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
         </CardContent>
       </Card>
 

@@ -70,7 +70,7 @@ export function FacebookScamBlockOverlay({
   return (
     // EDIT POSITIONING: This overlay covers full screen - adjust 'p-4' for edge spacing
     <div className="fixed inset-0 bg-black/80 z-[9995] flex items-center justify-center p-4">
-      <Card className="max-w-2xl w-full">
+      <Card className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <CardContent className="p-0">
           {/* Header */}
           <div

@@ -17,9 +17,9 @@ import { Input } from "@/components/ui/input";
 
 export function FacebookHeader() {
   return (
-    <div className="h-16 bg-white border-b border-gray-200 sticky top-48 z-30">
-      <div className="max-w-7xl height-full mx-auto px-4">
-        <div className="flex items-center justify-between h-14">
+    <div className="bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex items-center justify-between py-3">
           {/* Left Section - Logo and Search */}
           <div className="flex items-center flex-1">
             <div className="flex items-center">

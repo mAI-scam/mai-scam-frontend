@@ -60,7 +60,7 @@ export function ReportScamModal({
   return (
     // EDIT POSITIONING: This modal covers full screen - adjust 'p-4' for edge spacing
     <div className="fixed inset-0 bg-black/60 z-[9997] flex items-center justify-center p-4">
-      <Card className="max-w-2xl w-full max-h-[60vh] overflow-y-auto">
+      <Card className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
           <div>
             <CardTitle className="text-xl flex items-center gap-2">
