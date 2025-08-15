@@ -58,22 +58,30 @@ export default function WebsiteDemoPage() {
           {/* Trust Badges (Fake) */}
           <div className="bg-gray-100 py-4">
             <div className="container mx-auto px-4">
-              <div className="grid grid-cols-4 gap-4 text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div className="flex flex-col items-center gap-2">
-                  <Shield className="h-8 w-8 text-orange-500" />
-                  <span className="text-sm font-medium">100% Original</span>
+                  <Shield className="h-6 w-6 md:h-8 md:w-8 text-orange-500" />
+                  <span className="text-xs md:text-sm font-medium">
+                    100% Original
+                  </span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <Truck className="h-8 w-8 text-orange-500" />
-                  <span className="text-sm font-medium">Free Shipping</span>
+                  <Truck className="h-6 w-6 md:h-8 md:w-8 text-orange-500" />
+                  <span className="text-xs md:text-sm font-medium">
+                    Free Shipping
+                  </span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <CreditCard className="h-8 w-8 text-orange-500" />
-                  <span className="text-sm font-medium">Secure Payment</span>
+                  <CreditCard className="h-6 w-6 md:h-8 md:w-8 text-orange-500" />
+                  <span className="text-xs md:text-sm font-medium">
+                    Secure Payment
+                  </span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <Phone className="h-8 w-8 text-orange-500" />
-                  <span className="text-sm font-medium">24/7 Support</span>
+                  <Phone className="h-6 w-6 md:h-8 md:w-8 text-orange-500" />
+                  <span className="text-xs md:text-sm font-medium">
+                    24/7 Support
+                  </span>
                 </div>
               </div>
             </div>
@@ -83,25 +91,39 @@ export default function WebsiteDemoPage() {
           <SocialProofSection />
 
           {/* Payment Methods (Suspicious) */}
-          <div className="container mx-auto px-4 py-8">
+          <div className="container mx-auto px-4 py-4 md:py-8">
             <Card data-tour="suspicious-payment">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-bold mb-4">Cara Pembayaran</h3>
-                <div className="flex flex-wrap gap-4 mb-4">
-                  <Badge variant="outline" className="px-3 py-2">
+              <CardContent className="p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-bold mb-3 md:mb-4">
+                  Cara Pembayaran
+                </h3>
+                <div className="flex flex-wrap gap-2 md:gap-4 mb-3 md:mb-4">
+                  <Badge
+                    variant="outline"
+                    className="px-2 py-1 md:px-3 md:py-2 text-xs md:text-sm"
+                  >
                     FPX
                   </Badge>
-                  <Badge variant="outline" className="px-3 py-2">
+                  <Badge
+                    variant="outline"
+                    className="px-2 py-1 md:px-3 md:py-2 text-xs md:text-sm"
+                  >
                     Touch n Go
                   </Badge>
-                  <Badge variant="outline" className="px-3 py-2">
+                  <Badge
+                    variant="outline"
+                    className="px-2 py-1 md:px-3 md:py-2 text-xs md:text-sm"
+                  >
                     GrabPay
                   </Badge>
-                  <Badge variant="outline" className="px-3 py-2">
+                  <Badge
+                    variant="outline"
+                    className="px-2 py-1 md:px-3 md:py-2 text-xs md:text-sm"
+                  >
                     Bank Transfer
                   </Badge>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="text-xs md:text-sm text-gray-600">
                   *Untuk pemprosesan lebih cepat, sila transfer terus ke akaun
                   bank kami:
                   <span className="font-medium"> Maybank 162345678901</span>
@@ -111,13 +133,13 @@ export default function WebsiteDemoPage() {
           </div>
 
           {/* Footer (Minimal) */}
-          <footer className="bg-gray-800 text-white py-4">
-            <div className="container mx-auto px-4 text-center text-sm">
-              <p>
+          <footer className="bg-gray-800 text-white py-3 md:py-4">
+            <div className="container mx-auto px-4 text-center">
+              <p className="text-xs md:text-sm">
                 © {new Date().getFullYear()} Deal Raya Malaysia. Hak Cipta
                 Terpelihara.
               </p>
-              <p className="text-gray-400 mt-1">
+              <p className="text-gray-400 mt-1 text-xs md:text-sm">
                 Contact: support@deal-raya-123.com | WhatsApp: +60123456789
               </p>
             </div>

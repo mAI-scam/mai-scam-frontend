@@ -21,7 +21,7 @@ export default function EmailDemoPage() {
 
   return (
     <ScrollProvider>
-      <div className="h-screen flex flex-col bg-background relative">
+      <div className="min-h-screen flex flex-col bg-background relative">
         {/* Unified Header Component */}
         <Header
           demoType="email"
@@ -32,9 +32,17 @@ export default function EmailDemoPage() {
           websiteUrl="mail.google.com/mail/u/0/#inbox"
         />
 
-        <div className="flex flex-1 overflow-hidden min-h-0">
-          <GmailSidebar />
-          <EmailContent />
+        <div className="flex flex-1 min-h-0">
+          {/* Desktop: Show sidebar and content side by side */}
+          <div className="hidden md:flex md:flex-1 md:overflow-hidden">
+            <GmailSidebar />
+            <EmailContent />
+          </div>
+
+          {/* Mobile: Show only content, sidebar hidden */}
+          <div className="md:hidden flex-1">
+            <EmailContent />
+          </div>
         </div>
       </div>
     </ScrollProvider>

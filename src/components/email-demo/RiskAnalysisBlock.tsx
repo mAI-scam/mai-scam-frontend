@@ -43,12 +43,12 @@ export function RiskAnalysisBlock() {
 
   return (
     // Full screen overlay with darkened background
-    <div className="fixed inset-0 bg-black/80 z-[9995] flex items-center justify-center p-4">
-      <Card className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 z-[9995] flex items-center justify-center p-2 md:p-4">
+      <Card className="max-w-2xl w-full max-h-[95vh] md:max-h-[90vh] overflow-y-auto">
         <CardContent className="p-0">
           {/* Header */}
           <div
-            className={`p-6 rounded-t-lg ${
+            className={`p-4 md:p-6 rounded-t-lg ${
               isAnalyzing
                 ? "bg-blue-600 text-white"
                 : riskLevel === "high"
@@ -60,15 +60,15 @@ export function RiskAnalysisBlock() {
             data-tour="risk-analysis"
           >
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-white/20 rounded-full">
-                  <Shield className="h-8 w-8" />
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="p-1.5 md:p-2 bg-white/20 rounded-full">
+                  <Shield className="h-6 w-6 md:h-8 md:w-8" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold">
+                  <h2 className="text-lg md:text-xl font-bold">
                     {isAnalyzing ? extensionT.analyzing : t.risk}
                   </h2>
-                  <p className="text-white/80 text-sm">
+                  <p className="text-white/80 text-xs md:text-sm">
                     {isAnalyzing
                       ? "AI-powered email scanning"
                       : "Protected by mAIscam"}
@@ -78,31 +78,31 @@ export function RiskAnalysisBlock() {
                   </Badge>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 md:gap-2">
                 <LanguageSelector />
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={() => setShowRiskAnalysis(false)}
-                  className="text-white hover:bg-white/20"
+                  className="text-white hover:bg-white/20 h-8 w-8 md:h-10 md:w-10"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-4 w-4 md:h-5 md:w-5" />
                 </Button>
               </div>
             </div>
           </div>
 
           {/* Content */}
-          <div className="p-6 space-y-6">
+          <div className="p-4 md:p-6 space-y-4 md:space-y-6">
             {isAnalyzing ? (
               // Analyzing state
-              <div className="flex items-center gap-3 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+              <div className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <div className="animate-spin rounded-full h-6 w-6 md:h-8 md:w-8 border-b-2 border-blue-600"></div>
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-800 mb-1">
+                  <h3 className="text-sm md:text-lg font-semibold text-blue-800 mb-1">
                     {extensionT.analyzing}
                   </h3>
-                  <p className="text-sm text-blue-700">
+                  <p className="text-xs md:text-sm text-blue-700">
                     Our AI is scanning this email for potential scam indicators.
                   </p>
                 </div>
@@ -111,23 +111,23 @@ export function RiskAnalysisBlock() {
               // Results state
               <>
                 {/* Risk Level */}
-                <div className="flex items-center justify-between p-4 bg-red-50 border border-red-200 rounded-lg">
+                <div className="flex items-center justify-between p-3 md:p-4 bg-red-50 border border-red-200 rounded-lg">
                   <div>
-                    <span className="text-sm font-medium text-red-800">
+                    <span className="text-xs md:text-sm font-medium text-red-800">
                       {t.risk}:
                     </span>
                   </div>
-                  <Badge variant="destructive" className="bg-red-600">
+                  <Badge variant="destructive" className="bg-red-600 text-xs">
                     {computedRiskLabel}
                   </Badge>
                 </div>
 
                 {/* Explanation */}
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900">
+                <div className="space-y-2 md:space-y-3">
+                  <h4 className="font-semibold text-gray-900 text-sm md:text-base">
                     Analysis Details
                   </h4>
-                  <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
+                  <p className="text-xs md:text-sm text-gray-700 leading-relaxed whitespace-pre-line">
                     {showDetailed ? detailedExplanation : explanation}
                   </p>
 
@@ -138,7 +138,7 @@ export function RiskAnalysisBlock() {
                         variant="ghost"
                         size="sm"
                         onClick={() => setShowDetailed(!showDetailed)}
-                        className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal"
+                        className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal text-xs md:text-sm"
                       >
                         {showDetailed ? t.seeLess : t.seeMore}
                       </Button>
@@ -148,36 +148,36 @@ export function RiskAnalysisBlock() {
                 {riskLevel === "high" && (
                   <>
                     {/* Risk Indicators */}
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-gray-900">
+                    <div className="space-y-2 md:space-y-3">
+                      <h4 className="font-semibold text-gray-900 text-sm md:text-base">
                         Risk Indicators
                       </h4>
-                      <ul className="space-y-2">
-                        <li className="flex items-start gap-2 text-sm text-gray-700">
-                          <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                      <ul className="space-y-1.5 md:space-y-2">
+                        <li className="flex items-start gap-2 text-xs md:text-sm text-gray-700">
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-500 rounded-full mt-1 md:mt-1.5 flex-shrink-0"></div>
                           <span>{t.falseUrgency}</span>
                         </li>
-                        <li className="flex items-start gap-2 text-sm text-gray-700">
-                          <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <li className="flex items-start gap-2 text-xs md:text-sm text-gray-700">
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-500 rounded-full mt-1 md:mt-1.5 flex-shrink-0"></div>
                           <span>{t.suspiciousPromo}</span>
                         </li>
-                        <li className="flex items-start gap-2 text-sm text-gray-700">
-                          <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <li className="flex items-start gap-2 text-xs md:text-sm text-gray-700">
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-500 rounded-full mt-1 md:mt-1.5 flex-shrink-0"></div>
                           <span>{t.lackPersonalization}</span>
                         </li>
-                        <li className="flex items-start gap-2 text-sm text-gray-700">
-                          <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                        <li className="flex items-start gap-2 text-xs md:text-sm text-gray-700">
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-500 rounded-full mt-1 md:mt-1.5 flex-shrink-0"></div>
                           <span>{t.fraudPotential}</span>
                         </li>
                       </ul>
                     </div>
 
                     {/* Recommended Action */}
-                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-sm mb-2">
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 md:p-4">
+                      <h4 className="font-semibold text-xs md:text-sm mb-1 md:mb-2">
                         {t.recommendedAction}
                       </h4>
-                      <p className="text-sm text-gray-700">
+                      <p className="text-xs md:text-sm text-gray-700">
                         {t.recommendedActionText}
                       </p>
                     </div>
@@ -185,19 +185,19 @@ export function RiskAnalysisBlock() {
                 )}
 
                 {/* Action Buttons */}
-                <div className="flex flex-col gap-3 pt-4 border-t">
-                  <div className="flex gap-3">
+                <div className="flex flex-col gap-2 md:gap-3 pt-3 md:pt-4 border-t">
+                  <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
                     <Button
                       data-tour="report-button"
                       variant="destructive"
-                      className="flex-1"
+                      className="flex-1 text-xs md:text-sm"
                       onClick={handleReport}
                     >
                       {t.reportFraud}
                     </Button>
                     <Button
                       variant="outline"
-                      className="flex-1"
+                      className="flex-1 text-xs md:text-sm"
                       onClick={() => setShowRiskAnalysis(false)}
                     >
                       {t.dismiss}

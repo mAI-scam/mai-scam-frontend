@@ -77,13 +77,23 @@ export default function ImageDemoPage() {
           websiteUrl="facebook.com"
         />
 
-        <FacebookSidebar />
-        <div className="flex mt-12">
-          {/* Main Content Area */}
-          <div className="flex-1 lg:ml-80 min-h-screen">
-            <div className="py-6 px-4">
-              <FacebookFeed onImageClick={handleImageClick} />
+        {/* Desktop: Show sidebar and content */}
+        <div className="hidden lg:block">
+          <FacebookSidebar />
+          <div className="flex">
+            {/* Main Content Area */}
+            <div className="flex-1 lg:ml-80 min-h-screen">
+              <div className="py-6 px-4">
+                <FacebookFeed onImageClick={handleImageClick} />
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile: Show only content, no sidebar */}
+        <div className="lg:hidden">
+          <div className="py-6 px-4">
+            <FacebookFeed onImageClick={handleImageClick} />
           </div>
         </div>
 
