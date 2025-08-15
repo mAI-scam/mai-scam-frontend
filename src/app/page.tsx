@@ -35,7 +35,8 @@ export default function Home() {
             </h1>
             {/* Subtitle */}
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#6FBDF4] mt-2">
-              an MCP-Powered Web Extension
+              an <span className="text-[#EB6700]">AI-powered</span>{" "}
+              <span className="text-[#49A4EF]">anti-scam</span> Web Extension
             </h2>
           </div>
 
@@ -50,8 +51,8 @@ export default function Home() {
           </div> */}
 
           {/* Description */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left max-w-4xl mx-auto">
-            <p className="text-sm text-blue-800">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4 mb-4 md:mb-6 text-left max-w-4xl mx-auto">
+            <p className="text-xs md:text-sm text-blue-800">
               <strong>📱 Browser Extension Demo:</strong> This website
               demonstrates how the mAIscam Chrome extension works in real
               browsers. The actual extension integrates seamlessly into your
@@ -72,7 +73,10 @@ export default function Home() {
           </div> */}
 
           {/* Features Section */}
-          <div id="features" className="grid md:grid-cols-3 gap-8 max-w-5xl">
+          <div
+            id="features"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl"
+          >
             {FeatureCardData.map((item, idx) => (
               <FeatureCard key={idx} {...item} />
             ))}
@@ -80,16 +84,16 @@ export default function Home() {
         </section>
 
         {/* Instructions Section */}
-        <section className="mb-12 max-w-5xl mx-auto">
+        <section className="mb-8 md:mb-12 max-w-5xl mx-auto">
           <Card className="border-blue-200 bg-blue-50">
-            <CardContent className="p-6">
-              <div className="flex items-start gap-3">
-                <Shield className="h-6 w-6 text-blue-600 mt-1" />
+            <CardContent className="p-4 md:p-6">
+              <div className="flex items-start gap-2 md:gap-3">
+                <Shield className="h-5 w-5 md:h-6 md:w-6 text-blue-600 mt-1" />
                 <div>
-                  <h3 className="font-semibold mb-2">
+                  <h3 className="font-semibold mb-2 text-sm md:text-base">
                     How to Experience the Web Extension Demo
                   </h3>
-                  <ol className="space-y-1 text-sm text-gray-700">
+                  <ol className="space-y-1 text-xs md:text-sm text-gray-700">
                     <li>
                       1. Choose a demo scenario below (Email Client, Website, or
                       Social Media Feed)
@@ -121,24 +125,24 @@ export default function Home() {
         </section>
 
         {/* Our Features */}
-        <section className="mb-12 flex max-w-5xl mx-auto gap-8 flex-col md:flex-row">
+        <section className="mb-8 md:mb-12 flex max-w-5xl mx-auto gap-4 md:gap-8 flex-col md:flex-row">
           {/* Left - Content */}
           <Card className="flex-2">
             <CardHeader>
-              <CardTitle className="text-3xl text-center">
+              <CardTitle className="text-2xl md:text-3xl text-center">
                 Our Features
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <Badge className="w-8 h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
-                  <span className="font-bold">1</span>
+            <CardContent className="space-y-4 md:space-y-6">
+              <div className="flex items-start space-x-3 md:space-x-4">
+                <Badge className="w-6 h-6 md:w-8 md:h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
+                  <span className="font-bold text-xs md:text-sm">1</span>
                 </Badge>
                 <div>
-                  <h4 className="font-semibold mb-1">
+                  <h4 className="font-semibold mb-1 text-sm md:text-base">
                     Connected AI Agent Network
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     Multi-agent system using MCP to access real-time threat
                     intelligence, financial APIs, and regulatory feeds while
                     analyzing emails, websites, and OCR-extracted webpage
@@ -148,15 +152,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <Badge className="w-8 h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
-                  <span className="font-bold">2</span>
+              <div className="flex items-start space-x-3 md:space-x-4">
+                <Badge className="w-6 h-6 md:w-8 md:h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
+                  <span className="font-bold text-xs md:text-sm">2</span>
                 </Badge>
                 <div>
-                  <h4 className="font-semibold mb-1">
+                  <h4 className="font-semibold mb-1 text-sm md:text-base">
                     Adaptive Response AI Agents
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     Decision-making agents automatically block high-risk sites,
                     coordinating via MCP integrations to notify authorities and
                     anti-fraud platforms while continuously evolving through
@@ -165,15 +169,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <Badge className="w-8 h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
-                  <span className="font-bold">3</span>
+              <div className="flex items-start space-x-3 md:space-x-4">
+                <Badge className="w-6 h-6 md:w-8 md:h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
+                  <span className="font-bold text-xs md:text-sm">3</span>
                 </Badge>
                 <div>
-                  <h4 className="font-semibold mb-1">
+                  <h4 className="font-semibold mb-1 text-sm md:text-base">
                     Cultural Intelligence & MCP Evolution
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     Supports 13 Southeast Asian languages with contextual,
                     culturally-tailored threat explanations. The MCP-powered
                     ecosystem continuously evolves through reinforcement
@@ -199,7 +203,7 @@ export default function Home() {
         </section>
 
         {/* Enterprise & Government Solutions */}
-        <section className="mb-12 flex max-w-5xl mx-auto gap-8 flex-col md:flex-row">
+        <section className="mb-8 md:mb-12 flex max-w-5xl mx-auto gap-4 md:gap-8 flex-col md:flex-row">
           {/* Left - Image */}
           <Card className="flex-1 hidden md:block">
             <div className="relative w-full h-64 md:h-full">
@@ -215,11 +219,11 @@ export default function Home() {
           {/* Right - Content */}
           <Card className="flex-2">
             <CardHeader>
-              <CardTitle className="text-3xl text-center">
+              <CardTitle className="text-2xl md:text-3xl text-center">
                 Why mAIscam
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4 text-muted-foreground">
+            <CardContent className="space-y-3 md:space-y-4 text-muted-foreground text-xs md:text-sm">
               <p>
                 mAIscam protects organizations and nations from phishing and
                 scam threats with{" "}
@@ -253,19 +257,21 @@ export default function Home() {
         </section>
 
         {/* Market Opportunities */}
-        <section className="mb-12 flex max-w-5xl mx-auto gap-8 flex-col md:flex-row">
+        <section className="mb-8 md:mb-12 flex max-w-5xl mx-auto gap-4 md:gap-8 flex-col md:flex-row">
           {/* Left - Content */}
           <Card className="flex-2">
             <CardHeader>
-              <CardTitle className="text-3xl text-center">
+              <CardTitle className="text-2xl md:text-3xl text-center">
                 Market Opportunity
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="flex items-start space-x-4">
+            <CardContent className="space-y-4 md:space-y-6">
+              <div className="flex items-start space-x-3 md:space-x-4">
                 <div>
-                  <h4 className="font-semibold mb-1">TAM</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold mb-1 text-sm md:text-base">
+                    TAM
+                  </h4>
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     The{" "}
                     <strong className="text-black">
                       Total Addressable Market (TAM)
@@ -283,10 +289,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-3 md:space-x-4">
                 <div>
-                  <h4 className="font-semibold mb-1">SAM</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold mb-1 text-sm md:text-base">
+                    SAM
+                  </h4>
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     Within this, the{" "}
                     <strong className="text-black">
                       Serviceable Available Market (SAM)
@@ -299,10 +307,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-3 md:space-x-4">
                 <div>
-                  <h4 className="font-semibold mb-1">SOM</h4>
-                  <p className="text-muted-foreground">
+                  <h4 className="font-semibold mb-1 text-sm md:text-base">
+                    SOM
+                  </h4>
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     Given our niche in multilingual, culturally aligned scam
                     detection, we project a{" "}
                     <strong className="text-black">
@@ -331,13 +341,13 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="container mx-auto px-6 py-8 mt-16 border-t">
+      <footer className="container mx-auto px-4 md:px-6 py-6 md:py-8 mt-12 md:mt-16 border-t">
         <div className="text-center text-muted-foreground">
-          <p>
+          <p className="text-xs md:text-sm">
             © {new Date().getFullYear()} mAIscam Web Extension Demo. Showcasing
             browser-based scam protection for Southeast Asia.
           </p>
-          <p className="text-sm mt-2">
+          <p className="text-xs mt-2">
             This demo website simulates the actual Chrome extension
             functionality.
           </p>
