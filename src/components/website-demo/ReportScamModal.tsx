@@ -450,7 +450,7 @@ export function ReportScamModal({
   return (
     // EDIT POSITIONING: This modal covers full screen - adjust 'p-4' for edge spacing
     <div className="fixed inset-0 bg-black/60 z-[9997] flex items-center justify-center p-4">
-      <Card className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <Card className="max-w-2xl w-full max-h-[90vh] overflow-y-auto" data-tour="website-report-modal">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
           <div>
             <CardTitle className="text-xl flex items-center gap-2">
@@ -473,7 +473,7 @@ export function ReportScamModal({
           {!isSuccess ? (
             <>
               {/* Reporting Services */}
-              <div>
+              <div data-tour="website-reporting-services">
                 <h4 className="font-semibold mb-3 flex items-center gap-2">
                   <Send className="h-4 w-4" />
                   {t.reportingTo}
@@ -575,6 +575,7 @@ export function ReportScamModal({
                   onClick={handleSubmit}
                   disabled={isSubmitting}
                   className="flex-1 bg-red-600 hover:bg-red-700"
+                  data-tour="website-submit-report-button"
                 >
                   {isSubmitting ? (
                     <>
@@ -592,7 +593,7 @@ export function ReportScamModal({
             </>
           ) : (
             /* Success State */
-            <div className="text-center py-8">
+            <div className="text-center py-8" data-tour="website-report-success">
               <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-green-800 mb-2">
                 {t.reportSuccess}
@@ -623,7 +624,7 @@ export function ReportScamModal({
                 </div>
               </div>
 
-              <Button onClick={handleClose} className="w-full">
+              <Button onClick={handleClose} className="w-full" data-tour="website-close-report-button">
                 {t.close}
               </Button>
             </div>

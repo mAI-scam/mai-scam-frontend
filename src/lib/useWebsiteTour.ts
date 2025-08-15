@@ -5,10 +5,7 @@ import { driver } from 'driver.js';
 import { useExtensionStore } from '@/lib/store/extensionStore';
 
 export const useWebsiteTour = () => {
-  const { isActive, toggleExtension } = useExtensionStore();
-
   const startTour = useCallback(() => {
-    let activateButtonClicked = false;
 
     const driverObj = driver({
       showProgress: true,
@@ -61,14 +58,10 @@ export const useWebsiteTour = () => {
               'Please click the "Activate mAIscam" button to enable protection and see the website blocker in action. Make sure you click the Activate mAiscam button and not the next button.',
           },
           onHighlightStarted: () => {
-            // Reset flag for this step
-            activateButtonClicked = false;
-            
             // Add click listener to the activation button
             const button = document.querySelector('[data-tour="activate-button"]') as HTMLElement;
             if (button) {
               const handleClick = () => {
-                activateButtonClicked = true;
                 // Wait for extension to activate and website blocking overlay to appear, then proceed
                 const checkActivation = () => {
                   const state = useExtensionStore.getState();
@@ -107,21 +100,107 @@ export const useWebsiteTour = () => {
           popover: {
             title: 'Report Scam',
             description:
-              'Report this site to help protect others. Your report will be sent to relevant services.',
+              'Click the "Report Scam" button to submit a report and help protect others from this fraudulent website. Please click the Report Scam button to continue.',
           },
+          onHighlightStarted: () => {
+            // Add click listener to the report button
+            const reportButton = document.querySelector('[data-tour="website-report-button"]') as HTMLElement;
+            if (reportButton) {
+              const handleClick = () => {
+                // Wait for the report modal to appear
+                const checkModal = () => {
+                  const modal = document.querySelector('[data-tour="website-report-modal"]');
+                  if (modal) {
+                    // Modal appeared - proceed to next step
+                    setTimeout(() => driverObj.moveNext(), 300);
+                  } else {
+                    // Keep checking
+                    setTimeout(checkModal, 100);
+                  }
+                };
+                checkModal();
+              };
+              
+              reportButton.addEventListener('click', handleClick, { once: true });
+            }
+          }
+        },
+        {
+          element: '[data-tour="website-reporting-services"]',
+          popover: {
+            title: 'Reporting Destinations',
+            description: 'Your report will be automatically sent to multiple authorities and platforms: Google Safe Browsing, PhishTank, and MCMC Malaysia for website scams.',
+            side: 'right',
+            align: 'start',
+          },
+        },
+        {
+          element: '[data-tour="website-submit-report-button"]',
+          popover: {
+            title: 'Submit Website Report',
+            description: 'Now click "Submit Report" to send the fraudulent website information to all these authorities and platforms.',
+          },
+          onHighlightStarted: () => {
+            // Add click listener to the submit button
+            const submitButton = document.querySelector('[data-tour="website-submit-report-button"]') as HTMLElement;
+            if (submitButton) {
+              const handleClick = () => {
+                // Wait for the success state to appear
+                const checkSuccess = () => {
+                  const successElement = document.querySelector('[data-tour="website-report-success"]');
+                  if (successElement) {
+                    // Success state appeared - proceed to next step
+                    setTimeout(() => driverObj.moveNext(), 500);
+                  } else {
+                    // Keep checking
+                    setTimeout(checkSuccess, 100);
+                  }
+                };
+                checkSuccess();
+              };
+              
+              submitButton.addEventListener('click', handleClick, { once: true });
+            }
+          }
+        },
+        {
+          element: '[data-tour="website-report-success"]',
+          popover: {
+            title: 'Website Report Submitted Successfully',
+            description: 'Your fraudulent website report has been successfully submitted to multiple authorities and platforms. Thank you for helping protect others!',
+          },
+        },
+        {
+          element: '[data-tour="website-close-report-button"]',
+          popover: {
+            title: 'Close and Continue',
+            description: 'Click the close button to return to the website risk analysis and continue safely. This completes the mAIscam website protection demo.',
+          },
+          onHighlightStarted: () => {
+            // Add click listener to the close button
+            const closeButton = document.querySelector('[data-tour="website-close-report-button"]') as HTMLElement;
+            if (closeButton) {
+              const handleClick = () => {
+                // Wait a moment then complete the tour
+                setTimeout(() => driverObj.moveNext(), 300);
+              };
+              
+              closeButton.addEventListener('click', handleClick, { once: true });
+            }
+          }
         },
         {
           popover: {
             title: 'Tour Complete',
             description:
-              'You’ve seen how to spot red flags and use mAIscam to stay safe when shopping online.',
+              'You have learned how to spot red flags, use mAIscam protection, and report fraudulent websites to keep yourself and others safe online.',
           },
         },
       ],
     });
 
     driverObj.drive();
-  }, [isActive, toggleExtension]);
+  }, []);
 
   return { startTour };
 };
