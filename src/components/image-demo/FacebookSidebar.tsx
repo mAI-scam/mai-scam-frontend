@@ -1,11 +1,22 @@
 "use client";
 
-import { User, Users, Clock, Bookmark, Play, Store, ChevronDown } from "lucide-react";
+import {
+  User,
+  Users,
+  Clock,
+  Bookmark,
+  Play,
+  Store,
+  ChevronDown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function FacebookSidebar() {
   return (
-    <div className="hidden lg:block w-80 bg-white border-r border-gray-200 fixed left-0 overflow-y-auto" style={{ top: 'calc(var(--banner-height, 0px) + 3.5rem)', height: 'calc(100vh - var(--banner-height, 0px) - 3.5rem)' }}>
+    <div
+      className="hidden lg:block w-80 bg-white border-r border-gray-200 fixed left-0 top-64 overflow-y-auto"
+      style={{ height: "calc(100vh - 64px)" }}
+    >
       <div className="p-4 space-y-2">
         {/* User Profile */}
         <Button variant="ghost" className="w-full justify-start p-3 h-auto">
@@ -48,7 +59,9 @@ export function FacebookSidebar() {
 
         {/* Shortcuts */}
         <div className="pt-4 border-t border-gray-200">
-          <h3 className="font-semibold text-gray-600 text-sm mb-2 px-3">Your shortcuts</h3>
+          <h3 className="font-semibold text-gray-600 text-sm mb-2 px-3">
+            Your shortcuts
+          </h3>
           <Button variant="ghost" className="w-full justify-start p-3 h-auto">
             <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
               <span className="text-green-600 text-xs font-bold">G</span>

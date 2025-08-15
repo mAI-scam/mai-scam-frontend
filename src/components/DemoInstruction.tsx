@@ -25,19 +25,20 @@ export function DemoInstruction({
   activeMessage,
   inactiveMessage,
 }: DemoInstructionProps) {
-  const { isActive, isActivating, toggleExtension, selectedLanguage } = useExtensionStore();
+  const { isActive, isActivating, toggleExtension, selectedLanguage } =
+    useExtensionStore();
   const colors = colorSchemes[colorScheme];
   const t = ExtensionData[selectedLanguage];
 
   return (
     <div
       data-tour="demo-banner"
-      className={`${colors.bg} border-b ${colors.border} p-4 sticky top-0 z-50`}
+      className={`h-36 ${colors.bg} border-b ${colors.border} p-4 sticky top-0 z-100`}
     >
-      {/* 3-Column Layout */}
-      <div className="max-w-full mx-auto h-full flex items-center justify-between">
+      {/* 3-Column Layout using CSS Grid */}
+      <div className="max-w-full mx-auto h-full grid grid-cols-[20%_60%_20%] items-center">
         {/* Left Column - Navigation and Tour */}
-        <div className="flex flex-col items-start gap-3">
+        <div className="flex flex-col items-start gap-3 justify-self-start">
           <Link href="/">
             <Button
               variant="outline"
@@ -50,8 +51,8 @@ export function DemoInstruction({
           </Link>
         </div>
 
-        {/* Middle Column - Title and Status */}
-        <div className="flex flex-col items-center text-center">
+        {/* Middle Column - Title and Status (Always Centered) */}
+        <div className="flex flex-col items-center text-center justify-self-center">
           <div className="flex items-center gap-2 mb-2">
             <div className={colors.iconColor}>{icon}</div>
             <span className={`font-semibold ${colors.titleColor}`}>
@@ -101,7 +102,7 @@ export function DemoInstruction({
         </div>
 
         {/* Right Column - Language and Activate */}
-        <div className="flex flex-col items-end gap-3">
+        <div className="flex flex-col items-end gap-3 justify-self-end">
           <LanguageSelector />
 
           <Button

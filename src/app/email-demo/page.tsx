@@ -8,6 +8,7 @@ import { useEmailTour } from "@/lib/useEmailTour";
 import { useExtensionStore } from "@/lib/store/extensionStore";
 import { useEffect } from "react";
 import { DemoInstruction } from "@/components/DemoInstruction";
+import { FakeBrowserBar } from "@/components/FakeBrowserBar";
 
 export default function EmailDemoPage() {
   const { startTour } = useEmailTour();
@@ -30,6 +31,9 @@ export default function EmailDemoPage() {
         activeMessage="Our AI is analyzing this email for scam indicators. The extension will highlight suspicious content and provide protection recommendations."
         inactiveMessage="Activate mAIscam extension first to see real-time email scam detection and analysis in action."
       />
+
+      {/* Fake Browser Bar */}
+      <FakeBrowserBar websiteUrl="mail.google.com/mail/u/0/#inbox" />
 
       <GmailHeader />
 

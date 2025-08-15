@@ -17,6 +17,7 @@ import { useExtensionStore } from "@/lib/store/extensionStore";
 import { Facebook } from "lucide-react";
 import { useSocialMediaTour } from "@/lib/useSocialMediaTour";
 import { DemoInstruction } from "@/components/DemoInstruction";
+import { FakeBrowserBar } from "@/components/FakeBrowserBar";
 
 type PostScamImage = {
   id: number;
@@ -76,14 +77,14 @@ export default function ImageDemoPage() {
         inactiveMessage="Activate mAIscam extension first, then click on any suspicious image in posts to analyze and block scam content with AI-powered OCR."
       />
 
+      {/* Fake Browser Bar */}
+      <FakeBrowserBar websiteUrl="facebook.com" />
+
       {/* Facebook Interface */}
-      <div className="sticky top-[100px] z-40">
-        <FacebookHeader />
-      </div>
+      <FacebookHeader />
 
-      <div className="flex">
-        <FacebookSidebar />
-
+      <FacebookSidebar />
+      <div className="flex mt-12">
         {/* Main Content Area */}
         <div className="flex-1 lg:ml-80 min-h-screen">
           <div className="py-6 px-4">

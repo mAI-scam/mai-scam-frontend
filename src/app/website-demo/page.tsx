@@ -2,7 +2,7 @@
 
 import { Globe } from "lucide-react";
 import { DemoInstruction } from "@/components/DemoInstruction";
-import { FakeBrowserBar } from "@/components/website-demo/FakeBrowserBar";
+import { FakeBrowserBar } from "@/components/FakeBrowserBar";
 import { ScamSiteHeader } from "@/components/website-demo/ScamSiteHeader";
 import { FlashSaleBanner } from "@/components/website-demo/FlashSaleBanner";
 import { ProductGrid } from "@/components/website-demo/ProductGrid";
@@ -20,7 +20,7 @@ import { useWebsiteTour } from "@/lib/useWebsiteTour";
 export default function WebsiteDemoPage() {
   const { isActive, analyzeContent, resetExtension, setLanguage } =
     useExtensionStore();
-  const websiteUrl = "shoppe123.com";
+  const websiteUrl = "shoppe123.com/flash-sale";
   const { startTour } = useWebsiteTour();
 
   // Reset extension and set default language to English on entering the page
