@@ -42,7 +42,8 @@ export function FacebookSafeContentOverlay({
   const t = FacebookSafeContentData[lang];
 
   return (
-    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+    // EDIT POSITIONING: This overlay covers full screen - adjust 'p-4' for edge spacing
+    <div className="fixed inset-0 bg-black/80 z-[9994] flex items-center justify-center p-4">
       <Card className="max-w-2xl w-full">
         <CardContent className="p-0">
           {/* Header */}
@@ -80,7 +81,9 @@ export function FacebookSafeContentOverlay({
             <div className="flex items-start gap-3 p-4 bg-green-50 border border-green-200 rounded-lg">
               <CheckCircle2 className="h-6 w-6 text-green-600 mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-green-800 mb-1">{t.safeContent}</h3>
+                <h3 className="font-semibold text-green-800 mb-1">
+                  {t.safeContent}
+                </h3>
                 <p className="text-green-700 text-sm">{t.description}</p>
               </div>
             </div>
@@ -92,9 +95,7 @@ export function FacebookSafeContentOverlay({
                   {t.riskLevel}:
                 </span>
               </div>
-              <Badge className="bg-green-600 text-white">
-                {t.low}
-              </Badge>
+              <Badge className="bg-green-600 text-white">{t.low}</Badge>
             </div>
 
             {/* Why Safe */}
@@ -148,13 +149,12 @@ export function FacebookSafeContentOverlay({
                 <div className="flex items-start gap-2 mb-3">
                   <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5" />
                   <p className="text-sm text-green-800 font-medium">
-                    SAFE CONTENT: This image has been verified as legitimate content
+                    SAFE CONTENT: This image has been verified as legitimate
+                    content
                   </p>
                 </div>
                 <div className="bg-white p-3 rounded border">
-                  <p className="text-sm text-gray-600 mb-2">
-                    Content Preview:
-                  </p>
+                  <p className="text-sm text-gray-600 mb-2">Content Preview:</p>
                   <p className="text-sm font-mono bg-gray-100 p-2 rounded">
                     {safeImage.content}
                   </p>

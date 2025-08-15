@@ -39,7 +39,8 @@ export function WebExtensionOverlay() {
   if (!isActive) {
     return (
       <div
-        className="fixed right-4 z-50 flex flex-col gap-2"
+        // EDIT POSITIONING: Change 'right-4' to adjust horizontal position, 'top' is set via style
+        className="fixed right-4 z-[9993] flex flex-col gap-2"
         style={{ top: "calc(var(--banner-height, 0px) + 1rem)" }}
       >
         <LanguageSelector />
@@ -67,17 +68,21 @@ export function WebExtensionOverlay() {
 
   return (
     <div
-      className="fixed z-50 right-2 sm:right-4 left-auto"
+      // EDIT POSITIONING: Change 'right-2 sm:right-4' to adjust horizontal position, 'top' is set via style
+      className="fixed z-[9993] right-2 sm:right-4 left-auto"
       style={{ top: "calc(var(--banner-height, 0px) + 1rem)" }}
     >
-      <Card className="w-[22rem] max-w-[95vw] shadow-xl" data-tour="active-extension">
+      <Card
+        className="w-[22rem] max-w-[95vw] shadow-xl"
+        data-tour="active-extension"
+      >
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-primary" />
               <span className="font-semibold">{t.extensionActive}</span>
             </div>
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <LanguageSelector />
               <Button
                 variant="ghost"
@@ -139,24 +144,38 @@ export function WebExtensionOverlay() {
                           setShowRiskAnalysis(true);
                         }
                         // Then scroll to it (with a small delay if it was just shown)
-                        setTimeout(() => {
-                          const el = document.getElementById("risk-details");
-                          if (el) {
-                            el.scrollIntoView({ behavior: "smooth", block: "center" });
-                          }
-                        }, showRiskAnalysis ? 0 : 100);
+                        setTimeout(
+                          () => {
+                            const el = document.getElementById("risk-details");
+                            if (el) {
+                              el.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center",
+                              });
+                            }
+                          },
+                          showRiskAnalysis ? 0 : 100
+                        );
                       } else if (analysisType === "website") {
                         // Website demo: show website blocking overlay
                         if (!showWebsiteBlocking) {
                           setShowWebsiteBlocking(true);
                         }
                         // Scroll to the overlay element
-                        setTimeout(() => {
-                          const el = document.getElementById("website-blocking-overlay");
-                          if (el) {
-                            el.scrollIntoView({ behavior: "smooth", block: "center" });
-                          }
-                        }, showWebsiteBlocking ? 0 : 100);
+                        setTimeout(
+                          () => {
+                            const el = document.getElementById(
+                              "website-blocking-overlay"
+                            );
+                            if (el) {
+                              el.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center",
+                              });
+                            }
+                          },
+                          showWebsiteBlocking ? 0 : 100
+                        );
                       }
                     }}
                   >

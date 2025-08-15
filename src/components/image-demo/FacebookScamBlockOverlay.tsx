@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Shield, AlertTriangle, X, Eye, EyeOff, Flag, CheckCircle2 } from "lucide-react";
+import {
+  Shield,
+  AlertTriangle,
+  X,
+  Eye,
+  EyeOff,
+  Flag,
+  CheckCircle2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -45,10 +53,13 @@ export function FacebookScamBlockOverlay({
 
   const getTailoredReasons = (): string[] => {
     const src = scamImage.imageSrc || "";
-    if (src.includes("scam_giveaway_example")) return t.reasonsGiveaway ?? t.reasons;
-    if (src.includes("scam_gov_aid_example")) return t.reasonsGovAid ?? t.reasons;
+    if (src.includes("scam_giveaway_example"))
+      return t.reasonsGiveaway ?? t.reasons;
+    if (src.includes("scam_gov_aid_example"))
+      return t.reasonsGovAid ?? t.reasons;
     if (src.includes("scam_sms_example")) return t.reasonsSms ?? t.reasons;
-    if (src.includes("scam_investment_example")) return t.reasonsInvestment ?? t.reasons;
+    if (src.includes("scam_investment_example"))
+      return t.reasonsInvestment ?? t.reasons;
     return t.reasons;
   };
 
@@ -57,11 +68,15 @@ export function FacebookScamBlockOverlay({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+    // EDIT POSITIONING: This overlay covers full screen - adjust 'p-4' for edge spacing
+    <div className="fixed inset-0 bg-black/80 z-[9995] flex items-center justify-center p-4">
       <Card className="max-w-2xl w-full">
         <CardContent className="p-0">
           {/* Header */}
-          <div className="bg-red-600 text-white p-6 rounded-t-lg" data-tour="fb-risk-header">
+          <div
+            className="bg-red-600 text-white p-6 rounded-t-lg"
+            data-tour="fb-risk-header"
+          >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/20 rounded-full">
@@ -147,7 +162,10 @@ export function FacebookScamBlockOverlay({
                   {showPost ? t.hidePost : t.showPost}
                 </Button>
                 {isImageReported(scamImage.id) ? (
-                  <Button disabled className="flex-1 bg-green-600 hover:bg-green-700 disabled:opacity-100">
+                  <Button
+                    disabled
+                    className="flex-1 bg-green-600 hover:bg-green-700 disabled:opacity-100"
+                  >
                     <CheckCircle2 className="h-4 w-4 mr-2" />
                     Reported
                   </Button>

@@ -12,16 +12,27 @@ import { RiskAnalysisData } from "@/data/email-demo/RiskAnalysisData";
 import { ExtensionData } from "@/data/email-demo/ExtensionData";
 
 export function RiskAnalysisBlock() {
-  const { riskScore, riskLevel, explanation, detailedExplanation, selectedLanguage, showRiskAnalysis, setShowRiskAnalysis, isAnalyzing, analysisType } =
-    useExtensionStore();
+  const {
+    riskScore,
+    riskLevel,
+    explanation,
+    detailedExplanation,
+    selectedLanguage,
+    showRiskAnalysis,
+    setShowRiskAnalysis,
+    isAnalyzing,
+    analysisType,
+  } = useExtensionStore();
   const [showReportModal, setShowReportModal] = useState(false);
   const [showDetailed, setShowDetailed] = useState(false);
   const t = RiskAnalysisData[selectedLanguage];
   const extensionT = ExtensionData[selectedLanguage];
 
   // Show the popup if we're analyzing email content OR if we have results and should show them
-  const shouldShow = (isAnalyzing && analysisType === "email") || (riskScore && showRiskAnalysis);
-  
+  const shouldShow =
+    (isAnalyzing && analysisType === "email") ||
+    (riskScore && showRiskAnalysis);
+
   if (!shouldShow) return null;
 
   const handleReport = () => {
@@ -33,7 +44,8 @@ export function RiskAnalysisBlock() {
   return (
     <div
       id="risk-details"
-      className="mb-4 fixed z-50 sm:top-24 top-20 left-1/2 -translate-x-1/2 sm:w-[36rem] w-[92vw] max-w-[95vw]"
+      // EDIT POSITIONING: Change 'sm:top-24 top-20' to adjust popup vertical position
+      className="mb-4 fixed z-[9998] sm:top-84 top-20 left-1/2 -translate-x-1/2 sm:w-[36rem] w-[92vw] max-w-[95vw]"
     >
       {/* Language Selector */}
       <div className="flex justify-end mb-4">
@@ -44,7 +56,7 @@ export function RiskAnalysisBlock() {
       <Card
         data-tour="risk-analysis"
         className={`border-l-4 shadow-2xl ${
-          isAnalyzing 
+          isAnalyzing
             ? "border-l-blue-500"
             : riskLevel === "high"
             ? "border-l-red-500"
@@ -131,7 +143,9 @@ export function RiskAnalysisBlock() {
                     </div>
                     <div className="flex items-center gap-2 text-sm">
                       <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span className="text-gray-700">{t.lackPersonalization}</span>
+                      <span className="text-gray-700">
+                        {t.lackPersonalization}
+                      </span>
                     </div>
                     <div className="flex items-center gap-2 text-sm">
                       <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -159,7 +173,7 @@ export function RiskAnalysisBlock() {
                 >
                   {t.reportFraud}
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   onClick={() => setShowRiskAnalysis(false)}
                 >

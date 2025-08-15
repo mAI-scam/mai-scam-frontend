@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { X, ShoppingCart } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { useState, useEffect } from "react";
+import { X, ShoppingCart } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export function UrgencyPopups() {
   const [showPopup, setShowPopup] = useState(false);
@@ -12,20 +12,20 @@ export function UrgencyPopups() {
 
   const popups = [
     {
-      user: 'Sarah from KL',
-      product: 'iPhone 16 Pro Max',
-      time: 'baru sahaja'
+      user: "Sarah from KL",
+      product: "iPhone 16 Pro Max",
+      time: "baru sahaja",
     },
     {
-      user: 'Ahmad from Johor',
-      product: 'PS5 Console',
-      time: '2 minit lalu'
+      user: "Ahmad from Johor",
+      product: "PS5 Console",
+      time: "2 minit lalu",
     },
     {
-      user: 'Lee from Penang',
-      product: 'Coach Handbag',
-      time: '1 minit lalu'
-    }
+      user: "Lee from Penang",
+      product: "Coach Handbag",
+      time: "1 minit lalu",
+    },
   ];
 
   useEffect(() => {
@@ -39,7 +39,6 @@ export function UrgencyPopups() {
     const interval = setInterval(() => {
       setShowPopup(true);
       setPopupType(Math.floor(Math.random() * popups.length));
-      
       setTimeout(() => setShowPopup(false), 4000);
     }, 8000);
 
@@ -59,7 +58,8 @@ export function UrgencyPopups() {
   const currentPopup = popups[popupType];
 
   return (
-    <div className="fixed bottom-4 right-4 z-30 animate-in slide-in-from-right">
+    // EDIT POSITIONING: Change 'bottom-4 right-4' to adjust popup position
+    <div className="fixed bottom-4 right-4 z-[9999] animate-in slide-in-from-right">
       <Card className="shadow-xl">
         <CardContent className="p-4 pr-10">
           <button
@@ -68,22 +68,18 @@ export function UrgencyPopups() {
           >
             <X className="h-4 w-4" />
           </button>
-          
+
           <div className="flex items-center gap-3">
             <div className="bg-green-100 p-2 rounded-full">
               <ShoppingCart className="h-5 w-5 text-green-600" />
             </div>
             <div>
-              <p className="font-medium text-sm">
-                {currentPopup.user} membeli
-              </p>
-              <p className="text-sm text-gray-600">
-                {currentPopup.product}
-              </p>
+              <p className="font-medium text-sm">{currentPopup.user} membeli</p>
+              <p className="text-sm text-gray-600">{currentPopup.product}</p>
               <p className="text-xs text-gray-500">{currentPopup.time}</p>
             </div>
           </div>
-          
+
           <Badge className="absolute top-2 left-2 bg-red-500 text-white text-xs">
             HOT
           </Badge>

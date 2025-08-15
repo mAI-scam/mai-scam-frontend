@@ -12,7 +12,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useExtensionStore} from "@/lib/store/extensionStore";
+import { useExtensionStore } from "@/lib/store/extensionStore";
 
 const translations = {
   en: {
@@ -39,14 +39,16 @@ const translations = {
     submitReport: "Submit Report",
     submitting: "Submitting...",
     reportSuccess: "Report Submitted Successfully!",
-    successMessage: "Thank you for helping keep the internet safe. The website has been reported to:",
+    successMessage:
+      "Thank you for helping keep the internet safe. The website has been reported to:",
     reportId: "Report ID:",
     close: "Close",
-    cancel: "Cancel"
+    cancel: "Cancel",
   },
   ms: {
     title: "Laporkan Laman Web Penipuan",
-    subtitle: "Bantu melindungi orang lain dengan melaporkan laman web penipuan ini",
+    subtitle:
+      "Bantu melindungi orang lain dengan melaporkan laman web penipuan ini",
     reportingTo: "Melaporkan ke:",
     googleSafeBrowsing: "Google Safe Browsing",
     googleDesc: "Perkhidmatan perlindungan web global",
@@ -68,10 +70,11 @@ const translations = {
     submitReport: "Hantar Laporan",
     submitting: "Menghantar...",
     reportSuccess: "Laporan Berjaya Dihantar!",
-    successMessage: "Terima kasih kerana membantu menjaga keselamatan internet. Laman web telah dilaporkan ke:",
+    successMessage:
+      "Terima kasih kerana membantu menjaga keselamatan internet. Laman web telah dilaporkan ke:",
     reportId: "ID Laporan:",
     close: "Tutup",
-    cancel: "Batal"
+    cancel: "Batal",
   },
   zh: {
     title: "举报诈骗网站",
@@ -100,7 +103,7 @@ const translations = {
     successMessage: "感谢您帮助保持互联网安全。网站已举报至:",
     reportId: "举报ID:",
     close: "关闭",
-    cancel: "取消"
+    cancel: "取消",
   },
   vi: {
     title: "Báo cáo Trang Web Lừa đảo",
@@ -126,10 +129,11 @@ const translations = {
     submitReport: "Gửi Báo Cáo",
     submitting: "Đang gửi...",
     reportSuccess: "Gửi báo cáo thành công!",
-    successMessage: "Cảm ơn bạn đã giúp giữ an toàn cho internet. Trang web đã được báo cáo tới:",
+    successMessage:
+      "Cảm ơn bạn đã giúp giữ an toàn cho internet. Trang web đã được báo cáo tới:",
     reportId: "Mã Báo Cáo:",
     close: "Đóng",
-    cancel: "Hủy"
+    cancel: "Hủy",
   },
   th: {
     title: "รายงานเว็บไซต์หลอกลวง",
@@ -155,10 +159,11 @@ const translations = {
     submitReport: "ส่งรายงาน",
     submitting: "กำลังส่ง...",
     reportSuccess: "ส่งรายงานสำเร็จ!",
-    successMessage: "ขอบคุณที่ช่วยทำให้อินเทอร์เน็ตปลอดภัยขึ้น เว็บไซต์นี้ถูกรายงานไปยัง:",
+    successMessage:
+      "ขอบคุณที่ช่วยทำให้อินเทอร์เน็ตปลอดภัยขึ้น เว็บไซต์นี้ถูกรายงานไปยัง:",
     reportId: "รหัสรายงาน:",
     close: "ปิด",
-    cancel: "ยกเลิก"
+    cancel: "ยกเลิก",
   },
   fil: {
     title: "Iulat ang Scam na Website",
@@ -184,10 +189,11 @@ const translations = {
     submitReport: "Isumite ang Ulat",
     submitting: "Isinusumite...",
     reportSuccess: "Matagumpay na naisumite ang ulat!",
-    successMessage: "Salamat sa pagtulong na panatilihing ligtas ang internet. Naiulat ang site sa:",
+    successMessage:
+      "Salamat sa pagtulong na panatilihing ligtas ang internet. Naiulat ang site sa:",
     reportId: "ID ng Ulat:",
     close: "Isara",
-    cancel: "Kanselahin"
+    cancel: "Kanselahin",
   },
   id: {
     title: "Laporkan Situs Penipuan",
@@ -213,10 +219,11 @@ const translations = {
     submitReport: "Kirim Laporan",
     submitting: "Mengirim...",
     reportSuccess: "Laporan Berhasil Dikirim!",
-    successMessage: "Terima kasih telah membantu menjaga internet tetap aman. Situs dilaporkan ke:",
+    successMessage:
+      "Terima kasih telah membantu menjaga internet tetap aman. Situs dilaporkan ke:",
     reportId: "ID Laporan:",
     close: "Tutup",
-    cancel: "Batal"
+    cancel: "Batal",
   },
   jv: {
     title: "Laporke Situs Penipuan",
@@ -242,10 +249,11 @@ const translations = {
     submitReport: "Kirim Laporan",
     submitting: "Ngirim...",
     reportSuccess: "Laporan Kasil Dikirim!",
-    successMessage: "Matur nuwun wis mbantu njaga internet aman. Situs dilaporake menyang:",
+    successMessage:
+      "Matur nuwun wis mbantu njaga internet aman. Situs dilaporake menyang:",
     reportId: "ID Laporan:",
     close: "Tutup",
-    cancel: "Batal"
+    cancel: "Batal",
   },
   su: {
     title: "Laporke Situs Tipu",
@@ -271,10 +279,11 @@ const translations = {
     submitReport: "Kirim Laporan",
     submitting: "Ngirim...",
     reportSuccess: "Laporan Kasil Dikirim!",
-    successMessage: "Hatur nuhun geus ngabantu ngajaga internet aman. Situs dilaporkeun ka:",
+    successMessage:
+      "Hatur nuhun geus ngabantu ngajaga internet aman. Situs dilaporkeun ka:",
     reportId: "ID Laporan:",
     close: "Tutup",
-    cancel: "Batal"
+    cancel: "Batal",
   },
   km: {
     title: "រាយការណ៍​គេហទំព័រ​ក្លែងបន្លំ",
@@ -300,10 +309,11 @@ const translations = {
     submitReport: "ដាក់ស្នើរបាយការណ៍",
     submitting: "កំពុងដាក់ស្នើ...",
     reportSuccess: "បានដាក់ស្នើរបាយការណ៍ដោយជោគជ័យ!",
-    successMessage: "អរគុណសម្រាប់ជួយរក្សាអ៊ីនធឺណិតឲ្យមានសុវត្ថិភាព។ គេហទំព័រត្រូវបានរាយការណ៍ទៅ:",
+    successMessage:
+      "អរគុណសម្រាប់ជួយរក្សាអ៊ីនធឺណិតឲ្យមានសុវត្ថិភាព។ គេហទំព័រត្រូវបានរាយការណ៍ទៅ:",
     reportId: "លេខសម្គាល់របាយការណ៍:",
     close: "បិទ",
-    cancel: "បោះបង់"
+    cancel: "បោះបង់",
   },
   lo: {
     title: "ລາຍງານເວັບໄຊຫລອກລວງ",
@@ -332,11 +342,12 @@ const translations = {
     successMessage: "ຂອບໃຈທີ່ຊ່ວຍໃຫ້ອິນເຕີເນັດປອດໄພ. ເວັບໄຊຖືກລາຍງານໄປຫາ:",
     reportId: "ເລກ ID ລາຍງານ:",
     close: "ປິດ",
-    cancel: "ຍົກເລີກ"
+    cancel: "ຍົກເລີກ",
   },
   my: {
     title: "လိမ်လည် ဝဘ်ဆိုက်ကို အကြောင်းကြားရန်",
-    subtitle: "ဤ လိမ်လည် ဝဘ်ဆိုက်ကို အကြောင်းကြား၍ အခြားသူများကို ကာကွယ်ပို့ုပါ",
+    subtitle:
+      "ဤ လိမ်လည် ဝဘ်ဆိုက်ကို အကြောင်းကြား၍ အခြားသူများကို ကာကွယ်ပို့ုပါ",
     reportingTo: "အစီရင်ခံစာပို့ရန်:",
     googleSafeBrowsing: "Google Safe Browsing",
     googleDesc: "ကမ္ဘာလုံးဆိုင်ရာ ဝဘ်ကာကွယ်ရေး ဝန်ဆောင်မှု",
@@ -358,10 +369,11 @@ const translations = {
     submitReport: "အစီရင်ခံစာတင်ပါ",
     submitting: "တင်နေသည်...",
     reportSuccess: "အစီရင်ခံစာ တင်သွင်းမှု အောင်မြင်!",
-    successMessage: "အင်တာနက် လုံခြုံရေး အတွက် ကူညီသည့်အတွက် ကျေးဇူးတင်ပါသည်။ ၎င်းဆိုက်ကို အောက်ပါနေရာများသို့ အစီရင်ခံခဲ့ပါသည်:",
+    successMessage:
+      "အင်တာနက် လုံခြုံရေး အတွက် ကူညီသည့်အတွက် ကျေးဇူးတင်ပါသည်။ ၎င်းဆိုက်ကို အောက်ပါနေရာများသို့ အစီရင်ခံခဲ့ပါသည်:",
     reportId: "အစီရင်ခံစာ ID:",
     close: "ပိတ်မည်",
-    cancel: "ဖျက်သိမ်းမည်"
+    cancel: "ဖျက်သိမ်းမည်",
   },
   ta: {
     title: "மோசடி இணையதளை புகாரளி",
@@ -387,11 +399,12 @@ const translations = {
     submitReport: "அறிக்கையை சமர்ப்பிக்கவும்",
     submitting: "சமர்ப்பிக்கிறது...",
     reportSuccess: "அறிக்கை வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!",
-    successMessage: "இணையத்தை பாதுகாப்பாக வைத்ததற்கு நன்றி. இந்த தளம் கீழ்கண்டவர்களுக்கு புகாரளிக்கப்பட்டது:",
+    successMessage:
+      "இணையத்தை பாதுகாப்பாக வைத்ததற்கு நன்றி. இந்த தளம் கீழ்கண்டவர்களுக்கு புகாரளிக்கப்பட்டது:",
     reportId: "அறிக்கை ஐடி:",
     close: "மூடு",
-    cancel: "ரத்து செய்"
-  }
+    cancel: "ரத்து செய்",
+  },
 };
 
 interface ReportScamModalProps {
@@ -410,10 +423,12 @@ export function ReportScamModal({
   const [isSuccess, setIsSuccess] = useState(false);
   const [reportId] = useState(() => {
     // Only generate ID on client-side to avoid hydration mismatch
-    if (typeof window === 'undefined') return '';
+    if (typeof window === "undefined") return "";
     return `MSR-${Date.now().toString(36).toUpperCase()}`;
   });
-  const t = translations[selectedLanguage as keyof typeof translations] ?? translations.en;
+  const t =
+    translations[selectedLanguage as keyof typeof translations] ??
+    translations.en;
 
   if (!isOpen) return null;
 
@@ -433,7 +448,8 @@ export function ReportScamModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4">
+    // EDIT POSITIONING: This modal covers full screen - adjust 'p-4' for edge spacing
+    <div className="fixed inset-0 bg-black/60 z-[9997] flex items-center justify-center p-4">
       <Card className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
           <div>

@@ -1,10 +1,18 @@
 "use client";
 
-import { Shield, AlertTriangle, ExternalLink, Home, Flag, CornerUpRight, X } from "lucide-react";
+import {
+  Shield,
+  AlertTriangle,
+  ExternalLink,
+  Home,
+  Flag,
+  CornerUpRight,
+  X,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useExtensionStore} from "@/lib/store/extensionStore";
+import { useExtensionStore } from "@/lib/store/extensionStore";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { ReportScamModal } from "./ReportScamModal";
 import { useState } from "react";
@@ -17,26 +25,31 @@ interface WebsiteBlockingOverlayProps {
 
 function getLegitimateSuggestion(url: string | undefined): string | null {
   if (!url) return null;
-  
+
   const domain = url.toLowerCase();
   const mapping: Record<string, string> = {
-    'shoppe123.com': 'shopee.com.my',
-    'shoppee-my.com': 'shopee.com.my', 
-    'lazada-malaysia.net': 'lazada.com.my',
-    'deal-raya-123.com': 'shopee.com.my'
+    "shoppe123.com": "shopee.com.my",
+    "shoppee-my.com": "shopee.com.my",
+    "lazada-malaysia.net": "lazada.com.my",
+    "deal-raya-123.com": "shopee.com.my",
   };
 
   return mapping[domain] ?? null;
 }
 
-export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: WebsiteBlockingOverlayProps) {
-  const { selectedLanguage, showWebsiteBlocking, setShowWebsiteBlocking } = useExtensionStore();
+export function WebsiteBlockingOverlay({
+  websiteUrl = "shoppe123.com",
+}: WebsiteBlockingOverlayProps) {
+  const { selectedLanguage, showWebsiteBlocking, setShowWebsiteBlocking } =
+    useExtensionStore();
   const [showFinalWarning, setShowFinalWarning] = useState(false);
   const [allowAccess, setAllowAccess] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
   const [showDetailed, setShowDetailed] = useState(false);
   const router = useRouter();
-  const t = WebsiteBlockingOverlayData[selectedLanguage] ?? WebsiteBlockingOverlayData.en;
+  const t =
+    WebsiteBlockingOverlayData[selectedLanguage] ??
+    WebsiteBlockingOverlayData.en;
   const suggestedDomain = getLegitimateSuggestion(websiteUrl);
 
   if (allowAccess || !showWebsiteBlocking) return null;
@@ -59,16 +72,17 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
 
   return (
     <div
-      className="fixed inset-0 bg-gradient-to-br from-red-900/95 via-red-800/95 to-red-900/95 z-50 flex items-center justify-center p-4"
-      style={{ backdropFilter: 'blur(10px)' }}
+      // EDIT POSITIONING: This overlay covers full screen - adjust 'p-4' for edge spacing
+      className="fixed inset-0 bg-gradient-to-br from-red-900/95 via-red-800/95 to-red-900/95 z-[9995] flex items-center justify-center p-4"
+      style={{ backdropFilter: "blur(10px)" }}
     >
-      <div className="fixed top-4 right-4 z-50">
+      <div className="fixed top-4 right-4 z-[9996]">
         <LanguageSelector />
       </div>
 
-      <Card 
+      <Card
         data-tour="risk-analysis"
-        className="max-w-2xl w-full border-red-200 bg-white/95 backdrop-blur-sm shadow-2xl"
+        className="max-w-4xl max-h-[90vh] w-full border-red-200 bg-white/95 backdrop-blur-sm shadow-2xl overflow-y-auto"
       >
         <CardContent className="p-8">
           {/* Close Button */}
@@ -86,12 +100,8 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
           {/* Header */}
           <div className="text-center mb-6">
             <AlertTriangle className="h-16 w-16 text-red-600 mx-auto mb-4 animate-pulse" />
-            <h1 className="text-2xl font-bold text-red-700 mb-2">
-              {t.title}
-            </h1>
-            <p className="text-red-600 font-medium">
-              {t.subtitle}
-            </p>
+            <h1 className="text-2xl font-bold text-red-700 mb-2">{t.title}</h1>
+            <p className="text-red-600 font-medium">{t.subtitle}</p>
           </div>
 
           {/* Risk Analysis */}
@@ -179,7 +189,9 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
                   variant="outline"
                   size="sm"
                   className="text-green-700 border-green-300 hover:bg-green-100"
-                  onClick={() => window.open(`https://${suggestedDomain}`, '_blank')}
+                  onClick={() =>
+                    window.open(`https://${suggestedDomain}`, "_blank")
+                  }
                 >
                   <ExternalLink className="h-4 w-4 mr-2" />
                   {t.goToSafeSite}
@@ -223,7 +235,8 @@ export function WebsiteBlockingOverlay({ websiteUrl = "shoppe123.com" }: Website
 
       {/* Final warning modal */}
       {showFinalWarning && (
-        <div className="fixed inset-0 bg-black/50 z-60 flex items-center justify-center p-4">
+        // EDIT POSITIONING: Final warning modal - adjust 'p-4' for edge spacing
+        <div className="fixed inset-0 bg-black/50 z-[9999] flex items-center justify-center p-4">
           <Card className="max-w-md">
             <CardContent className="p-6">
               <AlertTriangle className="h-12 w-12 text-red-600 mx-auto mb-4" />

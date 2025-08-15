@@ -72,7 +72,8 @@ export function ImageAnalysisModal({
   const handleBackToHome = () => router.push("/");
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+    // EDIT POSITIONING: This modal covers full screen - adjust 'p-4' for edge spacing
+    <div className="fixed inset-0 bg-black/90 z-[9996] flex items-center justify-center p-4">
       <Card className="max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="bg-red-600 text-white p-6 flex-shrink-0">
