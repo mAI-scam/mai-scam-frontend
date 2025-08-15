@@ -108,6 +108,7 @@ export function EmailContent() {
             className={`whitespace-pre-wrap font-sans leading-relaxed transition filter ${
               isActive ? "blur-sm" : ""
             }`}
+            data-tour="email-message-content"
           >
             {EmailData.content}
           </pre>

@@ -13,6 +13,15 @@ export const useEmailTour = () => {
       showProgress: true,
       steps: [
         {
+          element: '[data-tour="email-message-content"]',
+          popover: {
+            title: 'Suspicious Email Content',
+            description: 'This email contains several red flags: urgency tactics, threats of account closure, requests for banking credentials, and suspicious URLs. Let\'s see how mAIscam can help detect these scams.',
+            side: 'left',
+            align: 'start',
+          },
+        },
+        {
           element: '[data-tour="activate-button"]',
           popover: {
             title: 'Activate mAIscam Protection',
@@ -38,8 +47,21 @@ Klik pautan di bawah dan masukkan maklumat berikut:
 secure-banknegara-verification.com/verify
 RM 1,000 sebagai token penghargaan`;
                     analyzeContent(emailContent, 'email');
-                    // Auto-proceed to next step
-                    setTimeout(() => driverObj.moveNext(), 500);
+                    
+                    // Wait for the risk analysis popup to appear before proceeding
+                    const checkRiskAnalysis = () => {
+                      const riskAnalysisElement = document.querySelector('[data-tour="risk-analysis"]');
+                      if (riskAnalysisElement) {
+                        // Risk analysis popup has appeared - now proceed to next step
+                        setTimeout(() => driverObj.moveNext(), 300);
+                      } else {
+                        // Keep checking for risk analysis popup
+                        setTimeout(checkRiskAnalysis, 100);
+                      }
+                    };
+                    
+                    // Start checking for risk analysis popup after a short delay
+                    setTimeout(checkRiskAnalysis, 500);
                   } else {
                     // Keep checking
                     setTimeout(checkActivation, 100);
@@ -55,8 +77,8 @@ RM 1,000 sebagai token penghargaan`;
         {
           element: '[data-tour="active-extension"]',
           popover: {
-            title: 'Extension Active',
-            description: 'Great! The extension is now active and analyzing this email for potential scam indicators.'
+            title: 'Extension Active & Analysis Complete',
+            description: 'Great! The extension is now active and has completed analyzing this email. The risk analysis popup shows the results.'
           }
         },
         {
