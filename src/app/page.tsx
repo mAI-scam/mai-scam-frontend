@@ -22,19 +22,19 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      <main className="container mx-auto px-6 pb-12">
+      <main className="container mx-auto px-4 md:px-6 pb-12">
         {/* Hero Section */}
-        <section className="flex flex-col items-center text-center mb-12 mx-auto">
+        <section className="flex flex-col items-center text-center mb-8 md:mb-12 mx-auto">
           {/* Identity Text */}
-          <div className="font-bold mb-6 py-6">
+          <div className="font-bold mb-4 md:mb-6 py-4 md:py-6">
             {/* Title */}
-            <h1 className="text-6xl md:text-8xl text-[#49A4EF]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-[#49A4EF]">
               <span>m</span>
               <span className="text-[#EB6700]">AI</span>
               <span>scam</span>
             </h1>
             {/* Subtitle */}
-            <h2 className="text-xl md:text-3xl text-[#6FBDF4]">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#6FBDF4] mt-2">
               an MCP-Powered Web Extension
             </h2>
           </div>
