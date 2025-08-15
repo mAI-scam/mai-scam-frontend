@@ -53,7 +53,7 @@ export function EmailContent() {
       </div>
 
       {/* Email Content */}
-      <div className="p-6 max-w-4xl mx-auto relative overflow-y-auto flex-1">
+      <div className="p-6 w-full mx-6 relative overflow-y-auto flex-1">
         {/* Risk Analysis Block appears here when active */}
         {isActive && <RiskAnalysisBlock />}
 

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Search, ShoppingCart, Menu, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
+import { Search, ShoppingCart, Menu, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 
 export function ScamSiteHeader() {
   return (
@@ -28,7 +28,7 @@ export function ScamSiteHeader() {
       </div>
 
       {/* Main header */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-8">
           {/* Logo */}
           <div className="flex items-center gap-2">
@@ -37,15 +37,15 @@ export function ScamSiteHeader() {
           </div>
 
           {/* Search bar */}
-          <div className="flex-1 max-w-2xl">
+          <div className="flex-1 max-w-2xl rounded">
             <div className="relative">
-              <Input 
+              <Input
                 placeholder="Flash Sale iPhone 16 Pro Max RM999 Only!"
-                className="w-full pl-4 pr-10 py-2 rounded bg-white text-black"
+                className="w-full pl-4 pr-12 py-2 rounded-xl bg-white text-black"
               />
-              <Button 
+              <Button
                 size="sm"
-                className="absolute right-0 top-0 bottom-0 rounded-l-none bg-orange-600 hover:bg-orange-700"
+                className="absolute right-1 top-1/2 -translate-y-1/2 h-8 px-2 bg-orange-600 hover:bg-orange-700 rounded-xl"
               >
                 <Search className="h-4 w-4" />
               </Button>
