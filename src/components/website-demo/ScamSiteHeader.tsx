@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 
 export function ScamSiteHeader() {
   return (
-    <header className="bg-orange-500 text-white">
+    <header className="bg-orange-500 text-white shadow-sm">
       {/* Top bar - Hidden on mobile to save space */}
       <div className="bg-orange-600 text-xs md:text-sm hidden md:block">
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">

@@ -26,7 +26,11 @@ interface WebsiteBlockingOverlayProps {
 function getLegitimateSuggestion(url: string | undefined): string | null {
   if (!url) return null;
 
-  const domain = url.toLowerCase();
+  // Extract domain from URL (remove protocol, path, etc.)
+  const domain = url
+    .toLowerCase()
+    .replace(/^https?:\/\//, "")
+    .split("/")[0];
   const mapping: Record<string, string> = {
     "shoppe123.com": "shopee.com.my",
     "shoppee-my.com": "shopee.com.my",
@@ -51,6 +55,10 @@ export function WebsiteBlockingOverlay({
     WebsiteBlockingOverlayData[selectedLanguage] ??
     WebsiteBlockingOverlayData.en;
   const suggestedDomain = getLegitimateSuggestion(websiteUrl);
+
+  // Debug logging
+  console.log("Website URL:", websiteUrl);
+  console.log("Suggested Domain:", suggestedDomain);
 
   if (allowAccess || !showWebsiteBlocking) return null;
 
@@ -176,29 +184,30 @@ export function WebsiteBlockingOverlay({
           </div>
 
           {/* Suggested Alternative */}
-          {suggestedDomain && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-              <h4 className="font-semibold text-green-800 mb-2">
-                {t.didYouMean}
-              </h4>
-              <div className="flex items-center gap-3">
-                <span className="text-green-700 font-medium">
-                  {suggestedDomain}
-                </span>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="text-green-700 border-green-300 hover:bg-green-100"
-                  onClick={() =>
-                    window.open(`https://${suggestedDomain}`, "_blank")
-                  }
-                >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  {t.goToSafeSite}
-                </Button>
-              </div>
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+            <h4 className="font-semibold text-green-800 mb-2">
+              {t.didYouMean}
+            </h4>
+            <div className="flex items-center gap-3">
+              <span className="text-green-700 font-medium">
+                {suggestedDomain || "shopee.com.my"}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-green-700 border-green-300 hover:bg-green-100"
+                onClick={() =>
+                  window.open(
+                    `https://${suggestedDomain || "shopee.com.my"}`,
+                    "_blank"
+                  )
+                }
+              >
+                <ExternalLink className="h-4 w-4 mr-2" />
+                {t.goToSafeSite}
+              </Button>
             </div>
-          )}
+          </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-3">

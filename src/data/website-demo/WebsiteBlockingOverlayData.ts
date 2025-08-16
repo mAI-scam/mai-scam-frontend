@@ -50,12 +50,13 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "RISK",
     veryHigh: "VERY HIGH",
     whyDangerous: "Why is this website dangerous?",
-    shortExplanation: "This website shows multiple red flags including unrealistic prices, fake urgency tactics, and suspicious payment methods that are commonly used in online scams.",
+    shortExplanation:
+      "This website shows multiple red flags including unrealistic prices, fake urgency tactics, and suspicious payment methods that are commonly used in online scams.",
     detailedExplanation: {
       lowPrices:
         "We detected extraordinarily low prices for branded items (iPhone RM999, PS5 RM599). This is a common tactic scammers use to attract victims.",
       suspiciousUrl:
-        'The website URL "deal-raya-123.com" looks suspicious and may be trying to imitate popular shopping platforms like Shopee or Lazada.',
+        'The website URL "shoppe123.com" looks suspicious and may be trying to imitate popular shopping platforms like Shopee or Lazada.',
       urgency:
         'There are excessive prompts to buy immediately with fake timers and "limited stock" - these are psychological manipulation techniques.',
       fakeReviews:
@@ -91,7 +92,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "RISIKO",
     veryHigh: "SANGAT TINGGI",
     whyDangerous: "Mengapa laman web ini berbahaya?",
-    shortExplanation: "Laman web ini menunjukkan banyak tanda amaran termasuk harga tidak realistik, taktik desakan palsu, dan kaedah pembayaran mencurigakan yang biasa digunakan dalam penipuan dalam talian.",
+    shortExplanation:
+      "Laman web ini menunjukkan banyak tanda amaran termasuk harga tidak realistik, taktik desakan palsu, dan kaedah pembayaran mencurigakan yang biasa digunakan dalam penipuan dalam talian.",
     detailedExplanation: {
       lowPrices:
         "Kami mengesan harga yang luar biasa rendah untuk barangan berjenama (iPhone RM999, PS5 RM599). Ini adalah taktik lazim penipu untuk menarik mangsa.",
@@ -132,7 +134,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "风险",
     veryHigh: "非常高",
     whyDangerous: "为什么这个网站危险？",
-    shortExplanation: "此网站显示多个危险信号，包括不切实际的价格、虚假紧急策略和可疑的支付方式，这些都是在线诈骗中常用的手段。",
+    shortExplanation:
+      "此网站显示多个危险信号，包括不切实际的价格、虚假紧急策略和可疑的支付方式，这些都是在线诈骗中常用的手段。",
     detailedExplanation: {
       lowPrices:
         "我们检测到品牌商品的价格异常低（iPhone RM999，PS5 RM599）。这是骗子用来吸引受害者的常见策略。",
@@ -173,7 +176,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "RỦI RO",
     veryHigh: "RẤT CAO",
     whyDangerous: "Vì sao trang web này nguy hiểm?",
-    shortExplanation: "Trang web này cho thấy nhiều dấu hiệu nguy hiểm bao gồm giá không thực tế, chiến thuật tạo áp lực giả và phương thức thanh toán đáng ngờ thường được sử dụng trong các vụ lừa đảo trực tuyến.",
+    shortExplanation:
+      "Trang web này cho thấy nhiều dấu hiệu nguy hiểm bao gồm giá không thực tế, chiến thuật tạo áp lực giả và phương thức thanh toán đáng ngờ thường được sử dụng trong các vụ lừa đảo trực tuyến.",
     detailedExplanation: {
       lowPrices:
         "Chúng tôi phát hiện giá cực thấp cho hàng thương hiệu (iPhone RM999, PS5 RM599). Đây là chiêu trò thường dùng để dụ nạn nhân.",
@@ -214,7 +218,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "ความเสี่ยง",
     veryHigh: "สูงมาก",
     whyDangerous: "ทำไมเว็บไซต์นี้จึงอันตราย?",
-    shortExplanation: "เว็บไซต์นี้แสดงสัญญาณเตือนหลายอย่าง รวมถึงราคาที่ไม่สมจริง กลยุทธ์สร้างความเร่งด่วนปลอม และวิธีการชำระเงินที่น่าสงสัย ซึ่งเป็นวิธีที่มักใช้ในการหลอกลวงออนไลน์",
+    shortExplanation:
+      "เว็บไซต์นี้แสดงสัญญาณเตือนหลายอย่าง รวมถึงราคาที่ไม่สมจริง กลยุทธ์สร้างความเร่งด่วนปลอม และวิธีการชำระเงินที่น่าสงสัย ซึ่งเป็นวิธีที่มักใช้ในการหลอกลวงออนไลน์",
     detailedExplanation: {
       lowPrices:
         "เราพบว่ามีการตั้งราคาสินค้าแบรนด์ต่ำผิดปกติ (iPhone RM999, PS5 RM599) ซึ่งเป็นกลยุทธ์ที่มิจฉาชีพมักใช้ล่อเหยื่อ",
@@ -255,7 +260,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "PANGANIB",
     veryHigh: "NAPAKATAAS",
     whyDangerous: "Bakit delikado ang website na ito?",
-    shortExplanation: "Ang website na ito ay nagpapakita ng maraming pula na bandila kabilang ang mga hindi realistikong presyo, pekeng mga taktika ng pagmamadali, at mga kahina-hinalang paraan ng pagbabayad na karaniwang ginagamit sa mga online scam.",
+    shortExplanation:
+      "Ang website na ito ay nagpapakita ng maraming pula na bandila kabilang ang mga hindi realistikong presyo, pekeng mga taktika ng pagmamadali, at mga kahina-hinalang paraan ng pagbabayad na karaniwang ginagamit sa mga online scam.",
     detailedExplanation: {
       lowPrices:
         "Nakakita kami ng sobrang babang presyo para sa branded na items (iPhone RM999, PS5 RM599). Karaniwang taktika ito ng scammers.",
@@ -297,7 +303,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "RISIKO",
     veryHigh: "SANGAT TINGGI",
     whyDangerous: "Mengapa situs ini berbahaya?",
-    shortExplanation: "Situs web ini menunjukkan banyak tanda bahaya termasuk harga yang tidak realistis, taktik urgensi palsu, dan metode pembayaran yang mencurigakan yang biasa digunakan dalam penipuan online.",
+    shortExplanation:
+      "Situs web ini menunjukkan banyak tanda bahaya termasuk harga yang tidak realistis, taktik urgensi palsu, dan metode pembayaran yang mencurigakan yang biasa digunakan dalam penipuan online.",
     detailedExplanation: {
       lowPrices:
         "Kami mendeteksi harga sangat rendah untuk barang bermerek (iPhone RM999, PS5 RM599). Ini taktik umum penipu untuk menarik korban.",
@@ -338,7 +345,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "RISIKO",
     veryHigh: "DHUWUR BANGET",
     whyDangerous: "Napa situs iki mbebayani?",
-    shortExplanation: "Situs web iki nuduhake akeh tanda bebaya kalebu rega sing ora masuk akal, taktik desakan palsu, lan cara bayar sing curiga sing asring digunakake ing penipuan online.",
+    shortExplanation:
+      "Situs web iki nuduhake akeh tanda bebaya kalebu rega sing ora masuk akal, taktik desakan palsu, lan cara bayar sing curiga sing asring digunakake ing penipuan online.",
     detailedExplanation: {
       lowPrices:
         "Kita ndeteksi rega murah banget kanggo barang mérek (iPhone RM999, PS5 RM599). Iki taktik umum sing dienggo pengapusan kanggo narik korban.",
@@ -379,7 +387,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "RÉSIKO",
     veryHigh: "Luhur Pisang",
     whyDangerous: "Naha situs ieu bahaya?",
-    shortExplanation: "Situs web ieu nunjukkeun seueur sinyal bahaya kalebu harga anu teu réalistis, taktik urgensi palsu, sareng metode pamayaran anu curiga anu biasa dianggo dina panipuan online.",
+    shortExplanation:
+      "Situs web ieu nunjukkeun seueur sinyal bahaya kalebu harga anu teu réalistis, taktik urgensi palsu, sareng metode pamayaran anu curiga anu biasa dianggo dina panipuan online.",
     detailedExplanation: {
       lowPrices:
         "Kapanggih harga pisan mirah keur barang mérek (iPhone RM999, PS5 RM599). Ieu téh taktik umum panipuan pikeun narik korban.",
@@ -420,7 +429,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "ហានិភ័យ",
     veryHigh: "ខ្ពស់ណាស់",
     whyDangerous: "ហេតុអ្វីបានជាគេហទំព័រនេះគ្រោះថ្នាក់?",
-    shortExplanation: "គេហទំព័រនេះបង្ហាញសញ្ញាម្រាមបាញ់ជាច្រើន រួមទាំងតម្លៃមិនសមហេតុផល យុទ្ធសាស្ត្រប្រញាប់ប្រាស់ក្លែងក្លាយ និងវិធីបង់ប្រាក់គួរឱ្យសង្ស័យ ដែលជាទូទៅត្រូវបានប្រើប្រាស់ក្នុងការបោកបញ្ឆោតតាមអ៊ីនធឺណិត។",
+    shortExplanation:
+      "គេហទំព័រនេះបង្ហាញសញ្ញាម្រាមបាញ់ជាច្រើន រួមទាំងតម្លៃមិនសមហេតុផល យុទ្ធសាស្ត្រប្រញាប់ប្រាស់ក្លែងក្លាយ និងវិធីបង់ប្រាក់គួរឱ្យសង្ស័យ ដែលជាទូទៅត្រូវបានប្រើប្រាស់ក្នុងការបោកបញ្ឆោតតាមអ៊ីនធឺណិត។",
     detailedExplanation: {
       lowPrices:
         "យើងរកឃើញតម្លៃទាបខ្លាំងសម្រាប់ទំនិញម៉ាក (iPhone RM999, PS5 RM599)។ នេះជាយុទ្ធសាស្ត្រដែលអ្នកបោកប្រើជាញឹកញាប់ដើម្បីទាក់ទាញជនរងគ្រោះ។",
@@ -461,7 +471,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "ຄວາມສ່ຽງ",
     veryHigh: "ສູງຫຼາຍ",
     whyDangerous: "ເປັນຫຍັງເວັບນີ້ອັນຕະລາຍ?",
-    shortExplanation: "ເວັບໄຊນີ້ສະແດງໃຫ້ເຫັນສັນຍານອັນຕະລາຍຫຼາຍອັນ ລວມທັງລາຄາທີ່ບໍ່ເປັນຈິງ, ກົນລະຍຸດຄວາມຮີບຮ້ອນປອມ, ແລະວິທີການຊຳລະທີ່ນ່າສົງໄສ ທີ່ມັກຖືກໃຊ້ໃນການຫລອກລວງອອນລາຍ.",
+    shortExplanation:
+      "ເວັບໄຊນີ້ສະແດງໃຫ້ເຫັນສັນຍານອັນຕະລາຍຫຼາຍອັນ ລວມທັງລາຄາທີ່ບໍ່ເປັນຈິງ, ກົນລະຍຸດຄວາມຮີບຮ້ອນປອມ, ແລະວິທີການຊຳລະທີ່ນ່າສົງໄສ ທີ່ມັກຖືກໃຊ້ໃນການຫລອກລວງອອນລາຍ.",
     detailedExplanation: {
       lowPrices:
         "ພົບລາຄາຕໍ່າຜິດປົກກະຕິສໍາລັບສິນຄ້າຍີ່ຫໍ້ (iPhone RM999, PS5 RM599) — ກລະທົບທີ່ມັກໃຊ້ເພື່ອລໍ້ລວງເຫຍື່ອ.",
@@ -502,7 +513,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "အန္တရာယ်",
     veryHigh: "အလွန် မြင့်",
     whyDangerous: "ဘာကြောင့် ဤဝဘ်ဆိုက် အန္တရာယ်ရှိတာလဲ?",
-    shortExplanation: "ဤဝဘ်ဆိုက်သည် မဖြစ်နိုင်သည့်ဈေးနှုန်းများ၊ အတုအကျင့်ဖြင့် ခြိမ်းခြောက်မှုများ နှင့် သံသယရှိသည့် ငွေပေးချေမှုနည်းလမ်းများအပါအဝင် အွန်လိုင်းလိမ်လည်မှုတွင် အမြဲတမ်းအသုံးပြုသည့် အန္တရာယ်လက္ခဏာများစွာကို ပြသနေသည်။",
+    shortExplanation:
+      "ဤဝဘ်ဆိုက်သည် မဖြစ်နိုင်သည့်ဈေးနှုန်းများ၊ အတုအကျင့်ဖြင့် ခြိမ်းခြောက်မှုများ နှင့် သံသယရှိသည့် ငွေပေးချေမှုနည်းလမ်းများအပါအဝင် အွန်လိုင်းလိမ်လည်မှုတွင် အမြဲတမ်းအသုံးပြုသည့် အန္တရာယ်လက္ခဏာများစွာကို ပြသနေသည်။",
     detailedExplanation: {
       lowPrices:
         "မူရင်းတံဆိပ် ထုတ်ကုန်များအတွက် အလွန်ချိုသာသော ဈေးနှုန်းများ (iPhone RM999, PS5 RM599) ကို တွေ့ရှိခဲ့သည်။ ၎င်းသည် လိမ်လည်သူများ၏ သာမန် လိမ်လည်နည်းလမ်းဖြစ်သည်။",
@@ -544,7 +556,8 @@ export const WebsiteBlockingOverlayData: Record<
     risk: "அபாயம்",
     veryHigh: "மிக உயர்",
     whyDangerous: "ஏன் இந்த வலைத்தளம் ஆபத்தானது?",
-    shortExplanation: "இந்த வலைத்தளம் நம்பமுடியாத விலைகள், போலி அவசர தந்திரங்கள் மற்றும் சந்தேகத்திற்குரிய பணம் செலுத்தும் முறைகள் உட்பட பல எச்சரிக்கை அறிகுறிகளைக் காட்டுகிறது, அவை பொதுவாக ஆன்லைன் மோசடிகளில் பயன்படுத்தப்படுகின்றன.",
+    shortExplanation:
+      "இந்த வலைத்தளம் நம்பமுடியாத விலைகள், போலி அவசர தந்திரங்கள் மற்றும் சந்தேகத்திற்குரிய பணம் செலுத்தும் முறைகள் உட்பட பல எச்சரிக்கை அறிகுறிகளைக் காட்டுகிறது, அவை பொதுவாக ஆன்லைன் மோசடிகளில் பயன்படுத்தப்படுகின்றன.",
     detailedExplanation: {
       lowPrices:
         "பிராண்டட் பொருட்களுக்கு இயலாத அளவு குறைந்த விலை (iPhone RM999, PS5 RM599) கண்டறியப்பட்டது. இது மோசடிகள் பொதுவாக பயன்படுத்தும் உத்தி.",
