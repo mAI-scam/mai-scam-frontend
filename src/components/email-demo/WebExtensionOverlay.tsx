@@ -120,7 +120,7 @@ export function WebExtensionOverlay() {
                   </span>
                 </div>
                 <Badge
-                  variant={riskLevel === "high" ? "destructive" : "secondary"}
+                  variant="destructive"
                   className="text-base sm:text-lg px-3 py-1"
                 >
                   {riskScore}%
