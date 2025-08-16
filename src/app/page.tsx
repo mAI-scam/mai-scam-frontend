@@ -41,6 +41,28 @@ export default function Home() {
             </h2>
           </div>
 
+          {/* YouTube Video Demo */}
+          <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 mb-6 md:mb-8 shadow-lg max-w-4xl mx-auto">
+            <div className="text-center mb-4">
+              <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
+                🎥 Watch mAIscam in Action
+              </h3>
+              <p className="text-sm md:text-base text-gray-600">
+                See how our AI-powered extension protects you from scams in real-time
+              </p>
+            </div>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                src="https://www.youtube.com/embed/1xNxD_bfvpw?rel=0&modestbranding=1"
+                title="mAIscam Web Extension Demo"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+
           {/* Buttons */}
           {/* <div className="flex justify-center gap-4 mb-6">
             <Button asChild size="lg">
