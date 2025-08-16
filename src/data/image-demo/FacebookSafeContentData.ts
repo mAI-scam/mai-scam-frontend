@@ -12,6 +12,7 @@ export type FacebookSafeContentTranslation = {
   trustContent: string;
   whySafe: string;
   reasons: string[];
+  continueBrowsing: string;
 };
 
 export const FacebookSafeContentData: Record<
@@ -37,6 +38,7 @@ export const FacebookSafeContentData: Record<
       "Natural language usage without pressure tactics",
       "Authentic user-generated content characteristics",
     ],
+    continueBrowsing: "Continue Browsing Safely",
   },
   ms: {
     safeContentDetected: "KANDUNGAN SELAMAT DISAHKAN",
@@ -57,6 +59,7 @@ export const FacebookSafeContentData: Record<
       "Penggunaan bahasa semula jadi tanpa taktik tekanan",
       "Ciri-ciri kandungan buatan pengguna yang autentik",
     ],
+    continueBrowsing: "Teruskan Melayari Dengan Selamat",
   },
   zh: {
     safeContentDetected: "安全内容已验证",
@@ -77,6 +80,7 @@ export const FacebookSafeContentData: Record<
       "自然语言使用，无压力策略",
       "真实用户生成内容特征",
     ],
+    continueBrowsing: "继续安全浏览",
   },
   vi: {
     safeContentDetected: "NỘI DUNG AN TOÀN ĐÃ XÁC MINH",
@@ -97,6 +101,7 @@ export const FacebookSafeContentData: Record<
       "Sử dụng ngôn ngữ tự nhiên không có chiêu trò gây áp lực",
       "Đặc điểm nội dung do người dùng tạo ra xác thực",
     ],
+    continueBrowsing: "Tiếp Tục Duyệt Web An Toàn",
   },
   th: {
     safeContentDetected: "เนื้อหาปลอดภัยได้รับการยืนยัน",
@@ -117,6 +122,7 @@ export const FacebookSafeContentData: Record<
       "การใช้ภาษาธรรมชาติโดยไม่มีกลยุทธ์การกดดัน",
       "ลักษณะเนื้อหาที่ผู้ใช้สร้างขึ้นอย่างแท้จริง",
     ],
+    continueBrowsing: "ดำเนินการเรียกดูเว็บอย่างปลอดภัย",
   },
   fil: {
     safeContentDetected: "NAVERIFY ANG SAFE NA CONTENT",
@@ -137,6 +143,7 @@ export const FacebookSafeContentData: Record<
       "Natural na paggamit ng wika na walang pressure tactics",
       "Tunay na user-generated content characteristics",
     ],
+    continueBrowsing: "Magpatuloy sa Ligtas na Pag-browse",
   },
   id: {
     safeContentDetected: "KONTEN AMAN TERVERIFIKASI",
@@ -157,6 +164,7 @@ export const FacebookSafeContentData: Record<
       "Penggunaan bahasa alami tanpa taktik tekanan",
       "Karakteristik konten buatan pengguna yang autentik",
     ],
+    continueBrowsing: "Lanjutkan Browsing dengan Aman",
   },
   jv: {
     safeContentDetected: "KONTEN AMAN WIS DIVERIFIKASI",
@@ -177,6 +185,7 @@ export const FacebookSafeContentData: Record<
       "Panggunaan basa alami tanpa taktik tekanan",
       "Karakteristik konten buatan pangguna sing otentik",
     ],
+    continueBrowsing: "Terusna Browsing Kanthi Aman",
   },
   su: {
     safeContentDetected: "EUSI AMAN PARANTOS DIVERIFIKASI",
@@ -197,6 +206,7 @@ export const FacebookSafeContentData: Record<
       "Pamakéan basa alami tanpa taktik tekanan",
       "Karakteristik eusi buatan pangguna anu otentik",
     ],
+    continueBrowsing: "Teraskeun Browsing Kalawan Aman",
   },
   km: {
     safeContentDetected: "បានផ្ទៀងផ្ទាត់មាតិកាសុវត្ថិភាព",
@@ -217,6 +227,7 @@ export const FacebookSafeContentData: Record<
       "ការប្រើប្រាស់ភាសាធម្មជាតិដោយគ្មានយុទ្ធសាស្ត្រសម្ពាធ",
       "លក្ខណៈនៃមាតិកាដែលបង្កើតដោយអ្នកប្រើប្រាស់ពិតប្រាកដ",
     ],
+    continueBrowsing: "បន្តការរកមើលក្នុងលក្ខណៈសុវត្ថិភាព",
   },
   lo: {
     safeContentDetected: "ເນື້ອຫາປອດໄພໄດ້ຮັບການກວດສອບ",
@@ -237,6 +248,7 @@ export const FacebookSafeContentData: Record<
       "ການໃຊ້ພາສາທໍາມະຊາດໂດຍບໍ່ມີກົນລະຍຸດຄວາມກົດດັນ",
       "ລັກສະນະຂອງເນື້ອຫາທີ່ຜູ້ໃຊ້ສ້າງຂື້ນທີ່ແທ້ຈິງ",
     ],
+    continueBrowsing: "ສືບຕໍ່ການຂຸດຄົ້ນຢ່າງປອດໄພ",
   },
   my: {
     safeContentDetected: "ဘေးကင်းသော အကြောင်းအရာ စစ်ဆေးပြီး",
@@ -257,6 +269,7 @@ export const FacebookSafeContentData: Record<
       "ဖိအားမပေးသော သဘာဝ ဘာသာစကား အသုံးပြုမှု",
       "စစ်မှန်သော အသုံးပြုသူ ဖန်တီးထားသော အကြောင်းအရာ လက္ခဏာများ",
     ],
+    continueBrowsing: "ဘေးကင်းစွာ ဆက်လက် ရှာဖွေကြည့်ရန်",
   },
   ta: {
     safeContentDetected: "பாதுகாப்பான உள்ளடக்கம் சரிபார்க்கப்பட்டது",
@@ -277,5 +290,6 @@ export const FacebookSafeContentData: Record<
       "அழுத்த யுக்திகள் இல்லாத இயற்கையான மொழி பயன்பாடு",
       "உண்மையான பயனர் உருவாக்கிய உள்ளடக்க பண்புகள்",
     ],
+    continueBrowsing: "தொடர்ந்து பாதுகாப்பாக உலாவுதல்",
   },
 };

@@ -182,7 +182,7 @@ export function FacebookScamBlockOverlay({
               </div>
 
               <Button onClick={onClose} variant="outline" className="w-full text-xs md:text-sm">
-                Continue Browsing Safely
+                {t.continueBrowsing}
               </Button>
             </div>
 

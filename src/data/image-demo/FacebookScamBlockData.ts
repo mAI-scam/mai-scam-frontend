@@ -16,6 +16,7 @@ export type FacebookScamBlockTranslation = {
   reasonsGovAid: string[];
   reasonsSms: string[];
   reasonsInvestment: string[];
+  continueBrowsing: string;
 };
 
 export const FacebookScamBlockData: Record<
@@ -61,10 +62,11 @@ export const FacebookScamBlockData: Record<
     ],
     reasonsInvestment: [
       "Promises up to 12% annual returns — unrealistic guaranteed gains",
-      "Claims ‘100% stable & secure’ without regulatory disclosure",
+      "Claims '100% stable & secure' without regulatory disclosure",
       "Targets government employees to build false trust",
       "High minimum RM10,000 deposit used as pressure tactic",
     ],
+    continueBrowsing: "Continue Browsing Safely",
   },
   ms: {
     scamDetected: "POST PENIPUAN DIKESAN",
@@ -105,10 +107,11 @@ export const FacebookScamBlockData: Record<
     ],
     reasonsInvestment: [
       "Janji pulangan sehingga 12% setahun — jaminan tidak realistik",
-      "Klaim ‘100% stabil & selamat’ tanpa pendedahan pengawalseliaan",
+      "Klaim '100% stabil & selamat' tanpa pendedahan pengawalseliaan",
       "Sasar kakitangan kerajaan untuk bina kepercayaan palsu",
       "Deposit minimum RM10,000 digunakan sebagai taktik tekanan",
     ],
+    continueBrowsing: "Teruskan Melayari Dengan Selamat",
   },
   zh: {
     scamDetected: "检测到诈骗帖子",
@@ -137,22 +140,23 @@ export const FacebookScamBlockData: Record<
     ],
     reasonsGovAid: [
       "假冒 MADANI 政府援助并宣称免费笔电/平板",
-      "声称“100% 免费、无隐藏收费”——典型诈骗诱饵",
-      "使用“快速审批”和限时字眼制造紧迫感",
+      "声称「100% 免费、无隐藏收费」——典型诈骗诱饵",
+      "使用「快速审批」和限时字眼制造紧迫感",
       "无任何 .gov.my 官方来源供验证",
     ],
     reasonsSms: [
       "链接指向非官方网站 (jtexpress.ftaysh.help)",
       "要求在 24 小时内操作制造紧迫感",
-      "要求回复“Y”以激活链接——诱导互动",
+      "要求回复「Y」以激活链接——诱导互动",
       "典型快递诈骗，意图窃取个人信息",
     ],
     reasonsInvestment: [
       "承诺高达 12% 年回报——不现实的保证收益",
-      "声称“100% 稳定且安全”但无监管信息",
+      "声称「100% 稳定且安全」但无监管信息",
       "以公务员为目标，制造虚假信任",
       "至少 RM10,000 的高额门槛作为压力手段",
     ],
+    continueBrowsing: "继续安全浏览",
   },
   vi: {
     scamDetected: "PHÁT HIỆN BÀI ĐĂNG LỪA ĐẢO",
@@ -193,10 +197,11 @@ export const FacebookScamBlockData: Record<
     ],
     reasonsInvestment: [
       "Hứa lợi nhuận tới 12%/năm — cam kết phi thực tế",
-      "Nói ‘100% ổn định & an toàn’ nhưng không có thông tin quản lý",
+      "Nói '100% ổn định & an toàn' nhưng không có thông tin quản lý",
       "Nhắm mục tiêu công chức để tạo lòng tin giả",
       "Yêu cầu tối thiểu RM10,000 như một cách gây áp lực",
     ],
+    continueBrowsing: "Tiếp Tục Duyệt Web An Toàn",
   },
   th: {
     scamDetected: "ตรวจพบโพสต์หลอกลวง",
@@ -237,10 +242,11 @@ export const FacebookScamBlockData: Record<
     ],
     reasonsInvestment: [
       "สัญญาผลตอบแทนสูงสุด 12% ต่อปี — รับประกันที่ไม่สมจริง",
-      "อ้าง ‘เสถียรและปลอดภัย 100%’ โดยไม่มีข้อมูลกำกับดูแล",
+      "อ้าง 'เสถียรและปลอดภัย 100%' โดยไม่มีข้อมูลกำกับดูแล",
       "มุ่งเป้าข้าราชการเพื่อสร้างความน่าเชื่อถือปลอม",
       "ใช้เงินลงทุนขั้นต่ำ RM10,000 เป็นกลยุทธ์กดดัน",
     ],
+    continueBrowsing: "ดำเนินการเรียกดูเว็บอย่างปลอดภัย",
   },
   fil: {
     scamDetected: "NATUKLASANG SCAM NA POST",
@@ -281,10 +287,11 @@ export const FacebookScamBlockData: Record<
     ],
     reasonsInvestment: [
       "Nangakong hanggang 12% taon-taon — hindi makatotohanang garantiya",
-      "Sinasabing ‘100% stable & secure’ nang walang regulatory proof",
+      "Sinasabing '100% stable & secure' nang walang regulatory proof",
       "Target ang government employees para magmukhang legit",
       "Minimum RM10,000 deposit bilang pang-pressure",
     ],
+    continueBrowsing: "Magpatuloy sa Ligtas na Pag-browse",
   },
   id: {
     scamDetected: "POSTINGAN PENIPUAN TERDETEKSI",
@@ -325,10 +332,11 @@ export const FacebookScamBlockData: Record<
     ],
     reasonsInvestment: [
       "Janji imbal hasil hingga 12% per tahun — jaminan tidak realistis",
-      "Klaim ‘100% stabil & aman’ tanpa bukti regulasi",
+      "Klaim '100% stabil & aman' tanpa bukti regulasi",
       "Menarget ASN untuk membangun kepercayaan palsu",
       "Setoran minimum RM10.000 sebagai taktik tekanan",
     ],
+    continueBrowsing: "Lanjutkan Browsing dengan Aman",
   },
   jv: {
     scamDetected: "KIRIMAN APUS-APUS KETEMU",
@@ -369,10 +377,11 @@ export const FacebookScamBlockData: Record<
     ],
     reasonsInvestment: [
       "Janji bali nganti 12% saben taun — jaminan ora realistis",
-      "Ngaku ‘100% stabil & aman’ tanpa bukti regulasi",
+      "Ngaku '100% stabil & aman' tanpa bukti regulasi",
       "Narget pagawé pamaréntah kanggo mbangun kapercayan palsu",
       "Setoran minimal RM10.000 minangka taktik tekanan",
     ],
+    continueBrowsing: "Terusna Browsing Kanthi Aman",
   },
   su: {
     scamDetected: "KAPANGGIH POSTINGAN PANIPUAN",
@@ -417,6 +426,7 @@ export const FacebookScamBlockData: Record<
       "Narget pagawé pamaréntah pikeun ngawangun kapercayaan palsu",
       "Setoran minimum RM10.000 minangka taktik tekanan",
     ],
+    continueBrowsing: "Teraskeun Browsing Kalawan Aman",
   },
   km: {
     scamDetected: "បានរកឃើញប្រកាសបោកបញ្ឆោត",
@@ -462,6 +472,7 @@ export const FacebookScamBlockData: Record<
       "ផ្តោតលើមន្ត្រីរដ្ឋាភិបាល ដើម្បីបង្កើតទំនុកចិត្តក្លែងក្លាយ",
       "កំណត់ទ្រាសរួមយ៉ាងហោចណាស់ RM10,000 ដើម្បីចេញសម្ពាធ",
     ],
+    continueBrowsing: "បន្តការរកមើលក្នុងលក្ខណៈសុវត្ថិភាព",
   },
   lo: {
     scamDetected: "ກວດພົບໂພສຫລອກລວງ",
@@ -506,6 +517,7 @@ export const FacebookScamBlockData: Record<
       "ເປົ້າໝາຍຂ້າລາຊະການເພື່ອສ້າງຄວາມນ່າເຊື່ອຖືປອມ",
       "ກຳນົດເງິນຝາກຂັ້ນຕ່ຳ RM10,000 ເປັນກົນລະຍຸດກົດດັນ",
     ],
+    continueBrowsing: "ສືບຕໍ່ການຂຸດຄົ້ນເວັບໄຊໄອຕ໌ຢ່າງປອດໄພ",
   },
   my: {
     scamDetected: "လိမ်လည်မှု ပို့စ်ကို တွေ့ရှိခဲ့သည်",
@@ -550,6 +562,7 @@ export const FacebookScamBlockData: Record<
       "အစိုးရဝန်ထမ်းများကို ဦးတည်၍ ယုံကြည်မှု တုနိမိတ်လုပ်ခြင်း",
       "အနည်းဆုံး RM10,000 အပ်နှံရမည်ဟု ဖိအားပေးခြင်း",
     ],
+    continueBrowsing: "ဘေးကင်း စွာ ဆက်လက် ကြည့်ရှုရန်",
   },
   ta: {
     scamDetected: "மோசடி பதிவை கண்டறிந்தோம்",
@@ -594,5 +607,6 @@ export const FacebookScamBlockData: Record<
       "அரசு ஊழியர்களை குறிவைத்து போலியான நம்பிக்கையை உருவாக்குதல்",
       "குறைந்தபட்ச RM10,000 முதலீடு — அழுத்து யுக்தி",
     ],
+    continueBrowsing: "தொடர்ந்து பாதுகாப்பாக உலாவுதல்",
   },
 };
