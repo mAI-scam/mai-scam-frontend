@@ -1,18 +1,15 @@
 "use client";
 // Test
 
-import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Mail, Globe, Camera } from "lucide-react";
+import { Shield, Smartphone, Heart, Globe, Target, TrendingUp, AlertTriangle, Building, FileCheck } from "lucide-react";
 import Header from "@/components/main/Header";
 import FeatureCard from "@/components/main/FeatureCard";
 import { FeatureCardData } from "@/data/main/FeatureCardData";
@@ -452,95 +449,180 @@ export default function Home() {
                 </strong>{" "}
                 built for Southeast Asia.
               </p>
-              <ul className="list-disc pl-6">
-                <li>
-                  <strong className="text-black">
-                    Advanced Threat Detection
-                  </strong>{" "}
-                  across email, web, and social media to block malicious content
-                  before it reaches users.
-                </li>
-                <li>
-                  <strong className="text-black">
-                    Nation-Scale Protection
-                  </strong>{" "}
-                  enabling governments to safeguard citizens, run awareness
-                  campaigns, and share intelligence with law enforcement.
-                </li>
-                <li>
-                  <strong className="text-black">Regulatory Compliance</strong>{" "}
-                  with PDPA, GDPR, and other local cybersecurity requirements.
-                </li>
-              </ul>
+              <div className="space-y-3 md:space-y-4">
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <AlertTriangle className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1 text-sm md:text-base text-black">
+                      Advanced Threat Detection
+                    </h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">
+                      Across email, web, and social media to block malicious content
+                      before it reaches users.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <Building className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1 text-sm md:text-base text-black">
+                      Nation-Scale Protection
+                    </h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">
+                      Enabling governments to safeguard citizens, run awareness
+                      campaigns, and share intelligence with law enforcement.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <FileCheck className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1 text-sm md:text-base text-black">
+                      Regulatory Compliance
+                    </h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">
+                      With PDPA, GDPR, and other local cybersecurity requirements.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </section>
 
-        {/* Market Opportunities */}
+        {/* Market Opportunity & Target Audience */}
         <section className="mb-8 md:mb-12 flex max-w-5xl mx-auto gap-4 md:gap-8 flex-col md:flex-row">
           {/* Left - Content */}
           <Card className="flex-2">
             <CardHeader>
               <CardTitle className="text-2xl md:text-3xl text-center">
-                Market Opportunity
+                Market Opportunity & Target Audience
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 md:space-y-6">
-              <div className="flex items-start space-x-3 md:space-x-4">
-                <div>
-                  <h4 className="font-semibold mb-1 text-sm md:text-base">
-                    TAM
-                  </h4>
-                  <p className="text-muted-foreground text-xs md:text-sm">
-                    The{" "}
-                    <strong className="text-black">
-                      Total Addressable Market (TAM)
-                    </strong>{" "}
-                    for phishing protection is valued at approximately
-                    <strong className="text-black">
-                      {" "}
-                      USD 7.2 billion
-                    </strong>{" "}
-                    globally. For broader context, the fraud detection and
-                    prevention market is projected to reach{" "}
-                    <strong className="text-black">USD 90 billion</strong> in
-                    the coming years.
-                  </p>
+              {/* Target Audience Section */}
+              <div>
+                <h3 className="font-bold text-lg md:text-xl mb-4 text-black">
+                  Target Audience Strategy
+                </h3>
+                
+                {/* Go-to-Market Audience */}
+                <div className="flex items-start space-x-3 md:space-x-4 mb-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <Smartphone className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1 text-sm md:text-base text-black">
+                      Go-to-Market Audience: Young Adults
+                    </h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">
+                      <strong className="text-black">Tech-savvy millennials and Gen Z (18-35 years)</strong> who are 
+                      early adopters of browser extensions and digital security tools. They serve as our 
+                      <strong className="text-black"> digital ambassadors</strong>, helping to spread awareness 
+                      and adoption of mAIscam through their social networks and family connections.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Primary Target Audience */}
+                <div className="flex items-start space-x-3 md:space-x-4 mb-6">
+                  <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <Heart className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1 text-sm md:text-base text-black">
+                      Primary Target Audience: Elderly Users
+                    </h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">
+                      <strong className="text-black">Senior citizens (60+ years)</strong> who are most 
+                      vulnerable to online scams due to limited digital literacy and higher trust levels. 
+                      This demographic represents our <strong className="text-black">core protection mission</strong>, 
+                      as they face the highest risk of financial losses from sophisticated scam operations 
+                      targeting their retirement savings and personal information.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3 md:space-x-4">
-                <div>
-                  <h4 className="font-semibold mb-1 text-sm md:text-base">
-                    SAM
-                  </h4>
-                  <p className="text-muted-foreground text-xs md:text-sm">
-                    Within this, the{" "}
-                    <strong className="text-black">
-                      Serviceable Available Market (SAM)
-                    </strong>{" "}
-                    in Asia-Pacific is estimated at around
-                    <strong className="text-black"> USD 2.5 billion</strong>,
-                    driven by rising phishing incidents and rapid digital
-                    adoption in Southeast Asia.
-                  </p>
+              {/* Market Opportunity Section */}
+              <div className="border-t pt-4 md:pt-6">
+                <h3 className="font-bold text-lg md:text-xl mb-4 text-black">
+                  Market Opportunity
+                </h3>
+                
+                <div className="flex items-start space-x-3 md:space-x-4 mb-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <Globe className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1 text-sm md:text-base text-black">
+                      TAM
+                    </h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">
+                      The{" "}
+                      <strong className="text-black">
+                        Total Addressable Market (TAM)
+                      </strong>{" "}
+                      for phishing protection is valued at approximately
+                      <strong className="text-black">
+                        {" "}
+                        USD 7.2 billion
+                      </strong>{" "}
+                      globally. For broader context, the fraud detection and
+                      prevention market is projected to reach{" "}
+                      <strong className="text-black">USD 90 billion</strong> in
+                      the coming years.
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-start space-x-3 md:space-x-4">
-                <div>
-                  <h4 className="font-semibold mb-1 text-sm md:text-base">
-                    SOM
-                  </h4>
-                  <p className="text-muted-foreground text-xs md:text-sm">
-                    Given our niche in multilingual, culturally aligned scam
-                    detection, we project a{" "}
-                    <strong className="text-black">
-                      Serviceable Obtainable Market (SOM)
-                    </strong>{" "}
-                    of <strong className="text-black">USD 25-75 million</strong>
-                    , representing 5-10% of the Southeast Asian segment by 2033.
-                  </p>
+                <div className="flex items-start space-x-3 md:space-x-4 mb-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <Target className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1 text-sm md:text-base text-black">
+                      SAM
+                    </h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">
+                      Within this, the{" "}
+                      <strong className="text-black">
+                        Serviceable Available Market (SAM)
+                      </strong>{" "}
+                      in Asia-Pacific is estimated at around
+                      <strong className="text-black"> USD 2.5 billion</strong>,
+                      driven by rising phishing incidents and rapid digital
+                      adoption in Southeast Asia.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1 text-sm md:text-base text-black">
+                      SOM
+                    </h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">
+                      Given our niche in multilingual, culturally aligned scam
+                      detection, we project a{" "}
+                      <strong className="text-black">
+                        Serviceable Obtainable Market (SOM)
+                      </strong>{" "}
+                      of <strong className="text-black">USD 25-75 million</strong>
+                      , representing 5-10% of the Southeast Asian segment by 2033.
+                    </p>
+                  </div>
                 </div>
               </div>
             </CardContent>
