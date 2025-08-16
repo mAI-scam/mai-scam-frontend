@@ -67,6 +67,12 @@ export default function ImageDemoPage() {
   return (
     <ScrollProvider>
       <div className="min-h-screen bg-gray-100 relative">
+        {/* Mobile safe area top padding to prevent header from being hidden under URL bar */}
+        <div
+          className="md:hidden h-0"
+          style={{ paddingTop: "env(safe-area-inset-top)" }}
+        ></div>
+
         {/* Unified Header Component */}
         <Header
           demoType="image"

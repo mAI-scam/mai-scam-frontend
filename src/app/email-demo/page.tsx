@@ -22,6 +22,12 @@ export default function EmailDemoPage() {
   return (
     <ScrollProvider>
       <div className="min-h-screen flex flex-col bg-background relative">
+        {/* Mobile safe area top padding to prevent header from being hidden under URL bar */}
+        <div
+          className="md:hidden h-0"
+          style={{ paddingTop: "env(safe-area-inset-top)" }}
+        ></div>
+
         {/* Unified Header Component */}
         <Header
           demoType="email"

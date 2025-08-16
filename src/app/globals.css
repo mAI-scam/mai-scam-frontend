@@ -119,7 +119,15 @@
   body {
     @apply bg-background text-foreground;
   }
-  
+
+  /* Mobile viewport fixes */
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: max(0px, env(safe-area-inset-left));
+      padding-right: max(0px, env(safe-area-inset-right));
+    }
+  }
+
   /* Ensure interactive elements have pointer cursor */
   a,
   button,
@@ -136,7 +144,7 @@
   .cursor-pointer {
     @apply cursor-pointer;
   }
-  
+
   /* Ensure disabled elements have not-allowed cursor */
   button:disabled,
   input:disabled,

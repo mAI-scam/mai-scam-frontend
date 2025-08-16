@@ -54,7 +54,7 @@ export function Header({
   };
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 bg-background">
       {/* Demo Instructions Banner */}
       <DemoInstruction
         title={title}
