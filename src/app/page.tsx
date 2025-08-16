@@ -1,15 +1,19 @@
 "use client";
-// Test
 
 import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Smartphone, Heart, Globe, Target, TrendingUp, AlertTriangle, Building, FileCheck } from "lucide-react";
+import {
+  Shield,
+  Smartphone,
+  Heart,
+  Globe,
+  Target,
+  TrendingUp,
+  AlertTriangle,
+  Building,
+  FileCheck,
+} from "lucide-react";
 import Header from "@/components/main/Header";
 import FeatureCard from "@/components/main/FeatureCard";
 import { FeatureCardData } from "@/data/main/FeatureCardData";
@@ -459,8 +463,8 @@ export default function Home() {
                       Advanced Threat Detection
                     </h4>
                     <p className="text-muted-foreground text-xs md:text-sm">
-                      Across email, web, and social media to block malicious content
-                      before it reaches users.
+                      Across email, web, and social media to block malicious
+                      content before it reaches users.
                     </p>
                   </div>
                 </div>
@@ -489,7 +493,8 @@ export default function Home() {
                       Regulatory Compliance
                     </h4>
                     <p className="text-muted-foreground text-xs md:text-sm">
-                      With PDPA, GDPR, and other local cybersecurity requirements.
+                      With PDPA, GDPR, and other local cybersecurity
+                      requirements.
                     </p>
                   </div>
                 </div>
@@ -513,7 +518,7 @@ export default function Home() {
                 <h3 className="font-bold text-lg md:text-xl mb-4 text-black">
                   Target Audience Strategy
                 </h3>
-                
+
                 {/* Go-to-Market Audience */}
                 <div className="flex items-start space-x-3 md:space-x-4 mb-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
@@ -524,10 +529,17 @@ export default function Home() {
                       Go-to-Market Audience: Young Adults
                     </h4>
                     <p className="text-muted-foreground text-xs md:text-sm">
-                      <strong className="text-black">Tech-savvy millennials and Gen Z (18-35 years)</strong> who are 
-                      early adopters of browser extensions and digital security tools. They serve as our 
-                      <strong className="text-black"> digital ambassadors</strong>, helping to spread awareness 
-                      and adoption of mAIscam through their social networks and family connections.
+                      <strong className="text-black">
+                        Tech-savvy millennials and Gen Z (18-35 years)
+                      </strong>{" "}
+                      who are early adopters of browser extensions and digital
+                      security tools. They serve as our
+                      <strong className="text-black">
+                        {" "}
+                        digital ambassadors
+                      </strong>
+                      , helping to spread awareness and adoption of mAIscam
+                      through their social networks and family connections.
                     </p>
                   </div>
                 </div>
@@ -542,11 +554,18 @@ export default function Home() {
                       Primary Target Audience: Elderly Users
                     </h4>
                     <p className="text-muted-foreground text-xs md:text-sm">
-                      <strong className="text-black">Senior citizens (60+ years)</strong> who are most 
-                      vulnerable to online scams due to limited digital literacy and higher trust levels. 
-                      This demographic represents our <strong className="text-black">core protection mission</strong>, 
-                      as they face the highest risk of financial losses from sophisticated scam operations 
-                      targeting their retirement savings and personal information.
+                      <strong className="text-black">
+                        Senior citizens (60+ years)
+                      </strong>{" "}
+                      who are most vulnerable to online scams due to limited
+                      digital literacy and higher trust levels. This demographic
+                      represents our{" "}
+                      <strong className="text-black">
+                        core protection mission
+                      </strong>
+                      , as they face the highest risk of financial losses from
+                      sophisticated scam operations targeting their retirement
+                      savings and personal information.
                     </p>
                   </div>
                 </div>
@@ -557,7 +576,7 @@ export default function Home() {
                 <h3 className="font-bold text-lg md:text-xl mb-4 text-black">
                   Market Opportunity
                 </h3>
-                
+
                 <div className="flex items-start space-x-3 md:space-x-4 mb-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-black rounded-full flex items-center justify-center">
                     <Globe className="w-4 h-4 text-white" />
@@ -619,8 +638,9 @@ export default function Home() {
                       <strong className="text-black">
                         Serviceable Obtainable Market (SOM)
                       </strong>{" "}
-                      of <strong className="text-black">USD 25-75 million</strong>
-                      , representing 5-10% of the Southeast Asian segment by 2033.
+                      of{" "}
+                      <strong className="text-black">USD 25-75 million</strong>,
+                      representing 5-10% of the Southeast Asian segment by 2033.
                     </p>
                   </div>
                 </div>
