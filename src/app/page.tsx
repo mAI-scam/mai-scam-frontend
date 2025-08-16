@@ -89,6 +89,39 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Development Status & Future Plans */}
+          <div className="bg-green-50 border border-green-200 rounded-lg p-3 md:p-4 mb-4 md:mb-6 text-left max-w-4xl mx-auto">
+            <p className="text-xs md:text-sm text-green-800 mb-2">
+              <strong>🚀 Development Status & Future Plans:</strong> This website serves as a proof-of-concept demonstration to illustrate how our web extension will function in real-world scenarios. We are currently building the actual Chrome extension concurrently with this demo.
+            </p>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2">
+                <span className="text-green-600 font-bold text-xs">✓</span>
+                <span className="text-xs md:text-sm text-green-700">
+                  <strong>Realistic Prototype:</strong> All demonstrated features are technically feasible and planned for implementation
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-600 font-bold text-xs">✓</span>
+                <span className="text-xs md:text-sm text-green-700">
+                  <strong>AI Integration Ready:</strong> Multi-agent system architecture designed for real-time threat detection
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-600 font-bold text-xs">✓</span>
+                <span className="text-xs md:text-sm text-green-700">
+                  <strong>Cultural Intelligence Framework:</strong> Language models and cultural context algorithms in development
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-600 font-bold text-xs">🔧</span>
+                <span className="text-xs md:text-sm text-green-700">
+                  <strong>Development Roadmap:</strong> MVP Chrome extension by September 18th (Round 2 submission), with full production version by October 2024
+                </span>
+              </div>
+            </div>
+          </div>
+
           {/* Problem */}
           {/* <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 text-left max-w-2xl mx-auto">
             <p className="text-sm text-red-800">
