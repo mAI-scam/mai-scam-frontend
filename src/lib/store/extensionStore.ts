@@ -50,6 +50,9 @@ interface ExtensionState {
   // Website reporting state
   isWebsiteReported: boolean;
   markWebsiteReported: () => void;
+  // Social media reporting state
+  isSocialMediaReported: boolean;
+  markSocialMediaReported: () => void;
   toggleExtension: () => void;
   analyzeContent: (content: string, type: "email" | "website") => void;
   resetAnalysis: () => void;
@@ -78,6 +81,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
   reportedImageIds: [],
   isEmailReported: false,
   isWebsiteReported: false,
+  isSocialMediaReported: false,
 
   isImageReported: (imageId: number | string) => {
     const id = String(imageId);
@@ -98,6 +102,10 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
 
   markWebsiteReported: () => {
     set({ isWebsiteReported: true });
+  },
+
+  markSocialMediaReported: () => {
+    set({ isSocialMediaReported: true });
   },
 
   toggleExtension: async () => {
@@ -125,6 +133,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         showWebsiteBlocking: true,
         isEmailReported: false,
         isWebsiteReported: false,
+        isSocialMediaReported: false,
       });
     } else {
       // Deactivating - instant
@@ -140,6 +149,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         showWebsiteBlocking: true,
         isEmailReported: false,
         isWebsiteReported: false,
+        isSocialMediaReported: false,
       });
     }
   },
@@ -216,6 +226,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       showWebsiteBlocking: true, // Reset to show
       isEmailReported: false,
       isWebsiteReported: false,
+      isSocialMediaReported: false,
     }),
 
   resetExtension: () =>
@@ -232,6 +243,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       showWebsiteBlocking: true, // Reset to show
       isEmailReported: false,
       isWebsiteReported: false,
+      isSocialMediaReported: false,
       // Intentionally do not reset reportedImageIds so reported state persists during demo navigation
     }),
 

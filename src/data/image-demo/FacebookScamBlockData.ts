@@ -17,6 +17,10 @@ export type FacebookScamBlockTranslation = {
   reasonsSms: string[];
   reasonsInvestment: string[];
   continueBrowsing: string;
+  alreadyReported: string;
+  reportedMessage: string;
+  thankYou: string;
+  dismiss: string;
 };
 
 export const FacebookScamBlockData: Record<
@@ -67,6 +71,10 @@ export const FacebookScamBlockData: Record<
       "High minimum RM10,000 deposit used as pressure tactic",
     ],
     continueBrowsing: "Continue Browsing Safely",
+    alreadyReported: "SCAM REPORTED",
+    reportedMessage: "This scam post has been successfully reported to security authorities. Thank you for helping protect others.",
+    thankYou: "Thank you for keeping social media safe!",
+    dismiss: "DISMISS",
   },
   ms: {
     scamDetected: "POST PENIPUAN DIKESAN",
@@ -112,6 +120,10 @@ export const FacebookScamBlockData: Record<
       "Deposit minimum RM10,000 digunakan sebagai taktik tekanan",
     ],
     continueBrowsing: "Teruskan Melayari Dengan Selamat",
+    alreadyReported: "PENIPUAN TELAH DILAPORKAN",
+    reportedMessage: "Post penipuan ini telah berjaya dilaporkan kepada pihak berkuasa keselamatan. Terima kasih kerana membantu melindungi orang lain.",
+    thankYou: "Terima kasih kerana memastikan media sosial selamat!",
+    dismiss: "TOLAK",
   },
   zh: {
     scamDetected: "检测到诈骗帖子",
@@ -157,6 +169,10 @@ export const FacebookScamBlockData: Record<
       "至少 RM10,000 的高额门槛作为压力手段",
     ],
     continueBrowsing: "继续安全浏览",
+    alreadyReported: "诈骗已举报",
+    reportedMessage: "此诈骗帖子已成功举报给安全当局。感谢您帮助保护他人。",
+    thankYou: "感谢您确保社交媒体安全！",
+    dismiss: "忽略",
   },
   vi: {
     scamDetected: "PHÁT HIỆN BÀI ĐĂNG LỪA ĐẢO",
@@ -202,6 +218,10 @@ export const FacebookScamBlockData: Record<
       "Yêu cầu tối thiểu RM10,000 như một cách gây áp lực",
     ],
     continueBrowsing: "Tiếp Tục Duyệt Web An Toàn",
+    alreadyReported: "ĐÃ BÁO CÁO LỪA ĐẢO",
+    reportedMessage: "Bài đăng lừa đảo này đã được báo cáo thành công cho các cơ quan bảo mật. Cảm ơn bạn đã giúp bảo vệ những người khác.",
+    thankYou: "Cảm ơn bạn đã giữ mạng xã hội an toàn!",
+    dismiss: "BỎ QUA",
   },
   th: {
     scamDetected: "ตรวจพบโพสต์หลอกลวง",
@@ -247,6 +267,10 @@ export const FacebookScamBlockData: Record<
       "ใช้เงินลงทุนขั้นต่ำ RM10,000 เป็นกลยุทธ์กดดัน",
     ],
     continueBrowsing: "ดำเนินการเรียกดูเว็บอย่างปลอดภัย",
+    alreadyReported: "รายงานการหลอกลวงแล้ว",
+    reportedMessage: "โพสต์หลอกลวงนี้ได้รับการรายงานไปยังหน่วยงานความปลอดภัยเรียบร้อยแล้ว ขอบคุณที่ช่วยปกป้องผู้อื่น",
+    thankYou: "ขอบคุณที่ทำให้โซเชียลมีเดียปลอดภัย!",
+    dismiss: "ปิด",
   },
   fil: {
     scamDetected: "NATUKLASANG SCAM NA POST",
@@ -292,6 +316,10 @@ export const FacebookScamBlockData: Record<
       "Minimum RM10,000 deposit bilang pang-pressure",
     ],
     continueBrowsing: "Magpatuloy sa Ligtas na Pag-browse",
+    alreadyReported: "NAIULAT NA ANG SCAM",
+    reportedMessage: "Ang scam post na ito ay matagumpay nang naiulat sa mga kinauukulang awtoridad. Salamat sa pagtulong na protektahan ang iba.",
+    thankYou: "Salamat sa pagpapanatili ng social media na ligtas!",
+    dismiss: "ISARA",
   },
   id: {
     scamDetected: "POSTINGAN PENIPUAN TERDETEKSI",
@@ -337,6 +365,10 @@ export const FacebookScamBlockData: Record<
       "Setoran minimum RM10.000 sebagai taktik tekanan",
     ],
     continueBrowsing: "Lanjutkan Browsing dengan Aman",
+    alreadyReported: "SCAM TELAH DILAPORKAN",
+    reportedMessage: "Post scam ini telah berhasil dilaporkan ke otoritas keamanan. Terima kasih telah membantu melindungi orang lain.",
+    thankYou: "Terima kasih telah menjaga keamanan media sosial!",
+    dismiss: "TUTUP",
   },
   jv: {
     scamDetected: "KIRIMAN APUS-APUS KETEMU",
@@ -382,6 +414,10 @@ export const FacebookScamBlockData: Record<
       "Setoran minimal RM10.000 minangka taktik tekanan",
     ],
     continueBrowsing: "Terusna Browsing Kanthi Aman",
+    alreadyReported: "SCAM WIS DILAPORAKE",
+    reportedMessage: "Post scam iki wis kasil dilaporke menyang otoritas keamanan. Matur nuwun wis mbantu nglindhungi wong liya.",
+    thankYou: "Matur nuwun wis njaga keamanan media sosial!",
+    dismiss: "TUTUP",
   },
   su: {
     scamDetected: "KAPANGGIH POSTINGAN PANIPUAN",
@@ -427,6 +463,10 @@ export const FacebookScamBlockData: Record<
       "Setoran minimum RM10.000 minangka taktik tekanan",
     ],
     continueBrowsing: "Teraskeun Browsing Kalawan Aman",
+    alreadyReported: "SCAM GEU DILAPORKEUN",
+    reportedMessage: "Post scam ieu geus hasil dilaporkeun ka otoritas kaamanan. Hatur nuhun geus mantuan ngajaga nu sejen.",
+    thankYou: "Hatur nuhun geus ngajaga kaamanan media sosial!",
+    dismiss: "TUTUP",
   },
   km: {
     scamDetected: "បានរកឃើញប្រកាសបោកបញ្ឆោត",
@@ -473,6 +513,10 @@ export const FacebookScamBlockData: Record<
       "កំណត់ទ្រាសរួមយ៉ាងហោចណាស់ RM10,000 ដើម្បីចេញសម្ពាធ",
     ],
     continueBrowsing: "បន្តការរកមើលក្នុងលក្ខណៈសុវត្ថិភាព",
+    alreadyReported: "ការបោកបញ្ឆោតត្រូវបានរាយការណ៍",
+    reportedMessage: "ការចុះផ្សាយបោកបញ្ឆោតនេះត្រូវបានរាយការណ៍ដោយជោគជ័យទៅកាន់អាជ្ញាធរសន្តិសុខ។ អរគុណសម្រាប់ការជួយការពារអ្នកដទៃ។",
+    thankYou: "អរគុណសម្រាប់ការធ្វើឱ្យប្រព័ន្ធផ្សព្វផ្សាយសង្គមមានសុវត្ថិភាព!",
+    dismiss: "បិទ",
   },
   lo: {
     scamDetected: "ກວດພົບໂພສຫລອກລວງ",
@@ -518,6 +562,10 @@ export const FacebookScamBlockData: Record<
       "ກຳນົດເງິນຝາກຂັ້ນຕ່ຳ RM10,000 ເປັນກົນລະຍຸດກົດດັນ",
     ],
     continueBrowsing: "ສືບຕໍ່ການຂຸດຄົ້ນເວັບໄຊໄອຕ໌ຢ່າງປອດໄພ",
+    alreadyReported: "ການຫລອກລວງຖືກລາຍງານແລ້ວ",
+    reportedMessage: "ການໂພສຫລອກລວງນີ້ໄດ້ຖືກລາຍງານສຳເລັດໄປຫາອົງການຄວາມປອດໄພ. ຂອບໃຈທີ່ຊ່ວຍປົກປ້ອງຄົນອື່ນ.",
+    thankYou: "ຂອບໃຈທີ່ເຮັດໃຫ້ສື່ສັງຄົມປອດໄພ!",
+    dismiss: "ປິດ",
   },
   my: {
     scamDetected: "လိမ်လည်မှု ပို့စ်ကို တွေ့ရှိခဲ့သည်",
@@ -563,6 +611,10 @@ export const FacebookScamBlockData: Record<
       "အနည်းဆုံး RM10,000 အပ်နှံရမည်ဟု ဖိအားပေးခြင်း",
     ],
     continueBrowsing: "ဘေးကင်း စွာ ဆက်လက် ကြည့်ရှုရန်",
+    alreadyReported: "လိမ်လည်မှု တိုင်ကြားပြီး",
+    reportedMessage: "ဤလိမ်လည်မှုပို့စ်ကို လုံခြုံရေးအာဏာပိုင်များထံ အောင်မြင်စွာ တိုင်ကြားပြီးပါပြီ။ အခြားသူများကို ကာကွယ်ရန် ကူညီပေးသည့်အတွက် ကျေးဇူးတင်ပါသည်။",
+    thankYou: "လူမှုကွန်ယက်ကို လုံခြုံအောင် ထားရှိသည့်အတွက် ကျေးဇူးတင်ပါသည်!",
+    dismiss: "ပိတ်မည်",
   },
   ta: {
     scamDetected: "மோசடி பதிவை கண்டறிந்தோம்",
@@ -608,5 +660,9 @@ export const FacebookScamBlockData: Record<
       "குறைந்தபட்ச RM10,000 முதலீடு — அழுத்து யுக்தி",
     ],
     continueBrowsing: "தொடர்ந்து பாதுகாப்பாக உலாவுதல்",
+    alreadyReported: "மோசடி புகாரளிக்கப்பட்டது",
+    reportedMessage: "இந்த மோசடி போஸ்ட் பாதுகாப்பு அதிகாரிகளுக்கு வெற்றிகரமாக புகாரளிக்கப்பட்டுள்ளது. மற்றவர்களைப் பாதுகாக்க உதவியதற்கு நன்றி.",
+    thankYou: "சமூக ஊடகங்களை பாதுகாப்பாக வைத்திருப்பதற்கு நன்றி!",
+    dismiss: "மூடு",
   },
 };

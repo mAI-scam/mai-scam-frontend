@@ -43,7 +43,7 @@ export function FacebookScamBlockOverlay({
 }: FacebookScamBlockOverlayProps) {
   const [showPost, setShowPost] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
-  const { selectedLanguage, isImageReported } = useExtensionStore();
+  const { selectedLanguage, isImageReported, isSocialMediaReported } = useExtensionStore();
 
   // ✅ guard + fallback = no “possibly undefined”
   const lang: LanguageCode = isLanguageCode(selectedLanguage)
@@ -74,7 +74,11 @@ export function FacebookScamBlockOverlay({
         <CardContent className="p-0">
           {/* Header */}
           <div
-            className="bg-red-600 text-white p-4 md:p-6 rounded-t-lg"
+            className={`p-4 md:p-6 rounded-t-lg ${
+              isSocialMediaReported 
+                ? "bg-green-600 text-white" 
+                : "bg-red-600 text-white"
+            }`}
             data-tour="fb-risk-header"
           >
             <div className="flex items-center justify-between">
@@ -83,10 +87,16 @@ export function FacebookScamBlockOverlay({
                   <Shield className="h-6 w-6 md:h-8 md:w-8" />
                 </div>
                 <div>
-                  <h2 className="text-lg md:text-xl font-bold">{t.scamDetected}</h2>
-                  <p className="text-red-100 text-xs md:text-sm">{t.protectedBy}</p>
+                  <h2 className="text-lg md:text-xl font-bold">
+                    {isSocialMediaReported ? t.alreadyReported : t.scamDetected}
+                  </h2>
+                  <p className={`text-xs md:text-sm ${
+                    isSocialMediaReported ? "text-green-100" : "text-red-100"
+                  }`}>
+                    {isSocialMediaReported ? t.thankYou : t.protectedBy}
+                  </p>
                   <Badge className="bg-white/20 text-white text-xs mt-1">
-                    🔍 OCR + AI Agent Analysis
+                    {isSocialMediaReported ? "✅ Reported" : "🔍 OCR + AI Agent Analysis"}
                   </Badge>
                 </div>
               </div>
@@ -106,6 +116,33 @@ export function FacebookScamBlockOverlay({
 
           {/* Content */}
           <div className="p-4 md:p-6 space-y-4 md:space-y-6">
+            {isSocialMediaReported ? (
+              /* Reported State */
+              <div className="text-center py-4">
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  {t.reportedMessage}
+                </p>
+                
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                  <p className="text-green-800 font-medium">
+                    {t.thankYou}
+                  </p>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-3 border-t">
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={onClose}
+                  >
+                    {t.dismiss}
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              /* Normal Risk Analysis */
+              <>
             {/* Warning */}
             <div className="flex items-start gap-2 md:gap-3 p-3 md:p-4 bg-red-50 border border-red-200 rounded-lg">
               <AlertTriangle className="h-5 w-5 md:h-6 md:w-6 text-red-600 mt-0.5 flex-shrink-0" />
@@ -205,6 +242,8 @@ export function FacebookScamBlockOverlay({
                   </p>
                 </div>
               </div>
+            )}
+              </>
             )}
           </div>
         </CardContent>

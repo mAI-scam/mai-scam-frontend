@@ -38,7 +38,7 @@ export function ReportScamImageModal({
   scamImage,
   platform = "facebook",
 }: ReportScamImageModalProps) {
-  const { selectedLanguage, reportScam, markImageReported } =
+  const { selectedLanguage, reportScam, markImageReported, markSocialMediaReported } =
     useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -77,6 +77,7 @@ export function ReportScamImageModal({
         await reportScam("image", { imageId: scamImage.id, source: "social" });
       } finally {
         markImageReported(scamImage.id);
+        markSocialMediaReported(); // Mark social media session as reported
       }
     }
   };
