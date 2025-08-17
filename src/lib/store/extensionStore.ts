@@ -44,6 +44,9 @@ interface ExtensionState {
   reportedImageIds: string[];
   isImageReported: (imageId: number | string) => boolean;
   markImageReported: (imageId: number | string) => void;
+  // Email reporting state
+  isEmailReported: boolean;
+  markEmailReported: () => void;
   toggleExtension: () => void;
   analyzeContent: (content: string, type: "email" | "website") => void;
   resetAnalysis: () => void;
@@ -70,6 +73,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
   showRiskAnalysis: true,
   showWebsiteBlocking: true,
   reportedImageIds: [],
+  isEmailReported: false,
 
   isImageReported: (imageId: number | string) => {
     const id = String(imageId);
@@ -82,6 +86,10 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       if (state.reportedImageIds.includes(id)) return state;
       return { reportedImageIds: [...state.reportedImageIds, id] };
     });
+  },
+
+  markEmailReported: () => {
+    set({ isEmailReported: true });
   },
 
   toggleExtension: async () => {
@@ -107,6 +115,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         analysisType: null,
         showRiskAnalysis: true,
         showWebsiteBlocking: true,
+        isEmailReported: false,
       });
     } else {
       // Deactivating - instant
@@ -120,6 +129,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         analysisType: null,
         showRiskAnalysis: true,
         showWebsiteBlocking: true,
+        isEmailReported: false,
       });
     }
   },
@@ -194,6 +204,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       analysisType: null,
       showRiskAnalysis: true, // Reset to show
       showWebsiteBlocking: true, // Reset to show
+      isEmailReported: false,
     }),
 
   resetExtension: () =>
@@ -208,6 +219,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       analysisType: null,
       showRiskAnalysis: true, // Reset to show
       showWebsiteBlocking: true, // Reset to show
+      isEmailReported: false,
       // Intentionally do not reset reportedImageIds so reported state persists during demo navigation
     }),
 

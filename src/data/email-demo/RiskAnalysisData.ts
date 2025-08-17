@@ -22,6 +22,9 @@ export type RiskAnalysisTranslation = {
   dismiss: string;
   seeMore: string;
   seeLess: string;
+  alreadyReported: string;
+  reportedMessage: string;
+  thankYou: string;
 };
 
 export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
@@ -53,6 +56,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "DISMISS",
     seeMore: "See more",
     seeLess: "See less",
+    alreadyReported: "CASE REPORTED",
+    reportedMessage: "This scam has been successfully reported to security authorities. Thank you for helping protect others.",
+    thankYou: "Thank you for keeping the community safe!",
   },
   ms: {
     spamWarning:
@@ -82,6 +88,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "TOLAK",
     seeMore: "Lihat lagi",
     seeLess: "Lihat kurang",
+    alreadyReported: "KES TELAH DILAPORKAN",
+    reportedMessage: "Penipuan ini telah berjaya dilaporkan kepada pihak berkuasa keselamatan. Terima kasih kerana membantu melindungi orang lain.",
+    thankYou: "Terima kasih kerana memastikan komuniti selamat!",
   },
   zh: {
     spamWarning:
@@ -109,6 +118,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "忽略",
     seeMore: "查看更多",
     seeLess: "收起",
+    alreadyReported: "案例已举报",
+    reportedMessage: "此欺诈行为已成功举报给安全当局。感谢您帮助保护他人。",
+    thankYou: "感谢您确保社区安全！",
   },
   vi: {
     spamWarning:
@@ -138,6 +150,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "BỎ QUA",
     seeMore: "Xem thêm",
     seeLess: "Thu gọn",
+    alreadyReported: "ĐÃ BÁO CÁO",
+    reportedMessage: "Vụ lừa đảo này đã được báo cáo thành công cho các cơ quan bảo mật. Cảm ơn bạn đã giúp bảo vệ những người khác.",
+    thankYou: "Cảm ơn bạn đã giữ an toàn cho cộng đồng!",
   },
   th: {
     spamWarning:
@@ -167,6 +182,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "ปิด",
     seeMore: "ดูเพิ่มเติม",
     seeLess: "ดูน้อยลง",
+    alreadyReported: "ได้รายงานแล้ว",
+    reportedMessage: "การฉ้อโกงนี้ถูกรายงานให้หน่วยงานความปลอดภัยเรียบร้อยแล้ว ขอบคุณที่ช่วยปกป้องผู้อื่น",
+    thankYou: "ขอบคุณที่ช่วยรักษาความปลอดภัยของชุมชน!",
   },
   fil: {
     spamWarning:
@@ -196,6 +214,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "ISARA",
     seeMore: "Makita pa",
     seeLess: "Bawasan",
+    alreadyReported: "NAIULAT NA ANG KASO",
+    reportedMessage: "Matagumpay nang naiulat ang pandarayang ito sa mga kinauukulang awtoridad. Salamat sa pagtulong na protektahan ang iba.",
+    thankYou: "Salamat sa pagpapanatili ng kaligtasan ng komunidad!",
   },
   id: {
     spamWarning:
@@ -225,6 +246,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "TUTUP",
     seeMore: "Lihat lebih",
     seeLess: "Lihat kurang",
+    alreadyReported: "KASUS TELAH DILAPORKAN",
+    reportedMessage: "Penipuan ini telah berhasil dilaporkan ke otoritas keamanan. Terima kasih telah membantu melindungi orang lain.",
+    thankYou: "Terima kasih telah menjaga keamanan komunitas!",
   },
   jv: {
     spamWarning:
@@ -254,6 +278,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "TUTUP",
     seeMore: "Deleng liyane",
     seeLess: "Deleng sithik",
+    alreadyReported: "KASUS WICN DILAPORAKE",
+    reportedMessage: "Penipuan iki wis kasil dilaporke menyang otoritas keamanan. Matur nuwun wis mbantu nglindhungi wong liya.",
+    thankYou: "Matur nuwun wis njaga keamanan komunitas!",
   },
   su: {
     spamWarning:
@@ -283,6 +310,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "TUTUP",
     seeMore: "Tingali deui",
     seeLess: "Tingali saeutik",
+    alreadyReported: "KASUS GEU DILAPORKEUN",
+    reportedMessage: "Panipuan ieu geus hasil dilaporkeun ka otoritas kaamanan. Hatur nuhun geus mantuan ngajaga nu sejen.",
+    thankYou: "Hatur nuhun geus ngajaga kaamanan masarakat!",
   },
   km: {
     spamWarning:
@@ -312,6 +342,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "បដិសេធ",
     seeMore: "មើលបន្ថែម",
     seeLess: "មើលតិច",
+    alreadyReported: "ករណីត្រូវបានរាយការណ៍",
+    reportedMessage: "ការបោកបញ្ឆោតនេះត្រូវបានរាយការណ៍ដោយជោគជ័យទៅអាជ្ញាធរសន្តិសុខ។ សូមអរគុណដែលបានជួយការពារអ្នកដទៃ។",
+    thankYou: "សូមអរគុណដែលបានរក្សាសុវត្ថិភាពសហគមន៍!",
   },
   lo: {
     spamWarning:
@@ -340,6 +373,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "ປິດ",
     seeMore: "ເບິ່ງເພີ່ມ",
     seeLess: "ເບິ່ງໜ້ອຍ",
+    alreadyReported: "ລາຍງານແລ້ວ",
+    reportedMessage: "ການຫຼອກລວງນີ້ໄດ້ຖືກລາຍງານສຳເລັດໃຫ້ເຈົ້າໜ້າທີ່ຄວາມປອດໄພ. ຂອບໃຈທີ່ຊ່ວຍປົກປ້ອງຄົນອື່ນ.",
+    thankYou: "ຂອບໃຈທີ່ຮັກສາຄວາມປອດໄພຂອງຊຸມຊົນ!",
   },
   my: {
     spamWarning:
@@ -368,6 +404,9 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "ပယ်ဖျက်မည်",
     seeMore: "ပို၍ကြည့်မည်",
     seeLess: "နည်းနည်းကြည့်မည်",
+    alreadyReported: "တိုင်ကြားပြီးပါပြီ",
+    reportedMessage: "ဤလိမ်လည်မှုကို ဖွဲ့ရေးဘဏ်းသန်းအရာရှိများထံ အောင်မြင်စွာတိုင်ကြားပြီးပါပြီ။ အခြားသူများကို ကာကွယ်ပေးခြင်းအတွက် ကျေးဇူးတင်ပါသည်။",
+    thankYou: "အသိုင်းအဝိုင်း၏ ဘေးကင်းမှုကို ထိန်းသိမ်းပေးခြင်းအတွက် ကျေးဇူးတင်ပါသည်!",
   },
 
   ta: {
@@ -398,5 +437,8 @@ export const RiskAnalysisData: Record<LanguageCode, RiskAnalysisTranslation> = {
     dismiss: "மறுக்கவும்",
     seeMore: "மேலும் பார்க்கவும்",
     seeLess: "குறைவாக பார்க்கவும்",
+    alreadyReported: "வழக்கு புகாரளிக்கப்பட்டது",
+    reportedMessage: "இந்த மோசடி பாதுகாப்பு அதிகாரிகளுக்கு வெற்றிகரமாக தெரிவிக்கப்பட்டுள்ளது. மற்றவர்களைப் பாதுகாக்க உதவியதற்கு நன்றி.",
+    thankYou: "சமூகத்தின் பாதுகாப்பைக் காப்பதற்கு நன்றி!",
   },
 };

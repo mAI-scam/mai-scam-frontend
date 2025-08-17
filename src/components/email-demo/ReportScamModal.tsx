@@ -30,7 +30,7 @@ export function ReportScamModal({
   emailSender = "service@secure-banknegara-verification.com",
   emailSubject = "PENTING: Akaun Anda Telah Dibekukan - Tindakan Segera Diperlukan",
 }: ReportScamModalProps) {
-  const { selectedLanguage } = useExtensionStore();
+  const { selectedLanguage, markEmailReported } = useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [reportId] = useState(() => {
@@ -50,6 +50,9 @@ export function ReportScamModal({
 
     setIsSubmitting(false);
     setIsSuccess(true);
+    
+    // Mark email as reported in the store
+    markEmailReported();
   };
 
   const handleClose = () => {

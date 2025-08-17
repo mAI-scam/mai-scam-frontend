@@ -22,6 +22,7 @@ export function RiskAnalysisBlock() {
     setShowRiskAnalysis,
     isAnalyzing,
     analysisType,
+    isEmailReported,
   } = useExtensionStore();
   const [showReportModal, setShowReportModal] = useState(false);
   const [showDetailed, setShowDetailed] = useState(false);
@@ -51,6 +52,8 @@ export function RiskAnalysisBlock() {
             className={`p-4 md:p-6 rounded-t-lg ${
               isAnalyzing
                 ? "bg-blue-600 text-white"
+                : isEmailReported
+                ? "bg-green-600 text-white"
                 : riskLevel === "high"
                 ? "bg-red-600 text-white"
                 : riskLevel === "medium"
@@ -66,15 +69,21 @@ export function RiskAnalysisBlock() {
                 </div>
                 <div>
                   <h2 className="text-lg md:text-xl font-bold">
-                    {isAnalyzing ? extensionT.analyzing : t.risk}
+                    {isAnalyzing 
+                      ? extensionT.analyzing 
+                      : isEmailReported 
+                        ? t.alreadyReported 
+                        : t.risk}
                   </h2>
                   <p className="text-white/80 text-xs md:text-sm">
                     {isAnalyzing
                       ? "AI-powered email scanning"
-                      : "Protected by mAIscam"}
+                      : isEmailReported
+                        ? t.thankYou
+                        : "Protected by mAIscam"}
                   </p>
                   <Badge className="bg-white/20 text-white text-xs mt-1">
-                    🔍 AI Agent Analysis
+                    {isEmailReported ? "✅ Reported" : "🔍 AI Agent Analysis"}
                   </Badge>
                 </div>
               </div>
@@ -105,6 +114,38 @@ export function RiskAnalysisBlock() {
                   <p className="text-xs md:text-sm text-blue-700">
                     Our AI is scanning this email for potential scam indicators.
                   </p>
+                </div>
+              </div>
+            ) : isEmailReported ? (
+              // Reported state
+              <div className="text-center py-4 md:py-8">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="p-3 bg-green-100 rounded-full">
+                    <Shield className="h-8 w-8 md:h-12 md:w-12 text-green-600" />
+                  </div>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-green-800 mb-2">
+                  {t.alreadyReported}
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 mb-6 leading-relaxed">
+                  {t.reportedMessage}
+                </p>
+                
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                  <p className="text-sm text-green-800 font-medium">
+                    {t.thankYou}
+                  </p>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-3 md:pt-4 border-t">
+                  <Button
+                    variant="outline"
+                    className="w-full text-xs md:text-sm"
+                    onClick={() => setShowRiskAnalysis(false)}
+                  >
+                    {t.dismiss}
+                  </Button>
                 </div>
               </div>
             ) : (
