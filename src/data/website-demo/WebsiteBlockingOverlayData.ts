@@ -36,6 +36,10 @@ export type WebsiteBlockingOverlayTranslation = {
   backToHome: string;
   seeMore: string;
   seeLess: string;
+  alreadyReported: string;
+  reportedMessage: string;
+  thankYou: string;
+  dismiss: string;
 };
 
 export const WebsiteBlockingOverlayData: Record<
@@ -83,6 +87,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "Back to Home",
     seeMore: "See more",
     seeLess: "See less",
+    alreadyReported: "WEBSITE REPORTED",
+    reportedMessage: "This fraudulent website has been successfully reported to security authorities. Thank you for helping protect others.",
+    thankYou: "Thank you for keeping the internet safe!",
+    dismiss: "DISMISS",
   },
   ms: {
     title: "LAMAN WEB INI MUNGKIN SCAM!",
@@ -125,6 +133,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "Kembali ke Halaman Utama",
     seeMore: "Lihat lagi",
     seeLess: "Lihat kurang",
+    alreadyReported: "LAMAN WEB TELAH DILAPORKAN",
+    reportedMessage: "Laman web penipuan ini telah berjaya dilaporkan kepada pihak berkuasa keselamatan. Terima kasih kerana membantu melindungi orang lain.",
+    thankYou: "Terima kasih kerana memastikan internet selamat!",
+    dismiss: "TOLAK",
   },
   zh: {
     title: "此网站可能是诈骗！",
@@ -167,6 +179,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "返回主页",
     seeMore: "查看更多",
     seeLess: "收起",
+    alreadyReported: "网站已举报",
+    reportedMessage: "此欺诈网站已成功举报给安全当局。感谢您帮助保护他人。",
+    thankYou: "感谢您确保互联网安全！",
+    dismiss: "忽略",
   },
   vi: {
     title: "TRANG WEB NÀY CÓ THỂ LÀ LỪA ĐẢO!",
@@ -209,6 +225,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "Về trang chủ",
     seeMore: "Xem thêm",
     seeLess: "Thu gọn",
+    alreadyReported: "ĐÃ BÁO CÁO TRANG WEB",
+    reportedMessage: "Trang web lừa đảo này đã được báo cáo thành công cho các cơ quan bảo mật. Cảm ơn bạn đã giúp bảo vệ những người khác.",
+    thankYou: "Cảm ơn bạn đã giữ internet an toàn!",
+    dismiss: "BỎ QUA",
   },
   th: {
     title: "เว็บไซต์นี้อาจเป็นการหลอกลวง!",
@@ -251,6 +271,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "กลับหน้าแรก",
     seeMore: "ดูเพิ่มเติม",
     seeLess: "ดูน้อยลง",
+    alreadyReported: "รายงานเว็บไซต์แล้ว",
+    reportedMessage: "เว็บไซต์หลอกลวงนี้ได้รับการรายงานไปยังหน่วยงานความปลอดภัยเรียบร้อยแล้ว ขอบคุณที่ช่วยปกป้องผู้อื่น",
+    thankYou: "ขอบคุณที่ทำให้อินเทอร์เน็ตปลอดภัย!",
+    dismiss: "ปิด",
   },
   fil: {
     title: "MAARING SCAM ANG WEBSITE NA ITO!",
@@ -294,6 +318,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "Bumalik sa Home",
     seeMore: "Makita pa",
     seeLess: "Bawasan",
+    alreadyReported: "NAIULAT NA ANG WEBSITE",
+    reportedMessage: "Ang mapanlinlang na website na ito ay matagumpay nang naiulat sa mga kinauukulang awtoridad. Salamat sa pagtulong na protektahan ang iba.",
+    thankYou: "Salamat sa pagpapanatili ng internet na ligtas!",
+    dismiss: "ISARA",
   },
   id: {
     title: "SITUS INI MUNGKIN PENIPUAN!",
@@ -336,6 +364,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "Kembali ke Beranda",
     seeMore: "Lihat lebih",
     seeLess: "Lihat kurang",
+    alreadyReported: "WEBSITE TELAH DILAPORKAN",
+    reportedMessage: "Situs penipuan ini telah berhasil dilaporkan ke otoritas keamanan. Terima kasih telah membantu melindungi orang lain.",
+    thankYou: "Terima kasih telah menjaga keamanan internet!",
+    dismiss: "TUTUP",
   },
   jv: {
     title: "SITUS IKI BISA WAÉ APUS‑APUS!",
@@ -378,6 +410,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "Bali menyang Omah",
     seeMore: "Deleng liyane",
     seeLess: "Deleng sithik",
+    alreadyReported: "WEBSITE WIS DILAPORAKE",
+    reportedMessage: "Situs penipuan iki wis kasil dilaporke menyang otoritas keamanan. Matur nuwun wis mbantu nglindhungi wong liya.",
+    thankYou: "Matur nuwun wis njaga keamanan internet!",
+    dismiss: "TUTUP",
   },
   su: {
     title: "SITUS IEU BISA WAÉ PANIPUAN!",
@@ -420,6 +456,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "Balik ka Imah",
     seeMore: "Tingali deui",
     seeLess: "Tingali saeutik",
+    alreadyReported: "WEBSITE GEU DILAPORKEUN",
+    reportedMessage: "Situs panipuan ieu geus hasil dilaporkeun ka otoritas kaamanan. Hatur nuhun geus mantuan ngajaga nu sejen.",
+    thankYou: "Hatur nuhun geus ngajaga kaamanan internet!",
+    dismiss: "TUTUP",
   },
   km: {
     title: "គេហទំព័រនេះអាចជាការលួចលក់/បោកបញ្ឆោត!",
@@ -462,6 +502,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "ត្រឡប់​ទៅគេហទំព័រ",
     seeMore: "មើលបន្ថែម",
     seeLess: "មើលតិច",
+    alreadyReported: "គេហទំព័រត្រូវបានរាយការណ៍",
+    reportedMessage: "គេហទំព័រក្លែងបន្លំនេះត្រូវបានរាយការណ៍ដោយជោគជ័យទៅកាន់អាជ្ញាធរសុវត្ថិភាព។ អរគុណសម្រាប់ការជួយការពារអ្នកដទៃ។",
+    thankYou: "អរគុណសម្រាប់ការធ្វើឱ្យអ៊ីនធឺណិតមានសុវត្ថិភាព!",
+    dismiss: "បិទ",
   },
   lo: {
     title: "ເວັບໄຊນີ້ອາດຈະເປັນການຫລອກລວງ!",
@@ -504,6 +548,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "ກັບໜ້າຫຼັກ",
     seeMore: "ເບິ່ງເພີ່ມ",
     seeLess: "ເບິ່ງໜ້ອຍ",
+    alreadyReported: "ລາຍງານເວັບໄຊແລ້ວ",
+    reportedMessage: "ເວັບໄຊຫລອກລວງນີ້ໄດ້ຖືກລາຍງານສຳເລັດໄປຫາອົງການຄວາມປອດໄພ. ຂອບໃຈທີ່ຊ່ວຍປົກປ້ອງຄົນອື່ນ.",
+    thankYou: "ຂອບໃຈທີ່ເຮັດໃຫ້ອິນເຕີເນັດປອດໄພ!",
+    dismiss: "ປິດ",
   },
   my: {
     title: "ဤဝဘ်ဆိုက်သည် လိမ်လည်မှု ဖြစ်နိုင်ပါတယ်!",
@@ -547,6 +595,10 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "မူလစာမျက်နှာသို့",
     seeMore: "ပို၍ကြည့်မည်",
     seeLess: "နည်းနည်းကြည့်မည်",
+    alreadyReported: "ဝဘ်ဆိုက် တိုင်ကြားပြီး",
+    reportedMessage: "ဤလိမ်လည် ဝဘ်ဆိုက်ကို လုံခြုံရေး အာဏာပိုင်များထံ အောင်မြင်စွာ တင်ပြပြီးပါပြီ။ အခြားသူများကို ကာကွယ်ပေးတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။",
+    thankYou: "အင်တာနက်ကို လုံခြုံစေတဲ့အတွက် ကျေးဇူးတင်ပါတယ်!",
+    dismiss: "ပိတ်မည်",
   },
   ta: {
     title: "இந்த வலைத்தளம் மோசடியாக இருக்கலாம்!",
@@ -589,5 +641,9 @@ export const WebsiteBlockingOverlayData: Record<
     backToHome: "முகப்புக்குத் திரும்ப",
     seeMore: "மேலும் பார்க்கவும்",
     seeLess: "குறைவாக பார்க்கவும்",
+    alreadyReported: "வலைத்தளம் புகாரளிக்கப்பட்டது",
+    reportedMessage: "இந்த மோசடி வலைத்தளம் பாதுகாப்பு அதிகாரிகளுக்கு வெற்றிகரமாக புகாரளிக்கப்பட்டது. மற்றவர்களைப் பாதுகாக்க உதவியதற்கு நன்றி.",
+    thankYou: "இணையத்தை பாதுகாப்பாக வைத்ததற்கு நன்றி!",
+    dismiss: "மூடு",
   },
 };

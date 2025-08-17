@@ -418,7 +418,7 @@ export function ReportScamModal({
   onClose,
   websiteUrl = "deal-raya-123.com",
 }: ReportScamModalProps) {
-  const { selectedLanguage } = useExtensionStore();
+  const { selectedLanguage, markWebsiteReported } = useExtensionStore();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [reportId] = useState(() => {
@@ -440,6 +440,9 @@ export function ReportScamModal({
 
     setIsSubmitting(false);
     setIsSuccess(true);
+    
+    // Mark website as reported in the store
+    markWebsiteReported();
   };
 
   const handleClose = () => {

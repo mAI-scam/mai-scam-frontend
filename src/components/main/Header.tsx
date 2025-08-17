@@ -24,6 +24,7 @@ export default function Header() {
               alt="mAIscam Logo"
               width={128}
               height={128}
+              suppressHydrationWarning
             />
           </div>
 

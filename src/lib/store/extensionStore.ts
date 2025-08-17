@@ -47,6 +47,9 @@ interface ExtensionState {
   // Email reporting state
   isEmailReported: boolean;
   markEmailReported: () => void;
+  // Website reporting state
+  isWebsiteReported: boolean;
+  markWebsiteReported: () => void;
   toggleExtension: () => void;
   analyzeContent: (content: string, type: "email" | "website") => void;
   resetAnalysis: () => void;
@@ -74,6 +77,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
   showWebsiteBlocking: true,
   reportedImageIds: [],
   isEmailReported: false,
+  isWebsiteReported: false,
 
   isImageReported: (imageId: number | string) => {
     const id = String(imageId);
@@ -90,6 +94,10 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
 
   markEmailReported: () => {
     set({ isEmailReported: true });
+  },
+
+  markWebsiteReported: () => {
+    set({ isWebsiteReported: true });
   },
 
   toggleExtension: async () => {
@@ -116,6 +124,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         showRiskAnalysis: true,
         showWebsiteBlocking: true,
         isEmailReported: false,
+        isWebsiteReported: false,
       });
     } else {
       // Deactivating - instant
@@ -130,6 +139,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
         showRiskAnalysis: true,
         showWebsiteBlocking: true,
         isEmailReported: false,
+        isWebsiteReported: false,
       });
     }
   },
@@ -205,6 +215,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       showRiskAnalysis: true, // Reset to show
       showWebsiteBlocking: true, // Reset to show
       isEmailReported: false,
+      isWebsiteReported: false,
     }),
 
   resetExtension: () =>
@@ -220,6 +231,7 @@ export const useExtensionStore = create<ExtensionState>((set, get) => ({
       showRiskAnalysis: true, // Reset to show
       showWebsiteBlocking: true, // Reset to show
       isEmailReported: false,
+      isWebsiteReported: false,
       // Intentionally do not reset reportedImageIds so reported state persists during demo navigation
     }),
 

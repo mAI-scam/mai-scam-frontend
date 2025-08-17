@@ -44,7 +44,7 @@ function getLegitimateSuggestion(url: string | undefined): string | null {
 export function WebsiteBlockingOverlay({
   websiteUrl = "shoppe123.com",
 }: WebsiteBlockingOverlayProps) {
-  const { selectedLanguage, showWebsiteBlocking, setShowWebsiteBlocking } =
+  const { selectedLanguage, showWebsiteBlocking, setShowWebsiteBlocking, isWebsiteReported } =
     useExtensionStore();
   const [showFinalWarning, setShowFinalWarning] = useState(false);
   const [allowAccess, setAllowAccess] = useState(false);
@@ -107,13 +107,56 @@ export function WebsiteBlockingOverlay({
 
           {/* Header */}
           <div className="text-center mb-6">
-            <AlertTriangle className="h-16 w-16 text-red-600 mx-auto mb-4 animate-pulse" />
-            <h1 className="text-2xl font-bold text-red-700 mb-2">{t.title}</h1>
-            <p className="text-red-600 font-medium">{t.subtitle}</p>
+            {isWebsiteReported ? (
+              <>
+                <div className="flex items-center justify-center mb-4">
+                  <div className="p-3 bg-green-100 rounded-full">
+                    <Shield className="h-16 w-16 text-green-600" />
+                  </div>
+                </div>
+                <h1 className="text-2xl font-bold text-green-700 mb-2">{t.alreadyReported}</h1>
+                <p className="text-green-600 font-medium">{t.thankYou}</p>
+              </>
+            ) : (
+              <>
+                <AlertTriangle className="h-16 w-16 text-red-600 mx-auto mb-4 animate-pulse" />
+                <h1 className="text-2xl font-bold text-red-700 mb-2">{t.title}</h1>
+                <p className="text-red-600 font-medium">{t.subtitle}</p>
+              </>
+            )}
           </div>
 
-          {/* Risk Analysis */}
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+          {isWebsiteReported ? (
+            /* Reported State */
+            <div className="space-y-6">
+              <div className="text-center py-4">
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  {t.reportedMessage}
+                </p>
+                
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                  <p className="text-green-800 font-medium">
+                    {t.thankYou}
+                  </p>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-3 border-t">
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => setShowWebsiteBlocking(false)}
+                  >
+                    {t.dismiss}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            /* Normal Risk Analysis */
+            <>
+              {/* Risk Analysis */}
+              <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <Shield className="h-6 w-6 text-red-600" />
@@ -209,36 +252,38 @@ export function WebsiteBlockingOverlay({
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col gap-3">
-            <div className="flex gap-3">
-              <Button
-                variant="default"
-                className="flex-1 bg-green-600 hover:bg-green-700"
-                onClick={handleBackToHome}
-              >
-                <Home className="h-4 w-4 mr-2" />
-                {t.backToSafety}
-              </Button>
-              <Button
-                data-tour="website-report-button"
-                variant="destructive"
-                onClick={handleReport}
-                className="flex-1"
-              >
-                <Flag className="h-4 w-4 mr-2" />
-                {t.reportFraud}
-              </Button>
-            </div>
-            <Button
-              variant="outline"
-              onClick={handleContinue}
-              className="w-full border-red-300 text-red-700 hover:bg-red-50"
-            >
-              <CornerUpRight className="h-4 w-4 mr-2" />
-              {t.continueRisk}
-            </Button>
-          </div>
+              {/* Action Buttons */}
+              <div className="flex flex-col gap-3">
+                <div className="flex gap-3">
+                  <Button
+                    variant="default"
+                    className="flex-1 bg-green-600 hover:bg-green-700"
+                    onClick={handleBackToHome}
+                  >
+                    <Home className="h-4 w-4 mr-2" />
+                    {t.backToSafety}
+                  </Button>
+                  <Button
+                    data-tour="website-report-button"
+                    variant="destructive"
+                    onClick={handleReport}
+                    className="flex-1"
+                  >
+                    <Flag className="h-4 w-4 mr-2" />
+                    {t.reportFraud}
+                  </Button>
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={handleContinue}
+                  className="w-full border-red-300 text-red-700 hover:bg-red-50"
+                >
+                  <CornerUpRight className="h-4 w-4 mr-2" />
+                  {t.continueRisk}
+                </Button>
+              </div>
+            </>
+          )}
         </CardContent>
       </Card>
 
