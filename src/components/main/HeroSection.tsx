@@ -57,7 +57,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 w-full h-full z-30 flex items-end pt-16 px-16">
         {/* LEFT COLUMN - 20% */}
         <div className="w-1/4 h-1/2 flex justify-start items-center pb-16 pr-16">
-          <div className="bg-white w-full h-full rounded-tr-[10rem] flex flex-col items-start justify-center gap-8 px-8 py-16 relative">
+          <div className="bg-white w-full h-full rounded-tr-[10rem] flex flex-col items-start justify-center gap-8 px-8 py-16 relative drop-shadow-lg">
             <div className="w-64 h-64 -mt-32 relative">
               <Image
                 src="/images/shield.png"
