@@ -12,7 +12,7 @@ export default function HeroSection() {
       {/* BACK LAYER - Massive Text with Gradient */}
       <div className="absolute inset-0 w-full h-full flex items-start justify-center z-10 pt-16 px-16">
         <h1
-          className="text-[10rem] md:text-[12rem] lg:text-[12rem] xl:text-[15rem] 2xl:text-[18rem] select-none leading-none w-full text-center flex flex-row justify-center items-center"
+          className="text-[10rem] md:text-[12rem] lg:text-[12rem] xl:text-[15rem] 2xl:text-[18rem] select-none leading-none w-full text-center flex flex-row justify-between items-center"
           style={{
             background:
               "linear-gradient(to bottom, white 20%, transparent 90%)",
@@ -68,8 +68,8 @@ export default function HeroSection() {
             </div>
             <div className="w-full flex flex-col space-y-2 text-xl font-medium text-start">
               <span className="text-[#00147e]">Protect your loved ones</span>
-              <span className="text-gray-600">against fraud and scam</span>
-              <span className="text-gray-600">with the power of AI</span>
+              <span className="text-[#8CC8F5]">against fraud and scam</span>
+              <span className="text-[#8CC8F5]">with the power of AI</span>
               <span className="text-[#00147e]">Available in all of SEA!</span>
             </div>
           </div>

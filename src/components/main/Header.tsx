@@ -20,9 +20,9 @@ export default function Header() {
               />
             </div>
             <span className="text-2xl font-bold">
-              <span className="text-[#49A4EF]">m</span>
+              <span className="text-[#00147e]">m</span>
               <span className="text-[#EB6700]">AI</span>
-              <span className="text-[#49A4EF]">scam</span>
+              <span className="text-[#00147e]">scam</span>
             </span>
           </div>
 
@@ -30,31 +30,31 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/email-demo"
-              className="text-[#49A4EF] font-medium transition-all duration-300 hover:scale-110 hover:text-[#EB6700] hover:font-bold relative group py-2 w-32 text-center"
+              className="text-[#00147e] font-medium transition-all duration-300 hover:scale-110 hover:text-[#EB6700] hover:font-bold relative group py-2 w-32 text-center"
             >
               Email Demo
               <span
-                className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#49A4EF] transition-all duration-300 group-hover:scale-x-110 group-hover:bg-[#EB6700]"
+                className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#00147e] transition-all duration-300 group-hover:scale-x-110 group-hover:bg-[#EB6700]"
                 style={{ width: "calc(100% - 2rem)" }}
               ></span>
             </Link>
             <Link
               href="/website-demo"
-              className="text-[#49A4EF] font-medium transition-all duration-300 hover:scale-110 hover:text-[#EB6700] hover:font-bold relative group py-2 w-32 text-center"
+              className="text-[#00147e] font-medium transition-all duration-300 hover:scale-110 hover:text-[#EB6700] hover:font-bold relative group py-2 w-32 text-center"
             >
               Website Demo
               <span
-                className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#49A4EF] transition-all duration-300 group-hover:scale-x-110 group-hover:bg-[#EB6700]"
+                className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#00147e] transition-all duration-300 group-hover:scale-x-110 group-hover:bg-[#EB6700]"
                 style={{ width: "calc(100% - 1rem)" }}
               ></span>
             </Link>
             <Link
               href="/image-demo"
-              className="text-[#49A4EF] font-medium transition-all duration-300 hover:scale-110 hover:text-[#EB6700] hover:font-bold relative group py-2 w-40 text-center"
+              className="text-[#00147e] font-medium transition-all duration-300 hover:scale-110 hover:text-[#EB6700] hover:font-bold relative group py-2 w-40 text-center"
             >
               Social Media Demo
               <span
-                className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#49A4EF] transition-all duration-300 group-hover:scale-x-110 group-hover:bg-[#EB6700]"
+                className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#00147e] transition-all duration-300 group-hover:scale-x-110 group-hover:bg-[#EB6700]"
                 style={{ width: "calc(100% - 1rem)" }}
               ></span>
             </Link>
@@ -63,7 +63,7 @@ export default function Header() {
           {/* Right - Contact Button */}
           <Button
             asChild
-            className="bg-[#49A4EF] hover:bg-[#EB6700] text-white rounded-full px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="bg-[#00147e] hover:bg-[#EB6700] text-white rounded-full px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Link href="#contact" className="flex items-center space-x-2">
               <span>Contact</span>
