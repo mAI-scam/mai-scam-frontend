@@ -20,6 +20,7 @@ export default function HeroSection() {
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
             gap: "0.2em",
+            filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))",
           }}
         >
           <span>m</span>
