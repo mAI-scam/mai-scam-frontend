@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "mAIscam extension demo",
   description: "mAIscam web extension demo",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
 };
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-background to-muted/20`}
       >
         {children}
       </body>
