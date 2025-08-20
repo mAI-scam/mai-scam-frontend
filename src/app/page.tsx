@@ -28,318 +28,57 @@ export default function Home() {
         {/* Hero Section */}
         <section className="flex flex-col items-center text-center mb-8 md:mb-12 mx-auto">
           {/* Identity Text */}
-          <div className="font-bold mb-4 md:mb-6 py-4 md:py-6">
-            {/* Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-[#49A4EF]">
-              <span>m</span>
-              <span className="text-[#EB6700]">AI</span>
-              <span>scam</span>
-            </h1>
-            {/* Subtitle */}
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#6FBDF4] mt-2">
-              an <span className="text-[#EB6700]">AI-powered</span>{" "}
-              <span className="text-[#49A4EF]">anti-scam</span> Web Extension
-            </h2>
-          </div>
+          <div className="font-bold mb-4 md:mb-6 py-4 md:py-6 w-full">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 lg:justify-center max-w-6xl mx-auto px-4 lg:px-8">
+              {/* Left side - Title and Subtitle */}
+              <div className="lg:flex-1 text-center lg:text-left lg:pr-8">
+                {/* Title */}
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[#49A4EF]">
+                  <span>m</span>
+                  <span className="text-[#EB6700]">AI</span>
+                  <span>scam</span>
+                </h1>
+                {/* Subtitle */}
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#6FBDF4] mt-2 whitespace-nowrap">
+                  an <span className="text-[#EB6700]">AI-powered</span>{" "}
+                  <span className="text-[#49A4EF]">anti-scam</span> Web
+                  Extension
+                </h2>
 
-          {/* YouTube Video Demo */}
-          <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 mb-6 md:mb-8 shadow-lg max-w-4xl mx-auto">
-            <div className="text-center mb-4">
-              <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
-                🎥 Watch mAIscam in Action
-              </h3>
-              <p className="text-sm md:text-base text-gray-600">
-                See how our AI-powered extension protects you from scams in
-                real-time
-              </p>
-            </div>
-            <div
-              className="relative w-full"
-              style={{ paddingBottom: "56.25%" }}
-            >
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
-                src="https://www.youtube.com/embed/1xNxD_bfvpw?rel=0&modestbranding=1"
-                title="mAIscam Web Extension Demo"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-
-          {/* Buttons */}
-          {/* <div className="flex justify-center gap-4 mb-6">
-            <Button asChild size="lg">
-              <Link href="/email-demo">Try Demo</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <a href="#features">Learn More</a>
-            </Button>
-          </div> */}
-
-          {/* Description */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4 mb-4 md:mb-6 text-left max-w-4xl mx-auto">
-            <p className="text-xs md:text-sm text-blue-800">
-              <strong>📱 Browser Extension Demo:</strong> This website
-              demonstrates how the mAIscam Chrome extension works in real
-              browsers. The actual extension integrates seamlessly into your
-              browsing experience to protect against scams across emails,
-              websites, and social media platforms.
-            </p>
-          </div>
-
-          {/* Development Status & Future Plans */}
-          <div className="bg-green-50 border border-green-200 rounded-lg p-3 md:p-4 mb-4 md:mb-6 text-left max-w-4xl mx-auto">
-            <p className="text-xs md:text-sm text-green-800 mb-2">
-              <strong>🚀 Development Status & Future Plans:</strong> This
-              website serves as a proof-of-concept demonstration to illustrate
-              how our web extension will function in real-world scenarios. We
-              are currently building the actual Chrome extension concurrently
-              with this demo.
-            </p>
-            <div className="space-y-2">
-              <div className="flex items-start gap-2">
-                <span className="text-green-600 font-bold text-xs">✓</span>
-                <span className="text-xs md:text-sm text-green-700">
-                  <strong>Realistic Prototype:</strong> All demonstrated
-                  features are technically feasible and planned for
-                  implementation
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-green-600 font-bold text-xs">✓</span>
-                <span className="text-xs md:text-sm text-green-700">
-                  <strong>AI Integration Ready:</strong> Multi-agent system
-                  architecture designed for real-time threat detection
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-green-600 font-bold text-xs">✓</span>
-                <span className="text-xs md:text-sm text-green-700">
-                  <strong>Cultural Intelligence Framework:</strong> Language
-                  models and cultural context algorithms in development
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-green-600 font-bold text-xs">🔧</span>
-                <span className="text-xs md:text-sm text-green-700">
-                  <strong>Development Roadmap:</strong> MVP Chrome extension by
-                  September 18th (Round 2 submission), with full production
-                  version by October 2024
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Problem */}
-          {/* <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 text-left max-w-2xl mx-auto">
-            <p className="text-sm text-red-800">
-              <strong>The Problem:</strong> Financial scams devastate Southeast
-              Asia with cybercrime surging 82% and generating $43.8B annually.
-              Criminal syndicates exploit 63% social media penetration and
-              linguistic diversity, while current solutions remain reactive and
-              lack cultural intelligence.
-            </p>
-          </div> */}
-
-          {/* Problem Statement Section */}
-          <section className="mb-8 md:mb-12 max-w-5xl mx-auto">
-            <Card className="border-red-200 bg-red-50">
-              <CardHeader>
-                <CardTitle className="text-2xl md:text-3xl text-center text-red-800">
-                  🚨 The Crisis: Southeast Asia Under Siege
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 md:space-y-6">
-                <div className="bg-white border border-red-200 rounded-lg p-4">
-                  <div className="text-center mb-4">
-                    <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
-                      $43.8B
-                    </div>
-                    <p className="text-sm md:text-base text-red-800 font-semibold">
-                      Annual revenue generated by cybercrime syndicates
-                    </p>
-                    <p className="text-xs text-red-600 mt-1">
-                      <a
-                        href="https://www.csis.org/analysis/cyber-scamming-goes-global-unveiling-southeast-asias-high-tech-fraud-factories"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-red-800"
-                      >
-                        Source: CSIS Report (Dec 2024)
-                      </a>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-white border border-red-200 rounded-lg p-3 text-center">
-                    <div className="text-xl md:text-2xl font-bold text-red-600 mb-1">
-                      82%
-                    </div>
-                    <p className="text-xs md:text-sm text-red-800">
-                      Cybercrime surge (2021-2022)
-                    </p>
-                  </div>
-                  <div className="bg-white border border-red-200 rounded-lg p-3 text-center">
-                    <div className="text-xl md:text-2xl font-bold text-red-600 mb-1">
-                      63%
-                    </div>
-                    <p className="text-xs md:text-sm text-red-800">
-                      Social media penetration
-                    </p>
-                  </div>
-                  <div className="bg-white border border-red-200 rounded-lg p-3 text-center">
-                    <div className="text-xl md:text-2xl font-bold text-red-600 mb-1">
-                      246K
-                    </div>
-                    <p className="text-xs md:text-sm text-red-800">
-                      <a
-                        href="https://controld.com/blog/phishing-statistics-industry-trends/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-red-900"
-                      >
-                        Phishing incidents (Thailand & Vietnam, H1 2023)
-                      </a>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <h4 className="font-bold text-red-800 text-sm md:text-base">
-                    Three Critical Challenges:
-                  </h4>
-
-                  <div className="flex items-start space-x-3">
-                    <Badge className="w-6 h-6 md:w-7 md:h-7 rounded-full p-0 flex items-center justify-center flex-shrink-0 bg-red-600">
-                      <span className="font-bold text-xs">1</span>
-                    </Badge>
-                    <div>
-                      <h5 className="font-semibold text-red-800 text-xs md:text-sm mb-1">
-                        Linguistic & Cultural Exploitation
-                      </h5>
-                      <p className="text-red-700 text-xs md:text-sm">
-                        Criminal syndicates weaponize Southeast Asia&apos;s
-                        linguistic diversity, targeting victims in native
-                        languages with culturally-tailored attacks that generic
-                        tools cannot detect.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <Badge className="w-6 h-6 md:w-7 md:h-7 rounded-full p-0 flex items-center justify-center flex-shrink-0 bg-red-600">
-                      <span className="font-bold text-xs">2</span>
-                    </Badge>
-                    <div>
-                      <h5 className="font-semibold text-red-800 text-xs md:text-sm mb-1">
-                        Weaponized Social Media
-                      </h5>
-                      <p className="text-red-700 text-xs md:text-sm">
-                        Scammers exploit massive social media penetration
-                        through platforms like Facebook for fraudulent offers,
-                        fake job postings, and travel deals targeting vulnerable
-                        populations.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <Badge className="w-6 h-6 md:w-7 md:h-7 rounded-full p-0 flex items-center justify-center flex-shrink-0 bg-red-600">
-                      <span className="font-bold text-xs">3</span>
-                    </Badge>
-                    <div>
-                      <h5 className="font-semibold text-red-800 text-xs md:text-sm mb-1">
-                        Phishing Epidemic
-                      </h5>
-                      <p className="text-red-700 text-xs md:text-sm">
-                        With{" "}
-                        <a
-                          href="https://controld.com/blog/phishing-statistics-industry-trends/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline hover:text-red-900"
-                        >
-                          over 12 million blocked links in six months
-                        </a>{" "}
-                        and 36% of data breaches involving phishing, current
-                        defenses are completely overwhelmed.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-red-100 border border-red-300 rounded-lg p-3">
-                  <h4 className="font-bold text-red-800 text-sm md:text-base mb-2">
-                    ⚠️ The Critical Gap: Existing Solutions Are Failing
-                  </h4>
-                  <ul className="space-y-2 text-xs md:text-sm text-red-700">
-                    <li className="flex items-start space-x-2">
-                      <span className="text-red-600 font-bold">•</span>
-                      <span>
-                        <strong>Passive & Reactive:</strong> Tools like
-                        Singapore&apos;s CheckMate require manual input,
-                        offering protection that&apos;s often too late.
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-red-600 font-bold">•</span>
-                      <span>
-                        <strong>Siloed & Context-Blind:</strong> Solutions like
-                        Whoscall lack cultural intelligence needed for localized
-                        threats across web, social media, and email.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* Solution Bridge Section */}
-          <section className="mb-8 md:mb-12 max-w-5xl mx-auto">
-            <div className="bg-blue-100 border-2 border-blue-400 rounded-xl p-6 md:p-8 text-center shadow-xl">
-              <div className="mb-4">
-                <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full font-bold text-sm md:text-base mb-4">
-                  💡 THE SOLUTION
+                {/* Description */}
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4 mt-4 text-left max-w-4xl">
+                  <p className="text-xs md:text-sm text-blue-800">
+                    <strong>📱 Browser Extension Demo:</strong> This is only a
+                    prototype! Look forward to our actual solution soon!
+                  </p>
                 </div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                To address these critical challenges, we created{" "}
-                <span className="text-[#49A4EF]">m</span>
-                <span className="text-[#EB6700]">AI</span>
-                <span className="text-[#49A4EF]">scam</span>
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                An{" "}
-                <strong className="text-[#EB6700]">
-                  AI-powered, culturally intelligent
-                </strong>{" "}
-                web extension that provides{" "}
-                <strong className="text-[#49A4EF]">real-time protection</strong>{" "}
-                against scams across emails, websites, and social media
-                platforms — specifically designed for Southeast Asia&apos;s
-                linguistic diversity and threat landscape.
-              </p>
-              <div className="mt-6">
-                <div className="inline-flex items-center gap-2 text-sm md:text-base text-gray-600">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  <span>Proactive AI Detection</span>
-                  <span className="w-2 h-2 bg-green-500 rounded-full ml-4"></span>
-                  <span>Cultural Intelligence</span>
-                  <span className="w-2 h-2 bg-green-500 rounded-full ml-4"></span>
-                  <span>Real-time Protection</span>
+
+              {/* Right side - YouTube Video Demo */}
+              <div className="lg:flex-1 mt-6 lg:mt-0 lg:pl-8">
+                <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 shadow-lg max-w-md mx-auto lg:mx-0">
+                  <div
+                    className="relative w-full"
+                    style={{ paddingBottom: "56.25%" }}
+                  >
+                    <iframe
+                      className="absolute top-0 left-0 w-full h-full rounded-lg"
+                      src="https://www.youtube.com/embed/1xNxD_bfvpw?rel=0&modestbranding=1"
+                      title="mAIscam Web Extension Demo"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
 
           {/* Features Section */}
           <div
             id="features"
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full max-w-5xl"
           >
             {FeatureCardData.map((item, idx) => (
               <FeatureCard key={idx} {...item} />
@@ -464,6 +203,199 @@ export default function Home() {
               />
             </div>
           </Card>
+        </section>
+
+        {/* Problem Statement Section */}
+        <section className="mb-8 md:mb-12 max-w-5xl mx-auto">
+          <Card className="border-red-200 bg-red-50">
+            <CardHeader>
+              <CardTitle className="text-2xl md:text-3xl text-center text-red-800">
+                🚨 The Crisis: Southeast Asia Under Siege
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 md:space-y-6">
+              <div className="bg-white border border-red-200 rounded-lg p-4">
+                <div className="text-center mb-4">
+                  <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
+                    $43.8B
+                  </div>
+                  <p className="text-sm md:text-base text-red-800 font-semibold">
+                    Annual revenue generated by cybercrime syndicates
+                  </p>
+                  <p className="text-xs text-red-600 mt-1">
+                    <a
+                      href="https://www.csis.org/analysis/cyber-scamming-goes-global-unveiling-southeast-asias-high-tech-fraud-factories"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-red-800"
+                    >
+                      Source: CSIS Report (Dec 2024)
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-white border border-red-200 rounded-lg p-3 text-center">
+                  <div className="text-xl md:text-2xl font-bold text-red-600 mb-1">
+                    82%
+                  </div>
+                  <p className="text-xs md:text-sm text-red-800">
+                    Cybercrime surge (2021-2022)
+                  </p>
+                </div>
+                <div className="bg-white border border-red-200 rounded-lg p-3 text-center">
+                  <div className="text-xl md:text-2xl font-bold text-red-600 mb-1">
+                    63%
+                  </div>
+                  <p className="text-xs md:text-sm text-red-800">
+                    Social media penetration
+                  </p>
+                </div>
+                <div className="bg-white border border-red-200 rounded-lg p-3 text-center">
+                  <div className="text-xl md:text-2xl font-bold text-red-600 mb-1">
+                    246K
+                  </div>
+                  <p className="text-xs md:text-sm text-red-800">
+                    <a
+                      href="https://controld.com/blog/phishing-statistics-industry-trends/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-red-900"
+                    >
+                      Phishing incidents (Thailand & Vietnam, H1 2023)
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="font-bold text-red-800 text-sm md:text-base">
+                  Three Critical Challenges:
+                </h4>
+
+                <div className="flex items-start space-x-3">
+                  <Badge className="w-6 h-6 md:w-7 md:h-7 rounded-full p-0 flex items-center justify-center flex-shrink-0 bg-red-600">
+                    <span className="font-bold text-xs">1</span>
+                  </Badge>
+                  <div>
+                    <h5 className="font-semibold text-red-800 text-xs md:text-sm mb-1">
+                      Linguistic & Cultural Exploitation
+                    </h5>
+                    <p className="text-red-700 text-xs md:text-sm">
+                      Criminal syndicates weaponize Southeast Asia&apos;s
+                      linguistic diversity, targeting victims in native
+                      languages with culturally-tailored attacks that generic
+                      tools cannot detect.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <Badge className="w-6 h-6 md:w-7 md:h-7 rounded-full p-0 flex items-center justify-center flex-shrink-0 bg-red-600">
+                    <span className="font-bold text-xs">2</span>
+                  </Badge>
+                  <div>
+                    <h5 className="font-semibold text-red-800 text-xs md:text-sm mb-1">
+                      Weaponized Social Media
+                    </h5>
+                    <p className="text-red-700 text-xs md:text-sm">
+                      Scammers exploit massive social media penetration through
+                      platforms like Facebook for fraudulent offers, fake job
+                      postings, and travel deals targeting vulnerable
+                      populations.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <Badge className="w-6 h-6 md:w-7 md:h-7 rounded-full p-0 flex items-center justify-center flex-shrink-0 bg-red-600">
+                    <span className="font-bold text-xs">3</span>
+                  </Badge>
+                  <div>
+                    <h5 className="font-semibold text-red-800 text-xs md:text-sm mb-1">
+                      Phishing Epidemic
+                    </h5>
+                    <p className="text-red-700 text-xs md:text-sm">
+                      With{" "}
+                      <a
+                        href="https://controld.com/blog/phishing-statistics-industry-trends/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-red-900"
+                      >
+                        over 12 million blocked links in six months
+                      </a>{" "}
+                      and 36% of data breaches involving phishing, current
+                      defenses are completely overwhelmed.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-red-100 border border-red-300 rounded-lg p-3">
+                <h4 className="font-bold text-red-800 text-sm md:text-base mb-2">
+                  ⚠️ The Critical Gap: Existing Solutions Are Failing
+                </h4>
+                <ul className="space-y-2 text-xs md:text-sm text-red-700">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>
+                      <strong>Passive & Reactive:</strong> Tools like
+                      Singapore&apos;s CheckMate require manual input, offering
+                      protection that&apos;s often too late.
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>
+                      <strong>Siloed & Context-Blind:</strong> Solutions like
+                      Whoscall lack cultural intelligence needed for localized
+                      threats across web, social media, and email.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Solution Bridge Section */}
+        <section className="mb-8 md:mb-12 max-w-5xl mx-auto">
+          <div className="bg-blue-100 border-2 border-blue-400 rounded-xl p-6 md:p-8 text-center shadow-xl">
+            <div className="mb-4">
+              <div className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full font-bold text-sm md:text-base mb-4">
+                💡 THE SOLUTION
+              </div>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+              To address these critical challenges, we created{" "}
+              <span className="text-[#49A4EF]">m</span>
+              <span className="text-[#EB6700]">AI</span>
+              <span className="text-[#49A4EF]">scam</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              An{" "}
+              <strong className="text-[#EB6700]">
+                AI-powered, culturally intelligent
+              </strong>{" "}
+              web extension that provides{" "}
+              <strong className="text-[#49A4EF]">real-time protection</strong>{" "}
+              against scams across emails, websites, and social media platforms
+              — specifically designed for Southeast Asia&apos;s linguistic
+              diversity and threat landscape.
+            </p>
+            <div className="mt-6">
+              <div className="inline-flex items-center gap-2 text-sm md:text-base text-gray-600">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span>Proactive AI Detection</span>
+                <span className="w-2 h-2 bg-green-500 rounded-full ml-4"></span>
+                <span>Cultural Intelligence</span>
+                <span className="w-2 h-2 bg-green-500 rounded-full ml-4"></span>
+                <span>Real-time Protection</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Enterprise & Government Solutions */}
@@ -695,13 +627,54 @@ export default function Home() {
           <Card className="flex-1 hidden md:block">
             <div className="relative w-full h-64 md:h-full">
               <Image
-                src="/images/edmund.jpg" // replace with your image path
+                src="/images/edmund_new.jpg" // replace with your image path
                 alt="Our Features Illustration"
                 fill
                 className="object-cover rounded-lg"
               />
             </div>
           </Card>
+        </section>
+
+        {/* Development Status & Future Plans */}
+        <section className="bg-green-50 border border-green-200 rounded-lg p-3 md:p-4 mb-4 md:mb-6 text-left max-w-5xl mx-auto">
+          <p className="text-xs md:text-sm text-green-800 mb-2">
+            <strong>🚀 Development Status & Future Plans:</strong> This website
+            serves as a proof-of-concept demonstration to illustrate how our web
+            extension will function in real-world scenarios. We are currently
+            building the actual Chrome extension concurrently with this demo.
+          </p>
+          <div className="space-y-2">
+            <div className="flex items-start gap-2">
+              <span className="text-green-600 font-bold text-xs">✓</span>
+              <span className="text-xs md:text-sm text-green-700">
+                <strong>Realistic Prototype:</strong> All demonstrated features
+                are technically feasible and planned for implementation
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-green-600 font-bold text-xs">✓</span>
+              <span className="text-xs md:text-sm text-green-700">
+                <strong>AI Integration Ready:</strong> Multi-agent system
+                architecture designed for real-time threat detection
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-green-600 font-bold text-xs">✓</span>
+              <span className="text-xs md:text-sm text-green-700">
+                <strong>Cultural Intelligence Framework:</strong> Language
+                models and cultural context algorithms in development
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-green-600 font-bold text-xs">🔧</span>
+              <span className="text-xs md:text-sm text-green-700">
+                <strong>Development Roadmap:</strong> MVP Chrome extension by
+                September 18th (Round 2 submission), with full production
+                version by October 2024
+              </span>
+            </div>
+          </div>
         </section>
       </main>
 

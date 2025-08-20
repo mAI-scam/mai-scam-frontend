@@ -16,29 +16,35 @@ export default function FeatureCard(props: FeatureCardItem) {
   return (
     <Link href={link} className="group">
       <Card
-        className={`h-full hover:shadow-xl transition-shadow border-2 ${styles.cardBg} ${styles.cardBorder}`}
+        className={`hover:shadow-xl transition-shadow border-2 ${styles.cardBg} ${styles.cardBorder}`}
       >
-        <CardHeader className="flex flex-row gap-4 items-center">
-          <div
-            className={`w-12 h-12 rounded-lg flex items-center justify-center transition-colors ${styles.iconBg}`}
-          >
-            <Icon className={`w-6 h-6 ${styles.iconColor}`} />
+        <CardContent className="p-4">
+          <div className="flex items-center gap-4">
+            <div
+              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${styles.iconBg}`}
+            >
+              <Icon className={`w-5 h-5 ${styles.iconColor}`} />
+            </div>
+            <CardTitle className={`flex-grow ${styles.titleColor} text-base`}>
+              {title}
+            </CardTitle>
+            <div
+              className={`flex flex-col items-center border rounded-lg px-3 py-2 transition-all duration-200 hover:shadow-lg hover:scale-105 ${
+                colorScheme === "brown"
+                  ? "bg-stone-200 border-stone-400 hover:bg-stone-300"
+                  : colorScheme === "orange"
+                  ? "bg-orange-200 border-orange-400 hover:bg-orange-300"
+                  : "bg-purple-200 border-purple-400 hover:bg-purple-300"
+              }`}
+            >
+              <span
+                className={`${styles.textColor} font-semibold text-sm whitespace-nowrap`}
+              >
+                Try now
+              </span>
+              <span className={`${styles.textColor} text-lg font-bold`}>→</span>
+            </div>
           </div>
-          <CardTitle
-            className={`flex-grow flex justify-start items-center ${styles.titleColor}`}
-          >
-            {title}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <CardDescription className={styles.textColor}>
-            {description}
-          </CardDescription>
-          <p
-            className={`${styles.textColor} mt-4 group-hover:underline font-semibold`}
-          >
-            Try {title} →
-          </p>
         </CardContent>
       </Card>
     </Link>
