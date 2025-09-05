@@ -50,7 +50,7 @@ export function UrgencyPopups() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [isClient]);
+  }, [isClient, popups.length]);
 
   // Don't render on server or before client hydration
   if (!isClient || !showPopup) return null;

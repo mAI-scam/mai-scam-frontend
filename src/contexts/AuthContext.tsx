@@ -5,6 +5,7 @@ import {
   useContext,
   useState,
   useEffect,
+  useCallback,
   ReactNode,
 } from "react";
 import { useRouter } from "next/navigation";
@@ -31,54 +32,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  useEffect(() => {
-    // Check authentication on app load
-    checkAuthStatus();
-
-    // Listen for Supabase auth changes (for Google OAuth)
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === "SIGNED_IN" && session?.user) {
-        await checkGoogleAdminAccess(session.user);
-      } else if (event === "SIGNED_OUT") {
-        setIsAuthenticated(false);
-        setUser(null);
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  const checkAuthStatus = async () => {
-    try {
-      // First check local auth (test/1234)
-      const localAuth = checkLocalAuth();
-      if (localAuth) {
-        setIsLoading(false);
-        return;
-      }
-
-      // Then check Supabase auth (Google)
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-      if (session?.user) {
-        await checkGoogleAdminAccess(session.user);
-      } else {
-        setIsAuthenticated(false);
-        setUser(null);
-      }
-    } catch (error) {
-      console.error("Error checking auth status:", error);
-      setIsAuthenticated(false);
-      setUser(null);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const checkLocalAuth = () => {
+  const checkLocalAuth = useCallback(() => {
     try {
       const authData = localStorage.getItem("mAIscam_admin_auth");
       if (authData) {
@@ -97,13 +51,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           localStorage.removeItem("mAIscam_admin_auth");
         }
       }
-    } catch (error) {
+    } catch {
       localStorage.removeItem("mAIscam_admin_auth");
     }
     return false;
-  };
+  }, []);
 
-  const checkGoogleAdminAccess = async (user: User) => {
+  const checkGoogleAdminAccess = useCallback(async (user: User) => {
     try {
       // Check if user has admin access in Supabase
       const { data: adminUser, error } = await supabase
@@ -146,7 +100,54 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setIsAuthenticated(false);
       setUser(null);
     }
-  };
+  }, []);
+
+  const checkAuthStatus = useCallback(async () => {
+    try {
+      // First check local auth (test/1234)
+      const localAuth = checkLocalAuth();
+      if (localAuth) {
+        setIsLoading(false);
+        return;
+      }
+
+      // Then check Supabase auth (Google)
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session?.user) {
+        await checkGoogleAdminAccess(session.user);
+      } else {
+        setIsAuthenticated(false);
+        setUser(null);
+      }
+    } catch (error) {
+      console.error("Error checking auth status:", error);
+      setIsAuthenticated(false);
+      setUser(null);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [checkLocalAuth, checkGoogleAdminAccess]);
+
+  useEffect(() => {
+    // Check authentication on app load
+    checkAuthStatus();
+
+    // Listen for Supabase auth changes (for Google OAuth)
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === "SIGNED_IN" && session?.user) {
+        await checkGoogleAdminAccess(session.user);
+      } else if (event === "SIGNED_OUT") {
+        setIsAuthenticated(false);
+        setUser(null);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [checkAuthStatus, checkGoogleAdminAccess]);
 
   const login = async (
     username: string,
