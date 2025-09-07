@@ -3,13 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Shield, FileText } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/contexts/AuthContext";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isAuthenticated } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -63,15 +61,6 @@ export default function Header() {
           >
             Policy
           </Link>
-
-          {/* Admin Button */}
-          <Link
-            href={isAuthenticated ? "/admin" : "/login"}
-            className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-[#49A4EF] to-[#EB6700] text-white rounded-lg hover:opacity-90 transition-opacity"
-          >
-            <Shield className="h-4 w-4" />
-            Admin
-          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -120,16 +109,6 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Policy
-            </Link>
-
-            {/* Admin Button - Mobile */}
-            <Link
-              href={isAuthenticated ? "/admin" : "/login"}
-              className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-[#49A4EF] to-[#EB6700] text-white rounded-lg hover:opacity-90 transition-opacity"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Shield className="h-4 w-4" />
-              Admin
             </Link>
           </div>
         </div>
