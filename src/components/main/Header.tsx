@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Shield } from "lucide-react";
+import { Menu, X, Shield, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -57,6 +57,12 @@ export default function Header() {
           >
             Social Media Demo
           </Link>
+          <Link
+            href="/policy"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Policy
+          </Link>
 
           {/* Admin Button */}
           <Link
@@ -107,6 +113,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Social Media Demo
+            </Link>
+            <Link
+              href="/policy"
+              className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Policy
             </Link>
 
             {/* Admin Button - Mobile */}

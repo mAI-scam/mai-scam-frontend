@@ -1,6 +1,7 @@
 "use client";
 // test
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -689,6 +690,14 @@ export default function Home() {
             This demo website simulates the actual Chrome extension
             functionality.
           </p>
+          <div className="mt-4 flex justify-center space-x-4">
+            <Link
+              href="/policy"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
+            >
+              Privacy & Policy
+            </Link>
+          </div>
         </div>
       </footer>
     </div>
