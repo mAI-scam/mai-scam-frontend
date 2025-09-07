@@ -45,6 +45,21 @@ export default function PolicyPage() {
               is intended for use &quot;AS IS&quot; to protect Southeast Asian
               users from online scams.
             </p>
+            <div className="mt-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
+              <h4 className="font-semibold text-purple-800 mb-2">🏆 Hackathon Project</h4>
+              <p className="text-sm text-purple-800 mb-2">
+                This extension was developed as part of the <strong>Pan-SEA AI Developer Challenge 2025</strong>, 
+                a virtual hackathon uniting developers, researchers, and builders to accelerate the adoption 
+                and impact of LLMs in sectors that matter most: Healthcare, Finance, Education, and Public Sector.
+              </p>
+              <p className="text-xs text-purple-700">
+                Learn more about the challenge: 
+                <a href="https://seadeveloperchallenge.ai/" target="_blank" rel="noopener noreferrer" 
+                   className="underline hover:no-underline ml-1">
+                  https://seadeveloperchallenge.ai/
+                </a>
+              </p>
+            </div>
           </div>
           <div className="mt-4 bg-green-50 border border-green-200 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-green-800 mb-3">
@@ -67,7 +82,7 @@ export default function PolicyPage() {
                     tab for scam detection
                   </li>
                   <li>
-                    • <strong>tabs:</strong> Enable automatic scam detection and
+                    • <strong>tabs:</strong> Enable automatic tab identification(Gmail, Facebook, and websites) and
                     update extension icons
                   </li>
                   <li>
@@ -181,8 +196,8 @@ export default function PolicyPage() {
               </div>
               <p className="text-muted-foreground leading-relaxed">
                 We only transmit content that users have specifically flagged as
-                suspicious or content from high-risk platforms (Gmail, Facebook,
-                banking sites) for analysis. Personal information is never
+                suspicious or content from high-risk platforms (Gmail, Facebook,and
+                Gambling sites) for analysis. Personal information is never
                 stored or transmitted.
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -225,7 +240,6 @@ export default function PolicyPage() {
                   • Disabling the extension in Chrome&apos;s extension settings
                 </li>
                 <li>• Uninstalling the extension from Chrome Web Store</li>
-                <li>• Turning off auto-detection in the extension settings</li>
               </ul>
               <p className="text-muted-foreground leading-relaxed">
                 All locally stored data (preferences, analysis history) will be
@@ -260,7 +274,7 @@ export default function PolicyPage() {
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   To request deletion of any data associated with your usage,
-                  please contact us at info.maiscam@gmail.com and we will
+                  please contact us at <strong>info.maiscam@gmail.com</strong> and we will
                   respond within a reasonable time frame.
                 </p>
               </div>
@@ -294,7 +308,7 @@ export default function PolicyPage() {
                 Services without their permission. If you have reason to believe
                 that a child has provided personally identifiable information to
                 the Service Provider through the Extension and/or Services,
-                please contact the Service Provider (info.maiscam@gmail.com) so
+                please contact the Service Provider (<strong>info.maiscam@gmail.com</strong>) so
                 that they will be able to take the necessary actions. You must
                 also be at least 16 years of age to consent to the processing of
                 your personally identifiable information in your country (in
@@ -413,7 +427,7 @@ export default function PolicyPage() {
               </ul>
               <p className="text-muted-foreground leading-relaxed">
                 You can withdraw consent at any time by uninstalling the
-                extension or disabling specific features in the extension
+                extension or disabling the extension in the chrome extension
                 settings.
               </p>
             </CardContent>
