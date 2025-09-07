@@ -40,9 +40,9 @@ export default function PolicyPage() {
             <p className="text-sm text-blue-800 leading-relaxed">
               This privacy policy applies to the maiscam app extension app
               (hereby referred to as &quot;Application&quot;) for mobile devices
-              that was created by maiscam (hereby referred to as &quot;Service
-              Provider&quot;) as a Free service. This service is intended for
-              use &quot;AS IS&quot;.
+              that was created by Lin Zhenming, Shaun Liew Xin Hong (hereby
+              referred to as &quot;Service Provider&quot;) as a Free service.
+              This service is intended for use &quot;AS IS&quot;.
             </p>
           </div>
         </section>
@@ -85,10 +85,9 @@ export default function PolicyPage() {
               <p className="text-muted-foreground leading-relaxed">
                 For a better experience, while using the Application, the
                 Service Provider may require you to provide us with certain
-                personally identifiable information, including but not limited
-                to Email. The information that the Service Provider request will
-                be retained by them and used as described in this privacy
-                policy.
+                personally identifiable information. The information that the
+                Service Provider request will be retained by them and used as
+                described in this privacy policy.
               </p>
             </CardContent>
           </Card>
