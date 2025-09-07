@@ -1,4 +1,5 @@
 "use client";
+// test
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -46,16 +47,24 @@ export default function PolicyPage() {
               users from online scams.
             </p>
             <div className="mt-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
-              <h4 className="font-semibold text-purple-800 mb-2">🏆 Hackathon Project</h4>
+              <h4 className="font-semibold text-purple-800 mb-2">
+                🏆 Hackathon Project
+              </h4>
               <p className="text-sm text-purple-800 mb-2">
-                This extension was developed as part of the <strong>Pan-SEA AI Developer Challenge 2025</strong>, 
-                a virtual hackathon uniting developers, researchers, and builders to accelerate the adoption 
-                and impact of LLMs in sectors that matter most: Healthcare, Finance, Education, and Public Sector.
+                This extension was developed as part of the{" "}
+                <strong>Pan-SEA AI Developer Challenge 2025</strong>, a virtual
+                hackathon uniting developers, researchers, and builders to
+                accelerate the adoption and impact of LLMs in sectors that
+                matter most: Healthcare, Finance, Education, and Public Sector.
               </p>
               <p className="text-xs text-purple-700">
-                Learn more about the challenge: 
-                <a href="https://seadeveloperchallenge.ai/" target="_blank" rel="noopener noreferrer" 
-                   className="underline hover:no-underline ml-1">
+                Learn more about the challenge:
+                <a
+                  href="https://seadeveloperchallenge.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:no-underline ml-1"
+                >
                   https://seadeveloperchallenge.ai/
                 </a>
               </p>
@@ -82,8 +91,9 @@ export default function PolicyPage() {
                     tab for scam detection
                   </li>
                   <li>
-                    • <strong>tabs:</strong> Enable automatic tab identification(Gmail, Facebook, and websites) and
-                    update extension icons
+                    • <strong>tabs:</strong> Enable automatic tab
+                    identification(Gmail, Facebook, and websites) and update
+                    extension icons
                   </li>
                   <li>
                     • <strong>storage:</strong> Store user preferences and
@@ -196,9 +206,9 @@ export default function PolicyPage() {
               </div>
               <p className="text-muted-foreground leading-relaxed">
                 We only transmit content that users have specifically flagged as
-                suspicious or content from high-risk platforms (Gmail, Facebook,and
-                Gambling sites) for analysis. Personal information is never
-                stored or transmitted.
+                suspicious or content from high-risk platforms (Gmail,
+                Facebook,and Gambling sites) for analysis. Personal information
+                is never stored or transmitted.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 The Service Provider may disclose information only:
@@ -274,8 +284,8 @@ export default function PolicyPage() {
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   To request deletion of any data associated with your usage,
-                  please contact us at <strong>info.maiscam@gmail.com</strong> and we will
-                  respond within a reasonable time frame.
+                  please contact us at <strong>info.maiscam@gmail.com</strong>{" "}
+                  and we will respond within a reasonable time frame.
                 </p>
               </div>
             </CardContent>
@@ -308,12 +318,12 @@ export default function PolicyPage() {
                 Services without their permission. If you have reason to believe
                 that a child has provided personally identifiable information to
                 the Service Provider through the Extension and/or Services,
-                please contact the Service Provider (<strong>info.maiscam@gmail.com</strong>) so
-                that they will be able to take the necessary actions. You must
-                also be at least 16 years of age to consent to the processing of
-                your personally identifiable information in your country (in
-                some countries we may allow your parent or guardian to do so on
-                your behalf).
+                please contact the Service Provider (
+                <strong>info.maiscam@gmail.com</strong>) so that they will be
+                able to take the necessary actions. You must also be at least 16
+                years of age to consent to the processing of your personally
+                identifiable information in your country (in some countries we
+                may allow your parent or guardian to do so on your behalf).
               </p>
             </CardContent>
           </Card>
