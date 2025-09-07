@@ -28,8 +28,8 @@ export default function PolicyPage() {
             <p className="text-lg md:text-xl text-muted-foreground">
               Learn how the <span className="text-[#49A4EF]">m</span>
               <span className="text-[#EB6700]">AI</span>
-              <span className="text-[#49A4EF]">scam</span> Chrome extension handles
-              your data.
+              <span className="text-[#49A4EF]">scam</span> Chrome extension
+              handles your data.
             </p>
           </div>
         </section>
@@ -38,23 +38,46 @@ export default function PolicyPage() {
         <section className="mb-8 max-w-5xl mx-auto">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
             <p className="text-sm text-blue-800 leading-relaxed">
-              This privacy policy applies to the mAIscam Chrome browser extension
-              (hereby referred to as &quot;Extension&quot;) that was created by Lin Zhenming, Shaun Liew Xin Hong (hereby
-              referred to as &quot;Service Provider&quot;) as a Free service.
-              This extension is intended for use &quot;AS IS&quot; to protect Southeast Asian users from online scams.
+              This privacy policy applies to the mAIscam Chrome browser
+              extension (hereby referred to as &quot;Extension&quot;) that was
+              created by Lin Zhenming, Shaun Liew Xin Hong (hereby referred to
+              as &quot;Service Provider&quot;) as a Free service. This extension
+              is intended for use &quot;AS IS&quot; to protect Southeast Asian
+              users from online scams.
             </p>
           </div>
           <div className="mt-4 bg-green-50 border border-green-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-green-800 mb-3">Extension Purpose & Permissions</h3>
+            <h3 className="text-lg font-semibold text-green-800 mb-3">
+              Extension Purpose & Permissions
+            </h3>
             <div className="space-y-3 text-sm text-green-800">
-              <p><strong>Single Purpose:</strong> Protect Southeast Asian users from online scams by analyzing emails, websites, and social media posts for fraudulent content using AI-powered detection across 13 local languages.</p>
+              <p>
+                <strong>Single Purpose:</strong> Protect Southeast Asian users
+                from online scams by analyzing emails, websites, and social
+                media posts for fraudulent content using AI-powered detection
+                across 13 local languages.
+              </p>
               <div>
-                <p><strong>Required Permissions:</strong></p>
+                <p>
+                  <strong>Required Permissions:</strong>
+                </p>
                 <ul className="ml-4 space-y-1">
-                  <li>• <strong>activeTab:</strong> Analyze content on your active tab for scam detection</li>
-                  <li>• <strong>tabs:</strong> Enable automatic scam detection and update extension icons</li>
-                  <li>• <strong>storage:</strong> Store user preferences and analysis cache locally</li>
-                  <li>• <strong>host permissions:</strong> Access Gmail, Facebook, and websites for comprehensive scam protection</li>
+                  <li>
+                    • <strong>activeTab:</strong> Analyze content on your active
+                    tab for scam detection
+                  </li>
+                  <li>
+                    • <strong>tabs:</strong> Enable automatic scam detection and
+                    update extension icons
+                  </li>
+                  <li>
+                    • <strong>storage:</strong> Store user preferences and
+                    analysis cache locally
+                  </li>
+                  <li>
+                    • <strong>host permissions:</strong> Access Gmail, Facebook,
+                    and websites for comprehensive scam protection
+                  </li>
                 </ul>
               </div>
             </div>
@@ -72,34 +95,52 @@ export default function PolicyPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                The mAIscam Chrome extension analyzes website content and user-selected data to detect scams. 
-                We collect and process the following types of data:
+                The mAIscam Chrome extension analyzes website content and
+                user-selected data to detect scams. We collect and process the
+                following types of data:
               </p>
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
-                <h4 className="font-semibold text-yellow-800 mb-2">Website Content Analysis</h4>
+                <h4 className="font-semibold text-yellow-800 mb-2">
+                  Website Content Analysis
+                </h4>
                 <ul className="space-y-2 text-sm text-yellow-800 ml-4">
-                  <li>• Content from websites you visit (Gmail emails, Facebook posts, web pages)</li>
+                  <li>
+                    • Content from websites you visit (Gmail emails, Facebook
+                    posts, web pages)
+                  </li>
                   <li>• URL information of websites being analyzed</li>
-                  <li>• Text content, links, and page elements for scam detection</li>
+                  <li>
+                    • Text content, links, and page elements for scam detection
+                  </li>
                   <li>• Analysis results and threat assessments</li>
                 </ul>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-                <h4 className="font-semibold text-green-800 mb-2">User Preferences & Settings</h4>
+                <h4 className="font-semibold text-green-800 mb-2">
+                  User Preferences & Settings
+                </h4>
                 <ul className="space-y-2 text-sm text-green-800 ml-4">
                   <li>• Extension preferences (auto-detection on/off)</li>
-                  <li>• Language settings for analysis in 13 Southeast Asian languages</li>
-                  <li>• Analysis history for user reference (stored locally for 30 days)</li>
+                  <li>
+                    • Language settings for analysis in 13 Southeast Asian
+                    languages
+                  </li>
+                  <li>
+                    • Analysis history for user reference (stored locally for 30
+                    days)
+                  </li>
                 </ul>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                <strong>Important:</strong> We do NOT collect or store personal information such as email content, 
-                private messages, or personal identifiers. We only analyze public content and user-selected suspicious content 
-                to generate threat assessments.
+                <strong>Important:</strong> We do NOT collect or store personal
+                information such as email content, private messages, or personal
+                identifiers. We only analyze public content and user-selected
+                suspicious content to generate threat assessments.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                The Extension operates locally on your browser and only sends anonymized content analysis 
-                to our AI services when scam detection is triggered.
+                The Extension operates locally on your browser and only sends
+                anonymized content analysis to our AI services when scam
+                detection is triggered.
               </p>
             </CardContent>
           </Card>
@@ -116,35 +157,50 @@ export default function PolicyPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                <h4 className="font-semibold text-blue-800 mb-2">Data Sharing with Third Parties</h4>
+                <h4 className="font-semibold text-blue-800 mb-2">
+                  Data Sharing with Third Parties
+                </h4>
                 <p className="text-sm text-blue-800 mb-3">
-                  We share data with the following trusted service providers to enable scam detection:
+                  We share data with the following trusted service providers to
+                  enable scam detection:
                 </p>
                 <ul className="space-y-2 text-sm text-blue-800 ml-4">
-                  <li>• <strong>AI/LLM Services:</strong> Anonymized content for scam analysis (no personal data)</li>
-                  <li>• <strong>AWS DynamoDB:</strong> Analysis results storage (threat assessments only)</li>
-                  <li>• <strong>Cloud Infrastructure:</strong> Service hosting and performance optimization</li>
+                  <li>
+                    • <strong>AI/LLM Services:</strong> Anonymized content for
+                    scam analysis (no personal data)
+                  </li>
+                  <li>
+                    • <strong>AWS DynamoDB:</strong> Analysis results storage
+                    (threat assessments only)
+                  </li>
+                  <li>
+                    • <strong>Cloud Infrastructure:</strong> Service hosting and
+                    performance optimization
+                  </li>
                 </ul>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                We only transmit content that users have specifically flagged as suspicious or content from 
-                high-risk platforms (Gmail, Facebook, banking sites) for analysis. Personal information 
-                is never stored or transmitted.
+                We only transmit content that users have specifically flagged as
+                suspicious or content from high-risk platforms (Gmail, Facebook,
+                banking sites) for analysis. Personal information is never
+                stored or transmitted.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 The Service Provider may disclose information only:
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground ml-4">
                 <li>
-                  • As required by law, such as to comply with a subpoena or similar legal process
+                  • As required by law, such as to comply with a subpoena or
+                  similar legal process
                 </li>
                 <li>
-                  • When we believe in good faith that disclosure is necessary to protect user safety, 
-                  investigate fraud, or respond to a government request
+                  • When we believe in good faith that disclosure is necessary
+                  to protect user safety, investigate fraud, or respond to a
+                  government request
                 </li>
                 <li>
-                  • With trusted service providers who assist in scam detection and have agreed to 
-                  maintain strict data protection standards
+                  • With trusted service providers who assist in scam detection
+                  and have agreed to maintain strict data protection standards
                 </li>
               </ul>
             </CardContent>
@@ -165,13 +221,15 @@ export default function PolicyPage() {
                 You can stop all data processing by the Extension by:
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground ml-4 mb-4">
-                <li>• Disabling the extension in Chrome's extension settings</li>
+                <li>
+                  • Disabling the extension in Chrome&apos;s extension settings
+                </li>
                 <li>• Uninstalling the extension from Chrome Web Store</li>
                 <li>• Turning off auto-detection in the extension settings</li>
               </ul>
               <p className="text-muted-foreground leading-relaxed">
-                All locally stored data (preferences, analysis history) will be automatically 
-                deleted when you uninstall the extension.
+                All locally stored data (preferences, analysis history) will be
+                automatically deleted when you uninstall the extension.
               </p>
             </CardContent>
           </Card>
@@ -189,18 +247,21 @@ export default function PolicyPage() {
             <CardContent>
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  <strong>Local Data:</strong> User preferences and analysis history are stored locally 
-                  in your browser and automatically deleted after 30 days. This data is removed 
-                  immediately when you uninstall the extension.
+                  <strong>Local Data:</strong> User preferences and analysis
+                  history are stored locally in your browser and automatically
+                  deleted after 30 days. This data is removed immediately when
+                  you uninstall the extension.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  <strong>Analysis Results:</strong> Threat assessment data is stored in our secure 
-                  database (AWS DynamoDB) for service improvement and pattern recognition. This data 
-                  contains no personal information, only anonymized scam detection results.
+                  <strong>Analysis Results:</strong> Threat assessment data is
+                  stored in our secure database (AWS DynamoDB) for service
+                  improvement and pattern recognition. This data contains no
+                  personal information, only anonymized scam detection results.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  To request deletion of any data associated with your usage, please contact us at 
-                  info.maiscam@gmail.com and we will respond within a reasonable time frame.
+                  To request deletion of any data associated with your usage,
+                  please contact us at info.maiscam@gmail.com and we will
+                  respond within a reasonable time frame.
                 </p>
               </div>
             </CardContent>
@@ -225,20 +286,20 @@ export default function PolicyPage() {
                 The Service Provider does not knowingly collect personally
                 identifiable information from children. The Service Provider
                 encourages all children to never submit any personally
-                identifiable information through the Extension and/or
-                Services. The Service Provider encourage parents and legal
-                guardians to monitor their children&apos;s Internet usage and to
-                help enforce this Policy by instructing their children never to
-                provide personally identifiable information through the
-                Extension and/or Services without their permission. If you
-                have reason to believe that a child has provided personally
-                identifiable information to the Service Provider through the
-                Extension and/or Services, please contact the Service Provider
-                (info.maiscam@gmail.com) so that they will be able to take the
-                necessary actions. You must also be at least 16 years of age to
-                consent to the processing of your personally identifiable
-                information in your country (in some countries we may allow your
-                parent or guardian to do so on your behalf).
+                identifiable information through the Extension and/or Services.
+                The Service Provider encourage parents and legal guardians to
+                monitor their children&apos;s Internet usage and to help enforce
+                this Policy by instructing their children never to provide
+                personally identifiable information through the Extension and/or
+                Services without their permission. If you have reason to believe
+                that a child has provided personally identifiable information to
+                the Service Provider through the Extension and/or Services,
+                please contact the Service Provider (info.maiscam@gmail.com) so
+                that they will be able to take the necessary actions. You must
+                also be at least 16 years of age to consent to the processing of
+                your personally identifiable information in your country (in
+                some countries we may allow your parent or guardian to do so on
+                your behalf).
               </p>
             </CardContent>
           </Card>
@@ -256,19 +317,31 @@ export default function PolicyPage() {
             <CardContent>
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  The Service Provider implements multiple layers of security to protect your data:
+                  The Service Provider implements multiple layers of security to
+                  protect your data:
                 </p>
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-800 mb-2">Technical Safeguards</h4>
+                  <h4 className="font-semibold text-green-800 mb-2">
+                    Technical Safeguards
+                  </h4>
                   <ul className="space-y-1 text-sm text-green-800 ml-4">
                     <li>• HTTPS encryption for all data transmission</li>
-                    <li>• Local browser storage with automatic data expiration</li>
-                    <li>• Secure cloud infrastructure (AWS) with industry-standard encryption</li>
-                    <li>• No storage of personal or sensitive user information</li>
+                    <li>
+                      • Local browser storage with automatic data expiration
+                    </li>
+                    <li>
+                      • Secure cloud infrastructure (AWS) with industry-standard
+                      encryption
+                    </li>
+                    <li>
+                      • No storage of personal or sensitive user information
+                    </li>
                   </ul>
                 </div>
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-blue-800 mb-2">Operational Safeguards</h4>
+                  <h4 className="font-semibold text-blue-800 mb-2">
+                    Operational Safeguards
+                  </h4>
                   <ul className="space-y-1 text-sm text-blue-800 ml-4">
                     <li>• Privacy-by-design architecture</li>
                     <li>• Minimal data collection principles</li>
@@ -319,17 +392,29 @@ export default function PolicyPage() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                By installing and using the mAIscam Chrome Extension, you consent to:
+                By installing and using the mAIscam Chrome Extension, you
+                consent to:
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground ml-4 mb-4">
-                <li>• Analysis of website content on platforms you visit (Gmail, Facebook, suspicious websites)</li>
-                <li>• Local storage of your extension preferences and settings</li>
-                <li>• Transmission of anonymized content to our AI services for scam detection</li>
-                <li>• Storage of threat assessment results in our secure database</li>
+                <li>
+                  • Analysis of website content on platforms you visit (Gmail,
+                  Facebook, suspicious websites)
+                </li>
+                <li>
+                  • Local storage of your extension preferences and settings
+                </li>
+                <li>
+                  • Transmission of anonymized content to our AI services for
+                  scam detection
+                </li>
+                <li>
+                  • Storage of threat assessment results in our secure database
+                </li>
               </ul>
               <p className="text-muted-foreground leading-relaxed">
-                You can withdraw consent at any time by uninstalling the extension or 
-                disabling specific features in the extension settings.
+                You can withdraw consent at any time by uninstalling the
+                extension or disabling specific features in the extension
+                settings.
               </p>
             </CardContent>
           </Card>
@@ -348,16 +433,22 @@ export default function PolicyPage() {
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
                   If you have any questions regarding privacy while using the
-                  Extension, or questions about our practices, please contact us:
+                  Extension, or questions about our practices, please contact
+                  us:
                 </p>
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                  <p className="text-sm font-medium text-gray-800">Email: info.maiscam@gmail.com</p>
-                  <p className="text-xs text-gray-600 mt-1">We respond to privacy inquiries within 72 hours</p>
+                  <p className="text-sm font-medium text-gray-800">
+                    Email: info.maiscam@gmail.com
+                  </p>
+                  <p className="text-xs text-gray-600 mt-1">
+                    We respond to privacy inquiries within 72 hours
+                  </p>
                 </div>
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                   <p className="text-sm text-yellow-800">
-                    <strong>Chrome Web Store Compliance:</strong> This extension complies with 
-                    Chrome Web Store policies for data collection, user permissions, and privacy disclosure.
+                    <strong>Chrome Web Store Compliance:</strong> This extension
+                    complies with Chrome Web Store policies for data collection,
+                    user permissions, and privacy disclosure.
                   </p>
                 </div>
               </div>

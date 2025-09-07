@@ -2,9 +2,6 @@
 
 import { useState, useEffect } from "react";
 import React from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, Play } from "lucide-react";
 import { ScamImage } from "@/components/image-demo/ImageGallery";
 import { ImageAnalysisModal } from "@/components/image-demo/ImageAnalysisModal";
 
