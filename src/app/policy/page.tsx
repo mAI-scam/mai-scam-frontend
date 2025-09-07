@@ -88,20 +88,23 @@ export default function PolicyPage() {
                 <ul className="ml-4 space-y-1">
                   <li>
                     • <strong>activeTab:</strong> Analyze content on your active
-                    tab for scam detection
+                    tab for scam detection when you explicitly click the extension button
                   </li>
                   <li>
-                    • <strong>tabs:</strong> Enable automatic tab
-                    identification(Gmail, Facebook, and websites) and update
-                    extension icons
+                    • <strong>tabs:</strong> Enable automatic scam detection by monitoring
+                    navigation to high-risk platforms and update extension badge icons
                   </li>
                   <li>
-                    • <strong>storage:</strong> Store user preferences and
-                    analysis cache locally
+                    • <strong>storage:</strong> Store user preferences, analysis results,
+                    and cache data locally with automatic cleanup after 30 days
                   </li>
                   <li>
-                    • <strong>host permissions:</strong> Access Gmail, Facebook,
-                    and websites for comprehensive scam protection
+                    • <strong>sidePanel:</strong> Provide main interface for viewing scam
+                    analysis results and safety recommendations in your language
+                  </li>
+                  <li>
+                    • <strong>scripting:</strong> Inject content scripts for on-demand
+                    analysis only when you click the extension button
                   </li>
                 </ul>
               </div>
@@ -205,9 +208,9 @@ export default function PolicyPage() {
                 </ul>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                We only transmit content that users have specifically flagged as
-                suspicious or content from high-risk platforms (Gmail,
-                Facebook,and Gambling sites) for analysis. Personal information
+                We only transmit content when users explicitly click the extension
+                button to analyze suspicious content. The extension operates on-demand
+                with zero automatic background activity. Personal information
                 is never stored or transmitted.
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -421,15 +424,15 @@ export default function PolicyPage() {
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground ml-4 mb-4">
                 <li>
-                  • Analysis of website content on platforms you visit (Gmail,
-                  Facebook, suspicious websites)
+                  • On-demand analysis of website content only when you click
+                  the extension button
                 </li>
                 <li>
-                  • Local storage of your extension preferences and settings
+                  • Local storage of your extension preferences and analysis history
                 </li>
                 <li>
                   • Transmission of anonymized content to our AI services for
-                  scam detection
+                  scam detection (user-initiated only)
                 </li>
                 <li>
                   • Storage of threat assessment results in our secure database
