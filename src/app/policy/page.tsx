@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Shield,
   FileText,
@@ -10,7 +9,6 @@ import {
   Database,
   Globe,
   Users,
-  AlertTriangle,
 } from "lucide-react";
 import Header from "@/components/main/Header";
 
@@ -41,9 +39,10 @@ export default function PolicyPage() {
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
             <p className="text-sm text-blue-800 leading-relaxed">
               This privacy policy applies to the maiscam app extension app
-              (hereby referred to as "Application") for mobile devices that was
-              created by maiscam (hereby referred to as "Service Provider") as a
-              Free service. This service is intended for use "AS IS".
+              (hereby referred to as &quot;Application&quot;) for mobile devices
+              that was created by maiscam (hereby referred to as &quot;Service
+              Provider&quot;) as a Free service. This service is intended for
+              use &quot;AS IS&quot;.
             </p>
           </div>
         </section>
@@ -64,7 +63,8 @@ export default function PolicyPage() {
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground ml-4">
                 <li>
-                  • Your device's Internet Protocol address (e.g. IP address)
+                  • Your device&apos;s Internet Protocol address (e.g. IP
+                  address)
                 </li>
                 <li>
                   • The pages of the Application that you visit, the time and
@@ -169,8 +169,8 @@ export default function PolicyPage() {
               <p className="text-muted-foreground leading-relaxed">
                 The Service Provider will retain User Provided data for as long
                 as you use the Application and for a reasonable time thereafter.
-                If you'd like them to delete User Provided Data that you have
-                provided via the Application, please contact them at
+                If you&apos;d like them to delete User Provided Data that you
+                have provided via the Application, please contact them at
                 info.maiscam@gmail.com and they will respond in a reasonable
                 time.
               </p>
@@ -198,8 +198,8 @@ export default function PolicyPage() {
                 encourages all children to never submit any personally
                 identifiable information through the Application and/or
                 Services. The Service Provider encourage parents and legal
-                guardians to monitor their children's Internet usage and to help
-                enforce this Policy by instructing their children never to
+                guardians to monitor their children&apos;s Internet usage and to
+                help enforce this Policy by instructing their children never to
                 provide personally identifiable information through the
                 Application and/or Services without their permission. If you
                 have reason to believe that a child has provided personally
