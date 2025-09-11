@@ -47,11 +47,33 @@ export default function Home() {
                 </h2>
 
                 {/* Description */}
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4 mt-4 text-left max-w-4xl">
-                  <p className="text-xs md:text-sm text-blue-800">
-                    <strong>📱 Browser Extension Demo:</strong> This is only a
-                    prototype! Look forward to our actual solution soon!
-                  </p>
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 md:p-6 mt-4 text-left max-w-4xl">
+                  <div className="flex items-start gap-3">
+                    <div className="text-2xl">📱</div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-blue-900 mb-3 text-sm md:text-base">Browser Extension Available!</h3>
+                      <div className="space-y-3 text-xs md:text-sm text-blue-800">
+                        <p>
+                          <strong>✅ Ready to Install:</strong> We have successfully developed the extension prototype!{" "}
+                          <Link href="/installation" className="text-blue-600 underline hover:text-blue-800 font-semibold">
+                            Visit our installation page
+                          </Link>{" "}
+                          to download and try it out.
+                        </p>
+                        <p>
+                          <strong>📺 Website Demo:</strong> We&apos;ve kept this interactive website demo so you can understand how the extension works without installing it first.
+                        </p>
+                        <div className="bg-blue-100 border border-blue-300 rounded-lg p-3 mt-3">
+                          <p className="text-blue-900 font-medium">
+                            <strong>💡 Important:</strong> The actual extension has a different design and enhanced features compared to this website demo, as we&apos;re actively developing new capabilities.
+                          </p>
+                          <p className="text-blue-800 mt-2">
+                            For the <strong>best experience with real-time protection</strong>, we recommend installing and using the actual extension.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -66,7 +88,7 @@ export default function Home() {
                       className="absolute top-0 left-0 w-full h-full rounded-lg"
                       src="https://www.youtube.com/embed/1xNxD_bfvpw?rel=0&modestbranding=1"
                       title="mAIscam Web Extension Demo"
-                      frameBorder="0"
+                      style={{ border: 0 }}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
                     ></iframe>
@@ -95,33 +117,162 @@ export default function Home() {
                 <Shield className="h-5 w-5 md:h-6 md:w-6 text-blue-600 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-2 text-sm md:text-base">
-                    How to Experience the Web Extension Demo
+                    How to Experience mAIscam
                   </h3>
                   <ol className="space-y-1 text-xs md:text-sm text-gray-700">
                     <li>
-                      1. Choose a demo scenario below (Email Client, Website, or
-                      Social Media Feed)
+                      <strong>🚀 Try the Real Extension:</strong> Visit our{" "}
+                      <Link href="/installation" className="text-blue-600 underline hover:text-blue-800">
+                        installation page
+                      </Link>{" "}
+                      to download and install the actual browser extension for the best experience
                     </li>
-                    <li>
+                    <li className="mt-2">
+                      <strong>📱 Or Explore the Website Demo:</strong>
+                    </li>
+                    <li className="ml-4">
+                      1. Choose a demo scenario below (Email Client, Website, or Social Media Feed)
+                    </li>
+                    <li className="ml-4">
                       2. Click{" "}
                       <span className="font-semibold">
                         &quot;Activate mAIscam&quot;
                       </span>{" "}
                       to simulate the browser extension being active
                     </li>
-                    <li>
-                      3. Interact with the simulated environment to see how the
-                      extension detects and blocks scams
+                    <li className="ml-4">
+                      3. Interact with the simulated environment to see how the extension detects and blocks scams
                     </li>
-                    <li>
-                      4. In Social Media demo: Click on AI-flagged images to see
-                      OCR analysis in action
-                    </li>
-                    <li className="text-blue-700 font-medium">
-                      🔧 Note: This simulates the actual Chrome extension
-                      experience
+                    <li className="text-blue-700 font-medium mt-2">
+                      💡 Note: The website demo is for illustration purposes - the actual extension offers the full experience with real-time protection
                     </li>
                   </ol>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* GitHub Repository Section */}
+        <section className="mb-8 md:mb-12 max-w-5xl mx-auto">
+          <Card className="border-2 border-gray-300 bg-gradient-to-r from-gray-50 to-slate-50">
+            <CardContent className="p-4 md:p-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-lg md:text-xl">💻 Open Source Project</h3>
+                    <p className="text-gray-600 text-sm md:text-base">Explore our codebase, contribute, or review the implementation</p>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://github.com/mAI-scam"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors font-medium"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                    </svg>
+                    View on GitHub
+                  </a>
+                  <div className="text-xs text-gray-500 flex items-center gap-1 justify-center">
+                    ⭐ Backend • Extension • Frontend
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Admin Dashboard Section */}
+        <section className="mb-8 md:mb-12 max-w-5xl mx-auto">
+          <Card className="border-2 border-purple-300 bg-gradient-to-r from-purple-50 to-indigo-50">
+            <CardContent className="p-4 md:p-6">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-lg md:text-xl">📈 Admin Dashboard</h3>
+                    <p className="text-gray-600 text-sm md:text-base">Visualize detection results and analysis insights in real-time</p>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 items-center">
+                  <a
+                    href="https://mai-scam-admin.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-lg hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg"
+                  >
+                    <TrendingUp className="w-4 h-4" />
+                    View Dashboard
+                  </a>
+                  <div className="text-xs text-gray-500 flex items-center gap-1 justify-center">
+                    📊 Analytics • Reports • Insights
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-4 pt-4 border-t border-purple-200">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white bg-opacity-60 rounded-lg p-3 text-center">
+                    <div className="text-2xl mb-1">📉</div>
+                    <h4 className="font-semibold text-purple-800 text-sm">Detection Analytics</h4>
+                    <p className="text-xs text-purple-600">Real-time scam detection metrics</p>
+                  </div>
+                  <div className="bg-white bg-opacity-60 rounded-lg p-3 text-center">
+                    <div className="text-2xl mb-1">📄</div>
+                    <h4 className="font-semibold text-purple-800 text-sm">Analysis Reports</h4>
+                    <p className="text-xs text-purple-600">Comprehensive threat analysis</p>
+                  </div>
+                  <div className="bg-white bg-opacity-60 rounded-lg p-3 text-center">
+                    <div className="text-2xl mb-1">🎨</div>
+                    <h4 className="font-semibold text-purple-800 text-sm">Visual Insights</h4>
+                    <p className="text-xs text-purple-600">Interactive charts and graphs</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Safe Testing Section */}
+        <section className="mb-8 md:mb-12 max-w-5xl mx-auto">
+          <Card className="border-orange-200 bg-orange-50">
+            <CardContent className="p-4 md:p-6">
+              <div className="flex items-start gap-2 md:gap-3">
+                <Shield className="h-5 w-5 md:h-6 md:w-6 text-orange-600 mt-1" />
+                <div>
+                  <h3 className="font-semibold mb-2 text-sm md:text-base text-orange-900">
+                    🛡️ Safe Testing Environment
+                  </h3>
+                  <div className="space-y-2 text-xs md:text-sm text-orange-800">
+                    <p>
+                      <strong>For Your Safety:</strong> Want to test the website scam detection feature with the real extension? We've created a safe, simulated phishing website for testing purposes.
+                    </p>
+                    <div className="bg-orange-100 border border-orange-300 rounded-lg p-3 mt-3">
+                      <p className="font-medium text-orange-900 mb-2">
+                        🎯 Test Website: <a 
+                          href="https://shoppe123.vercel.app/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-orange-700 underline hover:text-orange-900 font-mono"
+                        >
+                          https://shoppe123.vercel.app/
+                        </a>
+                      </p>
+                      <p className="text-orange-800 text-xs">
+                        ⚠️ <strong>Important:</strong> This is a controlled, harmless simulation designed specifically for testing. Never use real phishing websites for testing as they pose genuine security risks.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -144,14 +295,10 @@ export default function Home() {
                 </Badge>
                 <div>
                   <h4 className="font-semibold mb-1 text-sm md:text-base">
-                    Connected AI Agent Network
+                    Real-time Gmail Scam Protection
                   </h4>
                   <p className="text-muted-foreground text-xs md:text-sm">
-                    Multi-agent system using MCP to access real-time threat
-                    intelligence, financial APIs, and regulatory feeds while
-                    analyzing emails, websites, and OCR-extracted webpage
-                    images. Provides instant fraud scores with cross-verified
-                    explanations.
+                    SEA-LION v4 powered email content analysis with URL/domain validation via PhishTank database, phone number and email address validation, and automated scam reporting. Provides risk assessment (High/Medium/Low) with detailed explanations.
                   </p>
                 </div>
               </div>
@@ -162,13 +309,10 @@ export default function Home() {
                 </Badge>
                 <div>
                   <h4 className="font-semibold mb-1 text-sm md:text-base">
-                    Adaptive Response AI Agents
+                    Facebook Post Multimodal Analysis
                   </h4>
                   <p className="text-muted-foreground text-xs md:text-sm">
-                    Decision-making agents automatically block high-risk sites,
-                    coordinating via MCP integrations to notify authorities and
-                    anti-fraud platforms while continuously evolving through
-                    reinforcement learning.
+                    Multimodal analysis (text + images) via SEA-LION v4 with engagement metrics evaluation, author credibility assessment, and visual scam detection. Interactive post analysis across social media platforms.
                   </p>
                 </div>
               </div>
@@ -179,14 +323,24 @@ export default function Home() {
                 </Badge>
                 <div>
                   <h4 className="font-semibold mb-1 text-sm md:text-base">
-                    Cultural Intelligence & MCP Evolution
+                    Website Security & Validation
                   </h4>
                   <p className="text-muted-foreground text-xs md:text-sm">
-                    Supports 13 Southeast Asian languages with contextual,
-                    culturally-tailored threat explanations. The MCP-powered
-                    ecosystem continuously evolves through reinforcement
-                    learning, autonomously improving regional scam pattern
-                    recognition.
+                    Real-time URL validation, SSL certificate analysis, content scraping and evaluation, and brand impersonation detection. Instant legitimacy verification with AWS SageMaker scalable AI processing.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-3 md:space-x-4">
+                <Badge className="w-6 h-6 md:w-8 md:h-8 rounded-full p-0 flex items-center justify-center flex-shrink-0">
+                  <span className="font-bold text-xs md:text-sm">4</span>
+                </Badge>
+                <div>
+                  <h4 className="font-semibold mb-1 text-sm md:text-base">
+                    13 Southeast Asian Languages
+                  </h4>
+                  <p className="text-muted-foreground text-xs md:text-sm">
+                    Native multilingual support including English, Bahasa Malaysia, Chinese, Vietnamese, Thai, Filipino, Indonesian, Javanese, Sundanese, Khmer, Lao, Myanmar, and Tamil with culturally-tailored threat explanations.
                   </p>
                 </div>
               </div>
@@ -640,39 +794,51 @@ export default function Home() {
         {/* Development Status & Future Plans */}
         <section className="bg-green-50 border border-green-200 rounded-lg p-3 md:p-4 mb-4 md:mb-6 text-left max-w-5xl mx-auto">
           <p className="text-xs md:text-sm text-green-800 mb-2">
-            <strong>🚀 Development Status & Future Plans:</strong> This website
-            serves as a proof-of-concept demonstration to illustrate how our web
-            extension will function in real-world scenarios. We are currently
-            building the actual Chrome extension concurrently with this demo.
+            <strong>🚀 Development Status & Future Plans:</strong> We have successfully completed the extension prototype and it's ready for installation. This website serves as a demonstration to illustrate how our web extension functions in real-world scenarios.
           </p>
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-green-600 font-bold text-xs">✓</span>
               <span className="text-xs md:text-sm text-green-700">
-                <strong>Realistic Prototype:</strong> All demonstrated features
-                are technically feasible and planned for implementation
+                <strong>Extension Prototype Complete:</strong> The browser extension is now available for installation with real-time scam detection capabilities
               </span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-green-600 font-bold text-xs">✓</span>
               <span className="text-xs md:text-sm text-green-700">
-                <strong>AI Integration Ready:</strong> Multi-agent system
-                architecture designed for real-time threat detection
+                <strong>Admin Dashboard Live:</strong> Real-time analytics and visualization platform for detection results and threat analysis at{" "}
+                <a 
+                  href="https://mai-scam-admin.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800"
+                >
+                  mai-scam-admin.vercel.app
+                </a>
               </span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-green-600 font-bold text-xs">✓</span>
               <span className="text-xs md:text-sm text-green-700">
-                <strong>Cultural Intelligence Framework:</strong> Language
-                models and cultural context algorithms in development
+                <strong>Multi-Platform Support:</strong> Currently supports Gmail, websites, and Facebook with plans to expand to X (Twitter), Threads, Reddit, and other social media platforms
               </span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600 font-bold text-xs">🔧</span>
+              <span className="text-blue-600 font-bold text-xs">🔄</span>
               <span className="text-xs md:text-sm text-green-700">
-                <strong>Development Roadmap:</strong> MVP Chrome extension by
-                September 18th (Round 2 submission), with full production
-                version by October 2024
+                <strong>Enhanced Media Detection:</strong> Currently detects scam images, with plans to expand to video post analysis for comprehensive multimedia scam detection
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-blue-600 font-bold text-xs">🔄</span>
+              <span className="text-xs md:text-sm text-green-700">
+                <strong>Smart History & Auto-Block:</strong> Developing a history feature that will automatically block previously flagged websites when users revisit them
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-blue-600 font-bold text-xs">🔄</span>
+              <span className="text-xs md:text-sm text-green-700">
+                <strong>Active AI Flagging:</strong> Moving from manual flagging to fully automated, active AI-powered content flagging for proactive threat detection
               </span>
             </div>
           </div>

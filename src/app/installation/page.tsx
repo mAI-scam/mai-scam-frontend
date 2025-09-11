@@ -22,6 +22,7 @@ import {
   Eye,
   Shield,
   FileText,
+  TrendingUp,
 } from "lucide-react";
 import Header from "@/components/main/Header";
 
@@ -417,6 +418,73 @@ export default function InstallationPage() {
           </div>
         </section>
 
+        {/* Safe Testing Section */}
+        <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
+          <Card className="border-2 border-orange-200 bg-orange-50">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-xl text-orange-800">
+                <Shield className="w-6 h-6" />
+                🛡️ Safe Testing Environment
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <p className="text-orange-800">
+                  <strong>For Your Safety:</strong> Want to test the website scam detection feature with the real extension? We've created a safe, simulated phishing website specifically for testing purposes.
+                </p>
+                
+                <div className="bg-white border-2 border-orange-300 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Globe className="w-5 h-5 text-orange-600" />
+                    <h4 className="font-semibold text-orange-900">Test Website</h4>
+                  </div>
+                  <div className="bg-orange-100 border border-orange-300 rounded-lg p-3 mb-3">
+                    <p className="text-lg font-mono text-orange-900 text-center">
+                      <a 
+                        href="https://shoppe123.vercel.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-orange-700 underline hover:text-orange-900 font-bold"
+                      >
+                        https://shoppe123.vercel.app/
+                      </a>
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <p className="text-sm text-orange-800">
+                      <strong>How to test:</strong>
+                    </p>
+                    <ol className="text-sm text-orange-700 space-y-2 ml-4">
+                      <li>1. Navigate to the test website above</li>
+                      <li>2. Click the mAIscam extension icon in your Chrome toolbar</li>
+                      <li>3. Select "Analyze Website"</li>
+                      <li>4. Watch as the extension detects and flags the simulated scam website</li>
+                    </ol>
+                  </div>
+                </div>
+                
+                <div className="bg-red-100 border border-red-300 rounded-lg p-4">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-semibold text-red-800 mb-1">
+                        ⚠️ Important Safety Notice:
+                      </p>
+                      <ul className="text-xs text-red-700 space-y-1">
+                        <li>• This is a controlled, harmless simulation designed specifically for testing</li>
+                        <li>• <strong>Never use real phishing websites</strong> for testing as they pose genuine security risks</li>
+                        <li>• The test website is completely safe and contains no malicious code or data collection</li>
+                        <li>• Use this test site to safely experience how mAIscam protects you from real threats</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Verification Section */}
         <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
           <Card className="border-2 border-green-200 bg-green-50">
@@ -592,6 +660,21 @@ export default function InstallationPage() {
                           Get instant legitimacy verification
                         </li>
                       </ol>
+                      
+                      <div className="bg-green-100 border border-green-300 rounded-lg p-3 mt-4">
+                        <p className="text-sm text-green-800">
+                          <strong>🛡️ Safe Testing:</strong> Try our simulated scam website at{" "}
+                          <a 
+                            href="https://shoppe123.vercel.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-green-700 underline hover:text-green-900 font-mono"
+                          >
+                            shoppe123.vercel.app
+                          </a>{" "}
+                          to safely test the extension without using real phishing sites.
+                        </p>
+                      </div>
                     </div>
                     
                     <Button asChild size="lg" className="w-full">
@@ -750,6 +833,19 @@ export default function InstallationPage() {
                     Social Media Demo
                   </Link>
                 </Button>
+              </div>
+              <div className="mt-6 pt-4 border-t border-blue-200">
+                <p className="text-center text-gray-600 mb-4">
+                  📈 Want to see detection analytics and insights?
+                </p>
+                <div className="flex justify-center">
+                  <Button asChild size="lg" variant="outline" className="border-purple-300 text-purple-700 hover:bg-purple-50">
+                    <a href="https://mai-scam-admin.vercel.app/" target="_blank" rel="noopener noreferrer">
+                      <TrendingUp className="w-5 h-5 mr-2" />
+                      Admin Dashboard
+                    </a>
+                  </Button>
+                </div>
               </div>
             </CardContent>
           </Card>

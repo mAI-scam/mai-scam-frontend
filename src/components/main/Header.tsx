@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X, FileText, Github, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Header() {
@@ -61,12 +61,30 @@ export default function Header() {
           >
             Installation
           </Link>
+          <a
+            href="https://mai-scam-admin.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+          >
+            <BarChart3 className="h-4 w-4" />
+            Dashboard
+          </a>
           <Link
             href="/policy"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             Policy
           </Link>
+          <a
+            href="https://github.com/mAI-scam"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+          >
+            <Github className="h-4 w-4" />
+            GitHub
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -116,6 +134,16 @@ export default function Header() {
             >
               Installation
             </Link>
+            <a
+              href="https://mai-scam-admin.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <BarChart3 className="h-4 w-4" />
+              Dashboard
+            </a>
             <Link
               href="/policy"
               className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
@@ -123,6 +151,16 @@ export default function Header() {
             >
               Policy
             </Link>
+            <a
+              href="https://github.com/mAI-scam"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Github className="h-4 w-4" />
+              GitHub
+            </a>
           </div>
         </div>
       )}
