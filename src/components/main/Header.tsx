@@ -17,7 +17,7 @@ export default function Header() {
     <header className="container mx-auto px-4 md:px-6 py-4 md:py-8">
       <nav className="flex items-center justify-between">
         {/* Logo and Brand */}
-        <div className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <div className="w-6 h-6 md:w-8 md:h-8 object-cover">
             <Image
               src="/logo.png"
@@ -33,7 +33,7 @@ export default function Header() {
             <span className="text-[#EB6700]">AI</span>
             <span>scam</span>
           </span>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
@@ -54,6 +54,12 @@ export default function Header() {
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             Social Media Demo
+          </Link>
+          <Link
+            href="/installation"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Installation
           </Link>
           <Link
             href="/policy"
@@ -102,6 +108,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Social Media Demo
+            </Link>
+            <Link
+              href="/installation"
+              className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Installation
             </Link>
             <Link
               href="/policy"
