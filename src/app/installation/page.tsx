@@ -19,7 +19,6 @@ import {
   CheckCircle,
   ArrowRight,
   Play,
-  Eye,
   Shield,
   FileText,
   TrendingUp,
@@ -43,13 +42,16 @@ export default function InstallationPage() {
               <span className="text-gray-800 ml-4">Installation Guide</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-6">
-              Easy step-by-step instructions to install and use the mAIscam browser extension
+              Easy step-by-step instructions to install and use the mAIscam
+              browser extension
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
               <div className="flex items-center gap-3 justify-center">
                 <Shield className="w-5 h-5 text-blue-600" />
                 <p className="text-sm md:text-base text-blue-800">
-                  <strong>For Judges & Evaluators:</strong> This guide provides clear, step-by-step instructions for installing and testing the mAIscam browser extension
+                  <strong>For Judges & Evaluators:</strong> This guide provides
+                  clear, step-by-step instructions for installing and testing
+                  the mAIscam browser extension
                 </p>
               </div>
             </div>
@@ -70,29 +72,45 @@ export default function InstallationPage() {
                 <div className="flex items-start gap-3">
                   <Chrome className="w-5 h-5 text-orange-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-orange-800 mb-1">Google Chrome Browser</h4>
-                    <p className="text-sm text-orange-700">Version 88 or higher required</p>
+                    <h4 className="font-semibold text-orange-800 mb-1">
+                      Google Chrome Browser
+                    </h4>
+                    <p className="text-sm text-orange-700">
+                      Version 88 or higher required
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-orange-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-orange-800 mb-1">Extension Files</h4>
-                    <p className="text-sm text-orange-700">maiscam-1.0.0-chrome.zip from repository</p>
+                    <h4 className="font-semibold text-orange-800 mb-1">
+                      Extension Files
+                    </h4>
+                    <p className="text-sm text-orange-700">
+                      maiscam-1.0.0-chrome.zip from repository
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Settings className="w-5 h-5 text-orange-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-orange-800 mb-1">Developer Mode</h4>
-                    <p className="text-sm text-orange-700">Ability to enable Chrome developer mode</p>
+                    <h4 className="font-semibold text-orange-800 mb-1">
+                      Developer Mode
+                    </h4>
+                    <p className="text-sm text-orange-700">
+                      Ability to enable Chrome developer mode
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Globe className="w-5 h-5 text-orange-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-orange-800 mb-1">Internet Connection</h4>
-                    <p className="text-sm text-orange-700">Required for AI analysis features</p>
+                    <h4 className="font-semibold text-orange-800 mb-1">
+                      Internet Connection
+                    </h4>
+                    <p className="text-sm text-orange-700">
+                      Required for AI analysis features
+                    </p>
                   </div>
                 </div>
               </div>
@@ -111,7 +129,9 @@ export default function InstallationPage() {
             <Card className="border-2 border-blue-200">
               <CardHeader className="bg-blue-50">
                 <CardTitle className="flex items-center gap-3 text-xl text-blue-800">
-                  <Badge className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">1</Badge>
+                  <Badge className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                    1
+                  </Badge>
                   <Download className="w-6 h-6" />
                   Download the Extension
                 </CardTitle>
@@ -120,10 +140,14 @@ export default function InstallationPage() {
                 <div className="space-y-6">
                   <div className="text-gray-700">
                     <p className="mb-3">
-                      Download the <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">maiscam-1.0.0-chrome.zip</code> file from the mAIscam extension repository:
+                      Download the{" "}
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
+                        maiscam-1.0.0-chrome.zip
+                      </code>{" "}
+                      file from the mAIscam extension repository:
                     </p>
                     <div className="bg-white border-2 border-blue-200 rounded-lg p-4 inline-block">
-                      <a 
+                      <a
                         href="https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.0"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -134,15 +158,19 @@ export default function InstallationPage() {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                     <p className="text-sm text-blue-800">
-                      <strong>💡 For Judges:</strong> Click the link above to access the GitHub releases page where you can download the latest extension files.
+                      <strong>💡 For Judges:</strong> Click the link above to
+                      access the GitHub releases page where you can download the
+                      latest extension files.
                     </p>
                   </div>
 
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-sm text-gray-600 mb-3 font-medium">📥 Download Location:</p>
+                    <p className="text-sm text-gray-600 mb-3 font-medium">
+                      📥 Download Location:
+                    </p>
                     <div className="bg-white border rounded-lg overflow-hidden">
                       <Image
                         src="/images/installation/download-page.png"
@@ -161,7 +189,9 @@ export default function InstallationPage() {
             <Card className="border-2 border-green-200">
               <CardHeader className="bg-green-50">
                 <CardTitle className="flex items-center gap-3 text-xl text-green-800">
-                  <Badge className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center">2</Badge>
+                  <Badge className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center">
+                    2
+                  </Badge>
                   <FolderOpen className="w-6 h-6" />
                   Extract the Files
                 </CardTitle>
@@ -171,20 +201,36 @@ export default function InstallationPage() {
                   <ol className="space-y-3 text-gray-700">
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
-                      <span>Locate the downloaded <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">maiscam-1.0.0-chrome.zip</code> file</span>
+                      <span>
+                        Locate the downloaded{" "}
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
+                          maiscam-1.0.0-chrome.zip
+                        </code>{" "}
+                        file
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
-                      <span>Right-click and select &ldquo;Extract All&rdquo; or use your preferred extraction tool</span>
+                      <span>
+                        Right-click and select &ldquo;Extract All&rdquo; or use
+                        your preferred extraction tool
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
-                      <span>You should now have a folder named <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">maiscam-1.0.0-chrome</code></span>
+                      <span>
+                        You should now have a folder named{" "}
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
+                          maiscam-1.0.0-chrome
+                        </code>
+                      </span>
                     </li>
                   </ol>
-                  
+
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-sm text-gray-600 mb-3 font-medium">✅ Expected result:</p>
+                    <p className="text-sm text-gray-600 mb-3 font-medium">
+                      ✅ Expected result:
+                    </p>
                     <div className="bg-white border rounded-lg p-3 flex items-center justify-center">
                       <Image
                         src="/images/installation/extracted-folder.png"
@@ -203,31 +249,42 @@ export default function InstallationPage() {
             <Card className="border-2 border-purple-200">
               <CardHeader className="bg-purple-50">
                 <CardTitle className="flex items-center gap-3 text-xl text-purple-800">
-                  <Badge className="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center">3</Badge>
+                  <Badge className="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center">
+                    3
+                  </Badge>
                   <Chrome className="w-6 h-6" />
                   Open Chrome Extensions Page
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
                 <div className="space-y-6">
-                  <p className="text-gray-700">Open Google Chrome and navigate to the extensions management page:</p>
-                  
+                  <p className="text-gray-700">
+                    Open Google Chrome and navigate to the extensions management
+                    page:
+                  </p>
+
                   <div className="bg-gray-50 border rounded-lg p-3">
-                    <p className="text-sm font-mono text-gray-800">chrome://extensions/</p>
+                    <p className="text-sm font-mono text-gray-800">
+                      chrome://extensions/
+                    </p>
                   </div>
-                  
+
                   <div>
                     <p className="text-sm text-gray-600 mb-2">
                       <strong>Alternative methods:</strong>
                     </p>
                     <ul className="text-sm text-gray-600 space-y-1 ml-4">
                       <li>• Chrome menu → More tools → Extensions</li>
-                      <li>• Three dots menu → Extensions → Manage extensions</li>
+                      <li>
+                        • Three dots menu → Extensions → Manage extensions
+                      </li>
                     </ul>
                   </div>
 
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-sm text-gray-600 mb-3 font-medium">🌐 Chrome Extensions Page:</p>
+                    <p className="text-sm text-gray-600 mb-3 font-medium">
+                      🌐 Chrome Extensions Page:
+                    </p>
                     <div className="bg-white border rounded-lg overflow-hidden">
                       <Image
                         src="/images/installation/extensions-page.png"
@@ -246,7 +303,9 @@ export default function InstallationPage() {
             <Card className="border-2 border-yellow-200">
               <CardHeader className="bg-yellow-50">
                 <CardTitle className="flex items-center gap-3 text-xl text-yellow-800">
-                  <Badge className="w-8 h-8 rounded-full bg-yellow-600 text-white flex items-center justify-center">4</Badge>
+                  <Badge className="w-8 h-8 rounded-full bg-yellow-600 text-white flex items-center justify-center">
+                    4
+                  </Badge>
                   <ToggleLeft className="w-6 h-6" />
                   Enable Developer Mode
                 </CardTitle>
@@ -254,26 +313,36 @@ export default function InstallationPage() {
               <CardContent className="pt-6">
                 <div className="space-y-6">
                   <p className="text-gray-700">
-                    On the extensions page, you&apos;ll find a &ldquo;Developer mode&rdquo; toggle in the top-right corner.
+                    On the extensions page, you&apos;ll find a &ldquo;Developer
+                    mode&rdquo; toggle in the top-right corner.
                   </p>
-                  
+
                   <ol className="space-y-3 text-gray-700">
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
-                      <span>Look for the &ldquo;Developer mode&rdquo; toggle switch</span>
+                      <span>
+                        Look for the &ldquo;Developer mode&rdquo; toggle switch
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
-                      <span>Click to enable it (the toggle should turn blue/active)</span>
+                      <span>
+                        Click to enable it (the toggle should turn blue/active)
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
-                      <span>New buttons will appear: &ldquo;Load unpacked&rdquo;, &ldquo;Pack extension&rdquo;, &ldquo;Update&rdquo;</span>
+                      <span>
+                        New buttons will appear: &ldquo;Load unpacked&rdquo;,
+                        &ldquo;Pack extension&rdquo;, &ldquo;Update&rdquo;
+                      </span>
                     </li>
                   </ol>
 
                   <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                    <p className="text-sm text-yellow-800 mb-3 font-medium">🔧 Enable Developer Mode:</p>
+                    <p className="text-sm text-yellow-800 mb-3 font-medium">
+                      🔧 Enable Developer Mode:
+                    </p>
                     <div className="bg-white border rounded-lg overflow-hidden">
                       <Image
                         src="/images/installation/developer-mode.png"
@@ -292,7 +361,9 @@ export default function InstallationPage() {
             <Card className="border-2 border-red-200">
               <CardHeader className="bg-red-50">
                 <CardTitle className="flex items-center gap-3 text-xl text-red-800">
-                  <Badge className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center">5</Badge>
+                  <Badge className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center">
+                    5
+                  </Badge>
                   <MousePointer className="w-6 h-6" />
                   Load the Extension
                 </CardTitle>
@@ -302,7 +373,7 @@ export default function InstallationPage() {
                   <p className="text-gray-700">
                     Now you can install the unpacked extension:
                   </p>
-                  
+
                   <ol className="space-y-3 text-gray-700">
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-red-600 mt-1 flex-shrink-0" />
@@ -310,16 +381,24 @@ export default function InstallationPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-red-600 mt-1 flex-shrink-0" />
-                      <span>Navigate to and select the <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">maiscam-1.0.0-chrome</code> folder</span>
+                      <span>
+                        Navigate to and select the{" "}
+                        <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
+                          maiscam-1.0.0-chrome
+                        </code>{" "}
+                        folder
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-red-600 mt-1 flex-shrink-0" />
                       <span>Click &ldquo;Select Folder&rdquo;</span>
                     </li>
                   </ol>
-                  
+
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <p className="text-sm text-blue-800 mb-3 font-medium">📂 Upload/Unzip Process:</p>
+                    <p className="text-sm text-blue-800 mb-3 font-medium">
+                      📂 Upload/Unzip Process:
+                    </p>
                     <div className="bg-white border rounded-lg overflow-hidden">
                       <Image
                         src="/images/installation/upload-unzip-extension.png"
@@ -334,12 +413,17 @@ export default function InstallationPage() {
                   <ol className="space-y-3 text-gray-700" start={4}>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
-                      <span>The mAIscam extension should now appear in your extensions list!</span>
+                      <span>
+                        The mAIscam extension should now appear in your
+                        extensions list!
+                      </span>
                     </li>
                   </ol>
-                  
+
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <p className="text-sm text-green-800 mb-3 font-medium">✅ Extension Successfully Loaded:</p>
+                    <p className="text-sm text-green-800 mb-3 font-medium">
+                      ✅ Extension Successfully Loaded:
+                    </p>
                     <div className="bg-white border rounded-lg overflow-hidden">
                       <Image
                         src="/images/installation/extension-loading.png"
@@ -349,7 +433,10 @@ export default function InstallationPage() {
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="text-xs text-green-700 mt-2">The mAIscam extension now appears in your extensions list and Chrome toolbar, and is ready to use!</p>
+                    <p className="text-xs text-green-700 mt-2">
+                      The mAIscam extension now appears in your extensions list
+                      and Chrome toolbar, and is ready to use!
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -359,7 +446,9 @@ export default function InstallationPage() {
             <Card className="border-2 border-green-200">
               <CardHeader className="bg-green-50">
                 <CardTitle className="flex items-center gap-3 text-xl text-green-800">
-                  <Badge className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center">6</Badge>
+                  <Badge className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center">
+                    6
+                  </Badge>
                   <Play className="w-6 h-6" />
                   Using the Extension
                 </CardTitle>
@@ -367,26 +456,37 @@ export default function InstallationPage() {
               <CardContent className="pt-6">
                 <div className="space-y-6">
                   <p className="text-gray-700">
-                    Now that the extension is installed, here&apos;s how to access and use it:
+                    Now that the extension is installed, here&apos;s how to
+                    access and use it:
                   </p>
-                  
+
                   <ol className="space-y-4 text-gray-700">
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
-                      <span>Click on the mAIscam extension icon in your Chrome toolbar</span>
+                      <span>
+                        Click on the mAIscam extension icon in your Chrome
+                        toolbar
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
-                      <span>The extension popup will open, showing available options</span>
+                      <span>
+                        The extension popup will open, showing available options
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
-                      <span>Choose the appropriate analysis option based on what you want to scan</span>
+                      <span>
+                        Choose the appropriate analysis option based on what you
+                        want to scan
+                      </span>
                     </li>
                   </ol>
 
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <p className="text-sm text-green-800 mb-3 font-medium">🖱️ How to Open the Extension:</p>
+                    <p className="text-sm text-green-800 mb-3 font-medium">
+                      🖱️ How to Open the Extension:
+                    </p>
                     <div className="bg-white border rounded-lg overflow-hidden mb-4">
                       <Image
                         src="/images/installation/extension-loading.png"
@@ -396,11 +496,16 @@ export default function InstallationPage() {
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="text-xs text-green-700">Click on the mAIscam icon in the Chrome toolbar to open the extension popup</p>
+                    <p className="text-xs text-green-700">
+                      Click on the mAIscam icon in the Chrome toolbar to open
+                      the extension popup
+                    </p>
                   </div>
 
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <p className="text-sm text-blue-800 mb-3 font-medium">✨ Extension Loading State:</p>
+                    <p className="text-sm text-blue-800 mb-3 font-medium">
+                      ✨ Extension Loading State:
+                    </p>
                     <div className="bg-white border rounded-lg overflow-hidden mb-4">
                       <Image
                         src="/images/installation/open-extension.png"
@@ -410,7 +515,10 @@ export default function InstallationPage() {
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="text-xs text-blue-700">The extension will show a loading state while processing your request</p>
+                    <p className="text-xs text-blue-700">
+                      The extension will show a loading state while processing
+                      your request
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -430,19 +538,24 @@ export default function InstallationPage() {
             <CardContent>
               <div className="space-y-4">
                 <p className="text-orange-800">
-                  <strong>For Your Safety:</strong> Want to test the website scam detection feature with the real extension? We've created a safe, simulated phishing website specifically for testing purposes.
+                  <strong>For Your Safety:</strong> Want to test the website
+                  scam detection feature with the real extension? We&apos;ve
+                  created a safe, simulated phishing website specifically for
+                  testing purposes.
                 </p>
-                
+
                 <div className="bg-white border-2 border-orange-300 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-3">
                     <Globe className="w-5 h-5 text-orange-600" />
-                    <h4 className="font-semibold text-orange-900">Test Website</h4>
+                    <h4 className="font-semibold text-orange-900">
+                      Test Website
+                    </h4>
                   </div>
                   <div className="bg-orange-100 border border-orange-300 rounded-lg p-3 mb-3">
                     <p className="text-lg font-mono text-orange-900 text-center">
-                      <a 
-                        href="https://shoppe123.vercel.app/" 
-                        target="_blank" 
+                      <a
+                        href="https://shoppe123.vercel.app/"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-700 underline hover:text-orange-900 font-bold"
                       >
@@ -450,20 +563,26 @@ export default function InstallationPage() {
                       </a>
                     </p>
                   </div>
-                  
+
                   <div className="space-y-3">
                     <p className="text-sm text-orange-800">
                       <strong>How to test:</strong>
                     </p>
                     <ol className="text-sm text-orange-700 space-y-2 ml-4">
                       <li>1. Navigate to the test website above</li>
-                      <li>2. Click the mAIscam extension icon in your Chrome toolbar</li>
-                      <li>3. Select "Analyze Website"</li>
-                      <li>4. Watch as the extension detects and flags the simulated scam website</li>
+                      <li>
+                        2. Click the mAIscam extension icon in your Chrome
+                        toolbar
+                      </li>
+                      <li>3. Select &quot;Analyze Website&quot;</li>
+                      <li>
+                        4. Watch as the extension detects and flags the
+                        simulated scam website
+                      </li>
                     </ol>
                   </div>
                 </div>
-                
+
                 <div className="bg-red-100 border border-red-300 rounded-lg p-4">
                   <div className="flex items-start gap-2">
                     <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
@@ -472,10 +591,22 @@ export default function InstallationPage() {
                         ⚠️ Important Safety Notice:
                       </p>
                       <ul className="text-xs text-red-700 space-y-1">
-                        <li>• This is a controlled, harmless simulation designed specifically for testing</li>
-                        <li>• <strong>Never use real phishing websites</strong> for testing as they pose genuine security risks</li>
-                        <li>• The test website is completely safe and contains no malicious code or data collection</li>
-                        <li>• Use this test site to safely experience how mAIscam protects you from real threats</li>
+                        <li>
+                          • This is a controlled, harmless simulation designed
+                          specifically for testing
+                        </li>
+                        <li>
+                          • <strong>Never use real phishing websites</strong>{" "}
+                          for testing as they pose genuine security risks
+                        </li>
+                        <li>
+                          • The test website is completely safe and contains no
+                          malicious code or data collection
+                        </li>
+                        <li>
+                          • Use this test site to safely experience how mAIscam
+                          protects you from real threats
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -490,8 +621,8 @@ export default function InstallationPage() {
           <Card className="border-2 border-green-200 bg-green-50">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl text-green-800">
-                <CheckCircle className="w-6 h-6" />
-                ✅ Verify Installation Success
+                <CheckCircle className="w-6 h-6" />✅ Verify Installation
+                Success
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -500,16 +631,23 @@ export default function InstallationPage() {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-white border border-green-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-800 mb-2">In Extensions Page:</h4>
+                  <h4 className="font-semibold text-green-800 mb-2">
+                    In Extensions Page:
+                  </h4>
                   <ul className="space-y-2 text-sm text-green-700">
                     <li>• mAIscam extension card with logo</li>
                     <li>• Version 1.0.0 displayed</li>
                     <li>• Toggle switch is ON (enabled)</li>
-                    <li>• &ldquo;Remove&rdquo; and &ldquo;Details&rdquo; buttons visible</li>
+                    <li>
+                      • &ldquo;Remove&rdquo; and &ldquo;Details&rdquo; buttons
+                      visible
+                    </li>
                   </ul>
                 </div>
                 <div className="bg-white border border-green-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-800 mb-2">In Browser:</h4>
+                  <h4 className="font-semibold text-green-800 mb-2">
+                    In Browser:
+                  </h4>
                   <ul className="space-y-2 text-sm text-green-700">
                     <li>• mAIscam icon appears in toolbar</li>
                     <li>• Icon is clickable and responsive</li>
@@ -541,7 +679,9 @@ export default function InstallationPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                   <div className="lg:col-span-2 space-y-4">
                     <div className="bg-gray-100 rounded-lg p-3">
-                      <p className="text-sm font-medium text-gray-600 mb-2">🔍 Before Extension:</p>
+                      <p className="text-sm font-medium text-gray-600 mb-2">
+                        🔍 Before Extension:
+                      </p>
                       <div className="bg-white rounded overflow-hidden shadow-md">
                         <Image
                           src="/images/installation/gmail-interface.png"
@@ -552,9 +692,11 @@ export default function InstallationPage() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm font-medium text-red-600 mb-2">🚨 After Detection:</p>
+                      <p className="text-sm font-medium text-red-600 mb-2">
+                        🚨 After Detection:
+                      </p>
                       <div className="bg-white rounded overflow-hidden shadow-md">
                         <Image
                           src="/images/installation/gmail-interface-detected.png"
@@ -566,30 +708,40 @@ export default function InstallationPage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-lg font-semibold text-blue-800 mb-4">How to Use:</h4>
+                      <h4 className="text-lg font-semibold text-blue-800 mb-4">
+                        How to Use:
+                      </h4>
                       <ol className="text-base space-y-3 text-gray-700">
                         <li className="flex items-start gap-2">
-                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            1
+                          </span>
                           Open Gmail in your browser
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            2
+                          </span>
                           Click the mAIscam extension icon
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            3
+                          </span>
                           Select &ldquo;Analyze Email&rdquo;
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            4
+                          </span>
                           View real-time scam analysis
                         </li>
                       </ol>
                     </div>
-                    
+
                     <Button asChild size="lg" className="w-full">
                       <Link href="/email-demo">
                         <Mail className="w-5 h-5 mr-2" />
@@ -613,7 +765,9 @@ export default function InstallationPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                   <div className="lg:col-span-2 space-y-4">
                     <div className="bg-gray-100 rounded-lg p-3">
-                      <p className="text-sm font-medium text-gray-600 mb-2">🔍 Before Extension:</p>
+                      <p className="text-sm font-medium text-gray-600 mb-2">
+                        🔍 Before Extension:
+                      </p>
                       <div className="bg-white rounded overflow-hidden shadow-md">
                         <Image
                           src="/images/installation/website-scanner.png"
@@ -624,9 +778,11 @@ export default function InstallationPage() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm font-medium text-red-600 mb-2">🚨 After Detection:</p>
+                      <p className="text-sm font-medium text-red-600 mb-2">
+                        🚨 After Detection:
+                      </p>
                       <div className="bg-white rounded overflow-hidden shadow-md">
                         <Image
                           src="/images/installation/website-scanner-detected.png"
@@ -638,45 +794,57 @@ export default function InstallationPage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-lg font-semibold text-green-800 mb-4">How to Use:</h4>
+                      <h4 className="text-lg font-semibold text-green-800 mb-4">
+                        How to Use:
+                      </h4>
                       <ol className="text-base space-y-3 text-gray-700">
                         <li className="flex items-start gap-2">
-                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            1
+                          </span>
                           Navigate to any website
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            2
+                          </span>
                           Click the mAIscam extension icon
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            3
+                          </span>
                           Select &ldquo;Analyze Website&rdquo;
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            4
+                          </span>
                           Get instant legitimacy verification
                         </li>
                       </ol>
-                      
+
                       <div className="bg-green-100 border border-green-300 rounded-lg p-3 mt-4">
                         <p className="text-sm text-green-800">
-                          <strong>🛡️ Safe Testing:</strong> Try our simulated scam website at{" "}
-                          <a 
-                            href="https://shoppe123.vercel.app/" 
-                            target="_blank" 
+                          <strong>🛡️ Safe Testing:</strong> Try our simulated
+                          scam website at{" "}
+                          <a
+                            href="https://shoppe123.vercel.app/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-green-700 underline hover:text-green-900 font-mono"
                           >
                             shoppe123.vercel.app
                           </a>{" "}
-                          to safely test the extension without using real phishing sites.
+                          to safely test the extension without using real
+                          phishing sites.
                         </p>
                       </div>
                     </div>
-                    
+
                     <Button asChild size="lg" className="w-full">
                       <Link href="/website-demo">
                         <Globe className="w-5 h-5 mr-2" />
@@ -700,7 +868,9 @@ export default function InstallationPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
                   <div className="lg:col-span-2 space-y-4">
                     <div className="bg-gray-100 rounded-lg p-3">
-                      <p className="text-sm font-medium text-gray-600 mb-2">🔍 Before Extension:</p>
+                      <p className="text-sm font-medium text-gray-600 mb-2">
+                        🔍 Before Extension:
+                      </p>
                       <div className="bg-white rounded overflow-hidden shadow-md">
                         <Image
                           src="/images/installation/facebook-feed.png"
@@ -711,9 +881,11 @@ export default function InstallationPage() {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm font-medium text-red-600 mb-2">🚨 After Detection:</p>
+                      <p className="text-sm font-medium text-red-600 mb-2">
+                        🚨 After Detection:
+                      </p>
                       <div className="bg-white rounded overflow-hidden shadow-md">
                         <Image
                           src="/images/installation/facebook-feed-detected.png"
@@ -725,30 +897,40 @@ export default function InstallationPage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-lg font-semibold text-purple-800 mb-4">How to Use:</h4>
+                      <h4 className="text-lg font-semibold text-purple-800 mb-4">
+                        How to Use:
+                      </h4>
                       <ol className="text-base space-y-3 text-gray-700">
                         <li className="flex items-start gap-2">
-                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            1
+                          </span>
                           Browse Facebook or social media
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            2
+                          </span>
                           Click the mAIscam extension icon
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            3
+                          </span>
                           Select &ldquo;Scan Post&rdquo;
                         </li>
                         <li className="flex items-start gap-2">
-                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            4
+                          </span>
                           Click on suspicious content to analyze
                         </li>
                       </ol>
                     </div>
-                    
+
                     <Button asChild size="lg" className="w-full">
                       <Link href="/image-demo">
                         <Facebook className="w-5 h-5 mr-2" />
@@ -773,17 +955,24 @@ export default function InstallationPage() {
             <CardContent>
               <div className="space-y-4">
                 <div className="bg-white border border-yellow-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-yellow-800 mb-2">Extension not loading?</h4>
+                  <h4 className="font-semibold text-yellow-800 mb-2">
+                    Extension not loading?
+                  </h4>
                   <ul className="text-sm text-yellow-700 space-y-1">
                     <li>• Ensure Developer mode is enabled</li>
-                    <li>• Check that you selected the correct folder (maiscam-1.0.0-chrome)</li>
+                    <li>
+                      • Check that you selected the correct folder
+                      (maiscam-1.0.0-chrome)
+                    </li>
                     <li>• Try refreshing the extensions page</li>
                     <li>• Restart Chrome browser</li>
                   </ul>
                 </div>
 
                 <div className="bg-white border border-yellow-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-yellow-800 mb-2">Extension icon not visible?</h4>
+                  <h4 className="font-semibold text-yellow-800 mb-2">
+                    Extension icon not visible?
+                  </h4>
                   <ul className="text-sm text-yellow-700 space-y-1">
                     <li>• Click the puzzle piece icon in Chrome toolbar</li>
                     <li>• Find mAIscam and click the pin icon</li>
@@ -792,11 +981,18 @@ export default function InstallationPage() {
                 </div>
 
                 <div className="bg-white border border-yellow-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-yellow-800 mb-2">Analysis not working?</h4>
+                  <h4 className="font-semibold text-yellow-800 mb-2">
+                    Analysis not working?
+                  </h4>
                   <ul className="text-sm text-yellow-700 space-y-1">
                     <li>• Check internet connection</li>
-                    <li>• Ensure you&apos;re on a supported website (Gmail, Facebook, etc.)</li>
-                    <li>• Try refreshing the page and clicking the extension again</li>
+                    <li>
+                      • Ensure you&apos;re on a supported website (Gmail,
+                      Facebook, etc.)
+                    </li>
+                    <li>
+                      • Try refreshing the page and clicking the extension again
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -812,7 +1008,9 @@ export default function InstallationPage() {
                 🎉 Ready to Experience mAIscam?
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Now that you have the extension installed, try out our interactive demos to see how mAIscam protects against different types of scams.
+                Now that you have the extension installed, try out our
+                interactive demos to see how mAIscam protects against different
+                types of scams.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild size="lg">
@@ -839,8 +1037,17 @@ export default function InstallationPage() {
                   📈 Want to see detection analytics and insights?
                 </p>
                 <div className="flex justify-center">
-                  <Button asChild size="lg" variant="outline" className="border-purple-300 text-purple-700 hover:bg-purple-50">
-                    <a href="https://mai-scam-admin.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="border-purple-300 text-purple-700 hover:bg-purple-50"
+                  >
+                    <a
+                      href="https://mai-scam-admin.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <TrendingUp className="w-5 h-5 mr-2" />
                       Admin Dashboard
                     </a>
@@ -856,7 +1063,8 @@ export default function InstallationPage() {
       <footer className="container mx-auto px-4 md:px-6 py-6 md:py-8 mt-12 md:mt-16 border-t">
         <div className="text-center text-muted-foreground">
           <p className="text-xs md:text-sm">
-            © {new Date().getFullYear()} mAIscam Installation Guide. Step-by-step instructions for judges and evaluators.
+            © {new Date().getFullYear()} mAIscam Installation Guide.
+            Step-by-step instructions for judges and evaluators.
           </p>
           <div className="mt-4 flex justify-center space-x-4">
             <Link
