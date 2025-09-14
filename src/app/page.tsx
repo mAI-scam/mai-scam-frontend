@@ -87,6 +87,11 @@ export default function Home() {
                             extension.
                           </p>
                         </div>
+                        <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-3">
+                          <p className="text-amber-900 font-medium">
+                            <strong>⏱️ First Detection Notice:</strong> Your first scam detection may take 15-30 seconds as our AI services boot up from AWS Lambda. Subsequent detections will be much faster (typically 2-5 seconds) as the services remain active.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

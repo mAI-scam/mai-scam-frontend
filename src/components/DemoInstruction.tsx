@@ -82,25 +82,35 @@ export function DemoInstruction({
         <div className="flex items-center gap-3 justify-self-end">
           <LanguageSelector />
 
-          <Button
-            data-tour="activate-button"
-            onClick={toggleExtension}
-            className="shadow-lg h-9"
-            variant={isActive ? "destructive" : "default"}
-            disabled={isActivating}
-          >
-            {isActivating ? (
-              <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
-                Activating...
-              </>
-            ) : (
-              <>
-                <Shield className="h-5 w-5 mr-2" />
-                {isActive ? t.deactivateExtension : t.activateExtension}
-              </>
+          <div className="flex flex-col items-center gap-2">
+            <Button
+              data-tour="activate-button"
+              onClick={toggleExtension}
+              className="shadow-lg h-9"
+              variant={isActive ? "destructive" : "default"}
+              disabled={isActivating}
+            >
+              {isActivating ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
+                  Activating...
+                </>
+              ) : (
+                <>
+                  <Shield className="h-5 w-5 mr-2" />
+                  {isActive ? t.deactivateExtension : t.activateExtension}
+                </>
+              )}
+            </Button>
+            
+            {!isActive && (
+              <div className="bg-amber-100 border border-amber-300 rounded-lg p-2 text-center max-w-xs">
+                <p className="text-xs text-amber-800">
+                  <strong>⏱️ First detection:</strong> May take 15-30s (AWS Lambda startup)
+                </p>
+              </div>
             )}
-          </Button>
+          </div>
         </div>
       </div>
 
@@ -153,25 +163,35 @@ export function DemoInstruction({
         <div className="max-w-[100vw] flex items-center gap-3 justify-center">
           <LanguageSelector />
 
-          <Button
-            data-tour="activate-button"
-            onClick={toggleExtension}
-            className="shadow-lg h-9"
-            variant={isActive ? "destructive" : "default"}
-            disabled={isActivating}
-          >
-            {isActivating ? (
-              <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
-                Activating...
-              </>
-            ) : (
-              <>
-                <Shield className="h-5 w-5 mr-2" />
-                {isActive ? t.deactivateExtension : t.activateExtension}
-              </>
+          <div className="flex flex-col items-center gap-2">
+            <Button
+              data-tour="activate-button"
+              onClick={toggleExtension}
+              className="shadow-lg h-9"
+              variant={isActive ? "destructive" : "default"}
+              disabled={isActivating}
+            >
+              {isActivating ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
+                  Activating...
+                </>
+              ) : (
+                <>
+                  <Shield className="h-5 w-5 mr-2" />
+                  {isActive ? t.deactivateExtension : t.activateExtension}
+                </>
+              )}
+            </Button>
+            
+            {!isActive && (
+              <div className="bg-amber-100 border border-amber-300 rounded-lg p-2 text-center max-w-xs">
+                <p className="text-xs text-amber-800">
+                  <strong>⏱️ First detection:</strong> May take 15-30s (AWS Lambda startup)
+                </p>
+              </div>
             )}
-          </Button>
+          </div>
         </div>
       </div>
     </div>

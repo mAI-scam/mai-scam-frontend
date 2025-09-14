@@ -114,6 +114,19 @@ export default function InstallationPage() {
                   </div>
                 </div>
               </div>
+              <div className="bg-amber-100 border border-amber-300 rounded-lg p-4 mt-4">
+                <div className="flex items-start gap-3">
+                  <div className="text-2xl">⏱️</div>
+                  <div>
+                    <h4 className="font-semibold text-amber-800 mb-2">
+                      First Detection Notice
+                    </h4>
+                    <p className="text-sm text-amber-700">
+                      <strong>Important:</strong> Your first scam detection may take 15-30 seconds as our AI services boot up from AWS Lambda cold start. This is normal! Subsequent detections will be much faster (typically 2-5 seconds) as the services remain active.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </section>
@@ -520,6 +533,25 @@ export default function InstallationPage() {
                       your request
                     </p>
                   </div>
+
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <p className="text-sm text-amber-800 mb-3 font-medium">
+                      ⏱️ Expected Detection Times:
+                    </p>
+                    <div className="space-y-2 text-xs text-amber-700">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                        <span><strong>First detection:</strong> 15-30 seconds (AWS Lambda cold start)</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                        <span><strong>Subsequent detections:</strong> 2-5 seconds (services active)</span>
+                      </div>
+                    </div>
+                    <p className="text-xs text-amber-700 mt-2 italic">
+                      💡 This is normal behavior for serverless applications. Please be patient during your first detection!
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -740,6 +772,12 @@ export default function InstallationPage() {
                           View real-time scam analysis
                         </li>
                       </ol>
+
+                      <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-4">
+                        <p className="text-sm text-amber-800">
+                          <strong>⏱️ Detection Time:</strong> First detection may take 15-30 seconds (AWS Lambda startup). Subsequent detections are much faster!
+                        </p>
+                      </div>
                     </div>
 
                     <Button asChild size="lg" className="w-full">
@@ -827,7 +865,13 @@ export default function InstallationPage() {
                         </li>
                       </ol>
 
-                      <div className="bg-green-100 border border-green-300 rounded-lg p-3 mt-4">
+                      <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-4">
+                        <p className="text-sm text-amber-800">
+                          <strong>⏱️ Detection Time:</strong> First detection may take 15-30 seconds (AWS Lambda startup). Subsequent detections are much faster!
+                        </p>
+                      </div>
+
+                      <div className="bg-green-100 border border-green-300 rounded-lg p-3 mt-3">
                         <p className="text-sm text-green-800">
                           <strong>🛡️ Safe Testing:</strong> Try our simulated
                           scam website at{" "}
@@ -929,6 +973,12 @@ export default function InstallationPage() {
                           Click on suspicious content to analyze
                         </li>
                       </ol>
+
+                      <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-4">
+                        <p className="text-sm text-amber-800">
+                          <strong>⏱️ Detection Time:</strong> First detection may take 15-30 seconds (AWS Lambda startup). Subsequent detections are much faster!
+                        </p>
+                      </div>
                     </div>
 
                     <Button asChild size="lg" className="w-full">
