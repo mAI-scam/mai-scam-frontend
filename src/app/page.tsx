@@ -99,28 +99,54 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right side - YouTube Video Demo */}
+              {/* Right side - YouTube Videos */}
               <div className="lg:flex-1 mt-6 lg:mt-0 lg:pl-8">
-                <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 shadow-lg max-w-md mx-auto lg:mx-0">
-                  <div
-                    className="relative w-full"
-                    style={{ paddingBottom: "56.25%" }}
-                  >
-                    <iframe
-                      className="absolute top-0 left-0 w-full h-full rounded-lg"
-                      src="https://www.youtube.com/embed/1xNxD_bfvpw?rel=0&modestbranding=1"
-                      title="mAIscam Web Extension Demo"
-                      style={{ border: 0 }}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
+                <div className="space-y-6">
+                  {/* Pitching Video */}
+                  <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 shadow-lg">
+                    <h3 className="text-lg font-bold text-center mb-4 text-gray-800">
+                      🎯 Project Pitch
+                    </h3>
+                    <div
+                      className="relative w-full"
+                      style={{ paddingBottom: "56.25%" }}
+                    >
+                      <iframe
+                        className="absolute top-0 left-0 w-full h-full rounded-lg"
+                        src="https://www.youtube.com/embed/MUg4EGxcHro?rel=0&modestbranding=1"
+                        title="mAIscam Project Pitch"
+                        style={{ border: 0 }}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
+
+                  {/* Demo Walkthrough Video */}
+                  <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 shadow-lg">
+                    <h3 className="text-lg font-bold text-center mb-4 text-gray-800">
+                      🔍 Demo Walkthrough
+                    </h3>
+                    <div
+                      className="relative w-full"
+                      style={{ paddingBottom: "56.25%" }}
+                    >
+                      <iframe
+                        className="absolute top-0 left-0 w-full h-full rounded-lg"
+                        src="https://www.youtube.com/embed/rNhK1GPuOu0?rel=0&modestbranding=1"
+                        title="mAIscam Demo Walkthrough"
+                        style={{ border: 0 }}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Features Section */}
+          {/* Features Section */
           <div
             id="features"
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full max-w-5xl"
