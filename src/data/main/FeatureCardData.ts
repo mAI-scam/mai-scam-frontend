@@ -29,7 +29,7 @@ export const FeatureCardData: FeatureCardItem[] = [
   {
     title: "Social Media Analysis",
     description:
-      "Extract and analyze text from images to identify potential scams in screenshots and photos",
+      "Extract and analyze text from Twitter and Facebook posts to identify potential scams in screenshots and photos",
     link: "/image-demo",
     icon: Camera,
     colorScheme: "purple",

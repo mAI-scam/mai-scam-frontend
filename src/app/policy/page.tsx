@@ -132,8 +132,8 @@ export default function PolicyPage() {
                 </h4>
                 <ul className="space-y-2 text-sm text-yellow-800 ml-4">
                   <li>
-                    • Content from websites you visit (Gmail emails, Facebook
-                    posts, web pages)
+                    • Content from websites you visit (Gmail emails, Twitter &
+                    Facebook posts, web pages)
                   </li>
                   <li>• URL information of websites being analyzed</li>
                   <li>

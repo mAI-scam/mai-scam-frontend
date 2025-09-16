@@ -905,7 +905,7 @@ export default function InstallationPage() {
               <CardHeader className="bg-purple-50">
                 <CardTitle className="flex items-center gap-2 text-xl text-purple-800">
                   <Facebook className="w-6 h-6" />
-                  Social Media Guard
+                  Social Media Guard (Twitter & Facebook)
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
@@ -952,7 +952,7 @@ export default function InstallationPage() {
                           <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
                             1
                           </span>
-                          Browse Facebook or social media
+                          Browse Twitter or Facebook
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -977,6 +977,15 @@ export default function InstallationPage() {
                       <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-4">
                         <p className="text-sm text-amber-800">
                           <strong>⏱️ Detection Time:</strong> First detection may take 15-30 seconds (AWS Lambda startup). Subsequent detections are much faster!
+                        </p>
+                      </div>
+
+                      <div className="bg-blue-100 border border-blue-300 rounded-lg p-3 mt-3">
+                        <p className="text-sm text-blue-800">
+                          <strong>🎯 Current Focus:</strong> We currently prioritize
+                          Twitter and Facebook scam detection. Other social platforms
+                          (Instagram, TikTok, LinkedIn, etc.) will be implemented in
+                          future updates.
                         </p>
                       </div>
                     </div>
@@ -1078,7 +1087,7 @@ export default function InstallationPage() {
                 <Button asChild size="lg">
                   <Link href="/image-demo">
                     <Facebook className="w-5 h-5 mr-2" />
-                    Social Media Demo
+                    Social Media Demo (Twitter & Facebook)
                   </Link>
                 </Button>
               </div>

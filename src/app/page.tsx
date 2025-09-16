@@ -158,7 +158,7 @@ export default function Home() {
                     </li>
                     <li className="ml-4">
                       1. Choose a demo scenario below (Email Client, Website, or
-                      Social Media Feed)
+                      Social Media Posts from Twitter & Facebook)
                     </li>
                     <li className="ml-4">
                       2. Click{" "}
@@ -388,13 +388,13 @@ export default function Home() {
                 </Badge>
                 <div>
                   <h4 className="font-semibold mb-1 text-sm md:text-base">
-                    Facebook Post Multimodal Analysis
+                    Social Media Post Multimodal Analysis
                   </h4>
                   <p className="text-muted-foreground text-xs md:text-sm">
-                    Multimodal analysis (text + images) via SEA-LION v4 with
-                    engagement metrics evaluation, author credibility
-                    assessment, and visual scam detection. Interactive post
-                    analysis across social media platforms.
+                    Multimodal analysis (text + images) via SEA-LION v4 for
+                    Twitter and Facebook posts with engagement metrics evaluation,
+                    author credibility assessment, and visual scam detection.
+                    Interactive post analysis across social media platforms.
                   </p>
                 </div>
               </div>
@@ -916,8 +916,8 @@ export default function Home() {
               <span className="text-green-600 font-bold text-xs">✓</span>
               <span className="text-xs md:text-sm text-green-700">
                 <strong>Multi-Platform Support:</strong> Currently supports
-                Gmail, websites, and Facebook with plans to expand to X
-                (Twitter), Threads, Reddit, and other social media platforms
+                Gmail, websites, Twitter, and Facebook with plans to expand to
+                Threads, Reddit, and other social media platforms
               </span>
             </div>
             <div className="flex items-start gap-2">

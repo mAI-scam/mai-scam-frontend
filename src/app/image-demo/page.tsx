@@ -10,7 +10,7 @@ import { FacebookFeed } from "@/components/image-demo/FacebookFeed";
 import { FacebookScamBlockOverlay } from "@/components/image-demo/FacebookScamBlockOverlay";
 import { FacebookSafeContentOverlay } from "@/components/image-demo/FacebookSafeContentOverlay";
 import { useExtensionStore } from "@/lib/store/extensionStore";
-import { Facebook } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { useSocialMediaTour } from "@/lib/useSocialMediaTour";
 import { Header } from "@/components/Header";
 import { ScrollProvider } from "@/lib/ScrollContext";
@@ -73,11 +73,11 @@ export default function ImageDemoPage() {
         {/* Unified Header Component */}
         <Header
           demoType="image"
-          title="Social Media Scam Detection Demo"
-          icon={<Facebook className="h-5 w-5" />}
+          title="Social Media Scam Detection Demo (Twitter & Facebook)"
+          icon={<MessageSquare className="h-5 w-5" />}
           onStartTour={startTour}
           colorScheme="purple"
-          websiteUrl="facebook.com"
+          websiteUrl="twitter.com / facebook.com"
         />
 
         {/* Desktop: Show sidebar and content */}

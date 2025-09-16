@@ -38,6 +38,12 @@ export default function Header() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           <Link
+            href="/installation"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Installation
+          </Link>
+          <Link
             href="/email-demo"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
@@ -55,12 +61,6 @@ export default function Header() {
           >
             Social Media Demo
           </Link>
-          <Link
-            href="/installation"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Installation
-          </Link>
           <a
             href="https://mai-scam-admin.vercel.app/"
             target="_blank"
@@ -70,12 +70,6 @@ export default function Header() {
             <BarChart3 className="h-4 w-4" />
             Dashboard
           </a>
-          <Link
-            href="/policy"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Policy
-          </Link>
           <a
             href="https://github.com/mAI-scam"
             target="_blank"
@@ -85,6 +79,12 @@ export default function Header() {
             <Github className="h-4 w-4" />
             GitHub
           </a>
+          <Link
+            href="/policy"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Policy
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -107,6 +107,13 @@ export default function Header() {
         <div className="md:hidden mt-4 pb-4 border-t pt-4">
           <div className="flex flex-col space-y-3">
             <Link
+              href="/installation"
+              className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Installation
+            </Link>
+            <Link
               href="/email-demo"
               className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
               onClick={() => setIsMenuOpen(false)}
@@ -127,13 +134,6 @@ export default function Header() {
             >
               Social Media Demo
             </Link>
-            <Link
-              href="/installation"
-              className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Installation
-            </Link>
             <a
               href="https://mai-scam-admin.vercel.app/"
               target="_blank"
@@ -144,13 +144,6 @@ export default function Header() {
               <BarChart3 className="h-4 w-4" />
               Dashboard
             </a>
-            <Link
-              href="/policy"
-              className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Policy
-            </Link>
             <a
               href="https://github.com/mAI-scam"
               target="_blank"
@@ -161,6 +154,13 @@ export default function Header() {
               <Github className="h-4 w-4" />
               GitHub
             </a>
+            <Link
+              href="/policy"
+              className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Policy
+            </Link>
           </div>
         </div>
       )}
