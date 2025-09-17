@@ -1,5 +1,5 @@
 "use client";
-// Test
+// Testing
 
 import Image from "next/image";
 import Link from "next/link";
@@ -42,9 +42,14 @@ export default function Home() {
                 </h1>
                 {/* Subtitle */}
                 <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#6FBDF4] mt-2">
-                  <span className="text-[#EB6700]">LLM-Powered Multicultural Web Extension</span>
+                  <span className="text-[#EB6700]">
+                    LLM-Powered Multicultural Web Extension
+                  </span>
                   <br className="block sm:hidden" />
-                  <span className="text-[#49A4EF]"> for Real-Time Scam Protection in SEA</span>
+                  <span className="text-[#49A4EF]">
+                    {" "}
+                    for Real-Time Scam Protection in SEA
+                  </span>
                 </h2>
 
                 {/* Description */}
@@ -90,7 +95,11 @@ export default function Home() {
                         </div>
                         <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-3">
                           <p className="text-amber-900 font-medium">
-                            <strong>⏱️ First Detection Notice:</strong> Your first scam detection may take 15-30 seconds as our AI services boot up from AWS Lambda. Subsequent detections will be much faster (typically 2-5 seconds) as the services remain active.
+                            <strong>⏱️ First Detection Notice:</strong> Your
+                            first scam detection may take 15-30 seconds as our
+                            AI services boot up from AWS Lambda. Subsequent
+                            detections will be much faster (typically 2-5
+                            seconds) as the services remain active.
                           </p>
                         </div>
                       </div>
@@ -418,9 +427,10 @@ export default function Home() {
                   </h4>
                   <p className="text-muted-foreground text-xs md:text-sm">
                     Multimodal analysis (text + images) via SEA-LION v4 for
-                    Twitter and Facebook posts with engagement metrics evaluation,
-                    author credibility assessment, and visual scam detection.
-                    Interactive post analysis across social media platforms.
+                    Twitter and Facebook posts with engagement metrics
+                    evaluation, author credibility assessment, and visual scam
+                    detection. Interactive post analysis across social media
+                    platforms.
                   </p>
                 </div>
               </div>
