@@ -161,13 +161,13 @@ export default function InstallationPage() {
                     </p>
                     <div className="bg-white border-2 border-blue-200 rounded-lg p-4 inline-block">
                       <a
-                        href="https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.0"
+                        href="https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.1"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-800 font-medium underline decoration-2 underline-offset-2 flex items-center gap-2"
                       >
                         <Download className="w-4 h-4" />
-                        https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.0
+                        https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.1
                       </a>
                     </div>
                   </div>

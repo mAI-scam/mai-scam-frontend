@@ -11,7 +11,7 @@ This demo website showcases how the mAIscam browser extension protects users fro
 ### **IMPORTANT: Installing the Actual Extension**
 This website is for demonstration purposes. To experience the **real mAIscam extension**:
 
-1. **Download the extension**: Visit [GitHub Releases](https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.0)
+1. **Download the extension**: Visit [GitHub Releases](https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.1)
 2. **Download**: `maiscam-1.0.0-chrome.zip`
 3. **Install**: Extract the zip file and load as unpacked extension in Chrome
 4. **Detailed Instructions**: Visit `/installation` page on this website for step-by-step guide
@@ -93,4 +93,4 @@ The demo website simulates the extension's functionality for illustration, but t
 
 ---
 
-**🔗 Links**: [Extension Download](https://github.com/mAI-scam/mai-scam-extension/releases) | [Installation Guide](/installation) | [Admin Dashboard](https://mai-scam-admin.vercel.app/) | [GitHub Organization](https://github.com/mAI-scam)
+**🔗 Links**: [Extension Download](https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.1) | [Installation Guide](/installation) | [Admin Dashboard](https://mai-scam-admin.vercel.app/) | [GitHub Organization](https://github.com/mAI-scam)
