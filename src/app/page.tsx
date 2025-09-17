@@ -31,9 +31,9 @@ export default function Home() {
         <section className="flex flex-col items-center text-center mb-8 md:mb-12 mx-auto">
           {/* Identity Text */}
           <div className="font-bold mb-4 md:mb-6 py-4 md:py-6 w-full">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 lg:justify-center max-w-6xl mx-auto px-4 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-start md:gap-8 lg:gap-12 lg:justify-center max-w-6xl mx-auto px-4 lg:px-8">
               {/* Left side - Title and Subtitle */}
-              <div className="lg:flex-1 text-center lg:text-left lg:pr-8">
+              <div className="md:flex-1 text-center md:text-left md:pr-4 lg:pr-8">
                 {/* Title */}
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[#49A4EF]">
                   <span>m</span>
@@ -41,14 +41,14 @@ export default function Home() {
                   <span>scam</span>
                 </h1>
                 {/* Subtitle */}
-                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#6FBDF4] mt-2 whitespace-nowrap">
-                  an <span className="text-[#EB6700]">AI-powered</span>{" "}
-                  <span className="text-[#49A4EF]">anti-scam</span> Web
-                  Extension
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#6FBDF4] mt-2">
+                  <span className="text-[#EB6700]">LLM-Powered Multicultural Web Extension</span>
+                  <br className="block sm:hidden" />
+                  <span className="text-[#49A4EF]"> for Real-Time Scam Protection in SEA</span>
                 </h2>
 
                 {/* Description */}
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 md:p-6 mt-4 text-left max-w-4xl">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 md:p-6 mt-4 text-left max-w-full md:max-w-4xl">
                   <div className="flex items-start gap-3">
                     <div className="text-2xl">📱</div>
                     <div className="flex-1">
@@ -100,11 +100,11 @@ export default function Home() {
               </div>
 
               {/* Right side - YouTube Videos */}
-              <div className="lg:flex-1 mt-6 lg:mt-0 lg:pl-8">
-                <div className="space-y-6">
+              <div className="md:flex-1 mt-6 md:mt-0 md:pl-4 lg:pl-8">
+                <div className="space-y-4 md:space-y-6">
                   {/* Pitching Video */}
-                  <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 shadow-lg">
-                    <h3 className="text-lg font-bold text-center mb-4 text-gray-800">
+                  <div className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 lg:p-6 shadow-lg">
+                    <h3 className="text-base md:text-lg font-bold text-center mb-3 md:mb-4 text-gray-800">
                       🎯 Project Pitch
                     </h3>
                     <div
@@ -123,8 +123,8 @@ export default function Home() {
                   </div>
 
                   {/* Demo Walkthrough Video */}
-                  <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-6 shadow-lg">
-                    <h3 className="text-lg font-bold text-center mb-4 text-gray-800">
+                  <div className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 lg:p-6 shadow-lg">
+                    <h3 className="text-base md:text-lg font-bold text-center mb-3 md:mb-4 text-gray-800">
                       🔍 Demo Walkthrough
                     </h3>
                     <div
