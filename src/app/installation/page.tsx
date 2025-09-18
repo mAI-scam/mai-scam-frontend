@@ -621,7 +621,7 @@ export default function InstallationPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className="space-y-6">
                       <div className="space-y-4">
                         <h4 className="text-lg font-semibold text-gray-800 mb-4">
                           How to Access mAIscam:
@@ -644,48 +644,42 @@ export default function InstallationPage() {
                             </span>
                           </li>
                         </ol>
+                      </div>
 
-                        <div className="bg-gray-100 rounded-lg p-3 mt-4">
-                          <p className="text-sm font-medium text-gray-600 mb-2">
-                            🕹️ Click Extension Icon:
-                          </p>
-                          <div className="bg-white rounded overflow-hidden shadow-md">
-                            <Image
-                              src="/images/installation/extension-loading.png"
-                              alt="Click extension icon in toolbar"
-                              width={1000}
-                              height={863}
-                              className="w-full h-auto"
-                              quality={100}
-                              priority
-                            />
-                          </div>
+                      <div className="bg-gray-100 rounded-lg p-4">
+                        <h5 className="text-md font-semibold text-gray-700 mb-3">
+                          🕹️ Step 1: Click Extension Icon
+                        </h5>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/extension-loading.png"
+                            alt="Click extension icon in toolbar"
+                            width={1000}
+                            height={863}
+                            className="w-full h-auto"
+                            quality={100}
+                            priority
+                          />
                         </div>
                       </div>
 
-                      <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                          Extension Interface:
-                        </h4>
-                        <p className="text-gray-700">
+                      <div className="bg-blue-100 rounded-lg p-4">
+                        <h5 className="text-md font-semibold text-blue-700 mb-3">
+                          ✨ Step 2: Extension Loaded Interface
+                        </h5>
+                        <p className="text-blue-700 mb-3">
                           Once loaded, the extension will show you different analysis options based on the type of content you want to scan.
                         </p>
-
-                        <div className="bg-blue-100 rounded-lg p-3">
-                          <p className="text-sm font-medium text-blue-600 mb-2">
-                            ✨ Extension Loaded Interface:
-                          </p>
-                          <div className="bg-white rounded overflow-hidden shadow-md">
-                            <Image
-                              src="/images/installation/extension-loads.png"
-                              alt="Extension interface when loaded"
-                              width={1000}
-                              height={1570}
-                              className="w-full h-auto"
-                              quality={100}
-                              priority
-                            />
-                          </div>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/extension-loads.png"
+                            alt="Extension interface when loaded"
+                            width={1000}
+                            height={1570}
+                            className="w-full h-auto"
+                            quality={100}
+                            priority
+                          />
                         </div>
                       </div>
                     </div>
@@ -888,42 +882,54 @@ export default function InstallationPage() {
                         <h4 className="text-lg font-semibold text-blue-800 mb-3">
                           Twitter Support Example
                         </h4>
-                        <p className="text-blue-700 mb-3">
-                          We support both Facebook and Twitter. Here's an example of Twitter content analysis:
+                        <p className="text-blue-700 mb-4">
+                          We support both Facebook and Twitter. Here&apos;s an example of Twitter content analysis:
                         </p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="space-y-6">
                           <div className="bg-white rounded overflow-hidden shadow-md">
-                            <Image
-                              src="/images/installation/twitter-interface.png"
-                              alt="Twitter interface"
-                              width={1000}
-                              height={492}
-                              className="w-full h-auto"
-                              quality={100}
-                            />
-                            <p className="text-xs text-center p-2 text-gray-600">Twitter Interface</p>
+                            <h5 className="text-sm font-semibold text-gray-700 p-3 bg-gray-50 border-b">
+                              1. Twitter Interface
+                            </h5>
+                            <div className="p-3">
+                              <Image
+                                src="/images/installation/twitter-interface.png"
+                                alt="Twitter interface"
+                                width={1000}
+                                height={492}
+                                className="w-full h-auto rounded"
+                                quality={100}
+                              />
+                            </div>
                           </div>
                           <div className="bg-white rounded overflow-hidden shadow-md">
-                            <Image
-                              src="/images/installation/twitter-choose-post.png"
-                              alt="Twitter choose post"
-                              width={1000}
-                              height={742}
-                              className="w-full h-auto"
-                              quality={100}
-                            />
-                            <p className="text-xs text-center p-2 text-gray-600">Select Tweet</p>
+                            <h5 className="text-sm font-semibold text-gray-700 p-3 bg-gray-50 border-b">
+                              2. Select Tweet to Analyze
+                            </h5>
+                            <div className="p-3">
+                              <Image
+                                src="/images/installation/twitter-choose-post.png"
+                                alt="Twitter choose post"
+                                width={1000}
+                                height={742}
+                                className="w-full h-auto rounded"
+                                quality={100}
+                              />
+                            </div>
                           </div>
                           <div className="bg-white rounded overflow-hidden shadow-md">
-                            <Image
-                              src="/images/installation/twitter-analysis-result.png"
-                              alt="Twitter analysis result"
-                              width={1000}
-                              height={231}
-                              className="w-full h-auto"
-                              quality={100}
-                            />
-                            <p className="text-xs text-center p-2 text-gray-600">Analysis Result</p>
+                            <h5 className="text-sm font-semibold text-gray-700 p-3 bg-gray-50 border-b">
+                              3. Analysis Result
+                            </h5>
+                            <div className="p-3">
+                              <Image
+                                src="/images/installation/twitter-analysis-result.png"
+                                alt="Twitter analysis result"
+                                width={1000}
+                                height={231}
+                                className="w-full h-auto rounded"
+                                quality={100}
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
