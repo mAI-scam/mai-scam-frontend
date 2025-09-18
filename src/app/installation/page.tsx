@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,10 +23,14 @@ import {
   Shield,
   FileText,
   TrendingUp,
+  Twitter,
+  Monitor,
 } from "lucide-react";
 import Header from "@/components/main/Header";
 
 export default function InstallationPage() {
+  const [activeTab, setActiveTab] = useState("installation");
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       {/* Header */}
@@ -39,11 +44,11 @@ export default function InstallationPage() {
               <span className="text-[#49A4EF]">m</span>
               <span className="text-[#EB6700]">AI</span>
               <span className="text-[#49A4EF]">scam</span>
-              <span className="text-gray-800 ml-4">Installation Guide</span>
+              <span className="text-gray-800 ml-4">Installation & Usage Guide</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-6">
-              Easy step-by-step instructions to install and use the mAIscam
-              browser extension
+              Complete guide for installing and using the mAIscam
+              browser extension to protect against scams
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
               <div className="flex items-center gap-3 justify-center">
@@ -55,11 +60,42 @@ export default function InstallationPage() {
                 </p>
               </div>
             </div>
+
+            {/* Tab Navigation */}
+            <div className="flex justify-center mb-8">
+              <div className="bg-white rounded-lg border border-gray-200 p-1 shadow-sm">
+                <button
+                  onClick={() => setActiveTab("installation")}
+                  className={`px-6 py-3 rounded-md font-medium text-sm transition-all ${
+                    activeTab === "installation"
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  }`}
+                >
+                  <Settings className="w-4 h-4 inline mr-2" />
+                  Installation & Setup
+                </button>
+                <button
+                  onClick={() => setActiveTab("usage")}
+                  className={`px-6 py-3 rounded-md font-medium text-sm transition-all ${
+                    activeTab === "usage"
+                      ? "bg-green-600 text-white shadow-sm"
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                  }`}
+                >
+                  <Play className="w-4 h-4 inline mr-2" />
+                  How to Use mAIscam
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Requirements Section */}
-        <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
+        {/* Installation Tab Content */}
+        {activeTab === "installation" && (
+          <>
+            {/* Requirements Section */}
+            <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
           <Card className="border-orange-200 bg-orange-50">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-xl md:text-2xl text-orange-800">
@@ -188,7 +224,7 @@ export default function InstallationPage() {
                       <Image
                         src="/images/installation/download-page.png"
                         alt="Extension download page"
-                        width={2622}
+                        width={1000}
                         height={1604}
                         className="w-full h-auto"
                       />
@@ -248,7 +284,7 @@ export default function InstallationPage() {
                       <Image
                         src="/images/installation/extracted-folder.png"
                         alt="Extracted extension folder"
-                        width={1034}
+                        width={1000}
                         height={100}
                         className="max-w-full h-auto"
                       />
@@ -272,14 +308,21 @@ export default function InstallationPage() {
               <CardContent className="pt-6">
                 <div className="space-y-6">
                   <p className="text-gray-700">
-                    Open Google Chrome and navigate to the extensions management
-                    page:
+                    <strong>Open Google Chrome and navigate to the extensions management
+                    page:</strong>
                   </p>
 
                   <div className="bg-gray-50 border rounded-lg p-3">
-                    <p className="text-sm font-mono text-gray-800">
+                    <a
+                      href="chrome://extensions/"
+                      className="text-sm font-mono text-blue-600 hover:text-blue-800 underline cursor-pointer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.open('chrome://extensions/', '_blank');
+                      }}
+                    >
                       chrome://extensions/
-                    </p>
+                    </a>
                   </div>
 
                   <div>
@@ -300,9 +343,9 @@ export default function InstallationPage() {
                     </p>
                     <div className="bg-white border rounded-lg overflow-hidden">
                       <Image
-                        src="/images/installation/extensions-page.png"
+                        src="/images/installation/original-extension.png"
                         alt="Chrome extensions page"
-                        width={2874}
+                        width={1000}
                         height={1568}
                         className="w-full h-auto"
                       />
@@ -334,19 +377,19 @@ export default function InstallationPage() {
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
                       <span>
-                        Look for the &ldquo;Developer mode&rdquo; toggle switch
+                        <strong>Look for the &ldquo;Developer mode&rdquo; toggle switch</strong>
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
                       <span>
-                        Click to enable it (the toggle should turn blue/active)
+                        <strong>Click to enable it</strong> (the toggle should turn blue/active)
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
                       <span>
-                        New buttons will appear: &ldquo;Load unpacked&rdquo;,
+                        <strong>New buttons will appear:</strong> &ldquo;Load unpacked&rdquo;,
                         &ldquo;Pack extension&rdquo;, &ldquo;Update&rdquo;
                       </span>
                     </li>
@@ -360,7 +403,7 @@ export default function InstallationPage() {
                       <Image
                         src="/images/installation/developer-mode.png"
                         alt="Developer mode toggle"
-                        width={2874}
+                        width={1000}
                         height={1568}
                         className="w-full h-auto"
                       />
@@ -390,21 +433,21 @@ export default function InstallationPage() {
                   <ol className="space-y-3 text-gray-700">
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-red-600 mt-1 flex-shrink-0" />
-                      <span>Click the &ldquo;Load unpacked&rdquo; button</span>
+                      <span><strong>Click the &ldquo;Load unpacked&rdquo; button</strong></span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-red-600 mt-1 flex-shrink-0" />
                       <span>
-                        Navigate to and select the{" "}
+                        <strong>Navigate to and select the{" "}
                         <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">
                           maiscam-1.0.0-chrome
                         </code>{" "}
-                        folder
+                        folder</strong>
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ArrowRight className="w-4 h-4 text-red-600 mt-1 flex-shrink-0" />
-                      <span>Click &ldquo;Select Folder&rdquo;</span>
+                      <span><strong>Click &ldquo;Select Folder&rdquo;</strong></span>
                     </li>
                   </ol>
 
@@ -416,7 +459,7 @@ export default function InstallationPage() {
                       <Image
                         src="/images/installation/upload-unzip-extension.png"
                         alt="Upload and unzip extension process"
-                        width={2874}
+                        width={1000}
                         height={1568}
                         className="w-full h-auto"
                       />
@@ -439,9 +482,9 @@ export default function InstallationPage() {
                     </p>
                     <div className="bg-white border rounded-lg overflow-hidden">
                       <Image
-                        src="/images/installation/extension-loading.png"
+                        src="/images/installation/extension-installed.png"
                         alt="Extension loaded successfully"
-                        width={2874}
+                        width={1000}
                         height={1568}
                         className="w-full h-auto"
                       />
@@ -504,7 +547,7 @@ export default function InstallationPage() {
                       <Image
                         src="/images/installation/extension-loading.png"
                         alt="How to open the mAIscam extension"
-                        width={2874}
+                        width={1000}
                         height={1568}
                         className="w-full h-auto"
                       />
@@ -521,9 +564,9 @@ export default function InstallationPage() {
                     </p>
                     <div className="bg-white border rounded-lg overflow-hidden mb-4">
                       <Image
-                        src="/images/installation/open-extension.png"
+                        src="/images/installation/extension-loads.png"
                         alt="Extension loading state"
-                        width={2874}
+                        width={1000}
                         height={1568}
                         className="w-full h-auto"
                       />
@@ -557,453 +600,450 @@ export default function InstallationPage() {
             </Card>
           </div>
         </section>
+          </>
+        )}
 
-        {/* Safe Testing Section */}
-        <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
-          <Card className="border-2 border-orange-200 bg-orange-50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-xl text-orange-800">
-                <Shield className="w-6 h-6" />
-                🛡️ Safe Testing Environment
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <p className="text-orange-800">
-                  <strong>For Your Safety:</strong> Want to test the website
-                  scam detection feature with the real extension? We&apos;ve
-                  created a safe, simulated phishing website specifically for
-                  testing purposes.
-                </p>
+        {/* Usage Tab Content */}
+        {activeTab === "usage" && (
+          <>
+            <section className="mb-8 md:mb-12 max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800">
+                🎯 How to Use mAIscam
+              </h2>
 
-                <div className="bg-white border-2 border-orange-300 rounded-lg p-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Globe className="w-5 h-5 text-orange-600" />
-                    <h4 className="font-semibold text-orange-900">
-                      Test Website
-                    </h4>
-                  </div>
-                  <div className="bg-orange-100 border border-orange-300 rounded-lg p-3 mb-3">
-                    <p className="text-lg font-mono text-orange-900 text-center">
-                      <a
-                        href="https://shoppe123.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-orange-700 underline hover:text-orange-900 font-bold"
-                      >
-                        https://shoppe123.vercel.app/
-                      </a>
-                    </p>
-                  </div>
+              <div className="space-y-8">
+                {/* Extension Loading Section */}
+                <Card className="border-2 border-gray-200">
+                  <CardHeader className="bg-gray-50">
+                    <CardTitle className="flex items-center gap-2 text-xl text-gray-800">
+                      <Monitor className="w-6 h-6" />
+                      Loading the Extension
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      <div className="space-y-4">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-4">
+                          How to Access mAIscam:
+                        </h4>
+                        <ol className="text-base space-y-3 text-gray-700">
+                          <li className="flex items-start gap-2">
+                            <span className="bg-gray-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              1
+                            </span>
+                            <span>
+                              <strong>Click the extension icon</strong> in your Chrome toolbar (puzzle piece icon if hidden)
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="bg-gray-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              2
+                            </span>
+                            <span>
+                              <strong>Find and click the mAIscam icon</strong> to open the extension
+                            </span>
+                          </li>
+                        </ol>
 
-                  <div className="space-y-3">
-                    <p className="text-sm text-orange-800">
-                      <strong>How to test:</strong>
-                    </p>
-                    <ol className="text-sm text-orange-700 space-y-2 ml-4">
-                      <li>1. Navigate to the test website above</li>
-                      <li>
-                        2. Click the mAIscam extension icon in your Chrome
-                        toolbar
-                      </li>
-                      <li>3. Select &quot;Analyze Website&quot;</li>
-                      <li>
-                        4. Watch as the extension detects and flags the
-                        simulated scam website
-                      </li>
-                    </ol>
-                  </div>
-                </div>
+                        <div className="bg-gray-100 rounded-lg p-3 mt-4">
+                          <p className="text-sm font-medium text-gray-600 mb-2">
+                            🕹️ Click Extension Icon:
+                          </p>
+                          <div className="bg-white rounded overflow-hidden shadow-md">
+                            <Image
+                              src="/images/installation/extension-loading.png"
+                              alt="Click extension icon in toolbar"
+                              width={1000}
+                              height={863}
+                              className="w-full h-auto"
+                              quality={100}
+                              priority
+                            />
+                          </div>
+                        </div>
+                      </div>
 
-                <div className="bg-red-100 border border-red-300 rounded-lg p-4">
-                  <div className="flex items-start gap-2">
-                    <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-sm font-semibold text-red-800 mb-1">
-                        ⚠️ Important Safety Notice:
-                      </p>
-                      <ul className="text-xs text-red-700 space-y-1">
-                        <li>
-                          • This is a controlled, harmless simulation designed
-                          specifically for testing
-                        </li>
-                        <li>
-                          • <strong>Never use real phishing websites</strong>{" "}
-                          for testing as they pose genuine security risks
-                        </li>
-                        <li>
-                          • The test website is completely safe and contains no
-                          malicious code or data collection
-                        </li>
-                        <li>
-                          • Use this test site to safely experience how mAIscam
-                          protects you from real threats
-                        </li>
-                      </ul>
+                      <div className="space-y-4">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-4">
+                          Extension Interface:
+                        </h4>
+                        <p className="text-gray-700">
+                          Once loaded, the extension will show you different analysis options based on the type of content you want to scan.
+                        </p>
+
+                        <div className="bg-blue-100 rounded-lg p-3">
+                          <p className="text-sm font-medium text-blue-600 mb-2">
+                            ✨ Extension Loaded Interface:
+                          </p>
+                          <div className="bg-white rounded overflow-hidden shadow-md">
+                            <Image
+                              src="/images/installation/extension-loads.png"
+                              alt="Extension interface when loaded"
+                              width={1000}
+                              height={1570}
+                              className="w-full h-auto"
+                              quality={100}
+                              priority
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
+
+                {/* Email Protection Flow */}
+                <Card className="border-2 border-blue-200">
+                  <CardHeader className="bg-blue-50">
+                    <CardTitle className="flex items-center gap-2 text-xl text-blue-800">
+                      <Mail className="w-6 h-6" />
+                      Email Protection
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="space-y-6">
+                      <p className="text-gray-700">
+                        Protect yourself from email scams and phishing attempts with our AI-powered email analysis.
+                      </p>
+
+                      {/* Step 1: Email Interface */}
+                      <div className="bg-gray-100 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-3">
+                          1. Email Interface & Analysis Button
+                        </h4>
+                        <p className="text-gray-700 mb-3">
+                          Open any email in Gmail. The mAIscam extension will add an "<strong>Analyze Email</strong>" button to help you detect potential scams.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/email-interface.jpg"
+                            alt="Email interface with analysis button"
+                            width={1000}
+                            height={268}
+                            className="w-full h-auto"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Step 2: Analysis Report */}
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">
+                          2. LLM Analysis Report
+                        </h4>
+                        <p className="text-blue-700 mb-3">
+                          After clicking analyze, our AI provides a detailed report with a risk assessment and actionable recommendations.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/email-report.jpg"
+                            alt="LLM analysis report popup"
+                            width={1000}
+                            height={83}
+                            className="w-full h-auto"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Step 3: Complete Analysis */}
+                      <div className="bg-green-50 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-green-800 mb-3">
+                          3. Complete Analysis Result
+                        </h4>
+                        <p className="text-green-700 mb-3">
+                          Get comprehensive analysis with risk level, recommended actions, and the option to proceed with caution or blur suspicious content.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/email-analysis-result.jpg"
+                            alt="Complete email analysis result"
+                            width={1000}
+                            height={0}
+                            className="w-full h-auto px-52"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Step 4: Email Blur Protection */}
+                      <div className="bg-red-50 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-red-800 mb-3">
+                          4. Email Blur Protection
+                        </h4>
+                        <p className="text-red-700 mb-3">
+                          For flagged emails, choose to blur the content to protect yourself from potentially harmful content while still being able to review it if needed.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/email-blur.jpg"
+                            alt="Email with blur protection enabled"
+                            width={1000}
+                            height={763}
+                            className="w-full h-auto"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Social Media Protection Flow */}
+                <Card className="border-2 border-purple-200">
+                  <CardHeader className="bg-purple-50">
+                    <CardTitle className="flex items-center gap-2 text-xl text-purple-800">
+                      <Twitter className="w-6 h-6" />
+                      Social Media Protection (Twitter & Facebook)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="space-y-6">
+                      <p className="text-gray-700">
+                        Detect scam posts and suspicious content on social media platforms with AI-powered analysis.
+                      </p>
+
+                      {/* Social Media Interface */}
+                      <div className="bg-gray-100 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-3">
+                          1. Social Media Interface
+                        </h4>
+                        <p className="text-gray-700 mb-3">
+                          Browse your social media feed normally. When you encounter suspicious content, click the mAIscam extension and select "<strong>Scan Post</strong>".
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/social-media-interface.png"
+                            alt="Social media interface"
+                            width={1000}
+                            height={972}
+                            className="w-full h-auto"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Choose Post */}
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">
+                          2. Choose Post to Analyze
+                        </h4>
+                        <p className="text-blue-700 mb-3">
+                          Select the specific post or content you want to analyze. The extension supports both Facebook and Twitter content analysis.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/social-media-choose-post.png"
+                            alt="Choose post to analyze"
+                            width={1000}
+                            height={901}
+                            className="w-full h-auto"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Analysis Result */}
+                      <div className="bg-green-50 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-green-800 mb-3">
+                          3. Social Media Analysis Result
+                        </h4>
+                        <p className="text-green-700 mb-3">
+                          Get detailed analysis of the post content, including risk assessment and recommended actions based on potential scam indicators.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/social-media-analysis-result.png"
+                            alt="Social media analysis result"
+                            width={1000}
+                            height={402}
+                            className="w-full h-auto px-52"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Blur Protection */}
+                      <div className="bg-red-50 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-red-800 mb-3">
+                          4. Content Blur Protection
+                        </h4>
+                        <p className="text-red-700 mb-3">
+                          Similar to email protection, flagged social media content can be blurred to protect you from potentially harmful posts while still allowing review.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/social-media-blur.png"
+                            alt="Social media content with blur protection"
+                            width={1000}
+                            height={32}
+                            className="w-full h-auto"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Twitter Support */}
+                      <div className="bg-blue-100 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">
+                          Twitter Support Example
+                        </h4>
+                        <p className="text-blue-700 mb-3">
+                          We support both Facebook and Twitter. Here's an example of Twitter content analysis:
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="bg-white rounded overflow-hidden shadow-md">
+                            <Image
+                              src="/images/installation/twitter-interface.png"
+                              alt="Twitter interface"
+                              width={1000}
+                              height={492}
+                              className="w-full h-auto"
+                              quality={100}
+                            />
+                            <p className="text-xs text-center p-2 text-gray-600">Twitter Interface</p>
+                          </div>
+                          <div className="bg-white rounded overflow-hidden shadow-md">
+                            <Image
+                              src="/images/installation/twitter-choose-post.png"
+                              alt="Twitter choose post"
+                              width={1000}
+                              height={742}
+                              className="w-full h-auto"
+                              quality={100}
+                            />
+                            <p className="text-xs text-center p-2 text-gray-600">Select Tweet</p>
+                          </div>
+                          <div className="bg-white rounded overflow-hidden shadow-md">
+                            <Image
+                              src="/images/installation/twitter-analysis-result.png"
+                              alt="Twitter analysis result"
+                              width={1000}
+                              height={231}
+                              className="w-full h-auto"
+                              quality={100}
+                            />
+                            <p className="text-xs text-center p-2 text-gray-600">Analysis Result</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Website Protection Flow */}
+                <Card className="border-2 border-green-200">
+                  <CardHeader className="bg-green-50">
+                    <CardTitle className="flex items-center gap-2 text-xl text-green-800">
+                      <Globe className="w-6 h-6" />
+                      Website Protection
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="space-y-6">
+                      <p className="text-gray-700">
+                        Analyze websites for potential scams, phishing attempts, and malicious content before you interact with them.
+                      </p>
+
+                      {/* Website Interface */}
+                      <div className="bg-gray-100 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-3">
+                          1. Website Interface
+                        </h4>
+                        <p className="text-gray-700 mb-3">
+                          Navigate to any website. Click the mAIscam extension and select "<strong>Analyze Website</strong>" to scan the current page for potential threats.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/website-interface.png"
+                            alt="Website interface before analysis"
+                            width={1000}
+                            height={752}
+                            className="w-full h-auto"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Website Analysis Report */}
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-blue-800 mb-3">
+                          2. Website Analysis Report
+                        </h4>
+                        <p className="text-blue-700 mb-3">
+                          Receive comprehensive analysis of the website including domain reputation, content analysis, and security assessment.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/website-report.png"
+                            alt="Website analysis report"
+                            width={1000}
+                            height={310}
+                            className="w-full h-auto"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Website Analysis Result */}
+                      <div className="bg-green-50 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-green-800 mb-3">
+                          3. Complete Website Analysis
+                        </h4>
+                        <p className="text-green-700 mb-3">
+                          Get detailed results with risk assessment, recommended actions, and the option to proceed with caution. Note: Website analysis doesn't include blur functionality.
+                        </p>
+                        <div className="bg-white rounded overflow-hidden shadow-md">
+                          <Image
+                            src="/images/installation/website-analysis-result.png"
+                            alt="Complete website analysis result"
+                            width={1000}
+                            height={904}
+                            className="w-full h-auto px-52"
+                            quality={100}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Safe Testing */}
+                      <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                        <h4 className="text-lg font-semibold text-orange-800 mb-3">
+                          🛡️ Safe Testing Environment
+                        </h4>
+                        <p className="text-orange-700 mb-3">
+                          <strong>For Your Safety:</strong> Test the website scam detection with our safe, simulated phishing website:
+                        </p>
+                        <div className="bg-orange-100 border border-orange-300 rounded-lg p-3 mb-3">
+                          <p className="text-lg font-mono text-orange-900 text-center">
+                            <a
+                              href="https://shoppe123.vercel.app/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-orange-700 underline hover:text-orange-900 font-bold"
+                            >
+                              https://shoppe123.vercel.app/
+                            </a>
+                          </p>
+                        </div>
+                        <div className="bg-red-100 border border-red-300 rounded-lg p-3">
+                          <p className="text-sm font-semibold text-red-800 mb-1">
+                            ⚠️ Safety Notice:
+                          </p>
+                          <p className="text-xs text-red-700">
+                            This is a controlled, harmless simulation. <strong>Never use real phishing websites</strong> for testing.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-            </CardContent>
-          </Card>
-        </section>
+            </section>
+          </>
+        )}
 
-        {/* Verification Section */}
-        <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
-          <Card className="border-2 border-green-200 bg-green-50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-2xl text-green-800">
-                <CheckCircle className="w-6 h-6" />✅ Verify Installation
-                Success
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-green-800 mb-4">
-                If installation was successful, you should see:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-white border border-green-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-800 mb-2">
-                    In Extensions Page:
-                  </h4>
-                  <ul className="space-y-2 text-sm text-green-700">
-                    <li>• mAIscam extension card with logo</li>
-                    <li>• Version 1.0.0 displayed</li>
-                    <li>• Toggle switch is ON (enabled)</li>
-                    <li>
-                      • &ldquo;Remove&rdquo; and &ldquo;Details&rdquo; buttons
-                      visible
-                    </li>
-                  </ul>
-                </div>
-                <div className="bg-white border border-green-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-800 mb-2">
-                    In Browser:
-                  </h4>
-                  <ul className="space-y-2 text-sm text-green-700">
-                    <li>• mAIscam icon appears in toolbar</li>
-                    <li>• Icon is clickable and responsive</li>
-                    <li>• Extension popup opens when clicked</li>
-                    <li>• No error messages in console</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
 
-        {/* Usage Guide */}
-        <section className="mb-8 md:mb-12 max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800">
-            🎯 How to Use mAIscam
-          </h2>
-
-          <div className="space-y-8">
-            {/* Email Protection */}
-            <Card className="border-2 border-blue-200">
-              <CardHeader className="bg-blue-50">
-                <CardTitle className="flex items-center gap-2 text-xl text-blue-800">
-                  <Mail className="w-6 h-6" />
-                  Email Protection
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                  <div className="lg:col-span-2 space-y-4">
-                    <div className="bg-gray-100 rounded-lg p-3">
-                      <p className="text-sm font-medium text-gray-600 mb-2">
-                        🔍 Before Extension:
-                      </p>
-                      <div className="bg-white rounded overflow-hidden shadow-md">
-                        <Image
-                          src="/images/installation/gmail-interface.png"
-                          alt="Gmail interface before extension"
-                          width={3358}
-                          height={1874}
-                          className="w-full h-auto"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm font-medium text-red-600 mb-2">
-                        🚨 After Detection:
-                      </p>
-                      <div className="bg-white rounded overflow-hidden shadow-md">
-                        <Image
-                          src="/images/installation/gmail-interface-detected.png"
-                          alt="Gmail interface with scam detected"
-                          width={3358}
-                          height={1874}
-                          className="w-full h-auto"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-blue-800 mb-4">
-                        How to Use:
-                      </h4>
-                      <ol className="text-base space-y-3 text-gray-700">
-                        <li className="flex items-start gap-2">
-                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            1
-                          </span>
-                          Open Gmail in your browser
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            2
-                          </span>
-                          Click the mAIscam extension icon
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            3
-                          </span>
-                          Select &ldquo;Analyze Email&rdquo;
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-blue-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            4
-                          </span>
-                          View real-time scam analysis
-                        </li>
-                      </ol>
-
-                      <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-4">
-                        <p className="text-sm text-amber-800">
-                          <strong>⏱️ Detection Time:</strong> First detection may take 15-30 seconds (AWS Lambda startup). Subsequent detections are much faster!
-                        </p>
-                      </div>
-                    </div>
-
-                    <Button asChild size="lg" className="w-full">
-                      <Link href="/email-demo">
-                        <Mail className="w-5 h-5 mr-2" />
-                        Try Email Demo
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Website Scanner */}
-            <Card className="border-2 border-green-200">
-              <CardHeader className="bg-green-50">
-                <CardTitle className="flex items-center gap-2 text-xl text-green-800">
-                  <Globe className="w-6 h-6" />
-                  Website Scanner
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                  <div className="lg:col-span-2 space-y-4">
-                    <div className="bg-gray-100 rounded-lg p-3">
-                      <p className="text-sm font-medium text-gray-600 mb-2">
-                        🔍 Before Extension:
-                      </p>
-                      <div className="bg-white rounded overflow-hidden shadow-md">
-                        <Image
-                          src="/images/installation/website-scanner.png"
-                          alt="Website before extension analysis"
-                          width={3358}
-                          height={1874}
-                          className="w-full h-auto"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm font-medium text-red-600 mb-2">
-                        🚨 After Detection:
-                      </p>
-                      <div className="bg-white rounded overflow-hidden shadow-md">
-                        <Image
-                          src="/images/installation/website-scanner-detected.png"
-                          alt="Website with scam detected and blocked"
-                          width={3358}
-                          height={1874}
-                          className="w-full h-auto"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-green-800 mb-4">
-                        How to Use:
-                      </h4>
-                      <ol className="text-base space-y-3 text-gray-700">
-                        <li className="flex items-start gap-2">
-                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            1
-                          </span>
-                          Navigate to any website
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            2
-                          </span>
-                          Click the mAIscam extension icon
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            3
-                          </span>
-                          Select &ldquo;Analyze Website&rdquo;
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-green-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            4
-                          </span>
-                          Get instant legitimacy verification
-                        </li>
-                      </ol>
-
-                      <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-4">
-                        <p className="text-sm text-amber-800">
-                          <strong>⏱️ Detection Time:</strong> First detection may take 15-30 seconds (AWS Lambda startup). Subsequent detections are much faster!
-                        </p>
-                      </div>
-
-                      <div className="bg-green-100 border border-green-300 rounded-lg p-3 mt-3">
-                        <p className="text-sm text-green-800">
-                          <strong>🛡️ Safe Testing:</strong> Try our simulated
-                          scam website at{" "}
-                          <a
-                            href="https://shoppe123.vercel.app/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-green-700 underline hover:text-green-900 font-mono"
-                          >
-                            shoppe123.vercel.app
-                          </a>{" "}
-                          to safely test the extension without using real
-                          phishing sites.
-                        </p>
-                      </div>
-                    </div>
-
-                    <Button asChild size="lg" className="w-full">
-                      <Link href="/website-demo">
-                        <Globe className="w-5 h-5 mr-2" />
-                        Try Website Demo
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Social Media Guard */}
-            <Card className="border-2 border-purple-200">
-              <CardHeader className="bg-purple-50">
-                <CardTitle className="flex items-center gap-2 text-xl text-purple-800">
-                  <Facebook className="w-6 h-6" />
-                  Social Media Guard (Twitter & Facebook)
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                  <div className="lg:col-span-2 space-y-4">
-                    <div className="bg-gray-100 rounded-lg p-3">
-                      <p className="text-sm font-medium text-gray-600 mb-2">
-                        🔍 Before Extension:
-                      </p>
-                      <div className="bg-white rounded overflow-hidden shadow-md">
-                        <Image
-                          src="/images/installation/facebook-feed.png"
-                          alt="Facebook feed before extension"
-                          width={3358}
-                          height={1874}
-                          className="w-full h-auto"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm font-medium text-red-600 mb-2">
-                        🚨 After Detection:
-                      </p>
-                      <div className="bg-white rounded overflow-hidden shadow-md">
-                        <Image
-                          src="/images/installation/facebook-feed-detected.png"
-                          alt="Facebook feed with scam posts detected"
-                          width={3358}
-                          height={1874}
-                          className="w-full h-auto"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-semibold text-purple-800 mb-4">
-                        How to Use:
-                      </h4>
-                      <ol className="text-base space-y-3 text-gray-700">
-                        <li className="flex items-start gap-2">
-                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            1
-                          </span>
-                          Browse Twitter or Facebook
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            2
-                          </span>
-                          Click the mAIscam extension icon
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            3
-                          </span>
-                          Select &ldquo;Scan Post&rdquo;
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="bg-purple-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            4
-                          </span>
-                          Click on suspicious content to analyze
-                        </li>
-                      </ol>
-
-                      <div className="bg-amber-100 border border-amber-300 rounded-lg p-3 mt-4">
-                        <p className="text-sm text-amber-800">
-                          <strong>⏱️ Detection Time:</strong> First detection may take 15-30 seconds (AWS Lambda startup). Subsequent detections are much faster!
-                        </p>
-                      </div>
-
-                      <div className="bg-blue-100 border border-blue-300 rounded-lg p-3 mt-3">
-                        <p className="text-sm text-blue-800">
-                          <strong>🎯 Current Focus:</strong> We currently prioritize
-                          Twitter and Facebook scam detection. Other social platforms
-                          (Instagram, TikTok, LinkedIn, etc.) will be implemented in
-                          future updates.
-                        </p>
-                      </div>
-                    </div>
-
-                    <Button asChild size="lg" className="w-full">
-                      <Link href="/image-demo">
-                        <Facebook className="w-5 h-5 mr-2" />
-                        Try Social Media Demo
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Troubleshooting */}
+        {/* Troubleshooting Section */}
         <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
           <Card className="border-yellow-200 bg-yellow-50">
             <CardHeader>
