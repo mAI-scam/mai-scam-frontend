@@ -61,31 +61,33 @@ export default function InstallationPage() {
               </div>
             </div>
 
-            {/* Tab Navigation */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-white rounded-lg border border-gray-200 p-1 shadow-sm">
-                <button
-                  onClick={() => setActiveTab("installation")}
-                  className={`px-6 py-3 rounded-md font-medium text-sm transition-all ${
-                    activeTab === "installation"
-                      ? "bg-blue-600 text-white shadow-sm"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                  }`}
-                >
-                  <Settings className="w-4 h-4 inline mr-2" />
-                  Installation & Setup
-                </button>
-                <button
-                  onClick={() => setActiveTab("usage")}
-                  className={`px-6 py-3 rounded-md font-medium text-sm transition-all ${
-                    activeTab === "usage"
-                      ? "bg-green-600 text-white shadow-sm"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                  }`}
-                >
-                  <Play className="w-4 h-4 inline mr-2" />
-                  How to Use mAIscam
-                </button>
+            {/* Tab Navigation - Sticky */}
+            <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 py-4 mb-8">
+              <div className="flex justify-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-1 shadow-sm">
+                  <button
+                    onClick={() => setActiveTab("installation")}
+                    className={`px-6 py-3 rounded-md font-medium text-sm transition-all ${
+                      activeTab === "installation"
+                        ? "bg-blue-600 text-white shadow-sm"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    }`}
+                  >
+                    <Settings className="w-4 h-4 inline mr-2" />
+                    Setup Guide
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("usage")}
+                    className={`px-6 py-3 rounded-md font-medium text-sm transition-all ${
+                      activeTab === "usage"
+                        ? "bg-green-600 text-white shadow-sm"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    }`}
+                  >
+                    <Play className="w-4 h-4 inline mr-2" />
+                    How to Use mAIscam
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -308,21 +310,28 @@ export default function InstallationPage() {
               <CardContent className="pt-6">
                 <div className="space-y-6">
                   <p className="text-gray-700">
-                    <strong>Open Google Chrome and navigate to the extensions management
-                    page:</strong>
+                    <strong>Open Google Chrome and navigate to the extensions management page:</strong>
+                  </p>
+                  <p className="text-sm text-gray-600 mb-3">
+                    <strong>Click</strong> the URL below to <strong>copy</strong> it, then <strong>paste</strong> it into a <strong>new Chrome tab</strong>:
                   </p>
 
                   <div className="bg-gray-50 border rounded-lg p-3">
-                    <a
-                      href="chrome://extensions/"
-                      className="text-sm font-mono text-blue-600 hover:text-blue-800 underline cursor-pointer"
+                    <code
+                      className="text-sm font-mono text-blue-600 cursor-pointer select-all"
                       onClick={(e) => {
-                        e.preventDefault();
-                        window.open('chrome://extensions/', '_blank');
+                        navigator.clipboard.writeText('chrome://extensions/');
+                        const target = e.target as HTMLElement;
+                        const originalText = target.textContent;
+                        target.textContent = 'Copied!';
+                        setTimeout(() => {
+                          target.textContent = originalText;
+                        }, 1000);
                       }}
+                      title="Click to copy to clipboard"
                     >
                       chrome://extensions/
-                    </a>
+                    </code>
                   </div>
 
                   <div>
@@ -600,6 +609,103 @@ export default function InstallationPage() {
             </Card>
           </div>
         </section>
+
+        {/* Restart Instructions for Setup Guide */}
+        <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
+          <Card className="border-2 border-red-200">
+            <CardHeader className="bg-red-50">
+              <CardTitle className="flex items-center gap-3 text-xl text-red-800">
+                <AlertCircle className="w-6 h-6" />
+                🔄 Important: Extension Troubleshooting
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <div className="bg-red-100 border border-red-300 rounded-lg p-4">
+                  <h4 className="font-bold text-red-800 mb-3 text-lg">
+                    If anything goes wrong with the extension:
+                  </h4>
+                  <p className="text-red-700 mb-4 font-medium">
+                    <strong>Easiest solution:</strong> Restart the extension and refresh your browser
+                  </p>
+
+                  <div className="bg-white border border-red-200 rounded-lg p-4">
+                    <h5 className="font-semibold text-red-800 mb-3">📋 Quick Restart Steps:</h5>
+                    <ol className="space-y-2 text-red-700">
+                      <li className="flex items-start gap-2">
+                        <span className="bg-red-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                        <span>Go to <code className="bg-red-100 px-2 py-1 rounded text-sm font-mono">chrome://extensions/</code></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="bg-red-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                        <span>Find the mAIscam extension in your list</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="bg-red-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                        <span>Toggle the extension <strong>OFF</strong> then <strong>ON</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="bg-red-600 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                        <span>Refresh your browser page (F5 or Ctrl+R)</span>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div className="bg-yellow-50 border border-yellow-300 rounded-lg p-3 mt-4">
+                    <p className="text-sm text-yellow-800">
+                      💡 <strong>Note:</strong> This restart process fixes 95% of extension issues and takes less than 30 seconds.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Next Steps Call to Action */}
+        <section className="mb-8 md:mb-12 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-50 to-green-50 border-2 border-blue-300 rounded-xl p-8 text-center">
+            <div className="flex justify-center mb-6">
+              <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-full p-4">
+                <Play className="w-10 h-10 text-white" />
+              </div>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              🎉 Installation Complete! Ready to Get Protected?
+            </h3>
+            <p className="text-lg text-gray-700 mb-6">
+              Your mAIscam extension is now successfully installed and ready to protect you from scams!
+            </p>
+
+            <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 mb-6 border border-blue-200">
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <ArrowRight className="w-5 h-5 text-blue-600" />
+                <p className="text-blue-800 font-bold text-lg">
+                  Next: Learn How to Use mAIscam
+                </p>
+              </div>
+              <p className="text-blue-700 mb-4">
+                Click the <strong>&ldquo;How to Use mAIscam&rdquo;</strong> tab above to learn how to:
+              </p>
+              <div className="text-sm text-blue-600 space-y-1">
+                <p>• Analyze emails for phishing attempts</p>
+                <p>• Scan websites for malicious content</p>
+                <p>• Detect scams on social media platforms</p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => {
+                setActiveTab("usage");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg hover:from-blue-700 hover:to-green-700 transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              <Play className="w-6 h-6" />
+              Start Learning How to Use mAIscam!
+            </button>
+          </div>
+        </section>
           </>
         )}
 
@@ -610,6 +716,51 @@ export default function InstallationPage() {
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800">
                 🎯 How to Use mAIscam
               </h2>
+
+              {/* Quick Demo Navigation */}
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-xl p-6 mb-8">
+                <h3 className="text-xl font-bold text-center mb-4 text-gray-800">
+                  🚀 Jump to Usage Examples
+                </h3>
+                <p className="text-center text-gray-600 mb-6">
+                  Quick navigation to see how mAIscam works with different content types
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Button
+                    size="lg"
+                    className="bg-blue-600 hover:bg-blue-700"
+                    onClick={() => {
+                      const emailSection = document.getElementById('email-protection');
+                      emailSection?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <Mail className="w-5 h-5 mr-2" />
+                    Email Demo
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="bg-green-600 hover:bg-green-700"
+                    onClick={() => {
+                      const websiteSection = document.getElementById('website-protection');
+                      websiteSection?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <Globe className="w-5 h-5 mr-2" />
+                    Website Demo
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="bg-purple-600 hover:bg-purple-700"
+                    onClick={() => {
+                      const socialSection = document.getElementById('social-media-protection');
+                      socialSection?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <Facebook className="w-5 h-5 mr-2" />
+                    Social Media Demo
+                  </Button>
+                </div>
+              </div>
 
               <div className="space-y-8">
                 {/* Extension Loading Section */}
@@ -644,6 +795,30 @@ export default function InstallationPage() {
                             </span>
                           </li>
                         </ol>
+
+                        {/* Restart Instructions */}
+                        <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4 mt-6">
+                          <div className="flex items-start gap-3">
+                            <AlertCircle className="w-6 h-6 text-red-600 mt-0.5 flex-shrink-0" />
+                            <div>
+                              <h4 className="font-bold text-red-800 mb-2 text-lg">
+                                🔄 If Extension Issues Occur
+                              </h4>
+                              <p className="text-red-700 mb-3 font-medium">
+                                <strong>Easiest fix:</strong> Restart the extension and refresh your browser
+                              </p>
+                              <div className="bg-white border border-red-200 rounded-lg p-3">
+                                <h5 className="font-semibold text-red-800 mb-2">How to restart the extension:</h5>
+                                <ol className="text-sm text-red-700 space-y-1 ml-4">
+                                  <li>1. Go to <code className="bg-red-100 px-1 rounded">chrome://extensions/</code></li>
+                                  <li>2. Find mAIscam extension</li>
+                                  <li>3. Toggle it OFF then ON</li>
+                                  <li>4. Refresh your browser page</li>
+                                </ol>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
 
                       <div className="bg-gray-100 rounded-lg p-4">
@@ -687,7 +862,7 @@ export default function InstallationPage() {
                 </Card>
 
                 {/* Email Protection Flow */}
-                <Card className="border-2 border-blue-200">
+                <Card id="email-protection" className="border-2 border-blue-200">
                   <CardHeader className="bg-blue-50">
                     <CardTitle className="flex items-center gap-2 text-xl text-blue-800">
                       <Mail className="w-6 h-6" />
@@ -784,11 +959,11 @@ export default function InstallationPage() {
                 </Card>
 
                 {/* Social Media Protection Flow */}
-                <Card className="border-2 border-purple-200">
+                <Card id="social-media-protection" className="border-2 border-purple-200">
                   <CardHeader className="bg-purple-50">
                     <CardTitle className="flex items-center gap-2 text-xl text-purple-800">
                       <Twitter className="w-6 h-6" />
-                      Social Media Protection (Twitter & Facebook)
+                      Social Media Protection (Twitter/X & Facebook)
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-6">
@@ -938,7 +1113,7 @@ export default function InstallationPage() {
                 </Card>
 
                 {/* Website Protection Flow */}
-                <Card className="border-2 border-green-200">
+                <Card id="website-protection" className="border-2 border-green-200">
                   <CardHeader className="bg-green-50">
                     <CardTitle className="flex items-center gap-2 text-xl text-green-800">
                       <Globe className="w-6 h-6" />

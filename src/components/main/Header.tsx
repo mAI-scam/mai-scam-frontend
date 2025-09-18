@@ -41,7 +41,7 @@ export default function Header() {
             href="/installation"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            Installation
+            Setup & Usage
           </Link>
           <Link
             href="/email-demo"
@@ -111,7 +111,7 @@ export default function Header() {
               className="text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-md hover:bg-muted"
               onClick={() => setIsMenuOpen(false)}
             >
-              Installation
+              Setup & Usage
             </Link>
             <Link
               href="/email-demo"
