@@ -93,4 +93,4 @@ The demo website simulates the extension's functionality for illustration, but t
 
 ---
 
-**🔗 Links**: [Extension Download](https://github.com/mAI-scam/mai-scam-extension/releases/tag/v1.0.1) | [Installation Guide](/installation) | [Admin Dashboard](https://mai-scam-admin.vercel.app/) | [GitHub Organization](https://github.com/mAI-scam)
+**🔗 Links**: [Extension Download](https://github.com/mAI-scam/mai-scam-extension/releases) | [Installation Guide](/installation) | [Admin Dashboard](https://mai-scam-admin.vercel.app/) | [GitHub Organization](https://github.com/mAI-scam)
