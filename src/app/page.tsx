@@ -142,7 +142,7 @@ export default function Home() {
                     >
                       <iframe
                         className="absolute top-0 left-0 w-full h-full rounded-lg"
-                        src="https://www.youtube.com/embed/rNhK1GPuOu0?rel=0&modestbranding=1"
+                        src="https://www.youtube.com/watch?v=rNhK1GPuOu0?rel=0&modestbranding=1"
                         title="mAIscam Demo Walkthrough"
                         style={{ border: 0 }}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

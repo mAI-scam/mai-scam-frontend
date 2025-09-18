@@ -79,7 +79,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## 🎬 Demo Videos
 - **Project Pitch**: [YouTube](https://www.youtube.com/watch?v=GdSI_W8otxg)
-- **Demo Walkthrough**: [YouTube](https://www.youtube.com/embed/rNhK1GPuOu0)
+- **Demo Walkthrough**: [YouTube](https://www.youtube.com/watch?v=rNhK1GPuOu0)
 
 ## 📝 For Non-Technical Judges
 
