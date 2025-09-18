@@ -604,6 +604,23 @@ export default function InstallationPage() {
                       💡 This is normal behavior for serverless applications. Please be patient during your first detection!
                     </p>
                   </div>
+
+                  <div className="bg-red-50 border-2 border-red-300 rounded-lg p-4 mt-4">
+                    <div className="flex items-start gap-3">
+                      <div className="text-2xl">⚠️</div>
+                      <div>
+                        <h4 className="font-bold text-red-800 mb-2 text-lg">
+                          IMPORTANT: Stay on the Current Tab
+                        </h4>
+                        <p className="text-sm text-red-700 font-semibold mb-2">
+                          <strong>⛔ DO NOT SWITCH TABS while detection is running!</strong>
+                        </p>
+                        <p className="text-sm text-red-700">
+                          When the extension shows "loading" or is analyzing content, <strong>stay on the current tab</strong> until the analysis is complete. Switching tabs may interrupt the detection process and cause it to fail.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -978,8 +995,21 @@ export default function InstallationPage() {
                           1. Social Media Interface
                         </h4>
                         <p className="text-gray-700 mb-3">
-                          Browse your social media feed normally. When you encounter suspicious content, click the mAIscam extension and select "<strong>Scan Post</strong>".
+                          Browse your social media feed normally. When you encounter suspicious content, click the mAIscam extension and select &ldquo;Scan Post&rdquo;.
                         </p>
+                        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-3 mb-3">
+                          <div className="flex items-start gap-2">
+                            <div className="text-lg">📍</div>
+                            <div>
+                              <h5 className="font-bold text-blue-800 mb-1">
+                                IMPORTANT: Post Must Be Visible
+                              </h5>
+                              <p className="text-sm text-blue-700">
+                                <strong>Make sure the post you want to analyze is currently visible on your screen</strong> before clicking the scan button. The extension analyzes what&apos;s currently displayed in your browser window.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                         <div className="bg-white rounded overflow-hidden shadow-md">
                           <Image
                             src="/images/installation/social-media-interface.png"
